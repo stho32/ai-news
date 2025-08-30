@@ -8,7 +8,7 @@
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 20px;
             background-color: #f5f5f5;
@@ -21,60 +21,39 @@
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        .news-entry {
+        .news-list {
             background-color: #fff;
-            margin-bottom: 30px;
-            padding: 25px;
+            padding: 30px;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        .news-entry h2 {
-            color: #333;
-            border-bottom: 3px solid #007acc;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            font-size: 1.5em;
-        }
-        .source-section {
-            margin-bottom: 25px;
-        }
-        .source-title {
-            color: #555;
-            font-size: 1.2em;
-            font-weight: bold;
+        .news-entry {
             margin-bottom: 15px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #ddd;
-        }
-        .article {
-            margin-bottom: 20px;
             padding: 15px;
+            border-left: 4px solid #007acc;
             background-color: #f9f9f9;
             border-radius: 5px;
-            border-left: 4px solid #007acc;
         }
-        .article-title {
-            font-size: 1.1em;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 5px;
+        .news-entry h3 {
+            margin: 0 0 5px 0;
+            font-size: 1.2em;
         }
-        .article-date {
-            color: #666;
-            font-size: 0.9em;
-            margin-bottom: 10px;
-        }
-        .article-summary {
-            margin-bottom: 10px;
-            color: #444;
-        }
-        .article-link {
+        .news-link {
             color: #007acc;
             text-decoration: none;
             font-weight: bold;
         }
-        .article-link:hover {
+        .news-link:hover {
             text-decoration: underline;
+        }
+        .news-date {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .article-count {
+            color: #888;
+            font-size: 0.9em;
+            margin-top: 5px;
         }
         .last-updated {
             text-align: center;
@@ -90,306 +69,20 @@
         <p>Automatisch generierte News-Zusammenfassungen</p>
     </div>
     
-    <!-- NEWS_ENTRIES_START -->
-    <div class="news-entry">
-        <h2>News 30.08.2025</h2>
-        <div class="source-section">
-            <div class="source-title">Anthropic News (5 Artikel)</div>
-            <div class="article">
-                <div class="article-title">Updates to Consumer Terms and Privacy Policy</div>
-                <div class="article-date">28.08.2025</div>
-                <div class="article-summary">Anthropic aktualisiert die Verbraucherbedingungen und Datenschutzrichtlinien, sodass Nutzer wählen können, ob ihre Daten zur Verbesserung von Claude verwendet werden dürfen. Zudem verlängert sich die Aufbewahrungsfrist bei Zustimmung auf fünf Jahre, um die Entwicklung und Sicherheit der Modelle zu optimieren.</div>
-                <a href="https://www.anthropic.com/news/updates-to-our-consumer-terms" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">Anthropic Education Report: How educators use Claude</div>
-                <div class="article-date">27.08.2025</div>
-                <div class="article-summary">Der Bericht untersucht, wie Hochschulprofessoren Claude.ai zur Entwicklung von Lehrmaterialien, zur Automatisierung administrativer Aufgaben und zur Erstellung interaktiver Bildungsressourcen nutzen. Dabei wird deutlich, dass KI sowohl zur Entlastung routinemäßiger Tätigkeiten als auch als kreativer Kooperationspartner eingesetzt wird.</div>
-                <a href="https://www.anthropic.com/news/anthropic-education-report-how-educators-use-claude" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">Detecting and countering misuse of AI: August 2025</div>
-                <div class="article-date">27.08.2025</div>
-                <div class="article-summary">Der Artikel zeigt, wie KI für Cyberangriffe, Betrug und Ransomware-Einsatz missbraucht wird. Anhand von Fallstudien werden Beispiele wie Datenextortion, betrügerische Remote-Arbeitsvermittlungen und AI-generierte Ransomware erläutert und entsprechende Gegenmaßnahmen vorgestellt.</div>
-                <a href="https://www.anthropic.com/news/detecting-countering-misuse-aug-2025" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">Introducing the Anthropic National Security and Public Sector Advisory Council</div>
-                <div class="article-date">27.08.2025</div>
-                <div class="article-summary">Anthropic gründet den National Security and Public Sector Advisory Council, ein Gremium aus ehemaligen Politikern und Sicherheitsbeamten. Ziel ist es, den USA und ihren Alliierten durch KI-basierte Lösungen strategische Vorteile in Bereichen wie Cybersecurity und Geheimdienstarbeit zu sichern.</div>
-                <a href="https://www.anthropic.com/news/introducing-the-anthropic-national-security-and-public-sector-advisory-council" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">Piloting Claude for Chrome</div>
-                <div class="article-date">26.08.2025</div>
-                <div class="article-summary">Anthropic testet im Pilotprogramm eine Chrome-Erweiterung, die Claude ermöglicht, direkt im Browser Aktionen auszuführen, etwa Kalenderverwaltung oder E-Mail-Antworten. Dabei stehen umfangreiche Sicherheitsmaßnahmen zur Abwehr von Prompt Injection Angriffen im Fokus. Der Pilot ist zunächst für 1.000 vertrauenswürdige Nutzer verfügbar, um in realen Einsatzszenarien Feedback zu sammeln und Sicherheitslücken weiter zu minimieren.</div>
-                <a href="https://www.anthropic.com/news/claude-for-chrome" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
+    <div class="news-list">
+        <h2>News-Übersicht</h2>
+        
+        <!-- NEWS_ENTRIES_START -->
+        <div class="news-entry">
+            <h3><a href="news_overview_2025_08_30.html" class="news-link">News 30.08.2025</a></h3>
+            <div class="news-date">30.08.2025</div>
+            <div class="article-count">44 Artikel</div>
         </div>
-        <div class="source-section">
-            <div class="source-title">Domain Language - Eric Evans (2 Artikel)</div>
-            <div class="article">
-                <div class="article-title">AI Components for a Deterministic System (An Example)</div>
-                <div class="article-date">24.08.2025</div>
-                <div class="article-summary">Der Artikel erläutert, wie nicht-deterministische KI-Komponenten in vorwiegend deterministische Softwaresysteme integriert werden können, indem Modellierungs- und Klassifizierungsaufgaben getrennt werden. Anhand praktischer Beispiele und unter Einsatz standardisierter Modelle (z. B. NAICS) wird gezeigt, wie konsistente, strukturierte Ergebnisse erzielt werden können.</div>
-                <a href="https://www.domainlanguage.com/articles/ai-components-for-a-deterministic-system/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">AI Components for a Deterministic System (An Example)</div>
-                <div class="article-date">24.08.2025</div>
-                <div class="article-summary">Der Artikel erläutert, wie KI-Komponenten – mit ihrem inhärenten nicht-deterministischen Verhalten – so in deterministische Softwaresysteme integriert werden können, dass klare, wiederholbare Klassifikationen entstehen. Dabei werden Verfahren zur Trennung von Modellierungs- und Klassifizierungsaufgaben, inkrementelle Modellierung und Iteration vorgestellt sowie der Einsatz standardisierter Klassifikationssysteme wie NAICS diskutiert.</div>
-                <a href="https://www.domainlanguage.com/articles/ai-components-deterministic-system/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-        </div>
-        <div class="source-section">
-            <div class="source-title">Google AI Blog - Gemini (1 Artikel)</div>
-            <div class="article">
-                <div class="article-title">Tips for getting the best image generation and editing in the Gemini app</div>
-                <div class="article-date">26.08.2025</div>
-                <div class="article-summary">Der Artikel stellt die neuesten Verbesserungen in der Gemini App vor, die eine konsistente Charakterdarstellung, präzise lokale Bearbeitungen und kreative Bildkomposition ermöglichen. Es werden konkrete Tipps gegeben, wie durch gezielte Prompts (Subjekt, Komposition, Aktion, Standort, Stil, Bearbeitungshinweise) optimale Ergebnisse erzielt werden können.</div>
-                <a href="https://blog.google/products/gemini/image-generation-prompting-tips/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-        </div>
-        <div class="source-section">
-            <div class="source-title">Kent Beck - Tidy First (1 Artikel)</div>
-            <div class="article">
-                <div class="article-title">Genies Getting Stuck</div>
-                <div class="article-date">27.08.2025</div>
-                <div class="article-summary">Kent Beck vergleicht mit einem biblischen Sprichwort, wie ein Narr seine Fehler wiederholt – ähnlich wie ein Hund zu seinem Erbrochenen zurückkehrt. Der Artikel thematisiert, wie schwer es ist, festgefahrene Denkweisen ("Genies") zu ändern.</div>
-                <a href="https://tidyfirst.substack.com/p/genies-getting-stuck" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-        </div>
-        <div class="source-section">
-            <div class="source-title">Martin Fowler (5 Artikel)</div>
-            <div class="article">
-                <div class="article-title">From Black Box to Blueprint</div>
-                <div class="article-date">28.08.2025</div>
-                <div class="article-summary">Der Artikel zeigt, wie KI-gestütztes Reverse Engineering aus intransparenten Legacy-Systemen detaillierte funktionale Spezifikationen erstellt, um Modernisierungsprojekte zu ermöglichen. Mit einem Multi-Lens-Ansatz aus UI-, Daten- und Binäranalyse wird die kritische Geschäftslogik rekonstruiert und modernisierungsrelevante Erkenntnisse gewonnen.</div>
-                <a href="https://martinfowler.com/articles/black-box-to-blueprint.html" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">Some thoughts on LLMs and Software Development</div>
-                <div class="article-date">28.08.2025</div>
-                <div class="article-summary">Martin Fowler diskutiert, wie LLMs die Softwareentwicklung beeinflussen – von der überwiegend genutzten Autovervollständigung bis hin zu fortgeschritteneren Workflows, bei denen direkte Codebearbeitung im Fokus steht. Er warnt vor unkritischen Umfragen und betont, dass experimentelles Ausprobieren essenziell ist, während er Entwicklungen als vorübergehenden Hype, also eine wirtschaftliche Blase, interpretiert.</div>
-                <a href="https://martinfowler.com/articles/202508-ai-thoughts.html" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">Building your own CLI Coding Agent with Pydantic-AI</div>
-                <div class="article-date">27.08.2025</div>
-                <div class="article-summary">Der Artikel zeigt, wie man mit Pydantic-AI und dem Model Context Protocol (MCP) einen eigenen CLI Coding Agent entwickelt, der Code lesen, Tests durchführen und eigenständig Fehler beheben kann. Dabei werden die Integration von AWS Bedrock, automatisiertes Testen und spezialisierte MCP-Server als Schlüsselelemente hervorgehoben.</div>
-                <a href="https://martinfowler.com/articles/build-own-coding-agent.html" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">Research, Review, Rebuild: Intelligent Modernisation with MCP and Strategic Prompting</div>
-                <div class="article-date">27.08.2025</div>
-                <div class="article-summary">Der Artikel beschreibt die strukturierte „Research, Review, Rebuild“-Methode, mit der Legacy-Systeme mithilfe von Generative AI und MCP effizient modernisiert werden können. Am Beispiel des Bahmni-Systems wird gezeigt, wie durch gezielte Forschung, Überprüfung und automatisierte Neugestaltung signifikante Zeit- und Kosteneinsparungen realisiert werden.</div>
-                <a href="https://martinfowler.com/articles/research-review-rebuild.html" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">Chatting with Unmesh about building language with LLMs</div>
-                <div class="article-date">26.08.2025</div>
-                <div class="article-summary">Martin Fowler und Unmesh Joshi diskutieren, wie LLMs helfen können, wiederkehrende Aufgaben beim Programmieren zu automatisieren und dabei die essenzielle Entwicklung stabiler Abstraktionen zu unterstützen. Sie betonen die Bedeutung iterativer Arbeitsprozesse, in denen kreative Ideen und mechanische Code-Generierung Hand in Hand gehen.</div>
-                <a href="https://martinfowler.com/articles/convo-llm-abstractions.html" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-        </div>
-        <div class="source-section">
-            <div class="source-title">Microsoft .NET Blog (3 Artikel)</div>
-            <div class="article">
-                <div class="article-title">Getting Started with the Aspire CLI</div>
-                <div class="article-date">28.08.2025</div>
-                <div class="article-summary">Der Artikel führt in die Nutzung der Aspire CLI ein – einem plattformübergreifenden Tool zur Entwicklung, Verwaltung und Bereitstellung moderner .NET-Anwendungen. Er erklärt die Installation (als native Executable oder .NET Global Tool), die Projekterstellung mit Templates, das Hinzufügen von Integrationen sowie das Starten, Debuggen und Veröffentlichen von Anwendungen.</div>
-                <a href="https://devblogs.microsoft.com/dotnet/getting-started-with-the-aspire-cli/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">EFCore.Visualizer – View Entity Framework Core query plan inside Visual Studio</div>
-                <div class="article-date">27.08.2025</div>
-                <div class="article-summary">Der Artikel stellt EFCore.Visualizer vor – eine Visual Studio Erweiterung, mit der Entwickler SQL-Abfragepläne von EF Core-Abfragen direkt im Debugger visualisieren und analysieren können. So lassen sich ineffiziente, nicht-indexnutzende Abfragen identifizieren und optimieren.</div>
-                <a href="https://devblogs.microsoft.com/dotnet/ef-core-visualizer-view-entity-framework-core-query-plan-inside-visual-studio/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">MauiReactor: An MVU Approach for .NET MAUI</div>
-                <div class="article-date">25.08.2025</div>
-                <div class="article-summary">MauiReactor ist eine Open-Source UI-Bibliothek, die das MVU-Muster (Model-View-Update) in .NET MAUI integriert, um eine vereinfachte Zustandsverwaltung und flexiblere, rein codebasierte UI-Entwicklung zu ermöglichen. Dadurch bietet sie Vorteile wie echtes Hot Reload und eine einfache Alternative zum klassischen MVVM-Ansatz.</div>
-                <a href="https://devblogs.microsoft.com/dotnet/mauireactor-mvu-for-dotnet-maui/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-        </div>
-        <div class="source-section">
-            <div class="source-title">Pragmatic Engineer Newsletter (2 Artikel)</div>
-            <div class="article">
-                <div class="article-title">The Pulse #144: Rare look into AWS’s PR/FAQ process</div>
-                <div class="article-date">28.08.2025</div>
-                <div class="article-summary">Der Artikel bietet einen seltenen Einblick in den AWS PR/FAQ-Prozess am Beispiel des AWS Lambda-Dokuments, das den "Working Backwards"-Ansatz von Amazon veranschaulicht. Zudem werden aktuelle Branchentrends wie die Effizienz von ChatGPT und Strategiewechsel bei Google und Coinbase kurz beleuchtet.</div>
-                <a href="https://newsletter.pragmaticengineer.com/p/the-pulse-144" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">How experienced engineers get unstuck in coding interviews</div>
-                <div class="article-date">26.08.2025</div>
-                <div class="article-summary">Der Artikel erklärt, wie erfahrene Ingenieure schwierige Coding-Interviews meistern, indem sie mit der MIKE-Methode (Minimally sketched solution, Identify bounds, Keywords, Employ boosters) strukturiert vorgehen. Gleichzeitig beleuchtet er, wie der Trend zu in-Person-Interviews durch den Einsatz von KI gesteuert wird und warum klassische, algorithmische Aufgaben weiterhin relevant bleiben.</div>
-                <a href="https://newsletter.pragmaticengineer.com/p/how-to-get-unstuck-during-coding-interviews" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-        </div>
-        <div class="source-section">
-            <div class="source-title">Scrum.org Resources (8 Artikel)</div>
-            <div class="article">
-                <div class="article-title">Aligned Autonomy at Scale</div>
-                <div class="article-date">29.08.2025</div>
-                <div class="article-summary">Der Artikel "Aligned Autonomy at Scale" von Roland Flemm erklärt, wie Teams durch Freiheit in der Arbeitsgestaltung (Autonomie) und klare, gemeinsam geteilte Ziele (Alignment) effektiv skaliert werden können. Er zeigt, dass der Schlüssel zu hoher Leistungsfähigkeit in der Kombination beider Aspekte liegt, um agile Zusammenarbeit in großen Organisationen zu fördern.</div>
-                <a href="https://www.scrum.org/resources/blog/aligned-autonomy-scale" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">How Did We Ever Get By Without a Product Owner?</div>
-                <div class="article-date">29.08.2025</div>
-                <div class="article-summary">Der Artikel erklärt, wie der Product Owner in Scrum-Teams durch klare Verantwortlichkeit den Fokus von reinen Projektparametern hin zur Maximierung des Produktwerts verlagert. Er zeigt, dass agile Anpassungsfähigkeit und regelmäßiges Kundenfeedback wesentlich zum Erfolg beitragen.</div>
-                <a href="https://www.scrum.org/resources/blog/how-did-we-ever-get-without-product-owner" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">Meta Prompting: Machen Sie die KI zu Ihrem Gesprächspartner 🇩🇪</div>
-                <div class="article-date">28.08.2025</div>
-                <div class="article-summary">Der Artikel stellt Meta Prompting vor – einen dialogorientierten Ansatz, bei dem die KI nicht nur Fragen beantwortet, sondern als aktiver Gesprächspartner zur Entwicklung spezifischer, kontextbezogener Lösungen beiträgt.  
-Besonders im agilen Kontext, etwa bei der Planung von Retrospektiven, wird gezeigt, wie durch gezielte Nachfragen bessere Ergebnisse erzielt werden können.</div>
-                <a href="https://www.scrum.org/resources/blog/meta-prompting-machen-sie-die-ki-zu-ihrem-gesprachspartner" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">Scrum Doesn’t Guess. It Learns.</div>
-                <div class="article-date">28.08.2025</div>
-                <div class="article-summary">Der Artikel betont, dass echte Erkenntnis aus praktischer Erfahrung gewonnen wird – nicht durch langes Vorausplanen. Scrum fordert Teams auf, durch Ausprobieren und Anpassen kontinuierlich zu lernen.</div>
-                <a href="https://www.scrum.org/resources/blog/scrum-doesnt-guess-it-learns" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">When Bugs Become an Organizational Smell + Problem - A Real World Example</div>
-                <div class="article-date">27.08.2025</div>
-                <div class="article-summary">Der Artikel zeigt, wie individuelle Bonusziele zur Vermeidung von Bugs zu schädlichen Fehlanreizen und ungesunder Zusammenarbeit führen können. Statt echte Qualitätsverbesserung zu fördern, verhindern solche Ziele effektives Lernen aus Fehlern und behindern den wertschöpfenden Austausch im Team.</div>
-                <a href="https://www.scrum.org/resources/blog/when-bugs-become-organizational-smell-problem-real-world-example" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">Hierarchy of Strategic Foci: How to Choose What Will Define Your Organization</div>
-                <div class="article-date">26.08.2025</div>
-                <div class="article-summary">Der Artikel stellt das Konzept einer Hierarchie strategischer Schwerpunkte vor, mit der Unternehmen ihre wichtigsten organisatorischen Fähigkeiten priorisieren können. Es werden drei strategische Pfade – produkt-, operations- und kundenorientiert – erläutert und eine Methode zur Bestimmung der Top‑5-Fähigkeiten zur Ausrichtung des Unternehmens vorgestellt.</div>
-                <a href="https://www.scrum.org/resources/blog/hierarchy-strategic-foci-how-choose-what-will-define-your-organization" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">3 Sprintziel-Templates für Scrum Teams, die ich in den letzten 10 Jahren genutzt habe</div>
-                <div class="article-date">25.08.2025</div>
-                <div class="article-summary">Simon Flossmann stellt in seinem Artikel drei verschiedene Sprintziel-Templates vor – SMART, FOCUS und eine outcome-orientierte Variante – und vergleicht deren Vor- und Nachteile aus über 10 Jahren Scrum-Erfahrung. Er gibt praktische Tipps, wie motivierende und klare Sprintziele formuliert werden können und verweist auf weiterführende Trainings.</div>
-                <a href="https://www.scrum.org/resources/blog/3-sprintziel-templates-fur-scrum-teams-die-ich-den-letzten-10-jahren-genutzt-habe" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">Meta Prompting: Making AI Your Conversation Partner</div>
-                <div class="article-date">24.08.2025</div>
-                <div class="article-summary">Der Artikel stellt das Konzept des "Meta Prompting" vor, bei dem die KI als aktiver Gesprächspartner agiert, um durch gezielte, kontextbezogene Fragen spezifischere und präzisere Antworten zu erhalten. Anhand von Beispielen aus agilen Retrospektiven wird gezeigt, wie man durch einen Dialog mit der KI generische Vorlagen hinter sich lässt und maßgeschneiderte Lösungsansätze entwickelt.</div>
-                <a href="https://www.scrum.org/resources/blog/meta-prompting-making-ai-your-conversation-partner" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-        </div>
-        <div class="source-section">
-            <div class="source-title">Simon Willison (17 Artikel)</div>
-            <div class="article">
-                <div class="article-title">Talk Python: Celebrating Django’s 20th Birthday With Its Creators</div>
-                <div class="article-date">29.08.2025</div>
-                <div class="article-summary">Die Podcast-Episode feiert Djangos 20-jähriges Bestehen und beleuchtet den Werdegang von den Anfängen in einer Nachrichtenredaktion bis hin zu modernen Features wie ASGI, HTMX und API-Integrationen. Gründer und langjährige Mitwirkende geben Einblicke in die Entwicklung, Community und Zukunftsaussichten des Frameworks.</div>
-                <a href="https://talkpython.fm/episodes/show/518/celebrating-djangos-20th-birthday-with-its-creators" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">The perils of vibe coding</div>
-                <div class="article-date">29.08.2025</div>
-                <div class="article-summary">Die Seite zeigt eine Fehlermeldung, weil ein wichtiger Inhalt nicht geladen werden konnte. Mögliche Gründe sind deaktiviertes JavaScript, Netzwerkprobleme oder störende Browser-Erweiterungen.</div>
-                <a href="https://www.ft.com/content/5b3d410a-6e02-41ad-9e0a-c2e4d672ca00" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">a lossy encyclopedia</div>
-                <div class="article-date">29.08.2025</div>
-                <div class="article-summary">Der Artikel vergleicht Large Language Models mit einer "lossy encyclopedia", da sie viele Fakten komprimieren, aber dabei Details verlieren können. Er betont, dass man LLMs gezielt als Werkzeuge nutzen sollte, indem man ihnen korrekte Beispiele vorgibt, um spezifische, detailreiche Aufgaben zu lösen.</div>
-                <a href="https://simonwillison.net/2025/Aug/29/lossy-encyclopedia/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">Python: The Documentary</div>
-                <div class="article-date">28.08.2025</div>
-                <div class="article-summary">Der Artikel kündigt "Python: The Documentary" an, einen 84-minütigen Film über die Entstehung der Programmiersprache Python mit Interviews, u.a. mit Guido van Rossum. Veröffentlicht am 28. August 2025, beleuchtet der Film die Anfänge und Entwicklung von Python.</div>
-                <a href="https://simonwillison.net/2025/Aug/28/python-the-documentary/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">Python: The Documentary</div>
-                <div class="article-date">28.08.2025</div>
-                <div class="article-summary">Die Seite zeigt die YouTube-Präsenz des Videos „Python: The Documentary | An origin story“, das sich mit der Entstehung und Geschichte der Programmiersprache Python beschäftigt. Es wird als multimediale Dokumentation präsentiert.</div>
-                <a href="https://youtu.be/GfH4QL4VqJ0" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">Bruce Schneier</div>
-                <div class="article-date">27.08.2025</div>
-                <div class="article-summary">Bruce Schneier warnt in dem Zitat vor den existenziellen Risiken von Prompt Injection, da AI-Systeme in adversarialen Umgebungen anfällig für böswillige Eingriffe sind. Er kritisiert, dass Entwickler dieses Sicherheitsproblem weitgehend ignorieren.</div>
-                <a href="https://simonwillison.net/2025/Aug/27/bruce-schneier/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">V&A East Storehouse and Operation Mincemeat in London</div>
-                <div class="article-date">27.08.2025</div>
-                <div class="article-summary">Der Autor berichtet von einem Besuch im brandneuen V&A East Storehouse, wo 250.000 Museumsexponate in einem industriellen, offenkundigen Setting sichtbar gemacht werden. Abends begeistert ihn das intime Musical "Operation Mincemeat", das auf humorvolle und emotionale Weise eine britische Geheimoperation des Zweiten Weltkriegs erzählt.</div>
-                <a href="https://simonwillison.net/2025/Aug/27/london-culture/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">Piloting Claude for Chrome</div>
-                <div class="article-date">26.08.2025</div>
-                <div class="article-summary">Anthropic hat eine invite-only Chrome-Erweiterung namens Claude for Chrome vorgestellt, die KI-Systeme vor Prompt Injection Angriffen schützen soll. Trotz Sicherheitsverbesserungen im autonomen Modus (Reduktion von 23,6% auf 11,2%) wird er vor unkontrollierter automatischer Ausführung gewarnt.</div>
-                <a href="https://simonwillison.net/2025/Aug/26/piloting-claude-for-chrome/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">Will Smith’s concert crowds are real, but AI is blurring the lines</div>
-                <div class="article-date">26.08.2025</div>
-                <div class="article-summary">Will Smiths Konzerte hatten echte Zuschauer, aber KI-generierte Effekte und YouTubes Kompression ließen die Aufnahmen unheimlich wirken und erweckten Zweifel an ihrer Echtheit. Der Artikel diskutiert, wie generative KI-Verfahren zu ethischen Herausforderungen und Missverständnissen führen können.</div>
-                <a href="https://simonwillison.net/2025/Aug/26/will-smiths-concert-crowds/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">Will Smith’s concert crowds are real, but AI is blurring the lines</div>
-                <div class="article-date">26.08.2025</div>
-                <div class="article-summary">Will Smiths Konzertvideo zeigt echte Fans, wurde aber durch KI-gestützte Bild-zu-Video-Modelle und YouTubes AI-Nachbearbeitung verfälscht, was zu unscharfen, unheimlichen Bildern führte. Die Manipulation hat zu erheblicher Kritik und Verwirrung im Netz geführt.</div>
-                <a href="https://waxy.org/2025/08/will-smiths-concert-crowds-were-real-but-ai-is-blurring-the-lines/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">Agentic Browser Security: Indirect Prompt Injection in Perplexity Comet</div>
-                <div class="article-date">25.08.2025</div>
-                <div class="article-summary">Der Artikel beschreibt, wie bei agentischem Browsing durch indirekte Prompt Injection in Perplexity Comet Sicherheitslücken entstehen können, die sensible Nutzerdaten gefährden. Es wird erklärt, wie bösartige Webinhalte AI-gesteuerte Aktionen manipulieren und welche Maßnahmen zur Risikominimierung möglich sind.</div>
-                <a href="https://brave.com/blog/comet-prompt-injection/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">Agentic Browser Security: Indirect Prompt Injection in Perplexity Comet</div>
-                <div class="article-date">25.08.2025</div>
-                <div class="article-summary">Der Artikel beschreibt eine gravierende Sicherheitslücke im Perplexity Comet Browser, bei der Webseiteninhalte fälschlicherweise als vertrauenswürdige Befehle an das LLM weitergegeben werden. Trotz Gegenmaßnahmen bleibt das Problem bestehen, was grundlegende Bedenken hinsichtlich der Sicherheit agentischer Browseranwendungen aufwirft.</div>
-                <a href="https://simonwillison.net/2025/Aug/25/agentic-browser-security/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">Static Sites with Python, uv, Caddy, and Docker</div>
-                <div class="article-date">24.08.2025</div>
-                <div class="article-summary">Der Artikel stellt einen Deployment-Stack vor, der Python, uv, Caddy und Docker nutzt, um statische Websites effizient zu bauen und bereitzustellen. Anhand eines detaillierten Dockerfile-Beispiels und Caddy-Konfigurationen erklärt der Autor den Aufbau und die Funktionsweise des Systems, inklusive spezieller Anpassungen wie für Plausible Analytics.</div>
-                <a href="https://nkantar.com/blog/2025/08/static-python-uv-caddy-docker/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">Static Sites with Python, uv, Caddy, and Docker</div>
-                <div class="article-date">24.08.2025</div>
-                <div class="article-summary">Nik Kantar demonstriert in seinem Beitrag, wie man mit Python, uv, Caddy und Docker statische Websites baut. Er erklärt detailliert den Aufbau eines minimalistischen Dockerfiles und die Konfiguration eines Docker-basierten Deployments.</div>
-                <a href="https://simonwillison.net/2025/Aug/24/uv-caddy-and-docker/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">Spatial Joins in DuckDB</div>
-                <div class="article-date">23.08.2025</div>
-                <div class="article-summary">Der Artikel beschreibt, wie der neue SPATIAL_JOIN Operator in DuckDB v1.3.0 durch den Einsatz von R-Tree-Indizes geospatiale Joins signifikant beschleunigt. Dies ermöglicht eine effiziente Verarbeitung großer Datensätze im Vergleich zu herkömmlichen Nested-Loop- oder Piecewise-Merge-Join-Verfahren.</div>
-                <a href="https://duckdb.org/2025/08/08/spatial-joins" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">Spatial Joins in DuckDB</div>
-                <div class="article-date">23.08.2025</div>
-                <div class="article-summary">Der Artikel erläutert, wie DuckDB mit neuen Optimierungen – einem "piecewise merge join" und einem in-memory R-Tree – spatial joins deutlich beschleunigt. Anhand eines Beispiels mit NYC Citi Bike-Daten wird gezeigt, wie die Laufzeit von 1800 Sekunden auf nur 30 Sekunden reduziert wird.</div>
-                <a href="https://simonwillison.net/2025/Aug/23/spatial-joins-in-duckdb/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-            <div class="article">
-                <div class="article-title">too many model context protocol servers and LLM allocations on the dance floor</div>
-                <div class="article-date">23.08.2025</div>
-                <div class="article-summary">Der Artikel erläutert, dass zu viele MCP-Server und Tool-Allokationen in der LLM-Kontextfenster-Nutzung zu Performance- und Sicherheitsproblemen führen. Er betont, dass weniger Tools bessere und deterministischere Ergebnisse erzielen – weniger ist mehr.</div>
-                <a href="https://ghuntley.com/allocations/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
-            </div>
-        </div>
-    </div>
 
-    <!-- NEWS_ENTRIES_END -->
+        <!-- NEWS_ENTRIES_END -->
+    </div>
     
     <div class="last-updated">
-        Zuletzt aktualisiert: 30.08.2025 13:46 Uhr</div>
+        Zuletzt aktualisiert: 30.08.2025 13:53 Uhr</div>
 </body>
 </html>
