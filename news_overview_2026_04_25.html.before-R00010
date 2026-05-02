@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Übersicht - Letzte 7 Tage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .article {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .article-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .article-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .article-summary {
+            margin-bottom: 10px;
+        }
+        .article-link {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .article-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>News Übersicht der letzten 7 Tage</h1>
+    <p>Generiert am: 25.04.2026 13:09 Uhr</p>
+    <p>Anzahl Artikel: 90</p>
+
+    <h2>Allan Kelly Blog (6 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Agile Northants</div>
+        <div class="article-date">28.04.2026</div>
+        <div class="article-summary">Allan Kelly beleuchtet, wie historische Entwicklungen als Grundlage dienen, um die Herausforderungen und Chancen im Zeitalter der künstlichen Intelligenz aktiv zu gestalten. Die Diskussion fokussiert darauf, inwiefern agile Methoden für den Umgang mit der rapiden technologischen Entwicklung relevant bleiben und zukünftige Arbeitsweisen prägen können. Das Online-Event am 28. April 2026, veranstaltet unter dem Banner von Agile Northants und unterstützt durch die Scrum Alliance, bietet technische Einblicke und Impulse für erfahrene Entwickler und Architekten.</div>
+        <a href="https://www.meetup.com/agile-northants/events/313821030/?_xtd=gqFyqTE1MjgyMTE2MqFwo2FwaQ%253D%253D&amp;from=ref" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Join me for Agile Thinking for our AI Future</div>
+        <div class="article-date">20.04.2026</div>
+        <div class="article-summary">Die Online-Veranstaltung &quot;Agile Thinking for our AI Future&quot; findet am Dienstag, 28. April 2026 um 18.15 Uhr statt und richtet sich an erfahrene Entwickler, Tech-Leads und Architekten. Allan Kelly präsentiert dabei erstmals seine neue Sichtweise auf den Zusammenhang zwischen agilem Denken und den Herausforderungen der Künstlichen Intelligenz. Die Session, organisiert von Agile Northants, zielt darauf ab, praxisrelevante Impulse und strategische Ansätze für den Umgang mit KI zu vermitteln. Teilnehmer können sich über den angegebenen Meetup-Link zur Live-Sitzung anmelden.</div>
+        <a href="https://www.allankelly.net/archives/10718/join-me-for-agile-thinking-for-our-ai-future/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">XTC in London</div>
+        <div class="article-date">19.04.2026</div>
+        <div class="article-summary">Das Treffen findet am Dienstag, den 21. April 2026 ab 18:30 Uhr (UK-BST) in den Räumlichkeiten von Zühlke Engineering Ltd (Floor 3, 80 Great Eastern Street, London, EC2A 3JL) statt und dauert offiziell bis ca. 21:00 Uhr. Im Rahmen des Round Tables diskutieren die Teilnehmer zu Themen rund um XP, UX und allgemeine Softwareentwicklung, wobei der Ablauf klar in Phasen mit Lightning Talks, Themenvorschlägen, Abstimmungen und Breakout-Gruppen unterteilt ist. Das Event, organisiert von Extreme Tuesday Club (XTC), richtet sich an Fachleute aus der Softwareentwicklung und wird von Zühlke mit Pizza sowie alkoholischen und soft Getränken unterstützt. Treffen finden jeden dritten Dienstag im Monat bis zum 20. Mai 2026 statt; zur Teilnahme erfolgt die Rückmeldung bis Sonntag, den 19. April 2026, um 18:00 Uhr.</div>
+        <a href="https://www.meetup.com/extreme-tuesday-club-xtc/events/313045104" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Agile Champions</div>
+        <div class="article-date">18.04.2026</div>
+        <div class="article-summary">Champions of Agile vereint 161 Mitglieder weltweit, die Lean-Agile-Prinzipien zur Verbesserung von Zusammenarbeit und kürzeren Delivery-Zyklen im Arbeitsalltag anwenden. Die Gruppe organisiert regelmäßige Online-Diskussionsrunden, beispielsweise zu Themen wie „What is the future of work in agility?“ oder „Can a scrum master be replaced effectively with an AI agent?“, die meist dienstags um 16:00 Uhr BST starten. Die Veranstaltungen beruhen auf den Prinzipien der Open Space Technology – etwa der Regel „Whoever comes is the right people“ und der „Law of Two Feet“ –, wobei die Teilnahme unter der Chatham House Rule erfolgt, um einen sicheren Raum für freie, aber sachliche Diskussionen zu gewährleisten. Steve Forbes und ein weiterer Organisator steuern die Gruppe, deren Ziel es ist, praxisnahe Einblicke in agile Ansätze zu vermitteln und den Erfahrungsaustausch in der agilen Community zu fördern.</div>
+        <a href="https://www.meetup.com/champions-of-agile/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Agile Standup</div>
+        <div class="article-date">18.04.2026</div>
+        <div class="article-summary">Agile Standup Night trifft sich in London, um in 5-minütigen Vorträgen praktische Erfahrungen und Herausforderungen agiler Arbeitsweisen auszutauschen. Sprecher können spontan oder mit Vorbereitung auftreten und haben im Anschluss kurz Zeit für Rückfragen, wobei bei Online-Events Google Meet genutzt wird und empfohlen wird, konkurrierende Kollaborationssoftware wie Zoom oder Teams vorab zu schließen. Bei Dinner-Events in Locations wie dem Mercato Metropolitano diskutieren Teilnehmende in Rundtischgesprächen Themen wie T‑shaped Skills, datenbasierte Entscheidungsfindung und Remote Working, wobei jeder Teilnehmer seine eigene Verpflegung bezahlt. Die Gruppe zählt 792 Mitglieder und weist mit 60 Bewertungen einen Durchschnitt von 4,7 auf.</div>
+        <a href="https://www.meetup.com/agile-standup-night" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Agile on the Beach</div>
+        <div class="article-date">18.04.2026</div>
+        <div class="article-summary">Agile on the Beach 2026 findet vom 2. bis 3. Juli an der Falmouth University in Cornwall statt und bietet als 15. Veranstaltung intensiven fachlichen Austausch zu Themen wie Software Delivery, Agility in Business, Product Design &amp; Management, Team Working und praxisorientierten Workshops. Die Konferenz zieht jährlich zwischen 450 und über 500 Teilnehmer aus aller Welt an und bearbeitet über 250 eingegangene Sprecher-Bewerbungen für mehr als 50 Slots. Teilnehmer können auf Keynotes von Branchenexperten wie Birgitta Böckeler, Francesca Cortesi und Veerle Verhagen vertrauen, während das Call-for-Papers-Verfahren über Sessionize abgewickelt wird. Sponsoren wie Tech Cornwall und Grey Matter unterstützen die Veranstaltung, die sowohl Networking als auch professionellen Wissensaustausch in einem inspirierenden Umfeld ermöglicht.</div>
+        <a href="https://agileonthebeach.com/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+
+    <h2>Anthropic News (3 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">An update on our election safeguards</div>
+        <div class="article-date">24.04.2026</div>
+        <div class="article-summary">Anthropic verstärkt in Claude die politischen Wahl-Safeguards, indem es das Modell mittels Charakter-Training und systemgesteuerten Prompts gemäß der „Claude’s Constitution“ auf politische Neutralität ausrichtet. Vor jedem Modell-Launch werden umfangreiche Evaluierungen durchgeführt, bei denen beispielsweise Opus 4.7 und Sonnet 4.6 in 600 Tests Wahlbezogene Anfragen zu 100% bzw. 99,8% korrekt handhaben und in Multi-Turn-Simulationen gegen Einflussoperationen zu 94% bzw. 90% angemessen reagieren. Automatisierte Klassifier und ein dediziertes Threat Intelligence-Team identifizieren und unterbinden Verstöße gegen die Nutzungsrichtlinien, um den Missbrauch der Modelle zu verhindern. Wahlbanner leiten Nutzer auf vertrauenswürdige Ressourcen wie TurboVote von Democracy Works, während die Aktivierung der Websuche – Opus 4.7 reagiert in 92% der Fälle, Sonnet 4.6 in 95% – für aktualisierte Informationen sorgt. Anthropic arbeitet zudem mit externen Institutionen zusammen, um das Verhalten des Modells im Kontext von freier Meinungsäußerung und Wahltransparenz kontinuierlich zu überprüfen.</div>
+        <a href="https://www.anthropic.com/news/election-safeguards-update" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Anthropic and NEC collaborate to build Japan’s largest AI engineering workforce</div>
+        <div class="article-date">24.04.2026</div>
+        <div class="article-summary">NEC Corporation baut gemeinsam mit Anthropic in Japan eine AI-native Engineering-Organisation auf, in der etwa 30.000 NEC Group-Mitarbeiter weltweit mit Anthropic-Produkten wie Claude Opus 4.7 und Claude Code arbeiten. NEC integriert Claude bereits in seinen Security Operations Center, um fortschrittliche Cybersecurity-Lösungen zu ermöglichen und branchenspezifische Produkte für Finanzwesen, Fertigung und öffentliche Verwaltung zu entwickeln. Intern wird ein Center of Excellence eingerichtet, das durch technische Enablement-Programme von Anthropic den Aufbau eines spezialisierten AI-Engineering-Teams unterstützt. NEC folgt damit einer „Client Zero“-Strategie, in der eigene Lösungen vor der Markteinführung umfangreich validiert werden.</div>
+        <a href="https://www.anthropic.com/news/anthropic-nec" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Anthropic and Amazon expand collaboration for up to 5 gigawatts of new compute</div>
+        <div class="article-date">20.04.2026</div>
+        <div class="article-summary">Anthropic und Amazon sichern bis zu 5 Gigawatt zusätzliche Rechenkapazität, um Claude mittels Trainium2, Trainium3 und zukünftig Trainium4 auf AWS zu trainieren und bereitzustellen. Neue Trainium2-Kapazitäten gehen im ersten Halbjahr 2026 online, während nahezu 1 GW an Trainium2- und Trainium3-Kapazität vor Jahresende ergänzend aktiviert werden soll. Die Vereinbarung umfasst Investitionen von über 100 Milliarden US-Dollar in AWS-Technologien über die nächsten zehn Jahre und spiegelt den Bedarf wider, Claude international – etwa in Asien und Europa – effizient bereitzustellen. Amazon investiert zudem heute 5 Milliarden US-Dollar in Anthropic, mit einer Aussicht auf zusätzliche 20 Milliarden US-Dollar, was den Anstieg des bisherigen Run-Rate-Umsatzes von 9 auf 30 Milliarden US-Dollar begründet.</div>
+        <a href="https://www.anthropic.com/news/anthropic-amazon-compute" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+
+    <h2>Cursor Blog (4 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Multitask, Worktrees, and Multi-root Workspaces</div>
+        <div class="article-date">24.04.2026</div>
+        <div class="article-summary">Cursor 3.2 vom 24. April 2026 nutzt asynchrone Subagents, um Anfragen parallel zu verarbeiten und große Aufgaben in kleinere Einheiten zu zerlegen. Der Befehl &quot;/multitask&quot; erlaubt es, bereits in der Queue befindliche Nachrichten ohne Wartezeit abzuarbeiten. Verbesserte Worktrees im Agents Window ermöglichen es, isolierte Aufgaben auf unterschiedlichen Branches im Hintergrund laufen zu lassen und per Klick in den Vordergrund zu holen. Multi-root Workspaces fassen mehrere Ordner in einer Agent-Session zusammen, sodass Änderungen an Frontend, Backend und gemeinsamen Bibliotheken über Repos hinweg effizient umgesetzt werden können.</div>
+        <a href="https://cursor.sh/changelog/04-24-26" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">National Australia Bank accelerates legacy migrations with Cursor</div>
+        <div class="article-date">23.04.2026</div>
+        <div class="article-summary">National Australia Bank standardisierte 6.000 Entwickler – mit der Aussicht auf 10.000 – auf die Nutzung von Cursor, nachdem zuvor Amazon Q und GitHub Copilot im Einsatz waren. Dabei beschleunigen Cursor-gestützte Legacy-Migrationen wie die Refaktorisierung eines Silverlight/.NET-Monolithen zu Java-Microservices und das Herauslösen von Assembly-Code in Kernanwendungen die Entwicklungszyklen um den Faktor drei. Für grünfeldbasierte Projekte reduzierte ein Merchant-Services-Team den Umfang einer Hardware-agnostischen Payment-App von vier Monaten auf nur drei Wochen durch den Einsatz von Cursor in Kombination mit speziell entwickelten NAB-CEL Skills. Die Integration von Cursor in den gesamten Software-Lifecycle – von der Codegenerierung über die Qualitätssicherung bis hin zur Bereitstellung – verbessert zudem die Zusammenarbeit zwischen Ingenieuren, Architekten, Produktmanagern und Sicherheitsverantwortlichen.</div>
+        <a href="https://cursor.sh/blog/nab" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Cursor partners with SpaceX on model training</div>
+        <div class="article-date">21.04.2026</div>
+        <div class="article-summary">Cursor setzt auf eine Zusammenarbeit mit SpaceX, um die Rechenressourcen für das Training ihrer Coding-Modelle deutlich zu erhöhen. Vor weniger als sechs Monaten wurde Composer als erster agentischer Codierungsagent eingeführt, wobei Composer 1.5 bereits das Reinforcement Learning um über das 20-fache skalierte. Mit Composer 2 und dessen kontinuierlichem Pretraining erreichte das Modell eine leistungsstarke Performance auf Frontrange-Niveau bei einem Bruchteil der Kosten anderer Ansätze. Der Einsatz von xAI&#x27;s Colossus-Infrastruktur adressiert dabei das bisherige Engpassproblem im Compute-Bereich und soll die Intelligenz der Modelle maßgeblich steigern.</div>
+        <a href="https://cursor.sh/blog/spacex-model-training" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Keeping the Cursor app stable</div>
+        <div class="article-date">21.04.2026</div>
+        <div class="article-summary">Die Cursor App, basierend auf Visual Studio Code und Electron, verzeichnet einen Rückgang der durch Out-Of-Memory (OOM) bedingten Absturzraten um 80 % pro Session seit ihrem Höchststand Ende Februar und um 73 % pro Request seit dem 1. März. Das Entwicklerteam nutzt detaillierte Telemetrie, Heap-Snapshots sowie kontinuierliche Heap-Allokationsprofilierung, um akute OOM-Spikes und langsame, schleichende Speicherlecks zu identifizieren und gezielt zu beheben. Mit A/B-Tests über die Experimentierplattform Statsig und der Instrumentierung von interprozesskommunikationen, beispielsweise zur Erfassung von Oversize-Nachrichten, werden kritische Speicherpfade überwacht und optimiert. Die Strategie, Extensions in separaten Prozessen laufen zu lassen, stellt sicher, dass ein Absturz eines Plugins den Editor nicht blockiert, während automatisierte Rollbacks und Bugbot-Regeln Regressionen effektiv verhindern.</div>
+        <a href="https://cursor.sh/blog/app-stability" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+
+    <h2>Eli Schragenheim (4 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">An effective plan has to include buffers to protect the most important objectives of the plan.</div>
+        <div class="article-date">18.04.2026</div>
+        <div class="article-summary">TOC ERP SaaS setzt auf die Theory of Constraints, um durch gezielte Pufferplanung zentrale Ziele auch unter Unsicherheit zu schützen. Die Lösung erweitert die Odoo-Plattform um spezialisierte Apps wie sDBR zur Produktionsplanung und Buffer Management, die sowohl Make-to-Stock als auch Make-to-Order Umgebungen unterstützen. Mit Modulen wie TOC CRM, Safe-dates, Planned-Load Control und Throughput Accounting bietet die Anwendung umfassende Entscheidungsunterstützung – der monatliche Basispreis liegt bei $300 (US-Kunden: $37,40 pro Nutzer, EU-Kunden: €17,90 pro Nutzer, jeweils bei jährlicher Abrechnung). Zusätzlich werden optionale Dienstleistungen in den Bereichen Basic Configuration, TOC Consulting und vollständiger Implementierung angeboten, um die Prozesse und Entscheidungsfindungen in unsicheren Märkten optimal abzustimmen.</div>
+        <a href="https://ent.space/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Setting Priorities in the Execution Phase, Based on the Actual Consumption of the Buffers</div>
+        <div class="article-date">18.04.2026</div>
+        <div class="article-summary">Epicflow Workload Management Software nutzt den Historical Load Graph, um über die X-Achse (Datum) und Y-Achse (FTE) den Vergleich von Load, Ready to Start, Capacity und Output in Multi-Projekt-Umgebungen darzustellen. Der Graph unterteilt den Output in farblich codierte Prioritäten – On Schedule (Blau), Attention (Grün), Urgent (Gelb) und Overdue (Rot) – und visualisiert so, ob Teams ihre Kapazitäten ausschöpfen oder überlastet sind. Diskrepanzen zwischen Capacity und Output weisen auf unausgelastete Ressourcen oder Blockaden hin, was präzise Analysen zur Priorisierung in der Ausführungsphase ermöglicht. Ergänzende Diagramme wie der Future Load Graph, Bubble Graph und die What-if Analyse liefern zusätzliche Prognosen und unterstützen die Integration in bestehende Systeme wie Jira, Oracle Primavera und MS Project.</div>
+        <a href="https://www.epicflow.com/features/historical-data/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Setting Priorities in the Execution Phase, Based on the Actual Consumption of the Buffers</div>
+        <div class="article-date">18.04.2026</div>
+        <div class="article-summary">Epicflow Pipeline priorisiert Projekte in Echtzeit anhand von CCPM-Prinzipien und definierten Business Values, sodass diejenigen mit geringem Puffer (und damit höherem Risiko) automatisch oben erscheinen. Die Software aktualisiert Prioritäten sofort bei Änderungen und visualisiert Zeit- und Kapazitätsverschiebungen, wobei Ressourcenüberlastungen durch Schwellenwerte sichtbar werden. Farbindikatoren – Rot für unrealistische Meilensteine, Gelb für Pufferabbau sowie Grün und Blau für ausreichende Reserven – unterstützen bei der schnellen Bewertung der Projektmachbarkeit. Zusätzlich ermöglichen Quick Edit-Modus, Gantt-Chart-Integration und Pipeline-Leveling eine flexible, bedarfsgerechte Anpassung der Projektplanung.</div>
+        <a href="https://www.epicflow.com/features/pipeline-overview/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Setting Priorities in the Execution Phase, Based on the Actual Consumption of the Buffers</div>
+        <div class="article-date">18.04.2026</div>
+        <div class="article-summary">Epicflow zeigt mit seinem Dashboard in Echtzeit und anhand historischer Daten den Fortschritt multipler Projekte, indem es Status, Prioritäten, Budgets und Arbeitsstunden übersichtlich darstellt. Der Bubble-Graph verwandelt den traditionellen Fever Chart in ein dynamisches Visualisierungstool, das Projekte als farbige Blasen – grün für planmäßig, blau bei zu hohem Puffer, gelb bei Vorsicht und rot im kritischen Bereich – abbildet. In der Projektansicht werden Prioritätswerte von 0 bis 200 und die Lead Time in Prozent (0–100 %) auf den Achsen abgebildet, während die Budgetansicht den tatsächlichen Verbrauch versus das genehmigte Stundenbudget darstellt. Die Lösung bietet zudem eine zeitversetzte Wiedergabe der Projektdynamik und lässt sich nahtlos mit Tools wie Jira, MS Project und Oracle Primavera integrieren.</div>
+        <a href="https://www.epicflow.com/features/dashboard/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+
+    <h2>Google AI Blog (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Start vibe coding in AI Studio with your Google AI subscription.</div>
+        <div class="article-date">20.04.2026</div>
+        <div class="article-summary">Google AI Studio erhöht für Google AI Pro und Ultra Abonnenten die Nutzungslimits und ermöglicht den direkten Zugriff auf die Nano Banana Pro und Gemini Pro Modelle, sodass Entwickler in Minuten von einer Idee zu einer funktionsfähigen Anwendung übergehen können. Die neuen Abonnementvorteile bieten einen kosteneffizienten Übergang für Anwender, die ihre Free-Tier-Grenzen überschritten haben, indem sie mit einem Google AI Plan starten, der als Abrechnungslösung mit geringem Setup-Aufwand dient. Gleichzeitig bleibt das etablierte Pay-per-Request API-Modell für produktionsreife Anwendungen erhalten, und der Wechsel zur API-Nutzung erfolgt bequem direkt innerhalb von AI Studio.</div>
+        <a href="https://blog.google/innovation-and-ai/technology/developers-tools/google-one-ai-studio/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+
+    <h2>Google AI Blog - Gemini (4 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Find out what’s new in the Gemini app in April&#x27;s Gemini Drop</div>
+        <div class="article-date">24.04.2026</div>
+        <div class="article-summary">Die 10. Gemini Drops Edition im April 2026 erweitert den Funktionsumfang der Gemini App deutlich. Die Integration von Personal Intelligence in Verbindung mit Nano Banana ermöglicht eine präzise, nutzerzentrierte Bildpersonalisierung, wobei die global ausgerollte Funktion über Google Apps zusätzlich individuelle Unterstützung bietet. Projekte lassen sich jetzt effizient über NotebookLM in der App verwalten, während die native macOS-Unterstützung für ein performantes Desktop-Erlebnis sorgt. Mit Lyria 3 Pro können Nutzer kostenfrei bis zu 3-minütige Musiktracks erstellen und komplexe Sachverhalte interaktiv visualisieren.</div>
+        <a href="https://blog.google/innovation-and-ai/products/gemini-app/gemini-drop-april-2026/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Gemini Embedding 2 is now generally available.</div>
+        <div class="article-date">22.04.2026</div>
+        <div class="article-summary">Google gibt mit Gemini Embedding 2, einem nativ multimodalen Embedding-Modell, die Allgemeine Verfügbarkeit bekannt und ermöglicht so die Nutzung stabiler, optimierter Komponenten in produktionsreifen Projekten. Entwickler und Unternehmen, die bereits in der Preview-Phase fortschrittliche Prototypen für Anwendungen wie e-Commerce-Discovery und Videoanalysen realisiert haben, können nun nahtlos Text-, Bild-, Video- und Audiodaten verarbeiten. Der Zugriff erfolgt über die Gemini API sowie Vertex AI und fasst zuvor komplexe und fragmentierte Pipelines in einer zentralen Lösung zusammen. Als wesentlicher Baustein in vielen Google-Produkten unterstützt Gemini Embedding 2 effizient Such- und Analyseaufgaben in vielfältigen Anwendungsbereichen.</div>
+        <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-embedding-2-generally-available/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Deep Research Max: a step change for autonomous research agents</div>
+        <div class="article-date">21.04.2026</div>
+        <div class="article-summary">Gemini 3.1 Pro treibt den neuen Deep Research Agent von Google DeepMind an, der in zwei Varianten angeboten wird: Deep Research für latenzoptimierte, interaktive Anwendungen und Deep Research Max für asynchrone, umfassende Analysen über erweiterte Test-Compute-Zyklen. Die Agenten ermöglichen den sicheren Zugriff auf öffentliche Webdaten und proprietäre Datenkanäle – etwa über das Model Context Protocol (MCP) – und liefern dabei vollständig zitierte, fachlich akkurate Berichte. Die Integration nativer Chart- und Infografikerstellung sowie multimodaler Dateninputs unterstützt komplexe Analyse-Workflows in Sektoren wie Finanzen, Life Sciences oder Marktanalysen. Zudem erlauben kollaborative Planung und Echtzeit-Streaming der Zwischenergebnisse eine transparente Steuerung des Forschungsprozesses, was den Einsatz in unternehmensweiten Pipelines erleichtert.</div>
+        <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/next-generation-gemini-deep-research/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Gemini App</div>
+        <div class="article-date">18.04.2026</div>
+        <div class="article-summary">Gemini App erhält mit Gemini 3 ein umfassendes Update, das die KI-Fähigkeiten verbessert und neue Funktionen wie personalisierte Bildgenerierung sowie interaktive Simulationen ermöglicht. Die Aktualisierung erweitert die Plattformunterstützung, indem die Gemini App nun auch auf MacOS verfügbar ist und nahtlos in verschiedene Arbeitsabläufe integrierbar ist. Ergänzende Erweiterungen, etwa die Gemini 3.1 Versionen (Flash TTS, Flash Live und Flash-Lite), adressieren spezifische Anforderungen an natürlich klingende Sprachausgabe und skalierbare Intelligenz. Die Produktneuheiten zielen darauf ab, kreatives Arbeiten, Planung und Bildungsanwendungen effizient zu unterstützen.</div>
+        <a href="https://blog.google/products-and-platforms/products/gemini/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+
+    <h2>Gregor Hohpe - Ramblings (6 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Developing in a Service-Oriented World</div>
+        <div class="article-date">18.04.2026</div>
+        <div class="article-summary">Service-orientierte Architekturen fordern eine strikte Trennung von Geschäftslogik und Infrastruktur, um heterogene Systeme flexibel integrieren zu können. Hohpe hebt den Einsatz asynchroner Messaging-Muster sowie expliziter Service-Verträge hervor, um lose gekoppelte Komponenten zu realisieren und so Skalierbarkeit sowie Fehlertoleranz zu sichern. Er geht konkret auf Designentscheidungen ein, die den Einsatz von Entwurfsmustern wie Circuit Breaker und Retry-Mechanismen zur Stabilisierung verteilter Systeme beinhalten. Zudem liefert er praxisnahe Empfehlungen zur Versionsverwaltung von Services und zeigt, welche Herausforderungen bei der Implementierung moderner Service-orientierter Infrastrukturen in Unternehmensumgebungen zu beachten sind.</div>
+        <a href="https://www.enterpriseintegrationpatterns.com/docs/SOA_World.pdf" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Let&#x27;s Have a Conversation</div>
+        <div class="article-date">18.04.2026</div>
+        <div class="article-summary">Konversationen in verteilten Systemen stellen mehr als einfache Request‐Reply-Interaktionen dar – sie definieren über mehrere Nachrichten hinweg den fortlaufenden Austausch, der zur Modellierung komplexer Geschäftsprozesse notwendig ist. Die Diskussion hebt hervor, dass stabile, korrelierende Nachrichtenflüsse und Zustandsübergänge als Kernelemente für robuste Integrationsarchitekturen gelten, statt isolierte, stateless Anfragen zu verwenden. Es wird argumentiert, dass herkömmliche Kommunikationsmodelle die Herausforderungen moderner, skalierbarer Systeme nicht ausreichend adressieren und durch dialogorientierte Ansätze ergänzt werden sollten. Zudem werden praxisnahe Lösungsansätze skizziert, die unter anderem Mechanismen zur Synchronisation, Fehlerbehandlung und zum Umgang mit asynchronen Ereignissen umfassen, um einen konsistenten und nachvollziehbaren Gesprächsverlauf sicherzustellen.</div>
+        <a href="https://www.enterpriseintegrationpatterns.com/docs/IEEE_IC_Conversations.pdf" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Programming Without a Call Stack - Event-driven Architectures</div>
+        <div class="article-date">18.04.2026</div>
+        <div class="article-summary">Ereignisgesteuerte Systeme eliminieren den herkömmlichen Call Stack, indem sie die Abläufe in Form von asynchronen Nachrichtenketten realisieren. Die Entkopplung von Komponenten wird als zentrales Gestaltungsmoment hervorgehoben, sodass Fehler und Zustandsübergänge systemübergreifend, jedoch isoliert verarbeitet werden können. Dieses Paradigma verbessert die Skalierbarkeit und Resilienz komplexer Anwendungen, führt jedoch zu neuen Herausforderungen bei Fehlersuche und Debugging. Die praktische Umsetzung erfolgt häufig mittels spezialisierter Message Broker wie Apache Kafka oder RabbitMQ, die in verteilten Systemen hohe Durchsatzzahlen – teils im Bereich von Tausenden Nachrichten pro Sekunde – realisieren. Die Architektur erfordert eine Umstellung in der Denkweise, sodass Zustandsmodelle und lose Kopplung anstelle von verschachtelten Funktionsaufrufen dominieren.</div>
+        <a href="https://www.enterpriseintegrationpatterns.com/docs/EDA.pdf" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Programming the Cloud</div>
+        <div class="article-date">18.04.2026</div>
+        <div class="article-summary">Gregor Hohpe demonstriert, wie sich die Programmierung verteilter Cloud-Systeme durch den Einsatz von asynchronen Nachrichtenmustern und containerbasierten Deployments optimieren lässt. Er konkretisiert die Vorteile von modularen Architekturen, die Fehlerisolierung und horizontale Skalierung ermöglichen, und belegt dies anhand von Benchmarks und praxisnahen Beispielen. Die vorgestellten Ansätze adressieren typische Herausforderungen wie Zustandsmanagement und Latenzprobleme, wobei der Einsatz von PaaS-Angeboten und Container-Orchestrierung (z. B. Docker) die Entwicklung agiler und widerrufsfähiger Infrastrukturen vorantreibt. Dabei werden technische Entscheidungen, die zu einer lockeren Kopplung der Systemkomponenten führen, detailliert begründet.</div>
+        <a href="https://sites.google.com/site/gcodejp/slides/ProgrammingCloud_QCon.pdf" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">SOA Patterns - New Insights or Recycled Knowledge?</div>
+        <div class="article-date">18.04.2026</div>
+        <div class="article-summary">Service-orientierte Architekturen (SOA) nutzen im Kern lose Kopplung, asynchrone Nachrichten und Mediationsschichten – Prinzipien, die bereits in älteren Enterprise-Integrationsmustern etabliert wurden. Hohpe argumentiert, dass viele der heute als neu beworbenen SOA-Muster in Wirklichkeit auf bewährte, historisch gewachsene Ansätze zurückgehen, deren Wiederverwendung in modernen Kontexten jedoch bedeutende Vorteile in Flexibilität und Skalierbarkeit bietet. Er legt dar, wie zentrale technische Lösungen wie die Trennung von Geschäftslogik und Infrastruktur, die Adaption von asynchronem Messaging sowie der Einsatz von Vermittlungs- und Transformationskomponenten helfen, komplexe Integrationsanforderungen zu bewältigen. Dadurch erhalten Architekten und Entwickler eine differenzierte Perspektive auf den Mehrwert von SOA, indem sie vorhandenes Musterwissen gezielt in neuen, verteilten Systemen einsetzen können.</div>
+        <a href="https://www.enterpriseintegrationpatterns.com/docs/SoaPatterns.pdf" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Your Coffee Shop Does Not Use Two-Phase Commit</div>
+        <div class="article-date">18.04.2026</div>
+        <div class="article-summary">Verteilte Systeme wie in einem typischen Kaffeeshop verlassen sich nicht auf starre Zwei-Phasen-Commit-Protokolle, da diese zu langen Sperrzeiten, reduzierter Leistung und erhöhter Komplexität führen. Stattdessen empfiehlt Hohpe den Einsatz lokaler Transaktionen kombiniert mit asynchroner Messaging‑Infrastruktur und compensierenden Transaktionen, um eine End-to-End-Konsistenz bei hoher Verfügbarkeit zu erzielen. Das Konzept der Sagas wird als Alternative vorgestellt, bei der jeder Teilschritt einer Geschäftsaktivität lokal validiert und im Fehlerfall über explizit definierte Kompensationsschritte rückgängig gemacht wird. Diese Herangehensweise reduziert die Kopplung zwischen einzelnen Komponenten und erlaubt skalierbare, fehlertolerante Architekturen, die modernen Anforderungen im Cloud‑ und Microservices‑Umfeld besser gerecht werden.</div>
+        <a href="https://www.enterpriseintegrationpatterns.com/docs/IEEE_Software_Design_2PC.pdf" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+
+    <h2>Kent Beck - Tidy First (6 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Genie Lessons: Nobody Wants Agents</div>
+        <div class="article-date">23.04.2026</div>
+        <div class="article-summary">Kent Beck experimentiert mit dem Tool Intent von Augment Code, bei dem ein Multi-Agenten-System mit Koordinator, Implementierer und Verifizierer eine adaptive, lesbare Go-Implementierung eines Radix-Baums steuern sollte. Die gewählte „Freudian Architektur“ (id, Superego, Ego) führt jedoch zu einer erhöhten Koordinationskomplexität, da Beck den Systemzustand selbst überwachen muss, anstatt diesen der Software zu überlassen. Die Erfahrung zeigt, dass eine ergebnisorientierte Herangehensweise – bei der lediglich das gewünschte Endresultat beschrieben und evaluieren wird, ob und wie es erreicht werden kann – motivierender und effizienter erscheint als der Versuch, Agenten zur kollaborativen Codegenerierung einzusetzen. Er prognostiziert zudem, dass die eigentliche Zukunft in Mehrspieler-Ansätzen liegt, in denen mehrere Entwickler in Echtzeit gemeinsam den Entwicklungsprozess steuern, anstatt auf einen einzelnen Agenten-Koordinator zu setzen.</div>
+        <a href="https://tidyfirst.substack.com/p/genie-lessons-nobody-wants-agents" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Passing Tests Bore Me</div>
+        <div class="article-date">22.04.2026</div>
+        <div class="article-summary">Kent Beck kritisiert, dass grün leuchtende Testergebnisse wenig Aussagekraft besitzen und den Blick für mögliche raffiniertere Systemverbesserungen verstellen. Er führt aus, dass in iterativen Entwicklungszyklen wiederholte vollständige Testläufe – etwa durch lange Make-Test-Ausgaben und umfangreiche Dateivergleichsoperationen – unnötig viele Ressourcen verbrauchen und den Fortschritt im Blickfeld reduzieren. Beck fordert daher, Testprozesse gezielt zu hinterfragen und Anstrengungen in Feedback-Mechanismen zu lenken, die Entwickler zu signifikanten Optimierungen anregen, statt sich an automatisch überstandenen Prüfungen auszuruhen.</div>
+        <a href="https://tidyfirst.substack.com/p/passing-tests-bore-me" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Extreme Time Value of Money: Late-stage Career Planning</div>
+        <div class="article-date">21.04.2026</div>
+        <div class="article-summary">Der Autor verknüpft das ökonomische Prinzip des Zeitwerts des Geldes mit den Herausforderungen später Karrieren, indem er verdeutlicht, dass zukünftige Einnahmen angesichts verkürzter Lebenszeit abgewertet werden. Er argumentiert, dass Modelle in der Softwarebranche, wie 4–5-jährige Vesting-Zeiträume und verzögerte Liquidität, insbesondere für ältere Entwickler, ungeeignet sind, da kurzfristiger Geldwert und genussfähige Liquidität an Bedeutung gewinnen. Er illustriert dies am Vergleich eines Milliarden-Dollar-Betrags in 30 Jahren, der durch einen steilen, variablen Diskontsatz, der beispielsweise in Zeiten aktueller 30-Jahres-Treasury-Renditen von 4,9% relevant ist, längst entwertet würde. Finanzielle Überlegungen, etwa die Möglichkeit, zukünftige Cashflows analog zu Zero-Coupon-Anleihen kurzfristig zu realisieren, sollten demnach in die Karriereplanung und in technische Entscheidungen einfließen.</div>
+        <a href="https://tidyfirst.substack.com/p/extreme-time-value-of-money-late" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Gergely Orosz</div>
+        <div class="article-date">19.04.2026</div>
+        <div class="article-summary">Gergely Orosz verknüpft Kent Becks Prinzip &quot;Tidy First&quot; mit praktischen Erfahrungen aus Big Tech und Startups, um den strukturierten Umgang mit Codequalität und Schuldenabbau zu verdeutlichen. Er zeigt, wie iterative Verbesserungen und ein systematischer Ansatz in der Softwareentwicklung zur nachhaltigen Wartbarkeit von Code beitragen können. Dabei stellt er exemplarisch die Herausforderungen bei der Skalierung mobiler Anwendungen dar und verknüpft diese mit realen Entwicklungserfahrungen und beobachteten Benchmarks. Mit über 1,1 Millionen Abonnenten erreicht die Darstellung eine breite Zielgruppe von Entwicklern, Tech-Leads und Architekten.</div>
+        <a href="https://substack.com/@pragmaticengineer" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Kent Beck</div>
+        <div class="article-date">19.04.2026</div>
+        <div class="article-summary">Kent Beck plädiert dafür, die codeinterne Ordnung als ersten Schritt im Softwaredesign konsequent zu etablieren, bevor neue Funktionalitäten implementiert werden. Er hebt hervor, dass die klare Strukturierung und regelmäßiges Refactoring die spätere Wartbarkeit und Erweiterbarkeit der Systeme sichern. Dabei betont er den strategischen Wert iterativer Verbesserungen, um technische Schulden zu minimieren und langfristig stabile Architekturen aufzubauen. Seine Perspektive speist sich aus jahrzehntelanger praktischer Erfahrung im agilen Umfeld und im Umgang mit komplexen Softwaresystemen.</div>
+        <a href="https://substack.com/@kentbeck" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Recommendations</div>
+        <div class="article-date">19.04.2026</div>
+        <div class="article-summary">Kent Beck kuratiert eine Liste ausgewählter Substack-Newsletter, die sich an erfahrene Softwareentwickler, Tech-Leads und Architekten richten und Themen von VC-Machanismen über Swift Concurrency bis hin zu Softwarearchitektur abdecken. Die Sammlung umfasst unter anderem &quot;The Pragmatic Engineer&quot; von Gergely Orosz sowie &quot;The VC Corner&quot; von Ruben Dominguez, die konkrete Strategien und praxisnahe Analysen bieten. Einige Empfehlungen – etwa &quot;Engineering Leadership&quot; von Gregor Ojstersek oder &quot;The Coder Cafe&quot; von Teiva Harsanyi, das von über 170.000 Ingenieuren und Managern gelesen wird – liefern Einblicke in Führungsansätze und technische Optimierungen. Die Auswahl betont die Relevanz fundierter Brancheneinblicke und pragmatischer Tools für nachhaltige Softwareentwicklung und strategische Entscheidungsprozesse.</div>
+        <a href="https://tidyfirst.substack.com/recommendations" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+
+    <h2>Martin Fowler (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">April 21</div>
+        <div class="article-date">21.04.2026</div>
+        <div class="article-summary">Thoughtworks hat den 34. Technology Radar veröffentlicht, der in zweiwöchentlicher Frequenz 118 Blips beschreibt und mit Schwerpunkt auf KI-Themen zugleich bewährte Praktiken wie Pair Programming, Zero Trust Architecture und DORA-Metriken neu bewertet. Eine Besonderheit bildet die Fokussierung auf „permission hungry“ Agenten – etwa OpenClaw oder Claude Cowork –, die zwar weitreichenden Zugriff fordern, jedoch noch grundlegende Sicherheitsprobleme wie Prompt Injection aufweisen. Der Radar bezieht auch Beiträge zum Harness Engineering ein, die konkrete Ansätze zur besseren Steuerung komplexer Systeme liefern und verweisen dabei auf Artikel von Birgitta und Rahul Garg. Erfahrungsberichte, wie etwa jene zu einem 50 KB großen Python-Codefile, unterstreichen die Notwendigkeit regelmäßiger menschlicher Überprüfungen selbst bei durch LLM-Unterstützung generiertem Code.</div>
+        <a href="https://martinfowler.com/fragments/2026-04-21.html" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+
+    <h2>Microsoft .NET Blog (3 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">What’s new for .NET in Ubuntu 26.04</div>
+        <div class="article-date">23.04.2026</div>
+        <div class="article-summary">Ubuntu 26.04 („Resolute Raccoon“) liefert standardmäßig .NET 10 aus, wodurch Entwickler mit einer aktuellen LTS-Version arbeiten können. Die Veröffentlichung enthält vollständige Installationsanleitungen, etwa „sudo apt install dotnet-sdk-10.0“, und stellt Container-Images mit dem Tag „resolute“ bereit, um den reibungslosen Betrieb in Docker-Umgebungen zu gewährleisten. .NET 10 erweitert den Funktionsumfang um Unterstützung für post-quantum Kryptographie und baut auf langfristiger Validierung in den dotnet/runtime-Tests auf Ubuntu 26.04 auf. Zusätzlich bietet Canonical über das dotnet-backports PPA .NET 8 und 9 mit Best-Effort-Support an, sodass unterschiedliche Versionen für verschiedene Anwendungsfälle bereitstehen.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/whats-new-for-dotnet-in-ubuntu-2604/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">.NET 10.0.7 Out-of-Band Security Update</div>
+        <div class="article-date">21.04.2026</div>
+        <div class="article-summary">.NET 10.0.7 behebt eine Sicherheitslücke im Microsoft.AspNetCore.DataProtection-Paket, die in den Versionen 10.0.0 bis 10.0.6 vorhanden war. Der Fehler ließ den verwalteten Authenticated Encryptor den HMAC-Validierungstag über falsche Bytebereiche berechnen, was zu einer möglichen Privilegieneskalation führte (CVE-2026-40372). Entwickler sollen das Update umgehend installieren, indem sie das NuGet-Paket auf Version 10.0.7 aktualisieren, um sowohl die Decryptions-Regression als auch die Sicherheitslücke zu beheben. Die .NET 10.0.7 Distribution steht als SDK, Runtime, Container-Images sowie als Linux-Paket zum Download bereit, sodass Anwendungen anschließend neu gebaut und bereitgestellt werden können.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/dotnet-10-0-7-oob-security-update/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Writing Node.js addons with .NET Native AOT</div>
+        <div class="article-date">20.04.2026</div>
+        <div class="article-summary">Mit .NET 10 und Native AOT erstellt man eine plattformübergreifende shared library, die als Node‑Addon über den N-API–Mechanismus in Node.js eingebunden wird. Die Umsetzung verwendet C# und Attribute wie [UnmanagedCallersOnly] zur expliziten Exportierung der Einstiegspunkte, wodurch die zuvor übliche C++‑Lösung mit node‑gyp und Python-Einbindung entfällt. Anhand eines Beispiels, das den Zugriff auf die Windows Registry demonstriert, zeigt der Artikel, wie man über direkte P/Invoke-Aufrufe und effiziente String-Marshalings mittels Span&lt;T&gt;, stackalloc und ArrayPool nahtlos zwischen .NET und JavaScript interagiert. Die eingesetzte Lösung vereinfacht das Entwickler-Setup, reduziert Abhängigkeiten und liefert in praxisnahen Benchmarks eine vergleichbare Performance wie die C++-Variante.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/writing-nodejs-addons-with-dotnet-native-aot/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+
+    <h2>Pragmatic Engineer Newsletter (4 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">The Pulse: AI token spending out of control – what’s next?</div>
+        <div class="article-date">23.04.2026</div>
+        <div class="article-summary">Die Ausgaben für Token in AI-Agenten steigen seit zwei bis drei Monaten rasant und übersteigen teilweise die geplanten Budgets in 15 untersuchten Technologieunternehmen. Unternehmen ergreifen verschiedene Maßnahmen, um die enormen Kostenexplosionen zu bewältigen. Anbieter wie GitHub Copilot und Anthropic setzen mittlerweile auf striktere Nutzungslimits für weniger profitable Einzelanwender, nachdem Geschäftskunden ihre Ausgaben teilweise um das 10-Fache steigern konnten, während OpenAI und Codex weiterhin uneingeschränkt operieren. Gleichzeitig sind die Ingenieure bei Meta verunsichert, da trotz bonifiserender Geschäftszahlen drohende Entlassungen und ein landesweites Tracking-Programm für US-Mitarbeiter für stark sinkende Arbeitsmoral sorgen.</div>
+        <a href="https://newsletter.pragmaticengineer.com/p/the-pulse-ai-token-spending-out-of" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Designing Data-intensive Applications with Martin Kleppmann</div>
+        <div class="article-date">22.04.2026</div>
+        <div class="article-summary">Martin Kleppmann zeigt anhand seiner Arbeit an Designing Data-Intensive Applications – nun in der überarbeiteten zweiten Edition – auf, wie grundlegendes Verständnis von Systeminternals Entwicklern hilft, schwierige Design-Entscheidungen in verteilten Systemen zu treffen. Er verknüpft Erfahrungen aus seiner Zeit bei Startups wie Rapportive (später von LinkedIn übernommen) mit praktischen Beispielen, etwa dem Einsatz von Kafka und dem Vergleich von Replikation versus Sharding, wobei er betont, dass moderne Cloud-Umgebungen den manuellen Sharding-Aufwand deutlich reduzieren. Kleppmann diskutiert die Komplexität von Multi-Region- und Multi-Cloud-Architekturen als riskante Kompromisse und hebt hervor, dass Systeme auch effizient nach unten skaliert werden müssen – eine Herausforderung, die etwa durch serverlose Architekturen adressiert werden kann. Er prognostiziert, dass LLMs in Kombination mit formal verifizierten Beweisen zukünftig einen Wandel in der Softwarevalidierung herbeiführen könnten, und unterstreicht damit, dass Ingenieure zunehmend auch gesellschaftliche Risiken in technische Trade-offs einbeziehen sollten.</div>
+        <a href="https://newsletter.pragmaticengineer.com/p/designing-data-intensive-applications" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Learnings from conducting ~1,000 interviews at Amazon</div>
+        <div class="article-date">21.04.2026</div>
+        <div class="article-summary">Steve Huynh, ehemaliger Principal Engineer bei Amazon, beobachtete in 17 Jahren fast 1.000 Interviews – davon rund 600 Bar Raiser – dass Kandidaten nicht an mangelnden technischen Fähigkeiten scheitern, sondern vor allem durch unzureichende Vorbereitung auf Verhaltensfragen. Er zeigt auf, dass 95 % der Vorbereitungszeit meist in technische Übungen fließen, während oft vernachlässigte, ca. 5 % für das Üben von Geschichten und der authentischen Darstellung von Problemlösungen den Ausschlag für den Erfolg im finalen Interview geben. Die Beschreibung der Interviews als „Audition“ macht deutlich, dass es darum geht, ob man sich als überzeugender, kollegialer Teamplayer präsentiert, der in kritischen Situationen klare Entscheidungen trifft. Zusätzlich erläutert Huynh, wie Unternehmen durch spezifische Dimensionen wie Scope, Contribution, Impact und Difficulty den passenden Kandidaten hinsichtlich Rolle und Unternehmenskultur evaluieren.</div>
+        <a href="https://newsletter.pragmaticengineer.com/p/learnings-from-conducting-1000-interviews" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">The Software Engineer&#x27;s Guidebook</div>
+        <div class="article-date">18.04.2026</div>
+        <div class="article-summary">Gergely Orosz liefert in seinem Guide gezielte Anleitungen und praxiserprobte Strategien für die Weiterentwicklung von Softwareingenieuren sowie für Tech-Leads und Architekten. Das Werk ist in sechs eigenständige Teile gegliedert, die von Karrieregrundlagen, über konkrete technische Fertigkeiten bis hin zu komplexen Themen wie Teamdynamik, Stakeholder-Management, Softwarearchitektur und zuverlässigen Systemen reichen. Nach vier Jahren intensiver Entwicklungszeit baut das Buch auf Orosz’ Erfahrungen aus Unternehmen wie JP Morgan, Skype/Microsoft, Skyscanner und Uber auf und konfrontiert Leser unter anderem mit Herausforderungen wie P95-Latenz und On-Call-Prozessen. Das Buch erscheint als Hardcover, eBook (DRM-frei, kompatibel mit diversen Plattformen) und Audiobook und liegt in sechs Sprachversionen vor, unter anderem in Deutsch, Japanisch und Koreanisch.</div>
+        <a href="https://www.engguidebook.com/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+
+    <h2>Scrum.org Resources (12 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Product Owner Interview Questions in 2026</div>
+        <div class="article-date">24.04.2026</div>
+        <div class="article-summary">Product Owner müssen 2026 über klassische Backlog-Management-Fähigkeiten hinaus datenbasierte, wertorientierte Entscheidungen treffen und KI aktiv in den Arbeitsalltag integrieren. Arbeitgeber suchen Verantwortliche, die an der Schnittstelle von Geschäftsstrategie, Kundennutzen, Technologie und datengetriebener Entscheidungsfindung agieren und somit den gesamten Produktwert steigern. Im Interview werden Fragen zu AI-gestützter Backlog-Verfeinerung, Produktentdeckung und Stakeholder-Alignment gestellt, wobei praktische Erfahrungen mit Tools wie ChatGPT, Grok, Gemini, Claude und Copilot erwartet werden. Kandidaten sollen durch Experimente und kontinuierliche Lernprozesse belegen, dass sie den Übergang von reinem Requirements-Management zu einer Rolle des „AI-augmented product thinkers“ geschafft haben.</div>
+        <a href="https://www.scrum.org/resources/blog/product-owner-interview-questions-2026" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Scrum Masters are Not There to Simply Run Ceremonies</div>
+        <div class="article-date">24.04.2026</div>
+        <div class="article-summary">Scrum Masters treiben den kulturellen Wandel in Organisationen voran, indem sie cross-funktionale, selbstorganisierende Teams fördern und Scrum-Werte wie Commitment, Fokus, Offenheit, Respekt und Courage fest verankern. Sie gehen über das bloße Moderieren von Scrum Events hinaus, indem sie aktiv Abhängigkeiten identifizieren, Hindernisse rasch beseitigen und kontinuierliche, empirisch fundierte Planungsprozesse initiieren. In Zeiten des verstärkten KI-Einsatzes wird ihre Rolle als Change Agent und Hüter eines problemfindungsorientierten Ansatzes entscheidend, damit Scrum als praxisnaher Rahmen für kontinuierliche Verbesserung und echte Werteerzeugung genutzt wird.</div>
+        <a href="https://www.scrum.org/resources/blog/scrum-masters-are-not-there-simply-run-ceremonies" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Schluss mit billigem Claude: Vier Grundprinzipien der Token-Ökonomie im Jahr 2026 🇩🇪</div>
+        <div class="article-date">23.04.2026</div>
+        <div class="article-summary">Anthropic begrenzt ab April 2026 den Zugriff auf Claude, um den durch gestiegene GPU-Mietpreise (Nvidias Blackwell-Chips kosten etwa 4,08 US-Dollar pro Stunde, ein Anstieg von 48 % in zwei Monaten) verursachten Engpass zu adressieren. Jeder Eingabeturn kostet, indem er den gesamten bisherigen Kontext erneut einliest – was bei 30 Nachrichten über 50 % des Token-Verbrauchs ausmachen kann – und unsichtbare Inputs wie System-Prompts oder Tool-Outputs erhöhen die Kosten zusätzlich, etwa in Form von 119.000 Tokens für ein 51-seitiges PDF. Ein Caching-Mechanismus senkt diese Kosten erheblich: Cache-Reads kosten nur rund 10 % und Cache-Writes 25 % mehr als der Basispreis, wobei der Cache standardmäßig fünf Minuten hält. Die vier Prinzipien der Token-Ökonomie – vollständiges Neuladen des Kontexts, geteiltes, unsichtbares Kontextfenster, günstigere Kosten für stabilen Kontext und strukturelle Knappheit – fordern, dass man seine Chats thematisch trennt, Kontextdateien auf das Wesentliche beschränkt und Modelle wie Opus 4.7 gezielt einsetzt, um pro eingesetztem Token maximalen „Intelligenzertrag“ zu erzielen.</div>
+        <a href="https://www.scrum.org/resources/blog/schluss-mit-billigem-claude-vier-grundprinzipien-der-token-okonomie-im-jahr-2026" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Why the “state” of Scrum artifacts shapes better decisions</div>
+        <div class="article-date">23.04.2026</div>
+        <div class="article-summary">Scrum erfordert, dass Product Backlog, Sprint Backlog und Increment den aktuellen Zustand widerspiegeln, um fundierte Entscheidungen zu ermöglichen. Die Artefakte müssen stets die neuesten Erkenntnisse und den realen Fortschritt abbilden, da veraltete Informationen zu falscher Priorisierung oder mangelhafter Planung führen. Ein präziser, lebendiger Zustand der Artefakte verhindert, dass das Team auf Annahmen und veralteten Status quo zurückfällt, und unterstützt gleichzeitig ein gemeinsames Verständnis und transparente Abläufe. Wird der tatsächliche Zustand der Artefakte nicht abgebildet, wird die Daily Scrum-Session zur bloßen Formalität, was den produktiven Entscheidungsfindungsprozess erheblich beeinträchtigt. Aktuelle, transparente Artefakte sind damit essenziell für den Erfolg und die kontinuierliche Verbesserung des agilen Vorgehens.</div>
+        <a href="https://www.scrum.org/resources/blog/why-state-scrum-artifacts-shapes-better-decisions" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">AI Future Impact On The Scrum Roles</div>
+        <div class="article-date">22.04.2026</div>
+        <div class="article-summary">AI hat den Hype-Zyklus bereits hinter sich und wird nun direkt zur Lösung realer Probleme eingesetzt, was fundamentale Änderungen in den Scrum-Rollen auslöst. Entwickler agieren vermehrt als Vermittler zwischen den fachlichen Anforderungen und der KI, die Code, Tests und Integration übernimmt, sodass weniger spezialisierte Entwickler benötigt werden. Product Owner nutzen KI zur Verarbeitung großer Datenmengen – von Marktanalysen bis hin zur Erstellung von User Stories – und müssen künftig verstärkt als Administratoren und Kommunikatoren zwischen Mensch und Maschine agieren, was zu einer Mehrfachbetreuung von Teams pro PO führen kann. Bei Scrum Mastern verändert sich das Aufgabenspektrum grundlegend, da kleinere Teams mit weniger Konflikten und die Verantwortung für die Auswahl und Integration von KI-Tools zum neuen Standard werden; sie entwickeln sich immer mehr zu AI Coaches, AI Fluency Teachers und AI Orchestrators und müssen bereits jetzt KI-basierte Scrum-Teams aufbauen.</div>
+        <a href="https://www.scrum.org/resources/blog/ai-future-impact-scrum-roles" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">From Chaos to Control, Part 3 - Done</div>
+        <div class="article-date">22.04.2026</div>
+        <div class="article-summary">Die Methode begrenzt aktiv die Anzahl gleichzeitig gestarteter Aufgaben (WIP) auf die tatsächliche Teamgröße, um den Fokus auf den Abschluss einzelner Features zu lenken. Der Begriff „Done“ wird dabei als Qualitätstor definiert, das nur dann erreicht ist, wenn ein Feature deploybar, usability-, integrativ- und regressiongetestet sowie dokumentiert ist. Die Umstellung erfolgt von internen Messgrößen hin zu realen Nutzerergebnissen und setzt auf konkrete, evidenzbasierte Metriken. Durch das Anerkennen von „Done“ als finale Qualitätssicherung wird sowohl technischer Nachholbedarf minimiert als auch eine verlässlichere Prognose der Prozesseffizienz ermöglicht.</div>
+        <a href="https://www.scrum.org/resources/blog/chaos-control-part-3-done" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Is Your Product Backlog Ready for the AI Agents?</div>
+        <div class="article-date">21.04.2026</div>
+        <div class="article-summary">Autonome AI-Agenten können herkömmliche, vage formulierte User Stories nicht verarbeiten, weshalb der Product Backlog in einen maschinenlesbaren Trainingsdatensatz umgewandelt werden muss. Prompt-Ready PBIs werden definiert durch explizite Schemas (etwa genaue JSON-Payloads oder Datenbanktabellen), negative Constraints und direkten API-Kontext, wodurch Unklarheiten vermieden und fehlerhafte Interpretationen verhindert werden. Gleichzeitig übernimmt ein spezialisierter NLP-Agent während der Backlog Refinement-Phase die Prüfung der Akzeptanzkriterien und warnt, wenn ein Eintrag beispielsweise fehlende Fehlerbehandlungslogiken aufweist. Anstatt Story Points zu vergeben, messen Teams die „Größe“ eines Items über den API-Token-Verbrauch und parallele Compute-Ressourcen, während der Product Goal – eingebettet via Retrieval-Augmented Generation (RAG) – als systemischer Steuerungsmechanismus für die autonomen Agenten dient.</div>
+        <a href="https://www.scrum.org/resources/blog/your-product-backlog-ready-ai-agents" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Why Professional Scrum is as Relevant as Ever in the Age of AI</div>
+        <div class="article-date">21.04.2026</div>
+        <div class="article-summary">KI treibt die Entwicklung rasant voran, indem sie Produktvisionen generiert, Backlog-Items erstellt und Tests automatisiert – damit steigt jedoch auch die Ungewissheit, was die empirische Steuerung von Projekten unerlässlich macht. Scrum begegnet dieser Herausforderung, indem es kontinuierlich adaptive Planung sowie kurze Feedbackzyklen etabliert, um unvermeidbare Änderungen und Risiken frühzeitig aufzudecken. Die Zunahme von Herausforderungen wie Halluzinationen, konfabulierter Information und ethischen Fragestellungen macht eine kompetente, KI-bewusste menschliche Aufsicht notwendig. Scrum bleibt somit zentral, da es nicht nur Prozesse absichert, sondern auch den notwendigen Change Agent – trotz aller Automatisierung – in den Teams verankert, wie das anstehende Professional Scrum Master – AI Essentials Training am 12. Mai eindrucksvoll demonstriert.</div>
+        <a href="https://www.scrum.org/resources/blog/why-professional-scrum-relevant-ever-age-ai" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Konflikte kosten IT-Teams ihre besten Entwickler: So erkennst und stoppst du sie frühzeitig (und verkommst nicht zum Wohlfühlmanager)</div>
+        <div class="article-date">20.04.2026</div>
+        <div class="article-summary">Konflikte in IT-Teams führen dazu, dass Mitarbeiter durchschnittlich 15 % ihrer Arbeitszeit mit Konflikten verbringen und Führungskräfte 30 bis 50 % ihrer wöchentlichen Arbeitszeit damit verbringen, was bei über 50 % der Kündigungen in Unternehmen als Ursache identifiziert wird. Konfliktdynamiken manifestieren sich dabei bereits im Sprint-Review, wenn zum Beispiel der Wunsch, recht zu behalten, zu stark ausgeprägten Verhaltensmustern wie Durchsetzen, Vermeiden oder Nachgeben führt. Die Beobachtung toxischer „apokalyptischer Reiter“ – Kritik, Mauern, Rechtfertigung und Verachtung – erinnert an Dr. Gottmans Studien, bei denen ein Verhältnis von mindestens fünf positiven zu jeder negativen Interaktion entscheidend für den Erfolg ist und bei dem negative Verhaltensweisen über 90 % der Scheidungen vorhersagten. Anhand der Eskalationsstufen nach Friedrich Glasl, von der Verhärtung bis in den zerstörerischen Zuschnitt, wird empfohlen, Konflikte frühzeitig durch Moderation, Einzelgespräche oder bei Bedarf durch externe Mediatoren zu entschärfen, um den nachhaltigen Verlust von Domain-Knowledge und Teameffizienz zu verhindern.</div>
+        <a href="https://www.scrum.org/resources/blog/konflikte-kosten-it-teams-ihre-besten-entwickler-so-erkennst-und-stoppst-du-sie-fruhzeitig-und-verkommst-nicht-zum-wohlfuhlmanager" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">LERNEE Project (Part 1) - Doing A Live Project As A Product Owner</div>
+        <div class="article-date">20.04.2026</div>
+        <div class="article-summary">Mehdi Hoseini startet ab April 2026 als Product Owner ein Live-Projekt, um eine integrierte Plattform für Trainer aufzubauen. Er identifiziert dabei drei zentrale Bereiche: Infrastruktur (beispielsweise über Lösungen wie Kajabi, Teachable oder EventBrite), Kursmarketing (über Netzwerke wie LinkedIn, Facebook und Instagram) und Kurslieferung (mit Anbietern wie Udemy, Coursera oder Pluralsight sowie Kollaborationstools wie Miro und Mural). Die Initiative soll insbesondere IT-Trainer adressieren, die Live-Kurse anbieten, um so eine bislang fehlende One-Stop-Shop-Lösung zu schaffen. Gleichzeitig wirbt er für seine anstehende PSPO-Klasse, in der praxisnah agile Produktmanagement-Prinzipien vermittelt werden.</div>
+        <a href="https://www.scrum.org/resources/blog/lernee-project-part-1-doing-live-project-product-owner" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">No More Cheap Claude: Four First Principles of Token Economics in 2026</div>
+        <div class="article-date">19.04.2026</div>
+        <div class="article-summary">Anthropic erhöht bewusst die Token-Kosten für Claude Pro, sodass Nutzer insbesondere in den Spitzenzeiten (5–11 PT, 13–19 GMT) schneller an ihre Limits stoßen. Untersuchungen, etwa von einem Concordia University Team, belegten, dass bis zu 53,9 % des Token-Budgets allein für das erneute Einlesen vergangener Konversationen aufgewendet werden. Das System verarbeitet jeden neuen Eingabedurchlauf, indem es sämtliche vorherige Nachrichten – inklusive unsichtbarer Inputs wie Projektdateien, System-Prompts und Connector-Antworten – erneut lädt, was die tatsächlichen Kosten in die Höhe treibt. Zudem belasten Änderungen im Kontext das Caching: Während stabiler Kontext auf nur etwa 10 % der Standardkosten abgerufen wird, erzwingen Cache-Misses deutlich höhere Kosten. Angesichts steigender GPU-Mieten (48 % Anstieg, $4,08 pro Stunde für Nvidia Blackwell-Chips) und längerer Mindestvertragslaufzeiten empfiehlt die Analyse, Kontexte gezielt zu strukturieren, mehrere themenspezifische Chats statt eines langen Gesprächs zu führen und unterschiedliche Modellvarianten – von Haiku über Sonnet bis zu Opus – bedarfsgerecht einzusetzen.</div>
+        <a href="https://www.scrum.org/resources/blog/no-more-cheap-claude-four-first-principles-token-economics-2026" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Price Your Time: The Cost of Delay Discipline Most Product Teams Skip</div>
+        <div class="article-date">19.04.2026</div>
+        <div class="article-summary">Etwa 85 % der Product Manager kennen den konkreten ökonomischen Verlust durch verspätete Features nicht – eine Lücke, die die Priorisierung von Aufgaben zu einem subjektiven Marktspiel macht. Verzögerungen, etwa bei einem Feature mit einem potenziellen Wochenumsatz von 50.000 USD, können bei einer Monatsverzögerung zu einem Verlust von 200.000 USD führen, während Features mit geringeren Umsätzen entsprechend weniger verlieren. Die Methode, den „Cost of Delay“ in Dollar pro Zeiteinheit zu bemessen und durch die Umsetzungsdauer zu teilen (CD3), liefert eine rationale Basis für die Reihenfolge im Backlog, was bei SAFe als Weighted Shortest Job First (WSJF) adaptiert wurde. Angesichts beschleunigter Entwicklungszyklen – ehemals drei Monate, heute drei Wochen dank KI und automatisierten Prozessen – wird die exakte ökonomische Bewertung von Zeit zu einem wesentlichen Wettbewerbsvorteil. Die Anwendung dieser Disziplin ermöglicht es, Entscheidungen datenbasiert zu treffen und dadurch realisierte Verluste signifikant zu verringern.</div>
+        <a href="https://www.scrum.org/resources/blog/price-your-time-cost-delay-discipline-most-product-teams-skip" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+
+    <h2>Simon Willison (31 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">python 1245</div>
+        <div class="article-date">25.04.2026</div>
+        <div class="article-summary">Simon Willisons python-Tag-Seite bündelt 1.245 Beiträge, in denen diverse Themen rund um Python behandelt werden, von Release-Details (z. B. Datasette 1.0a27 mit Wechsel von Django-CSRF-Token zu modernen Browserheadern) bis zu Performancebenchmarks (etwa ein 11–12% schnellerer JIT bei Python 3.15 auf macOS AArch64). Beiträge erläutern zudem praktische Anwendungsfälle, wie das uv run Rezept zur Transkription einer Audiodatei mit dem 10,28 GB schweren Gemma 4 E2B Modell und Plugin-Anpassungen, die Sync-Modelle in asynchrone Umgebungen überführen. Sicherheitsvorfälle wie der Exploit in LiteLLM (Versionen 1.82.7 und 1.82.8) und die daraus resultierenden Supply-Chain-Probleme werden ausführlich thematisiert. Ergänzt wird das Spektrum durch Diskussionen zu innovativen Paketmanagement-Strategien zur Vermeidung von Risiken (Dependency-Cooldowns) sowie zu Neuentwicklungen in der Python-Toolchain, etwa bei ty, cysqlite und Sandbox-Lösungen.</div>
+        <a href="https://simonwillison.net/tags/python/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">An update on recent Claude Code quality reports</div>
+        <div class="article-date">24.04.2026</div>
+        <div class="article-summary">Anthropic stellte fest, dass drei Änderungen die Qualität von Claude Code beeinträchtigten. Am 4. März wurde der Standard-Rechenaufwand von Claude Code von „high“ auf „medium“ umgestellt, um lange Latenzen zu reduzieren – was in Sonnet 4.6 und Opus 4.6 erfolgte – und nach Nutzerfeedback am 7. April zurückgenommen wurde, sodass Opus 4.7 nun standardmäßig mit „xhigh“ arbeitet. Eine am 26. März eingeführte Caching-Optimierung, die in Sessions mit über einer Stunde Inaktivität den Denkverlauf bereinigen sollte, führte durch einen Bug dazu, dass alle früheren Denkteile bei jedem weiteren Turn gelöscht wurden; dies wurde am 10. April in Version v2.1.101 behoben. Zudem verursachte ein am 16. April implementierter Systemprompt zur Begrenzung der Länge von Texten einen Rückgang der Codierungsqualität um 3 % in Evaluierungen von Opus 4.6 und 4.7, weshalb der Prompt am 20. April wieder zurückgenommen wurde. Anthropic plant künftig strengere Tests, verbesserte interne Code-Review-Tools und kontrollierte Rollouts von Systemprompt-Änderungen, um derartige Probleme frühzeitig zu erkennen und zu vermeiden.</div>
+        <a href="https://www.anthropic.com/engineering/april-23-postmortem" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">DeepSeek V4—almost on the frontier, a fraction of the price</div>
+        <div class="article-date">24.04.2026</div>
+        <div class="article-summary">DeepSeek V4 umfasst zwei Vorschau-Modelle: DeepSeek-V4-Pro mit 1,6 Billionen Parametern (davon 49 Milliarden aktiv, 865GB auf Hugging Face) und DeepSeek-V4-Flash mit 284 Milliarden Parametern (13 Milliarden aktiv, 160GB). Beide Modelle nutzen einen 1-Million-Token-Kontext mit Mixture-of-Experts-Architektur und einer signifikanten Effizienzsteigerung gegenüber DeepSeek V3.2 – Pro benötigt dabei nur 27% der Single-Token-FLOPs und 10% des KV-Caches, während Flash 10% bzw. 7% erreicht. Benchmarks zeigen, dass DeepSeek-V4-Pro im Bereich der erweiterten Reasoning Tokens GPT-5.2 und Gemini-3.0-Pro nahekommt, wenngleich es etwa 3 bis 6 Monate hinter den aktuellen Frontier-Modellen liegt. Die Preisgestaltung positioniert DeepSeek-V4-Flash als günstigste Option unter den kleinen Modellen mit $0,14 pro Million Token input und $0,28 für output, während DeepSeek-V4-Pro zu $1,74 bzw. $3,48 pro Million Token zu den wirtschaftlich attraktivsten der großen Modelle zählt.</div>
+        <a href="https://simonwillison.net/2026/Apr/24/deepseek-v4/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Serving the For You feed</div>
+        <div class="article-date">24.04.2026</div>
+        <div class="article-summary">Für You Feed konsumiert kontinuierlich den Jetstream von Posts, Likes und Reposts und speichert die Ereignisse in einer SQLite-Datenbank, wobei sqlc zum Erstellen maßgeschneiderter SQL-Abfragen eingesetzt wird. Ein einzelner Go-Binary-Prozess verarbeitet die Daten, wobei In-Prozess-Caching über das hashicorp/golang-lru Paket fast 100% der für Empfehlungen nötigen Daten bereitstellt – bei Neustart muss der Cache allerdings erst wieder aufgebaut werden. Die Architektur beschränkt die Datenhaltung auf die letzten 90 Tage und verwendet eine Cleanup-Goroutine, um veraltete Einträge zu entfernen, was trotz einer Datenbankgröße von 419GB und einem zusätzlichen 200GB Log-File den Betrieb effizient hält. Auf einem lokalen Gaming-PC mit AMD 9950X3D (16 Kerne, mit einem Upgrade von einem 12-Kern AMD 7900, das eine Leistungssteigerung von ca. 25% bringt), 96GB DDR5 und 2TB NVMe-Speicher läuft der Feed, der bei 15–25 QPS und ca. 50GB RAM-Nutzung rund 72.000 tägliche Nutzer bedient. Ein VPS bei OVH übernimmt per Nginx den externen Zugang, proxyed Anfragen über eine Tailscale-Verbindung an den heimischen Server und ermöglicht durch algorithmische Anpassungen einen Rückgang der CPU-Last um mehr als das 10-fache, falls die Nutzerzahlen signifikant steigen sollten.</div>
+        <a href="https://atproto.com/blog/serving-the-for-you-feed" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">SonarQube Advanced Security</div>
+        <div class="article-date">24.04.2026</div>
+        <div class="article-summary">SonarQube Advanced Security erweitert die herkömmliche statische Codeanalyse um erweiterte SAST-Methoden, die über reine First-Party-Analyse hinaus auch Abhängigkeiten und Open-Source-Komponenten mittels Dependency-aware Data Flow Analysis und Taint Analysis prüfen. Die Lösung integriert Software Composition Analysis (SCA), um bekannte CVEs, Lizenzprobleme und potenziell bösartige Pakete frühzeitig zu identifizieren und Prioritäten anhand von CVSS und EPSS zu setzen. Durch die nahtlose Einbindung in CI/CD-Pipelines und Entwickler-Workflows erhalten Teams unmittelbares Feedback direkt in Pull Requests, sodass Sicherheitslücken bereits in frühen Phasen adressiert werden können. Die Erweiterung erfordert SonarQube Enterprise (Cloud oder Server) und vereint damit Codequalität und Sicherheit in einem zentralen Analyse-Framework.</div>
+        <a href="https://fandf.co/4bzyODl" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">The people do not yearn for automation</div>
+        <div class="article-date">24.04.2026</div>
+        <div class="article-summary">Software Brain versteht die Welt als eine Reihe von Datenbanken und automatisierbaren Schleifen, was in der modernen Softwareentwicklung verankert ist, aber den Blick auf den nicht reduzierbaren menschlichen Alltag verengt. Statistiken zeigen, dass trotz 900 Millionen wöchentlichen Nutzern von ChatGPT – mit Tendenz zum Milliardenbereich – insbesondere Gen Z zunehmend gegen AI eingestellt ist, wobei nur 18 Prozent laut Gallup-Poll Hoffnung empfinden und 31 Prozent angerührt reagieren. Führende Persönlichkeiten wie Satya Nadella und Dario Amodei erkennen, dass technologische Fortschritte und automatisierte Geschäftsprozesse weitgehend an gesellschaftlicher Akzeptanz scheitern, während Sam Altman betont, dass AI nicht aufgrund von Marketingproblemen unbeliebt sei. Automatisierung im Unternehmenskontext mag immense Effizienzgewinne liefern, doch der Versuch, das gesamte Leben in Datenbanken zu zwängen, entspricht nicht dem wahren menschlichen Bedarf an Vielfalt und Unvorhersehbarkeit.</div>
+        <a href="https://www.theverge.com/podcast/917029/software-brain-ai-backlash-databases-automation" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Transactionally Staged Job Drains in Postgres</div>
+        <div class="article-date">24.04.2026</div>
+        <div class="article-summary">Wenn innerhalb einer laufenden Transaktionskette ein Hintergrundjob in die Queue gestellt wird, tritt häufig das Problem auf, dass der Job vor Abschluss der Transaktion ausgeführt wird und somit auf noch nicht beständigen Daten operiert. Das vorgestellte Konzept nutzt eine staging‑Tabelle (z. B. mittels DDL mit BIGSERIAL, TEXT und JSONB Feldern), in der Jobs inkrementell eingefügt werden; diese Jobs bleiben dank ACID-Isolation unsichtbar, bis der umgebende Transaktionsblock committed. Ein dedizierter Enqueuer-Prozess, der in einem Repeatable-Read-Transaktionskontext agiert, holt die gesammelten Jobs in Batches ab, überträgt sie – etwa an Sidekiq – und entfernt sie erst nach erfolgreicher Übertragung, was Rollbacks und Jobverluste verhindert. Diese Methode eliminiert die Probleme von direkten In-Database-Queues wie delayed_job oder que unter hoher Last und sichert zumindest einmalige Ausführung der Jobs.</div>
+        <a href="https://brandur.org/job-drain" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">prompt-engineering 186</div>
+        <div class="article-date">24.04.2026</div>
+        <div class="article-summary">Die Seite umfasst 186 Beiträge, die das Spektrum von Techniken und Fallstudien im Umgang mit Large Language Models abdecken – von der detaillierten Analyse von Bugs bei Claude Code (z. B. einem Fehler in Claude Code, der durch eine fehlerhafte Sitzungsbereinigung auftrat) über die evolutionären Änderungen im system prompt (zwischen Claude Opus 4.6 und 4.7) bis hin zu praktischen Anleitungen für CLI-Tools wie s3‑credentials 0.17. Beiträge präsentieren konkrete Benchmarks und Preismodelle, wie den Aufruf von GPT‑5‑Codex zu $1,25 pro Million Eingabetoken sowie Fälle, in denen Prompt Caching und Agentic Engineering Patterns signifikant zur Kostenreduktion und Leistungssteigerung beitragen. Technische Details, Beispielprompts und Code-Snippets illustrieren auch, wie Systeme wie Gemini 3.1 Flash TTS oder DeepSeek 3.1 im direkten Vergleich mit Frontier‑Modellen abschneiden. Die Beiträge liefern viele praktische Einblicke in Best Practices und Abwägungen bei der Implementierung von agentischen Systemen mit LLMs, was für Entwickler, Tech-Leads und Architekten einen wertvollen Überblick der aktuellen Entwicklungen bietet.</div>
+        <a href="https://simonwillison.net/tags/prompt-engineering/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">A pelican for GPT-5.5 via the semi-official Codex backdoor API</div>
+        <div class="article-date">23.04.2026</div>
+        <div class="article-summary">GPT-5.5 wird über OpenAI Codex und als Teil der kostenpflichtigen ChatGPT-Abonnements bereitgestellt, wobei die API noch aus Sicherheitsgründen verzögert online gehen soll. Simon Willison zeigt, dass man über eine inoffizielle Backdoor-API – unterstützt durch den Open-Source Codex CLI und das Plugin llm‑openai‑via‑codex – auf bestehende Codex-Abonnements zugreifen kann. Dabei demonstriert er, wie sich SVG-Grafiken, wie etwa ein Pelikan auf einem Fahrrad, mit unterschiedlichen Reasoning-Einstellungen (Standard vs. xhigh mit 9.322 versus 39 Tokens) generieren lassen. Die Preisgestaltung von GPT-5.5 liegt bei $5 pro 1M Input-Token und $30 pro 1M Output-Token, während GPT-5.5 Pro teurer kalkuliert wird ($30 beziehungsweise $180 pro 1M Token) und GPT-5.4 weiterhin zum halben Preis verfügbar bleibt. Das Vorgehen zeigt, wie bestehende Abonnements und Open-Source-Tools genutzt werden können, um neue LLM-Features zu explorieren.</div>
+        <a href="https://simonwillison.net/2026/Apr/23/gpt-5-5/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Extract PDF text in your browser with LiteParse for the web</div>
+        <div class="article-date">23.04.2026</div>
+        <div class="article-summary">LiteParse von LlamaIndex verarbeitet PDFs in einer sinnvollen, linearen Reihenfolge, ohne auf KI-Modelle zurückzugreifen, und setzt dabei auf PDF.js sowie Tesseract.js als OCR-Backup. Das ursprüngliche Node.js CLI-Tool wurde von Simon Willison auf eine browserbasierte Variante portiert, die komplett im Client ausgeführt wird und OCR optional anbietet. Die Implementierung erfolgte mithilfe von Claude Code (Opus 4.7) und brachte in nur 59 Minuten eine funktionierende Version hervor, die über Vite entwickelt und via GitHub Actions auf GitHub Pages deployed wird. Dabei kamen neben klar definierten heuristischen Ansätzen auch automatische Tests und iterative kleine Commits zum Einsatz, um eine robuste Webanwendung zu erstellen.</div>
+        <a href="https://simonwillison.net/2026/Apr/23/liteparse-for-the-web/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">chatgpt 195</div>
+        <div class="article-date">23.04.2026</div>
+        <div class="article-summary">Die Seite sammelt 195 Beiträge zu ChatGPT und KI, in denen unter anderem neue Modelle wie GPT-5.5 (verfügbar via OpenAI Codex) und ChatGPT Images 2.0 mit einem Leistungsanstieg vergleichbar mit dem Sprung von GPT-3 zu GPT-5 vorgestellt werden. Technische Details zu Funktionen wie ChatGPT Containers, die inzwischen Bash, pip/npm-Installationen und Datei-Downloads ermöglichen, sowie zu adaptiven Denkstrategien in GPT‑5.1 (Instant, Thinking, Auto) werden diskutiert. Es finden sich kritische Betrachtungen zu produktbezogenen Entscheidungen – etwa zur Einführung eines werbefinanzierten, gestaffelten Abonnement-Modells mit dem neuen 8‑Dollar‑Go-Tier – ebenso wie Vergleiche zur Energieeffizienz, indem ChatGPT-Operationen in Relation zu Netflix-Streamingzeiten gesetzt werden. Beiträge zu erweiterten Memory-Mechanismen bei ChatGPT und Claude sowie zu Sicherheits- und Routing-Strategien unterstreichen den anhaltenden Fokus auf technische Feinheiten und Nutzererfahrung im KI-Bereich.</div>
+        <a href="https://simonwillison.net/tags/chatgpt/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Changes to GitHub Copilot Individual plans</div>
+        <div class="article-date">22.04.2026</div>
+        <div class="article-summary">GitHub pausiert neue Anmeldungen für die Individualpläne Copilot Pro, Pro+ und Student, um die Servicequalität für bestehende Kunden zu sichern. Die Änderungen umfassen verschärfte Nutzungslimits, die nun in VS Code und der Copilot CLI transparent angezeigt werden, sowie eine Anpassung der Modellverfügbarkeit: In Pro-Plänen werden keine Opus-Modelle mehr unterstützt, während Pro+-Nutzer weiterhin auf Opus 4.7 zugreifen können, wobei die Limitwerte im Pro+-Plan über 5‑mal höher sind als im Pro-Plan. Die Limits betreffen sowohl einzelne Sessions als auch wöchentliche Tokenbudgets und basieren auf dem Tokenverbrauch sowie dem verwendeten Modellmultiplikator. Nutzer, die durch die neuen Limits beeinträchtigt werden, können vor dem 20. Mai ihren bestehenden Abonnementplan kündigen und eine anteilige Rückerstattung erhalten. Die Anpassungen sind notwendig, da parallele, lang andauernde Agentic Workflows den Ressourcenverbrauch erheblich steigern und die bisherigen Preismodelle überlasteten.</div>
+        <a href="https://github.blog/news-insights/company-news/changes-to-github-copilot-individual-plans/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">How many products does Microsoft have named &#x27;Copilot&#x27;? I mapped every one</div>
+        <div class="article-date">22.04.2026</div>
+        <div class="article-summary">Microsoft nutzt den Namen „Copilot“ für eine Bandbreite von 81 unterschiedlichen Anwendungen, Features, Plattformen und Hardwarevarianten. Der Autor hat die Produkte aus diversen Quellen wie Produktseiten, Launch-Ankündigungen und Marketing-Material zusammengesucht, da es keine zentralisierte Quelle gibt. Die Übersicht umfasst sowohl klassische Copilot-Lösungen (etwa Microsoft 365 Copilot) als auch speziellere Varianten wie den Gaming Copilot und Microsoft Dragon Copilot, wobei jüngste Updates den Überblick am 9. April 2026 vervollständigten. Eine interaktive Visualisierung, erstellt mit Flourish Studio, ermöglicht es, die Verbindungen und Kategorien der verschiedenen Copilot-Produkte zu erkunden.</div>
+        <a href="https://teybannerman.com/strategy/2026/03/31/how-many-microsoft-copilot-are-there.html" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Is Claude Code going to cost $100/month? Probably not—it’s all very confusing</div>
+        <div class="article-date">22.04.2026</div>
+        <div class="article-summary">Anthropic testet eine Änderung im Pricing von Claude Code, indem sie den bislang im $20‑Monatspro‑Plan enthaltenen Dienst testweise exklusiv in den teureren $100‑ und $200‑Max-Plänen anbietet. Dabei soll nur rund 2% der neuen Prosumer-Anmeldungen betroffen sein, was jedoch auf erheblichen Unmut in der Entwickler-Community stößt. Gleichzeitig bleibt Claude Cowork im $20‑Plan erhalten, obwohl es inhaltlich identisch zu Claude Code ist, während OpenAI mit Codex kostenfreie und günstigere Alternativen sicherstellt. Die schnelle Rücknahme der Änderungen auf der Website und fehlende offizielle Kommunikation untergraben das Vertrauen in Anthropic und werfen strategische Fragen hinsichtlich der Preispolitik und der langfristigen Produktausrichtung auf.</div>
+        <a href="https://simonwillison.net/2026/Apr/22/claude-code-confusion/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Qwen3.6-27B: Flagship-Level Coding in a 27B Dense Model</div>
+        <div class="article-date">22.04.2026</div>
+        <div class="article-summary">Qwen3.6-27B nutzt ein dichtes Modell mit 27 Milliarden Parametern, das speziell für Coding-Aufgaben entwickelt wurde und sich in Benchmarks als konstanter Wettbewerber zu größeren Flaggschiff-Lösungen erweist. Die Architektur kombiniert optimierte Token-Verarbeitung und gezielte Feinabstimmungen, um Latenz zu senken und gleichzeitig hohe Präzision bei der Codegenerierung zu liefern. Technische Entscheidungen basieren auf einer straffen Modellstruktur, die trotz reduzierter Parameterzahl eine vergleichbare Leistungsfähigkeit sicherstellt. Durch diese Fokussierung auf Effizienz und Effektivität demonstriert Qwen3.6-27B, dass auch kompaktere Modelle im Bereich der Programmierunterstützung konkurrenzfähig agieren können.</div>
+        <a href="https://qwen.ai/blog?id=qwen3.6-27b" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">ai-ethics 292</div>
+        <div class="article-date">22.04.2026</div>
+        <div class="article-summary">Die Seite umfasst 292 Beiträge zu AI-Ethik und bündelt Diskussionen zu technischen Details, wie den Unterschieden im System Prompt zwischen Claude Opus 4.6 und 4.7 bei Anthropic sowie Preismodellen, beispielsweise der Debatte, ob Claude Code bis zu 100 US-Dollar im Monat kosten könnte. Beiträge analysieren Anwendungsfälle von LLMs – von der automatisierten Exploit-Entwicklung bis zur Lizenzierung offener Quellcodes – und liefern konkrete Zahlen, wie etwa 2 Mio. wöchentliche Nachrichten zu Gesundheitsversicherungen in anonymisierten ChatGPT-Daten. Zudem beleuchten Blogeinträge das Zusammenspiel von AI-gestützter Softwareentwicklung und ethischen, organisatorischen Herausforderungen, etwa im Kontext von Open-Source-Projekten und internen Verantwortlichkeiten.</div>
+        <a href="https://simonwillison.net/tags/ai-ethics/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">security 598</div>
+        <div class="article-date">22.04.2026</div>
+        <div class="article-summary">Firefox 150 behebt 271 Sicherheitslücken, nachdem die frühe Evaluation von Claude Mythos Preview in Zusammenarbeit mit Anthropic signifikante Erkenntnisse über Browser-Sicherheit lieferte. Datasette ersetzt den bisherigen tokenbasierten CSRF-Schutz durch einen headerbasierten Ansatz – inspiriert von Go 1.25 und Filippo Valsorda – und entfernt dadurch aufwendige Formularelemente. OpenAI optimiert mit GPT‑5.4‑Cyber gezielt KI-gestützte Cyber Defense, während Anthropic durch Project Glasswing den Zugang zu Claude Mythos auf Sicherheitsexperten einschränkt. Supply-Chain-Angriffe wie jene bei Axios und LiteLLM sowie neu entwickelte Tools wie scan-for-secrets 0.1 verdeutlichen den Bedarf an robusten Schutzmaßnahmen und deterministischer Sandbox-Architektur, während moderne Paketmanager (pnpm 10.16, Yarn 4.10.0, Bun 1.3, Deno 2.6, pip 26.0, npm 11.10.0) zunehmend Mechanismen zur Abfederung von Abhängigkeiten implementieren.</div>
+        <a href="https://simonwillison.net/tags/security/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Where’s the raccoon with the ham radio? (ChatGPT Images 2.0)</div>
+        <div class="article-date">21.04.2026</div>
+        <div class="article-summary">OpenAI veröffentlichte am 21. April 2026 ChatGPT Images 2.0, dessen Leistungssteigerung gegenüber gpt-image-1 dem Sprung von GPT-3 zu GPT-5 gleicht. Der Test vergleicht das neue Modell mit gpt-image-1, Claude Opus 4.7, Googles Nano Banana 2 und Nano Banana Pro an einer Where’s-Waldo-ähnlichen Bildaufgabe. Mit gpt-image-2 lassen sich bei Einstellung von --quality high und 3840x2160 als maximaler Bildgröße detailreiche Illustrationen erzeugen, in denen ein Waschbär mit einem Ham-Radio sichtbar ist. Die Erzeugung des finalen Bildes beanspruchte 13.342 Output-Tokens, was bei $30 pro Million zu Kosten von etwa 40 Cent führte.</div>
+        <a href="https://simonwillison.net/2026/Apr/21/gpt-image-2/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">gemini 184</div>
+        <div class="article-date">21.04.2026</div>
+        <div class="article-summary">Gemini 3.1 Flash TTS ermöglicht es, mittels präziser Promptsteuerung Text in Audio umzuwandeln und dabei unterschiedliche Akzente – etwa London, Newcastle oder Exeter – zu simulieren. Google bietet mit Gemini 3.1 Pro eine Version an, die für $2 pro Million Input-Token und $12 pro Million Output-Token preislich deutlich günstiger als konkurrierende Modelle wie Claude Opus 4.6 positioniert ist und außerdem verbesserte SVG-Animationen liefert. Die Beiträge warnen vor einem Sicherheitsrisiko, da ehemals öffentliche API-Schlüssel nach Aktivierung des Gemini-APIs unfreiwillig Zugriff auf sensible Endpunkte ermöglichen können. Ergänzend werden Tools wie llm‑gemini (Versionen 0.27 bis 0.30) und die Google AI Edge Gallery vorgestellt, die den praktischen Einsatz und die Integration der Gemini-Familie in verschiedenste Umgebungen unterstützen.</div>
+        <a href="https://simonwillison.net/tags/gemini/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Claude Token Counter, now with model comparisons</div>
+        <div class="article-date">20.04.2026</div>
+        <div class="article-summary">Das Tool nutzt das Token-Counting-API von Anthropic, um Tokens in Texten und Bildern zu berechnen, wobei ein eigener Anthropic API-Schlüssel erforderlich ist. Es bietet Eingabefelder für Systemprompts und Benutzernachrichten sowie die Möglichkeit, Dateien per Drag-and-Drop auszuwählen. Zudem erlaubt die Benutzeroberfläche den Vergleich verschiedener Modelle, um unterschiedliche Token-Berechnungen gegenüberzustellen. Die einfache, webbasierte Oberfläche ermöglicht eine schnelle Überprüfung der Token-Anzahl, was insbesondere bei der Arbeit mit großen Textmengen oder API-Interaktionen von Nutzen ist.</div>
+        <a href="https://tools.simonwillison.net/claude-token-counter" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Kimi 2.6</div>
+        <div class="article-date">20.04.2026</div>
+        <div class="article-summary">Kimi K2.6 wird als neues Open-Source-Modell vorgestellt, das durch fortschrittliche Langzeit-Codierung, zuverlässige Mehrschritt-Ausführung und erweiterte Agent Swarm-Fähigkeiten auffällt. Das Modell verbessert bei komplexen Aufgaben die Token-Durchsatzrate von ca. 15 auf etwa 193 Token pro Sekunde, wobei es etwa 20 % schneller als LM Studio arbeitet. Beim Umbau des 8 Jahre alten exchange-core ermöglichte eine 13-stündige Ausführung mit 12 Iterationen und über 1.000 Toolaufrufen signifikante Leistungsgewinne – von 0,43 auf 1,24 MT/s (185 % Steigerung) und von 1,23 auf 2,86 MT/s (133 % Steigerung). Zusätzlich skaliert die Agent Swarm-Funktionalität nun horizontal mit 300 Sub-Agents über 4.000 koordinierte Schritte, was in diversen Benchmarks wie HLE, BrowseComp und Terminal-Bench konsequente Verbesserungen gegenüber Kimi K2.5 bestätigt.</div>
+        <a href="https://www.kimi.com/blog/kimi-k2-6" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Opus 4.7 system prompt</div>
+        <div class="article-date">20.04.2026</div>
+        <div class="article-summary">Claude Opus 4.7 wird als System-Prompt definiert, der die Einsatzgrenzen, Bedienungsregeln und Sicherheitsvorgaben für das Modell festlegt. Entwickler und Nutzer erhalten präzise Anweisungen, Claude über verschiedene Schnittstellen – wie Web, Mobile, Desktop und API – zu verwenden, wobei ergänzende Modelle wie Claude Sonnet 4.6 sowie Claude Haiku 4.5 (20251001) explizit erwähnt werden. Detaillierte Vorgaben betreffen effektive Prompt-Techniken, minimale Formatierung sowie den Umgang mit Sicherheitsaspekten, insbesondere im Hinblick auf den Schutz von Minderjährigen. Zudem wird der Wissensschnitt (Ende Januar 2026) als Grenze für aktuelle Informationen und das Vorgehen bei unklaren Anfragen festgelegt.</div>
+        <a href="https://github.com/simonw/research/blob/2cf912666ba08ef0c00a1b51ee07c9a8e64579ef/extract-system-prompts/claude-opus-4-7.md?plain=1" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">SQL functions in Google Sheets to fetch data from Datasette</div>
+        <div class="article-date">20.04.2026</div>
+        <div class="article-summary">Der Artikel erläutert, wie Google Sheets mithilfe von SQL-Funktionen direkt auf Daten in Datasette zugreifen kann. Drei Ansätze werden vorgestellt: Mit der Standardfunktion IMPORTDATA() lassen sich CSV-Daten von öffentlichen Datasette-Instanzen einbinden, über benannte Funktionen kann ein SQL(&quot;SELECT ...&quot;)-Aufruf realisiert werden und mittels Apps Script kann auch auf API-geschützte Instanzen zugegriffen werden. Der bereitgestellte Apps Script-Code verarbeitet JSON-Antworten und unterstützt die Übergabe von API-Schlüsseln über HTTP-Header, wobei der Basis-URL &quot;https://latest.datasette.io/fixtures&quot; verwendet wird. Die Beispiele demonstrieren die praktische Integration von SQL-Abfragen in Google Sheets, um Daten dynamisch aus Datasette-Abfragen abzurufen.</div>
+        <a href="https://til.simonwillison.net/google-sheets/datasette-sql" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">llm-openrouter 0.6</div>
+        <div class="article-date">20.04.2026</div>
+        <div class="article-summary">Version 0.6 von llm-openrouter führt den Befehl &quot;llm openrouter refresh&quot; ein, der die Modellauflistung ohne die übliche Cache-Wartezeit aktualisiert. Damit können Entwickler und Architekten den aktuellen Modellstand direkt abrufen, was insbesondere in dynamischen Entwicklungsumgebungen von Nutzen ist. Der Release von Simon Willison wurde über GitHub veröffentlicht und richtet sich an Nutzer, die einen präzisen und schnellen Zugriff auf aktuelle Modelle benötigen.</div>
+        <a href="https://github.com/simonw/llm-openrouter/releases/tag/0.6" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Headless everything for personal AI</div>
+        <div class="article-date">19.04.2026</div>
+        <div class="article-summary">Headless-Architekturen ermöglichen persönlichen AI-Agenten, direkt über kleine, zusammensetzbare CLI-Tools wie gws, Obsidian CLI, Salesforce CLI und CLI-Anything (31k GitHub-Sterne) auf Dienste zuzugreifen, ohne den Umweg über grafische Benutzeroberflächen. MCP, ein 2025 vorgestelltes Web-API speziell für KI, unterstützt dies beispielhaft, wie bei Granola, wo KI-Agenten Meeting-Aktionen aus Transkriptionen extrahieren. CLIs bieten als Basis der Unix-Philosophie die notwendige Komposition, um nahtlos zwischen Notizen, Tabellen und Webrecherchen zu wechseln – ein Paradigmenwechsel gegenüber starren „User Journeys“. Gleichzeitig minimieren sie die Angriffsfläche traditioneller Browser-basierter Anwendungen, wie der Companies House-Sicherheitslücke (seit Oktober 2025 bekannt), und stellen somit einen wichtigen Schritt zur Absicherung digitaler Dienste dar.</div>
+        <a href="https://interconnected.org/home/2026/04/18/headless" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">The Second Wave of the API-first Economy</div>
+        <div class="article-date">19.04.2026</div>
+        <div class="article-summary">Heroku ermöglichte 2011 mit der V3 API, ausschließlich über öffentliche Endpunkte ein komplettes Dashboard bereitzustellen, was sinnbildlich für die erste API-Welle stand, in der GitHub, Twitter und Facebook offene, leicht zugängliche Schnittstellen boten. Monetarisierungs-, Datenschutz- und Wettbewerbsbedenken führten jedoch dazu, dass sich große Plattformen wie Twitter, Facebook und Instagram auf restriktivere API-Modelle zurückzogen und ein API-Winter einsetzte. Ab Mitte 2025 beflügeln leistungsstarke LLMs den Markt, indem sie Dienste auf Basis natürlicher Sprache steuern, sodass Anbieter wie Basecamp, Salesforce und Slack (mit Ratenlimits wie 50 Kanal- oder 100 Profilanfragen pro Minute) APIs als entscheidenden Wettbewerbsvorteil nutzen. APIs transformieren sich damit von flexiblen Drittanbieter-Schnittstellen zu integralen Bausteinen, über die automatisierte Agenten im Namen der Nutzer sämtliche Serviceaufgaben – beispielsweise im Bankwesen – direkt ausführen können.</div>
+        <a href="https://brandur.org/second-wave-api-first" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Adding a new content type to my blog-to-newsletter tool</div>
+        <div class="article-date">18.04.2026</div>
+        <div class="article-summary">Das Update integriert einen neuen &quot;beats&quot;-Contenttyp in das blog-to-newsletter-Tool, indem eine Union-Abfrage in der SQL-Logik erweitert wird, um nur Beats mit Beschreibungen aus der Datenbank auszuwählen. Der Klonvorgang des simonw/simonwillisonblog-Repositories in ein temporäres Verzeichnis (/tmp) dient dabei als Referenz, während die Änderung in der HTML-Vorlage blog-to-newsletter.html vorgenommen wird. Die Validierung der Änderungen erfolgt mittels eines lokalen HTTP-Servers, gestartet mit &quot;python -m http.server&quot;, und einem Vergleich zwischen dem Newsletter und der Startseite von simonwillison.net, unterstützt durch den Befehl &quot;uvx rodney --help&quot;. Die Implementierung nutzt die in der Django-ORM definierten Beat-Typen (wie release, til, research etc.) zur präzisen Darstellung und Filterung der Inhalte.</div>
+        <a href="https://simonwillison.net/guides/agentic-engineering-patterns/adding-a-new-content-type/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Agentic Engineering Patterns</div>
+        <div class="article-date">18.04.2026</div>
+        <div class="article-summary">Agentic Engineering Patterns nutzen Codierungsagenten wie Claude Code und OpenAI Codex, um die Entwicklung effizienter zu gestalten und die Qualität des generierten Codes zu verbessern. Die Ansätze fördern den systematischen Einsatz von Prinzipien wie „Code ist billig“ und der modularen Wissensspeicherung, wodurch bestehende Routinen gezielt wiederverwendet und mit neuen Agententechniken kombiniert werden. In den Mustern finden sich konkrete Strategien zur Integration von Git, Chat-basierten Prompts, Token Caching sowie Parallel- und Subagenten zur Vermeidung von technischem Schuldenaufbau. Gleichzeitig werden Methoden zur automatisierten Testung, manuellen Qualitätskontrolle und interaktiven Codeerklärungen bereitgestellt, um den gesamten Entwicklungsprozess iterativ zu optimieren.</div>
+        <a href="https://simonwillison.net/guides/agentic-engineering-patterns/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Changes in the system prompt between Claude Opus 4.6 and 4.7</div>
+        <div class="article-date">18.04.2026</div>
+        <div class="article-summary">Claude Opus 4.7 (veröffentlicht am 16. April 2026) bringt im Vergleich zu Version 4.6 (5. Februar 2026) diverse technische Anpassungen im System-Prompt. Die Änderung umfasst unter anderem die Umbenennung der „developer platform“ in „Claude Platform“ sowie die Erweiterung der unterstützten Tools um beispielsweise &quot;Claude in Powerpoint&quot;, was in der Vorgängerversion noch nicht enthalten war. Der überarbeitete Prompt enthält zudem einen klar strukturierten Bereich für Kindersicherheit, in dem unter anderem hervorgehoben wird, dass nach einem abgewiesenen Kinderschutz-Anliegen alle weiteren Anfragen mit besonderer Vorsicht zu behandeln sind. Weitere Anpassungen umfassen die Neugestaltung des Verhaltens bei unpräzisen Nutzeranfragen (acting versus clarifying), den Einsatz eines Tool-Search-Mechanismus zur Überprüfung vorhandener Tools und die Reduktion überflüssiger Ausdrucksweisen, wobei auch spezifizierte Aussagen zum US-Präsidenten in Version 4.6 entfielen, da das Wissens-Cutoff nun auf Januar 2026 aktualisiert wurde.</div>
+        <a href="https://simonwillison.net/2026/Apr/18/opus-system-prompt/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">ai 1967</div>
+        <div class="article-date">18.04.2026</div>
+        <div class="article-summary">Anthropic publiziert System-Prompts, deren evolutionäre Änderungen bei Claude Opus von Version 4.6 zu 4.7 exemplarisch nachvollzogen werden können. Qwen3.6‑35B‑A3B lieferte bei einem „pelican riding a bicycle“-Benchmark auf einem Laptop eine bessere grafische Darstellung als Claude Opus 4.7, während Google mit Gemini 3.1 Flash TTS (Modell-ID gemini‑3.1‑flash‑tts‑preview) ein neues text‑to‑speech Modell vorstellte. Weiterhin werden lokale und cloud‑basierte LLMs wie GLM‑5.1 oder die Gemma‑4‑Familien (E2B, E4B, 26B‑A4B, 31B) intensiv getestet, wobei Unterschiede in Effizienz und Outputqualität aufgezeigt werden. Themen wie AI-Sicherheit, agentisches Engineering und die ökonomischen Konsequenzen von AI-gestützter Codegenerierung prägen das breit gefächerte Diskussionsspektrum.</div>
+        <a href="https://simonwillison.net/tags/ai/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">ai-assisted-programming 376</div>
+        <div class="article-date">18.04.2026</div>
+        <div class="article-summary">Der Tag „ai-assisted-programming“ bündelt Beiträge zur Nutzung von Large Language Models für die Code-Erzeugung, wobei insbesondere der Einsatz von Codierungsagenten zur schnellen Prototypentwicklung und für Experimente mit neuen Architekturen im Fokus steht. Beiträge erläutern praktische Anwendungen des Agentic Engineering, etwa in der Umstellung des CSRF-Schutzes in Datasette (PR #2689), wodurch das aufwändige Einfügen von CSRF-Tokens entfällt. Konkrete Benchmarks und Optimierungen, wie etwa eine 53‑prozentige Performance-Steigerung bei Shopify’s Liquid durch hunderte automatisierte Experimente, illustrieren die wirtschaftlichen Anreize für sauberen, wartbaren Code. Gleichzeitig beleuchten die Artikel, dass AI zwar niedrigstufige Details gut lösen kann, aber in der Konzeption zusammenhängender Architekturen häufig menschliche Expertise und Entscheidungsfindung unverzichtbar bleiben. Der Sammelbeitrag stellt somit verschiedene Facetten und Herausforderungen der AI-gestützten Programmierung dar – von Prototyping-Tools und agentengestütztem Testen bis hin zu den ethischen und architektonischen Aspekten fortschrittlicher Softwareentwicklung.</div>
+        <a href="https://simonwillison.net/tags/ai-assisted-programming/" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+
+    <h2>Thorsteinn Siglaugsson (5 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">The Eye Opener</div>
+        <div class="article-date">20.04.2026</div>
+        <div class="article-summary">Geopolitische Risiken und technologische Steuerung verschmelzen in den Beiträgen von The Eye Opener, wobei strategische Machtspiele und kritische Infrastrukturen im Mittelpunkt stehen. Diskussionen um den Persischen Golf und die Herausforderungen im Hormuz – als Engpass und Brennpunkt internationaler Spannungen – heben hervor, wie militärische Präsenz und digitale Kontrollsysteme zunehmend miteinander verknüpft werden. Der Einsatz von Cyber-Waffen, exemplarisch anhand Israels Fähigkeit, Stromnetze zu stören, zeigt, dass technologische Schwachstellen globale Systeme dauerhaft beeinträchtigen können. Solche Analysen unterstreichen für Entwickler, Tech-Leads und Architekten die Relevanz robuster, sicherheitsorientierter Systeme im Kontext weltweiter Krisen.</div>
+        <a href="https://drmathewmaavak.substack.com/?utm_source=homepage_recommendations&amp;utm_campaign=557337" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Outspoken with Dr Naomi Wolf</div>
+        <div class="article-date">19.04.2026</div>
+        <div class="article-summary">Dr Naomi Wolf fordert in „The Regrettable Death of the Stupid Question“ dazu auf, vermeintlich einfache oder „dumme“ Fragen nicht vorschnell zu verwerfen, da sie essenziell für kreativen Diskurs und Innovation sind – ein Prinzip, das auch in technischen Teams gilt, wo zu starres Festhalten an etablierten Methoden Neuerungen hemmen kann. Sie kritisiert, dass übermäßiges Selbstverständnis und autoritäres Wissensansammeln kritisches Hinterfragen ersticken, was analog zu Situationen in der Softwareentwicklung etwa bei veralteten Systemstandards nachvollziehbar ist. Die jüngste Veröffentlichung, sichtbar an Angaben wie „10 hrs ago“ sowie Interaktionsmetriken von 131 Likes und 77 Kommentaren, unterstreicht die Aktualität und Resonanz der Debatte.</div>
+        <a href="https://naomiwolf.substack.com/?utm_source=homepage_recommendations&amp;utm_campaign=557337" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Trish Wood is Critical</div>
+        <div class="article-date">19.04.2026</div>
+        <div class="article-summary">Liberale Regierungen treffen politische Entscheidungen, die Natur und ländliche Regionen gefährden – das High-Speed-Bahn-Projekt in Eastern Ontario illustriert, wie Infrastrukturvorhaben ökologische und gesellschaftliche Risiken verschärfen können. Trish Wood stellt die mangelnde Unterscheidung zwischen kurzfristigen Interessen und langfristiger Nachhaltigkeit in den Mittelpunkt kritischer Analysen und verfolgt, wie oberflächliche Narrative in politischen Entscheidungsprozessen dazu führen, dass regionale Identitäten und Lebensgrundlagen aufs Spiel gesetzt werden. Ihre investigativen Rückblicke belegen, dass Fehlentscheidungen nicht nur nationale, sondern auch internationale Sicherheitsfragen tangieren, während sie auf strukturelle Inkonsistenzen moderner Demokratien hinweist.</div>
+        <a href="https://trishwood.substack.com/?utm_source=homepage_recommendations&amp;utm_campaign=557337" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Erna Mist</div>
+        <div class="article-date">18.04.2026</div>
+        <div class="article-summary">Die bereitgestellte HTML-Datei enthält ausschließlich strukturelle und navigationsbezogene Elemente ohne inhaltliche Detailinformationen oder technische Aussagen. Konkrete Versionen, Benchmarks oder Produktnamen werden nicht genannt. Eine fundierte inhaltliche Zusammenfassung in Bezug auf technische Entscheidungen oder spezifische Details lässt sich anhand der vorliegenden Daten nicht erstellen.</div>
+        <a href="https://substack.com/@ernamist" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Vejon COVID-19 Review</div>
+        <div class="article-date">18.04.2026</div>
+        <div class="article-summary">COVID-19 wird vorwiegend durch autoimmune Mechanismen getrieben, was herkömmliche Behandlungs- und Protokollansätze in Frage stellt. Umfangreiche Forschungsergebnisse und klinische Daten, die in einem 1:03:36 langen Video präsentiert werden, belegen signifikante Unterschiede im Immunsystem zwischen verschiedenen Patientengruppen. Es zeigt sich, dass die Verschiebung der klinischen Baseline eine Anpassung der Test- und Impfstrategien erforderlich macht, um chronische Immundysregulation und Langzeitfolgen angemessen zu adressieren.</div>
+        <a href="https://philipmcmillan.substack.com/?utm_source=homepage_recommendations&amp;utm_campaign=557337" class="article-link" target="_blank">→ Zum Original-Artikel</a>
+    </div>
+
+</body>
+</html>
