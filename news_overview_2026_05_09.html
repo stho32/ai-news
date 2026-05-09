@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Übersicht - Letzte 7 Tage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .article {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .article-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .article-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .article-summary {
+            margin-bottom: 10px;
+        }
+        .article-link {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .article-link:hover {
+            text-decoration: underline;
+        }
+        /* R00011: Section-Summary-Block, leicht abgesetzt von Einzel-Artikeln */
+        .section-summary {
+            margin: 10px 0 20px 0;
+            padding: 12px 16px;
+            background-color: #eef4fb;
+            border-left: 4px solid #0066cc;
+            font-style: italic;
+            color: #234;
+        }
+        /* R00012: Changelog-Digest-Block — visuell distinkt vom Section-Summary */
+        .changelog-digest {
+            margin: 10px 0 15px 0;
+            padding: 12px 16px;
+            background-color: #fff7e6;
+            border-left: 4px solid #d97706;
+            color: #3a2a00;
+        }
+        .changelog-links {
+            list-style: disc inside;
+            padding-left: 0;
+            margin: 0 0 25px 0;
+        }
+        .changelog-links li {
+            margin: 4px 0;
+        }
+        .changelog-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-left: 6px;
+        }
+        /* R00011: Rueckspruglink zur index.html (oben und unten) */
+        .back-link {
+            display: inline-block;
+            margin: 10px 0 20px 0;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>News Übersicht der letzten 7 Tage</h1>
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+    <p>Generiert am: 09.05.2026 09:17 Uhr</p>
+    <p>Anzahl Artikel: 25 (zus&auml;tzlich 8 Changelog-Eintr&auml;ge aus 1 Quelle)</p>
+
+    <h2>Allan Kelly Blog (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Product Managers who code</div>
+        <div class="article-date">05.05.2026</div>
+        <div class="article-summary">Produktmanager, die selbst programmieren können, tragen dazu bei, Kommunikationslücken zwischen technischen und fachlichen Teams zu schließen, indem sie selbst Details des Code-Designs und Frameworks nachvollziehen. Die Kombination von technischem Know‐how und Produktverantwortung ermöglicht es, Entscheidungen auf einer fundierten Analyse von API-Design, modularer Entwicklung und konkreten technischen Benchmarks zu treffen. Dadurch verbessern sie nicht nur die Abstimmung im Team, sondern verkürzen auch Entwicklungszyklen und optimieren langfristig die Wartbarkeit von Softwareprodukten. Der Artikel fordert einen Paradigmenwechsel, bei dem technisches Verständnis als integraler Bestandteil moderner Produktmanagementprozesse genutzt wird.</div>
+        <a href="https://hilton.org.uk/blog/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Anthropic News (3 Artikel)</h2>
+    <div class="section-summary">Anthropic verdoppelt die Nutzungslimits von Claude Code und Claude API und baut seine Compute-Kapazitäten mittels strategischer Partnerschaften mit SpaceX, Amazon, Google/Broadcom und Microsoft/NVIDIA sowie regionaler Expansion signifikant aus. Zehn neue Agent-Templates ermöglichen die Automatisierung von Finanzdienstleistungen in Microsoft 365-Umgebungen und erweitern das Partner-Ökosystem um relevante Datenkonnektoren. Zudem gründet Anthropic zusammen mit Blackstone, Hellman &amp; Friedman und Goldman Sachs ein Unternehmen, das maßgeschneiderte KI-Lösungen für mittelständische Firmen unter Nutzung des Claude-Modells entwickelt.</div>
+    <div class="article">
+        <div class="article-title">Higher usage limits for Claude and a compute deal with SpaceX</div>
+        <div class="article-date">06.05.2026</div>
+        <div class="article-summary">Anthropic erhöht die Nutzungslimits für Claude Code und die Claude API, indem es die fünfstündigen Ratenlimits für Pro-, Max-, Team- und Enterprise-Konten verdoppelt und die Einschränkungen während der Stoßzeiten für Pro- und Max-Konten aufhebt. Zudem werden die API-Rate-Limits für die Claude Opus Modelle deutlich angehoben. Ein neuer Compute-Deal mit SpaceX ermöglicht den Zugang zu über 220.000 NVIDIA GPUs und mehr als 300 Megawatt an zusätzlicher Rechenkapazität innerhalb eines Monats, was insbesondere für Claude Pro und Max-Abonnenten spürbare Leistungsverbesserungen bringt. Anthropic baut seine Compute-Kapazitäten strategisch aus, wobei weitere Partnerschaften mit Amazon (bis zu 5 GW, davon nahezu 1 GW bis Ende 2026), Google/Broadcom (5 GW ab 2027) sowie eine strategische Vereinbarung mit Microsoft und NVIDIA, die $30 Mrd. Azure-Kapazität umfasst, zählen. Die internationale Expansion und die Einhaltung regionaler Compliance-Anforderungen ergänzen den Ansatz, zusätzliche Kapazitäten in Ländern mit stabiler Hardware- und Netzwerksicherheit auszubauen.</div>
+        <a href="https://www.anthropic.com/news/higher-limits-spacex" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Agents for financial services</div>
+        <div class="article-date">05.05.2026</div>
+        <div class="article-summary">Anthropic veröffentlicht zehn einsatzbereite Agent-Templates als Plugins in Claude Cowork und Claude Code sowie als Cookbooks für Claude Managed Agents, um Aufgaben wie Pitchbook-Erstellung, KYC-Screening und Monatsabschluss zu automatisieren. Die Agenten, die sich optimal mit Claude Opus 4.7 kombinieren lassen – laut Vals AI Finance Agent Benchmark mit 64,37% führend –, integrieren sich nahtlos in Microsoft 365-Umgebungen (Excel, PowerPoint, Word und bald Outlook), wobei Kontext zwischen den Anwendungen automatisch weitergegeben wird. Zusätzlich erweitert Anthropic sein Partner-Ökosystem mit neuen Konnektoren (z. B. Dun &amp; Bradstreet, Fiscal AI, Financial Modeling Prep) und einem MCP App von Moody’s, wodurch Agenten in Echtzeit auf Daten aus bestehenden Systemen zugreifen können. Die Vorlagen lassen sich flexibel an firmenspezifische Modelle, Risiko-Policies und Freigabeprozesse anpassen und sind über den Financial Services Marketplace abrufbar.</div>
+        <a href="https://www.anthropic.com/news/finance-agents" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Building a new enterprise AI services company</div>
+        <div class="article-date">04.05.2026</div>
+        <div class="article-summary">Anthropic gründet gemeinsam mit Blackstone, Hellman &amp; Friedman sowie Goldman Sachs ein Unternehmen, das KI-Dienstleistungen für mittelständische Unternehmen anbietet. Das Ziel besteht darin, das Modell Claude in zentrale Geschäftsprozesse zu integrieren, indem spezialisierte Anthropic Applied AI Ingenieure zusammen mit unternehmensinternen Teams maßgeschneiderte Lösungen entwickeln. Unterstützt wird die Initiative von führenden alternativen Asset Managern wie General Atlantic, Leonard Green, Apollo Global Management, GIC und Sequoia Capital, um dem steigenden Bedarf an KI-Einsatz in verschiedensten Branchen gerecht zu werden. Das neue Unternehmen erweitert zudem das bestehende Claude Partner Network, zu dem unter anderem etablierte Systemintegratoren wie Accenture, Deloitte und PwC gehören.</div>
+        <a href="https://www.anthropic.com/news/enterprise-ai-services-company" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Cursor Blog (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Bootstrapping Composer with autoinstall</div>
+        <div class="article-date">06.05.2026</div>
+        <div class="article-summary">Composer autoinstall nutzt eine Vorgängerversion (Composer 1.5) zur Einrichtung funktionsfähiger, simulierte Entwicklerumgebungen, die als Grundlage für das Reinforcement Learning von Composer 2 dienen. Das System arbeitet in zwei aufeinanderfolgenden Phasen: Zunächst werden aus unkonfigurierten Repositorys zehn potenzielle Setup-Befehle zusammen mit erwarteten Ausgaben ermittelt, danach wird mittels dreier ausgewählter Befehle in bis zu fünf Iterationen der erfolgreiche Aufbau der Umgebung validiert. Die Methode simuliert fehlende Dateien, erstellt Platzhalter und richtet beispielsweise Fake-Datenbanken ein, um den initialen Setup-Fehlern entgegenzuwirken und Rechenressourcen nicht durch fehlerhafte Umgebungen zu verschwenden. Ein Praxistest an dem komplexen Blockchain-Projekt celo-org/celo-monorepo demonstrierte, wie autoinstall auch große Abhängigkeiten, inklusive Komponenten wie Foundry, zuverlässig handhabt. Zudem verbessert Composer 2 den Benchmark-Terminal-Bench deutlich auf 61,7 % im Vergleich zu 47,9 % bei Composer 1.5.</div>
+        <a href="https://cursor.sh/blog/bootstrapping-composer-with-autoinstall" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>GitHub Copilot Blog (2 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Agent pull requests are everywhere. Here’s how to review them.</div>
+        <div class="article-date">07.05.2026</div>
+        <div class="article-summary">Agent-generierte Pull Requests, etwa über GitHub Copilot, erzeugen durch ihre hohe Produktionsrate (über 60 Mio. Reviews, 10‑faches Wachstum innerhalb eines Jahres, mehr als 20 % der Reviews) häufig zusätzlichen technischen Schulden und Redundanzen, wie es eine Studie vom Januar 2026 („More Code, Less Reuse“) belegt. Dabei produziert der Agent Code, der zwar oberflächlich fehlerfrei erscheint, aber Kontext-unabhängig und anfällig für subtile Fehler wie Off-by-One-Probleme, fehlende Berechtigungsprüfungen und unnötige Wiederholungen ist. Prüfer müssen vor der Durchsicht von Diffs zunächst CI-Änderungen, wie geregelte Testabdeckungen und unautorisierte Workflow-Modifikationen, kontrollieren und sich zugleich vergegenwärtigen, dass sie den systemweiten Kontext transportieren, den der Agent nicht erfasst. Gleichzeitig empfiehlt sich der Einsatz automatisierter Tools wie Copilot Code Review, um mechanische Fehler frühzeitig zu identifizieren, bevor der menschliche Reviewer den eigentlichen Fokus auf kritische Pfade und situationsspezifische Prüfungen legt.</div>
+        <a href="https://github.blog/ai-and-ml/generative-ai/agent-pull-requests-are-everywhere-heres-how-to-review-them/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Validating agentic behavior when “correct” isn’t deterministic</div>
+        <div class="article-date">06.05.2026</div>
+        <div class="article-summary">GitHub ersetzt starre, lineare Testskripte in CI-Pipelines durch einen strukturellen Vertrauens-Layer, der autonome Agenten wie den Copilot Coding Agent validiert, indem er essenzielle Zustände anstelle der exakten Befehlsfolge überprüft. Mithilfe eines graphbasierten Modells – eines Prefix Tree Acceptor (PTA) – und Dominator-Analyse werden kritische Meilensteine (etwa das Erreichen eines „Search Results“-Screens in VS Code) automatisch erkannt und von variablen, umgebungsbedingten Zuständen wie Ladebildschirmen abgegrenzt. Die Validierung erfolgt über eine dreistufige Äquivalenzprüfung: schnelle visuelle Metriken, multimodale LLM-gestützte semantische Analyse und konservatives Merging ermöglichen es, unterschiedliche Ablaufpfade zu akzeptieren, solange die essenziellen Zustände in korrekter Reihenfolge auftreten. In einem VS Code-Test-Szenario zeigte der Ansatz im Vergleich zur agentenseitigen Selbsteinschätzung (82,2% Accuracy, 60% Recall, 69,8% F1-Score) perfekte Werte (100% in allen Metriken), wodurch falsche Fehlalarme signifikant reduziert und eine robuste Integration in GitHub Actions-Pipelines ermöglicht wird.</div>
+        <a href="https://github.blog/ai-and-ml/generative-ai/validating-agentic-behavior-when-correct-isnt-deterministic/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>GitHub Copilot Changelog (8 Eintr&auml;ge)</h2>
+    <div class="changelog-digest">Die anstehenden Modell-Änderungen rücken ins Zentrum, indem GPT‑4.1 ab dem 1. Juni 2026 aus allen Copilot-Erlebnissen entfernt und durch GPT‑5.5 ersetzt wird, während Grok Code Fast 1 sowie Claude Sonnet 4 durch GPT‑5 mini in Kombination mit Claude Haiku 4.5 beziehungsweise Claude Sonnet 4.6 abgelöst werden. Die Integration des aktualisierten GPT‑5.5 in Copilot CLI-Sessions unter Einsatz eines Claude‑basierenden Kritikeragents unterstreicht die verstärkte Modellharmonisierung. Gleichzeitig erweitert GitHub den Copilot cloud agent um dedizierte Agents‑Secrets und Variablen, wodurch Administratoren sensible Konfigurationen zentral an Organisationen und Repositories verteilen können, während die Möglichkeit, Copilot CLI‑Plugins zentral über ein settings.json‑File zu konfigurieren, den administrativen Aufwand reduziert. Die VS Code‑Erweiterungen in den Releases v1.116 bis v1.119 fügen Funktionen wie semantische Indexierung, grep-artige Suchabfragen und experimentelle Chat‑Analysen hinzu und ermöglichen durch Bring‑Your‑Own‑Key‑Support die Nutzung mobiler externer Modellprovider. Zusätzlich liefert die erweiterte Copilot Usage Metrics API nun aggregierte Daten zu Code‑Review‑Vorschlägen, differenziert nach Kommentar‑Typen, und stellt diese in Ein‑Tages‑ und 28‑Tage‑Rolling‑Fenstern auf Unternehmens- und Organisationsebene bereit.</div>
+    <ul class="changelog-links">
+        <li><a href="https://github.blog/changelog/2026-05-08-copilot-code-review-comment-types-now-in-usage-metrics-api" class="article-link" target="_blank">Copilot code review comment types now in usage metrics API</a> <span class="changelog-date">08.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-08-more-flexible-secrets-and-variables-for-copilot-cloud-agent" class="article-link" target="_blank">More flexible secrets and variables for Copilot cloud agent</a> <span class="changelog-date">08.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-07-upcoming-deprecation-of-gpt-4-1" class="article-link" target="_blank">Upcoming deprecation of GPT-4.1</a> <span class="changelog-date">08.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-08-upcoming-deprecation-of-grok-code-fast-1" class="article-link" target="_blank">Upcoming deprecation of Grok Code Fast 1</a> <span class="changelog-date">08.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-07-claude-sonnet-4-deprecated" class="article-link" target="_blank">Claude Sonnet 4 deprecated</a> <span class="changelog-date">07.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-07-rubber-duck-in-github-copilot-cli-now-supports-more-models" class="article-link" target="_blank">Rubber Duck in GitHub Copilot CLI now supports more models</a> <span class="changelog-date">07.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-06-enterprise-managed-plugins-in-github-copilot-cli-are-now-in-public-preview" class="article-link" target="_blank">Enterprise-managed plugins in GitHub Copilot CLI are now in public preview</a> <span class="changelog-date">06.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-06-github-copilot-in-visual-studio-code-april-releases" class="article-link" target="_blank">GitHub Copilot in Visual Studio Code, April releases</a> <span class="changelog-date">06.05.2026</span></li>
+    </ul>
+
+    <h2>Google AI Blog (3 Artikel)</h2>
+    <div class="section-summary">Gemma 4 steigert die Inferenzgeschwindigkeit von Sprachmodellen durch Entkopplung von Vorschlag und Verifikation sowie gezielte Hardwareoptimierungen wie KV-Cache-Sharing. Die Gemini API verarbeitet in File Search Text- und Bilddaten gemeinsam und ermöglicht präzise Retrieval-augmented Generation durch benutzerdefinierte Metadatenfilter sowie seitenbasierte Quellenangaben. Gleichzeitig führt die Gemini API eventgesteuerte Webhooks ein, die langlaufende Batch-Operationen effizient per HTTP POST abschließen und mit automatischen Retries eine mindestens einmalige Zustellung gewährleisten.</div>
+    <div class="article">
+        <div class="article-title">Accelerating Gemma 4: faster inference with multi-token prediction drafters</div>
+        <div class="article-date">05.05.2026</div>
+        <div class="article-summary">Gemma 4 kombiniert einen schwergewichtigen Zielmodell (26B MoE bzw. 31B Dense) mit einem leichten MTP-Drafter, der mehrere Tokens gleichzeitig vorschlägt, um Latenzprobleme durch spekulatives Dekodieren zu umgehen. Diese Methode entkoppelt die Token-Generierung von der Verifikation, sodass das Zielmodell eingehende Vorhersagen parallel verifizieren kann und so die Inferenzgeschwindigkeit um bis zu das Dreifache erhöht wird. Hardwareoptimierungen – etwa KV-Cache-Sharing und effiziente Clustering-Techniken – verbessern zusätzlich die Performance, vor allem auf Geräten mit begrenzter Rechenkapazität und auf Edge-Geräten. Die optimierte Architektur ist nun unter Apache 2.0 lizenziert und über Plattformen wie Hugging Face und Kaggle verfügbar.</div>
+        <a href="https://blog.google/innovation-and-ai/technology/developers-tools/multi-token-prediction-gemma-4/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Gemini API File Search is now multimodal: build efficient, verifiable RAG</div>
+        <div class="article-date">05.05.2026</div>
+        <div class="article-summary">Gemini API File Search erweitert seine Funktionalitäten um multimodale Unterstützung, benutzerdefinierte Metadatenfilter und seitenbasierte Quellenangaben zur Verbesserung von Retrieval-augmented Generation (RAG). Das Tool verarbeitet nun Text- und Bilddaten gemeinsam mithilfe des Gemini Embedding 2 Modells, was die kontextuelle Erfassung und strukturierte Suche in großen unstrukturierten Datenbeständen erleichtert. Entwickler können durch gezielten Einsatz von Schlüssel-Wert-Metadaten (z. B. department: Legal) die Suche auf spezifische Datensätze einschränken und so die Performance und Genauigkeit der Abfragen steigern. Zusätzlich ermöglichen die erfassten Seitenzahlen eine direkte Verknüpfung der Antworten mit den Originaldokumenten, was eine transparente und nachvollziehbare Ergebnisausgabe sicherstellt.</div>
+        <a href="https://blog.google/innovation-and-ai/technology/developers-tools/expanded-gemini-api-file-search-multimodal-rag/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Reduce friction and latency for long-running jobs with Webhooks in Gemini API</div>
+        <div class="article-date">04.05.2026</div>
+        <div class="article-summary">Gemini API führt eventgesteuerte Webhooks ein, die langlaufende Jobs effizient per HTTP POST Benachrichtigung abschließen, anstatt auf kontinuierliches Polling zurückzugreifen. Bei Operationen, die Minuten bis Stunden in Anspruch nehmen, wie bei Batch-API-Aufrufen für Deep Research oder Videoerzeugung, liefert die API in Echtzeit Ergebnisse und garantiert mit automatischen Retries (bis zu 24 Stunden) eine mindestens einmalige Zustellung. Die Implementierung folgt der Standard Webhooks Spezifikation und nutzt Sicherheitsheader wie webhook-signature, webhook-id und webhook-timestamp, um Idempotenz zu gewährleisten und Replay-Angriffe zu verhindern. Entwickler können Webhooks global auf Projektebene mittels HMAC oder dynamisch pro Request via JWKS konfigurieren – ein Beispiel im Python SDK veranschaulicht die Integration.</div>
+        <a href="https://blog.google/innovation-and-ai/technology/developers-tools/event-driven-webhooks/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Kent Beck - Tidy First (2 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Thoughts, Not Thinking?</div>
+        <div class="article-date">08.05.2026</div>
+        <div class="article-summary">Kent Beck analysiert den Trade-off zwischen Build, Buy und Customize, wie er in der XP-Community seit Jahrzehnten diskutiert wird. Er entwickelt ein Framework, das die zugrunde liegenden Kurven dieser Entscheidung widerspiegelt, und berücksichtigt dabei Einflüsse, die im Laufe der Zeit die Bewertung der jeweiligen Ansätze verändern. Konkrete Überlegungen stützen sich auf theoretische Spekulationen und praktische Erfahrungen, um das Wechselspiel zwischen spontanen Gedanken und strukturiertem Denken in der Softwareentwicklung besser zu verstehen. Die Auseinandersetzung mit diesem Modell liefert Einsichten, die für fundierte technische Entscheidungen in modernen Projekten relevant sind.</div>
+        <a href="https://tidyfirst.substack.com/p/thoughts-not-thinking" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Adaptive Radix Tree</div>
+        <div class="article-date">04.05.2026</div>
+        <div class="article-summary">Adaptive Radix Trees ersetzen klassische sortierte Map-Implementierungen wie red–black trees oder den google/btree, indem sie einen Trie-Ansatz nutzen, der dynamisch Knotenstrukturen anpasst und so sowohl Such- als auch Speichereffizienz erhöht. Die Struktur ermöglicht Go-Programmierern, die bereits mit map[K]V vertraut sind, einen optimierten Zugriff auf sortierte Daten, ohne auf komplexe, von Drittanbietern stammende Methoden zurückgreifen zu müssen. Der Ansatz adressiert technische Herausforderungen, indem er den Baum an die tatsächliche Anzahl der Schlüssel anpasst und somit Speicherfragmentierung minimiert. Das Konzept und die Designentscheidungen bilden den Auftakt zu einem Buch, das schrittweise weiter in die Details und praktischen Implikationen der Adaptive Radix Tree-Struktur einführt.</div>
+        <a href="https://tidyfirst.substack.com/p/adaptive-radix-tree" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Martin Fowler (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Bliki: Mythical Man Month</div>
+        <div class="article-date">05.05.2026</div>
+        <div class="article-summary">Fred Brooks managte in den frühen 1960er-Jahren die Entwicklung der IBM System/360, woraus das 1975 erschienene Buch &quot;The Mythical Man-Month&quot; entstand. Brooks&#x27; Gesetz – zusätzliche Mitarbeiter verzögern verspätete Softwareprojekte aufgrund exponentiell wachsender Kommunikationspfade – wird anhand konkreter Projektbeispiele verdeutlicht. Die Betonung konzeptueller Integrität als Grundlage für ein stabiles Systemdesign zeigt, dass einfache, kohärente Entwurfsprinzipien oft bessere Ergebnisse liefern als eine Vielzahl von unkoordinierten Features. Die Jubiläumsausgabe, die Brooks’ 1986 erschienenen Essay &quot;No Silver Bullet&quot; beinhaltet, unterstreicht den anhaltenden Stellenwert dieser Ansätze auch im Jahr 2026.</div>
+        <a href="https://martinfowler.com/bliki/MythicalManMonth.html" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Microsoft .NET Blog (3 Artikel)</h2>
+    <div class="section-summary">Copilot Studio migriert von .NET 8 auf .NET 10 und realisiert damit deutliche Performance-Verbesserungen im WebAssembly-Bereich, indem es JIT- und AOT-Engines kombiniert und spezifische AOT-Optimierungen wie WasmStripILAfterAOT einsetzt. Das Microsoft Agent Framework erweitert sich mit einem Workflow-Programmmodell und einem SDK-Baukasten zur Erstellung autonomer AI-Agenten, die durch In-Process-Ausführungen, Zustandswiederherstellung und die Integration mit Azure OpenAI vielseitige, zustandsbasierte und verteilte Anwendungen ermöglichen.</div>
+    <div class="article">
+        <div class="article-title">Copilot Studio gets faster with .NET 10 on WebAssembly</div>
+        <div class="article-date">07.05.2026</div>
+        <div class="article-summary">Copilot Studio migriert von .NET 8 auf .NET 10 und erzielt damit signifikante Performance-Verbesserungen im WebAssembly-Umfeld. Die Umstellung erfordert lediglich ein Update der Target Frameworks in den .csproj-Dateien, während automatisches Fingerprinting von WASM-Assets die bisher notwendigen PowerShell-Skripte zur Dateibenennung überflüssig macht. Mit .NET 10 wird bei AOT-Kompilierungen mittels aktivierter WasmStripILAfterAOT-Option der IL-Code entfernt, was zu einem Paket führt, das etwa 15 Prozent größer wird, jedoch Kaltaufrufe um ~20 Prozent und Warmpfade um ~5 Prozent beschleunigt. Copilot Studio kombiniert dabei JIT- und AOT-Engines in einem einzigen NPM-Paket, lädt beide parallel und dedupliziert identische Dateien, um sowohl schnelle Interaktivität als auch hohe Ausführungsgeschwindigkeit zu gewährleisten.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/copilot-studio-dotnet-10-migration/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Durable Workflows in the Microsoft Agent Framework</div>
+        <div class="article-date">06.05.2026</div>
+        <div class="article-summary">Das Microsoft Agent Framework (MAF) erweitert sich um ein Workflow-Programmmodell, in dem Entwickler Executor wie OrderLookup, OrderCancel und SendEmail zu gerichteten Graphen verbinden können. Zu Beginn wird ein einfaches In-Process-Beispiel in einer .NET 10 Konsolenanwendung gezeigt, das über InProcessExecution.RunStreamingAsync ausgeführt wird. Mit dem Zusatzpaket Microsoft.Agents.AI.DurableTask (–prerelease) wird die Ausführung dauerhaft gemacht – inklusive automatischem Checkpointing, Zustandswiederherstellung und verteilter Ausführung, unterstützt durch den DTS-Emulator (Ports 8080, 8082). Ergänzend werden parallele Ausführungen via Fan-out/Fan-in mit Azure OpenAI (Umgebungsvariablen AZURE_OPENAI_ENDPOINT und AZURE_OPENAI_DEPLOYMENT) sowie Human-in-the-loop-Muster mit RequestPort demonstriert, wobei auch die Integration in Azure Functions für serverloses Hosting dargestellt wird.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/durable-workflows-in-microsoft-agent-framework/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Microsoft Agent Framework – Building Blocks for AI Part 3</div>
+        <div class="article-date">04.05.2026</div>
+        <div class="article-summary">Microsoft hat mit der 1.0-Version (veröffentlicht im April 2026) des Microsoft Agent Frameworks einen SDK-Baukasten vorgestellt, der autonome AI-Agenten ermöglicht, die nicht nur Chat-Interaktionen durchführen, sondern eigenständig Aufgaben planen und Tools aufrufen. Das Framework erweitert die Funktionalitäten der Microsoft Extensions for AI (MEAI) und des VectorData-Moduls, indem es unter anderem mit der .AsAIAgent()-Methode Agenten erstellt, die Sitzungen (AgentSession), Kontextspeicherung (AIContextProvider) und asynchrone Streaming-Updates unterstützen. Entwickler können den Agenten mit spezifischen Tools, etwa einem Wetterdienst oder sogar komplexen writer-critic Workflows, ausstatten, wobei Beschreibungsattribute die Funktionalität und Parameter der Tools deklarieren. Die Architektur ermöglicht sowohl die Verwaltung von Multi-Turn-Konversationen mit Zustandsverwaltung als auch die Orchestrierung mehrerer Agenten in graphbasierten Workflows, was den Einsatz in produktionsnahen, stateless Szenarien erleichtert. Das Framework lässt sich nahtlos mit Anbieter wie Azure OpenAI (z. B. unter dem Deployment-Namen „gpt-5.4-mini“), GitHub Models und Microsoft Foundry integrieren, was eine flexible Erweiterung für verschiedenste AI-Anwendungen bietet.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/microsoft-agent-framework-building-blocks-for-ai-part-3/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Pragmatic Engineer Newsletter (2 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">The Pulse: Did capacity shortages turn Anthropic hostile to devs?</div>
+        <div class="article-date">07.05.2026</div>
+        <div class="article-summary">Anthropic hat in den letzten Wochen Entwicklern gegenüber eingeschränkt reagiert, indem es ein weniger leistungsfähiges Modell auslieferte und den Zugang zu Claude Code bei einigen bezahlten Accounts entfernte. Die kürzliche Sicherung zusätzlicher Rechenkapazitäten bei SpaceX legt nahe, dass das Unternehmen interne Kapazitätsengpässe verbergen wollte. Amazon erlaubt nun den Einsatz von Claude Code und Codex, nachdem es zuvor andere KI-Coding-Tools verboten hatte, um den firmeneigenen Coding-Agent Kiro zu verbessern. Meta ordnet in mehreren Teams 20–40% der Entwickler einfache Datenetikettierungsaufgaben zu und experimentiert mit kompakten „AI-forward“ Teams von 5–10 Entwicklern, während GitHub ab dem 1. Juni drastische Preisanpassungen für Copilot-Abos vornimmt, was zu einer Umstellung auf API-Token-basierte Preisstrukturen führt.</div>
+        <a href="https://newsletter.pragmaticengineer.com/p/the-pulse-did-capacity-shortages" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Designing Data-Intensive Applications: The Cloud &amp; Doing the Right Thing</div>
+        <div class="article-date">05.05.2026</div>
+        <div class="article-summary">Martin Kleppmann und Chris Riccomini aktualisieren in der zweiten Edition von Designing Data-Intensive Applications (2026) die Prinzipien datenintensiver Systemarchitekturen, indem sie den Übergang von selbst gehosteten Lösungen zu Cloud-nativen Ansätzen detailreich erläutern. Sie vergleichen den Einsatz von Cloud Services wie Amazon S3, Azure Blob Storage und Cloudflare R2 mit klassischen IaaS-Lösungen und heben Vorteile in Sachen elastischer Skalierung, Betriebsexpertise sowie Kosteneffizienz hervor, während Risiken wie Vendor-Lock-in und eingeschränkter Einblick in Systemmetriken betont werden. Die Autoren verknüpfen technische Entscheidungen – etwa die Entkopplung von Compute und Storage oder den Einsatz von Orchestrierungstools wie Kubernetes – mit betrieblichen Aspekten, die im Zeitalter von DevOps und SRE entscheidend sind. Gleichzeitig gehen sie auf die wachsende Bedeutung ethischer Verantwortung ein, insbesondere im Hinblick auf algorithmische Verzerrungen, Datenschutz und die Folgen massenhafter Datensammlung für Individuen und Gesellschaft.</div>
+        <a href="https://newsletter.pragmaticengineer.com/p/designing-data-intensive-applications-book-excerpt" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Simon Willison (6 Artikel)</h2>
+    <div class="section-summary">Das Python Ctypes-Binding zur TRE Regex-Bibliothek demonstriert eine robuste Absicherung gegen ReDoS-Angriffe durch einen parallelisierten Tagged-NFA-Algorithmus, der lineare Laufzeiten und garantierte Deadline-Funktionen bietet. Anthropic treibt mit Claude Code und erweiterten API-Funktionen sowie der Nutzung des SpaceX Colossus Rechenzentrums die Automatisierung in der Code-Generierung voran, während Andon Labs mit KI-Agenten reale Geschäftsprozesse in Bereichen wie Café- und Einzelhandelsmanagement erprobt.</div>
+    <div class="article">
+        <div class="article-title">TRE Python binding — ReDoS robustness demo</div>
+        <div class="article-date">08.05.2026</div>
+        <div class="article-summary">Das vorgestellte Python Ctypes-Binding zur TRE-Regex-Bibliothek demonstriert, wie reguläre Ausdrücke robust gegenüber ReDoS-Angriffen verarbeitet werden können – ein Problem, das CPythons re-Modul bei verschachtelten Quantifizierern wie (a+)+ oft in exponentieller Laufzeit enden lässt. Benchmarks zeigen, dass TRE auf einem zehn-Millionen-Zeichen langen Input beispielsweise für das Muster ^(a+)+$ in 0,164 Sekunden abschneidet, wohingegen das re-Modul bereits bei nur 24 Zeichen 0,765 Sekunden benötigt. Das Binding setzt auf einen parallelisierten Tagged-NFA-Algorithmus, der lineare Laufzeiten in Bezug auf die Eingabelänge und einen quadratischen Worst-Case hinsichtlich der Regex-Länge garantiert, wodurch Speicherallokationen zur Kompilierungszeit gebündelt werden. Die API bietet dabei Funktionen wie compile, search sowie search_with_deadline – letzterer implementiert einen Thread-Ansatz zur Einhaltung von Laufzeitlimits – und wird durch umfangreiche Tests via pytest validiert. Das Projekt enthält zudem ein reproduzierbares Build-Skript für die libtre.so und zeigt, dass TRE bei realen Angriffsszenarien zu einem erheblich geringeren Ressourcenverbrauch führt.</div>
+        <a href="https://github.com/simonw/research/tree/main/tre-python-binding#readme" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Live blog: Code w/ Claude 2026</div>
+        <div class="article-date">07.05.2026</div>
+        <div class="article-summary">Anthropic nutzt den Code w/ Claude 2026, um durch Produkt-Upgrades wie die Verdopplung des fünfstündigen Limits für Claude Code bei Pro-, Max- und Enterprise-Kunden und den Einsatz des SpaceX Colossus Rechenzentrums die Entwicklerproduktivität signifikant zu steigern. Die API-Nutzung stieg dabei um das 17-fache, was den Fokus auf skalierbare, effiziente Tools im Entwickleralltag unterstreicht. Opus 4.7, aktuell bei Amp im Einsatz, verbessert visuelle Designentscheidungen und unterstützt höhere Urteilsfähigkeit der Modelle. Erweiterungen wie Multi-Agent Orchestration, Outcomes und das forschungsweisende „Dreaming“, das vergangene Sessions analysiert und neue Inhalte wie ein descent-playbook.md generiert, belegen den technologischen Fortschritt. Ergänzt wird das Angebot durch Claude Code-Funktionen wie automatisierte Code Reviews, Remote Agents, CI-Auto-Fix sowie native Integration in CLI, IDE und Desktop, wodurch asynchrone Automatisierungen und kontinuierliche Verbesserungen in Echtzeit ermöglicht werden.</div>
+        <a href="https://simonwillison.net/2026/May/6/code-w-claude-2026/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Notes on the xAI/Anthropic data center deal</div>
+        <div class="article-date">07.05.2026</div>
+        <div class="article-summary">Anthropic nutzt künftig die gesamte Kapazität des Colossus 1 Rechenzentrums von SpaceX/xAI, während xAI den größeren Colossus 2 für eigene Aufgaben behält. Der Deal steht im Kontext eines Rechenzentrums mit problematischer Umweltbilanz, da ursprünglich Gasturbinen ohne Clean Air Act Genehmigungen eingesetzt wurden, was bereits zu gesundheitlichen Problemen in der Umgebung führte. Kritiker wie Andy Masley bezweifeln die Betriebswürdigkeit des Standorts, was in einem politisch sensiblen Umfeld zusätzlich ins Gewicht fällt. Gleichzeitig sorgte xAI mit der kurzfristigen Abschaltung von Grok 4.1 Fast – einem Modell, das erst im November veröffentlicht wurde und nun ohne adäquaten Migrationspfad deaktiviert wird – für Unmut bei den Kunden.</div>
+        <a href="https://simonwillison.net/2026/May/7/xai-anthropic/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Vibe coding and agentic engineering are getting closer than I’d like</div>
+        <div class="article-date">06.05.2026</div>
+        <div class="article-summary">Vibe coding bedient sich AI-Tools wie Claude Code, um ohne manuelle Codeüberprüfung schnell lauffähige Software zu erzeugen. Dabei verschwimmen die Grenzen zu agentic engineering, bei dem professionelle Entwickler ihre 25-jährige Erfahrung nutzen, um auch bei hoher Automatisierung Qualitäts- und Sicherheitsstandards zu gewährleisten. Der Autor weist darauf hin, dass der Einsatz solcher Tools dazu führt, dass Projekte mit hunderten Commits, umfassender Dokumentation und Tests in nur etwa einer halben Stunde entstehen können – was den Wert von tatsächlicher Nutzung und kontinuierlicher Verfeinerung in den Hintergrund drängt. Gleichzeitig warnt er vor der Normalisierung von Abweichungen, da fehlende manuelle Reviews in kritischen Systemen langfristig zu unerwarteten Problemen führen können.</div>
+        <a href="https://simonwillison.net/2026/May/6/vibe-coding-and-agentic-engineering/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Our AI started a cafe in Stockholm</div>
+        <div class="article-date">05.05.2026</div>
+        <div class="article-summary">Mona, ein von Andon Labs eingesetzter KI-Agent, übernimmt in Stockholm einen Cafébetrieb und meistert dabei komplexe bürokratische Hürden wie BankID-abhängige Anforderungen, die er durch gezielten menschlichen Input überwindet. Der Agent analysiert den Mietvertrag (Adresse: Norrbackagatan 48) und erstellt detaillierte Checklisten, um unter anderem Food Business Registration, Bau- und Stromverträge – etwa einen drei Jahre festen Stromtarif mit Vattenfall – sowie diverse Lieferantenverträge zu managen. Durch digitale Entscheidungen und unkonventionelle Vorgehensweisen, wie die eigenständige Einstellung von Personal über LinkedIn und Indeed sowie das Management von Lieferketten, zeigt sich, dass KI im Umgang mit realweltlichen Prozessen bis an ihre Grenzen kommt, was sich in Fehlbestellungen wie 120 Eiern oder 6.000 Packungen Papierservietten widerspiegelt. In den ersten 14 Tagen erzielte das Andon Café 44.000 SEK Umsatz, was den experimentellen Rahmen und das Potenzial von KI im Management physischer Geschäftsprozesse unterstreicht.</div>
+        <a href="https://andonlabs.com/blog/ai-cafe-stockholm" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">started an AI-run retail store</div>
+        <div class="article-date">05.05.2026</div>
+        <div class="article-summary">Andon Labs überträgt mit Luna, einem auf Claude Sonnet 4.6 basierenden AI-Modell von Anthropic, echte Geschäftsentscheidungen auf einen Einzelhandelsstandort in San Francisco (2102 Union St in Cow Hollow) im Rahmen eines 3-Jahres-Mietvertrags. Luna steuert alle Aspekte des Andon Market, von der Gestaltung der Ladenmarke und Produktwahl – darunter Bücher wie Superintelligence und Making of the Atomic Bomb – bis hin zur Preisgestaltung, Öffnungszeiten und Marketingmaßnahmen, wobei sie menschliche Arbeitskraft für physische Aufgaben und den Ladenbetrieb einstellt. Innerhalb weniger Minuten nach ihrem Start erstellte sie eigenständig Jobprofile auf Plattformen wie LinkedIn und Indeed, führte Telefoninterviews und traf Personalentscheidungen, wobei sie Bewerber mit unzureichender Einzelhandelserfahrung konsequent ausschloss. Das Experiment deckt nicht nur die praktischen Herausforderungen auf, sondern beleuchtet auch, wie AI-Entscheidungen kollektive menschliche Geschmackspräferenzen widerspiegeln und zukünftig ethische Fragestellungen im Bereich der Arbeitsbeziehungen aufwerfen können. Andon Labs nutzt diese realweltliche Erprobung, um das Zusammenspiel von AI-Autonomie und menschlicher Kontrolle systematisch zu dokumentieren und damit potenzielle Fehlentwicklungen frühzeitig zu identifizieren.</div>
+        <a href="https://andonlabs.com/blog/andon-market-launch" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Windsurf Announcements (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Fast and Comprehensive Code Review</div>
+        <div class="article-date">06.05.2026</div>
+        <div class="article-summary">Windsurf integriert eine neue Funktion zur Code-Überprüfung, die schnellen und umfassenden Einblick in Codeänderungen gewährt. Die Erweiterung ist direkt im Windsurf Editor verfügbar und richtet sich auch an Enterprise-Kunden, um bestehende Workflows effizient zu unterstützen. Technische Entscheidungen fokussieren auf präzise statische Analysen, die Überprüfungszeiten signifikant verkürzen und die Codequalität verbessern. Die Lösung demonstriert, wie eine nahtlose Integration in den Entwicklungszyklus zu messbaren Verbesserungen im täglichen Arbeitsablauf führen kann.</div>
+        <a href="https://codeium.com/blog/devin-review-windsurf" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+
+</body>
+</html>
