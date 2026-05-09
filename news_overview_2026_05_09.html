@@ -78,6 +78,19 @@
             font-size: 0.9em;
             margin-left: 6px;
         }
+        /* R00013: Wochen-Tenor — visuell die staerkste der drei
+           Verdichtungsklassen (overall > section-summary > changelog-digest).
+           Linker Rand kraeftiger, Schrift groesser, klar abgesetzte
+           Hintergrundfarbe — vom Leser auf den ersten Blick als
+           Zusammenfassung der Wochenausgabe erkennbar. */
+        .overall-summary {
+            margin: 10px 0 25px 0;
+            padding: 18px 22px;
+            background-color: #f0fbf3;
+            border-left: 6px solid #15803d;
+            font-size: 1.1em;
+            color: #14271d;
+        }
         /* R00011: Rueckspruglink zur index.html (oben und unten) */
         .back-link {
             display: inline-block;
@@ -94,8 +107,9 @@
 <body>
     <h1>News Übersicht der letzten 7 Tage</h1>
     <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
-    <p>Generiert am: 09.05.2026 09:17 Uhr</p>
-    <p>Anzahl Artikel: 25 (zus&auml;tzlich 8 Changelog-Eintr&auml;ge aus 1 Quelle)</p>
+    <div class="overall-summary">Die Entwicklungen legen einen starken Fokus auf den Ausbau und die Optimierung KI-gestützter Systeme, wobei die Erweiterung der Compute-Kapazitäten, höhere API-Raten und neue Agent-Templates zentrale Bestandteile darstellen. Die verschiedenen Beiträge unterstreichen, dass die Integration von autonomen Agenten in Code-Review-Prozesse, CI-Pipelines und produktive Workflows zunehmend automatisierte und skalierbare Arbeitsabläufe ermöglicht. Gleichzeitig werden architektonische Verbesserungen, adaptionsfähige Datenstrukturen und optimierte Testmethoden vorangetrieben, um Entwicklungszyklen zu verkürzen und die Qualität komplexer Softwareprojekte zu steigern. In zahlreichen Praxisbeispielen spielt der Einsatz von KI in realweltlichen Anwendungen eine zentrale Rolle, wobei autonome Systeme in Geschäftsprozessen und im Produktmanagement bereits konkrete betriebliche Entscheidungen unterstützen. Der thematische Kern der Woche zeigt damit, dass technische und organisatorische Fortschritte Hand in Hand gehen, um KI-gestützte Prozesse stärker im Entwicklungsalltag zu verankern.</div>
+    <p>Generiert am: 09.05.2026 10:18 Uhr</p>
+    <p>Anzahl Artikel: 26 (zus&auml;tzlich 8 Changelog-Eintr&auml;ge aus 1 Quelle)</p>
 
     <h2>Allan Kelly Blog (1 Artikel)</h2>
     <div class="article">
@@ -106,7 +120,7 @@
     </div>
 
     <h2>Anthropic News (3 Artikel)</h2>
-    <div class="section-summary">Anthropic verdoppelt die Nutzungslimits von Claude Code und Claude API und baut seine Compute-Kapazitäten mittels strategischer Partnerschaften mit SpaceX, Amazon, Google/Broadcom und Microsoft/NVIDIA sowie regionaler Expansion signifikant aus. Zehn neue Agent-Templates ermöglichen die Automatisierung von Finanzdienstleistungen in Microsoft 365-Umgebungen und erweitern das Partner-Ökosystem um relevante Datenkonnektoren. Zudem gründet Anthropic zusammen mit Blackstone, Hellman &amp; Friedman und Goldman Sachs ein Unternehmen, das maßgeschneiderte KI-Lösungen für mittelständische Firmen unter Nutzung des Claude-Modells entwickelt.</div>
+    <div class="section-summary">Anthropic verdoppelt die Nutzungslimits für Claude Code und die Claude API, während sie die Compute-Kapazitäten durch Partnerschaften mit SpaceX, Amazon, Google sowie Microsoft und NVIDIA signifikant ausbauen. Das Unternehmen führt zehn einsatzbereite Agent-Templates ein, die in Claude Cowork und Claude Code integriert werden und Aufgaben in Microsoft 365-Umgebungen automatisieren, unterstützt von neuen Datenkonnektoren. Gleichzeitig gründet Anthropic gemeinsam mit Blackstone, Hellman &amp; Friedman und Goldman Sachs ein Unternehmen, um maßgeschneiderte Claude-Lösungen in mittelständische Geschäftsprozesse zu integrieren.</div>
     <div class="article">
         <div class="article-title">Higher usage limits for Claude and a compute deal with SpaceX</div>
         <div class="article-date">06.05.2026</div>
@@ -149,7 +163,7 @@
     </div>
 
     <h2>GitHub Copilot Changelog (8 Eintr&auml;ge)</h2>
-    <div class="changelog-digest">Die anstehenden Modell-Änderungen rücken ins Zentrum, indem GPT‑4.1 ab dem 1. Juni 2026 aus allen Copilot-Erlebnissen entfernt und durch GPT‑5.5 ersetzt wird, während Grok Code Fast 1 sowie Claude Sonnet 4 durch GPT‑5 mini in Kombination mit Claude Haiku 4.5 beziehungsweise Claude Sonnet 4.6 abgelöst werden. Die Integration des aktualisierten GPT‑5.5 in Copilot CLI-Sessions unter Einsatz eines Claude‑basierenden Kritikeragents unterstreicht die verstärkte Modellharmonisierung. Gleichzeitig erweitert GitHub den Copilot cloud agent um dedizierte Agents‑Secrets und Variablen, wodurch Administratoren sensible Konfigurationen zentral an Organisationen und Repositories verteilen können, während die Möglichkeit, Copilot CLI‑Plugins zentral über ein settings.json‑File zu konfigurieren, den administrativen Aufwand reduziert. Die VS Code‑Erweiterungen in den Releases v1.116 bis v1.119 fügen Funktionen wie semantische Indexierung, grep-artige Suchabfragen und experimentelle Chat‑Analysen hinzu und ermöglichen durch Bring‑Your‑Own‑Key‑Support die Nutzung mobiler externer Modellprovider. Zusätzlich liefert die erweiterte Copilot Usage Metrics API nun aggregierte Daten zu Code‑Review‑Vorschlägen, differenziert nach Kommentar‑Typen, und stellt diese in Ein‑Tages‑ und 28‑Tage‑Rolling‑Fenstern auf Unternehmens- und Organisationsebene bereit.</div>
+    <div class="changelog-digest">Das veraltete GPT‑4.1 wird in sämtlichen Copilot-Erlebnissen zugunsten des neuen GPT‑5.5 ausgemustert, während Grok Code Fast 1 zugunsten von GPT‑5 mini und Claude Haiku 4.5 eingestellt wird und Claude Sonnet 4 durch Claude Sonnet 4.6 ersetzt wird. Die API wird um eine erweiterte Usage Metrics-Schnittstelle ergänzt, die nun Code-Review-Vorschläge nach Kommentar-Typen differenziert, während der Copilot cloud agent dank dedizierter Agents-Secrets und Variablen eine zentralisierte Konfiguration sensibler Einstellungen ermöglicht. Im CLI-Umfeld übernimmt Rubbe Duck in einer experimentellen Option zusammen mit dem aktualisierten GPT‑5.5-Modell die Codeanalyse, wodurch architektonische Mängel und subtile Bugs besser erkannt werden. Gleichzeitig können Enterprise-Administratoren über die Copilot CLI Plugins zentral konfigurieren und an alle Nutzer verteilen, was den administrativen Aufwand reduziert. Erweiterte Funktionen in Visual Studio Code, verteilt auf die Releases v1.116 bis v1.119, bieten semantische Indexierung, grep-artige Suchabfragen, Inline-Diffs im Chat und unterstützen zudem den Bring-Your-Own-Key-Support für verschiedene Modellprovider. Diese Neuerungen adressieren sowohl die kontinuierliche Optimierung der Modelllandschaft als auch verbesserte Verwaltung und Nutzererfahrung in unterschiedlichen Copilot-Umgebungen.</div>
     <ul class="changelog-links">
         <li><a href="https://github.blog/changelog/2026-05-08-copilot-code-review-comment-types-now-in-usage-metrics-api" class="article-link" target="_blank">Copilot code review comment types now in usage metrics API</a> <span class="changelog-date">08.05.2026</span></li>
         <li><a href="https://github.blog/changelog/2026-05-08-more-flexible-secrets-and-variables-for-copilot-cloud-agent" class="article-link" target="_blank">More flexible secrets and variables for Copilot cloud agent</a> <span class="changelog-date">08.05.2026</span></li>
@@ -162,7 +176,7 @@
     </ul>
 
     <h2>Google AI Blog (3 Artikel)</h2>
-    <div class="section-summary">Gemma 4 steigert die Inferenzgeschwindigkeit von Sprachmodellen durch Entkopplung von Vorschlag und Verifikation sowie gezielte Hardwareoptimierungen wie KV-Cache-Sharing. Die Gemini API verarbeitet in File Search Text- und Bilddaten gemeinsam und ermöglicht präzise Retrieval-augmented Generation durch benutzerdefinierte Metadatenfilter sowie seitenbasierte Quellenangaben. Gleichzeitig führt die Gemini API eventgesteuerte Webhooks ein, die langlaufende Batch-Operationen effizient per HTTP POST abschließen und mit automatischen Retries eine mindestens einmalige Zustellung gewährleisten.</div>
+    <div class="section-summary">Gemma 4 steigert die Inferenzgeschwindigkeit durch die Kombination eines großen Zielmodells (26B MoE bzw. 31B Dense) mit einem MTP-Drafter, der spekulative Dekodierung vermeidet, unterstützt durch Hardwareoptimierungen für Edge-Geräte. Die Gemini API erhält signifikante Updates: File Search integriert multimodale Verarbeitung mit Gemini Embedding 2 und benutzerdefinierte Metadatenfilter, während neue eventgesteuerte Webhooks eine zuverlässige Zustellung langlaufender Jobs per HTTP POST ermöglichen.</div>
     <div class="article">
         <div class="article-title">Accelerating Gemma 4: faster inference with multi-token prediction drafters</div>
         <div class="article-date">05.05.2026</div>
@@ -182,7 +196,8 @@
         <a href="https://blog.google/innovation-and-ai/technology/developers-tools/event-driven-webhooks/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
     </div>
 
-    <h2>Kent Beck - Tidy First (2 Artikel)</h2>
+    <h2>Kent Beck - Tidy First (3 Artikel)</h2>
+    <div class="section-summary">Kent Beck entwickelt ein Framework, das den Trade-off zwischen Build, Buy und Customize anhand theoretischer Spekulationen und praktischer Erfahrungen nachvollzieht und so das Wechselspiel zwischen spontanen und strukturiertem Denken in der Softwareentwicklung beleuchtet. Adaptive Radix Trees, die klassische sortierte Map-Implementierungen wie red–black trees und google/btree ersetzen, optimieren Speicher- und Sucheffizienz, was in einer Live-Demonstration belegt wird, bei der gezielte Tidy First-Prinzipien zu konsistent schnellen und zuverlässigen Ergebnissen in Echtzeitanwendungen führen.</div>
     <div class="article">
         <div class="article-title">Thoughts, Not Thinking?</div>
         <div class="article-date">08.05.2026</div>
@@ -195,6 +210,12 @@
         <div class="article-summary">Adaptive Radix Trees ersetzen klassische sortierte Map-Implementierungen wie red–black trees oder den google/btree, indem sie einen Trie-Ansatz nutzen, der dynamisch Knotenstrukturen anpasst und so sowohl Such- als auch Speichereffizienz erhöht. Die Struktur ermöglicht Go-Programmierern, die bereits mit map[K]V vertraut sind, einen optimierten Zugriff auf sortierte Daten, ohne auf komplexe, von Drittanbietern stammende Methoden zurückgreifen zu müssen. Der Ansatz adressiert technische Herausforderungen, indem er den Baum an die tatsächliche Anzahl der Schlüssel anpasst und somit Speicherfragmentierung minimiert. Das Konzept und die Designentscheidungen bilden den Auftakt zu einem Buch, das schrittweise weiter in die Details und praktischen Implikationen der Adaptive Radix Tree-Struktur einführt.</div>
         <a href="https://tidyfirst.substack.com/p/adaptive-radix-tree" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
     </div>
+    <div class="article">
+        <div class="article-title">Run, Right, and Fast for the Adaptive Radix Tree</div>
+        <div class="article-date">02.05.2026</div>
+        <div class="article-summary">Kent Beck demonstriert in seinem Live-Video, wie der Adaptive Radix Tree durch präzise Implementierungsentscheidungen sowohl korrekte als auch schnelle Laufzeiten erreicht. Er erläutert, dass durch konsequente Anwendung von &quot;Tidy First&quot;-Prinzipien und gezielter Optimierung eine Datenstruktur entsteht, die herkömmlichen Varianten in Bezug auf Speichernutzung und Abfragegeschwindigkeit überlegen ist. Die Live-Demonstration vom 02.05.2026 zeigt praxisnah, dass die enge Verzahnung von Korrektheit, Wartbarkeit und Performance zu spürbaren Verbesserungen in Echtzeitanwendungen führt. Kent Beck unterstreicht, dass sorgfältig ausbalancierte Designentscheidungen entscheidend sind, um in anspruchsvollen Systemen konsistent schnelle und zuverlässige Ergebnisse zu erzielen.</div>
+        <a href="https://tidyfirst.substack.com/p/run-right-and-fast-for-the-adaptive" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
 
     <h2>Martin Fowler (1 Artikel)</h2>
     <div class="article">
@@ -205,7 +226,7 @@
     </div>
 
     <h2>Microsoft .NET Blog (3 Artikel)</h2>
-    <div class="section-summary">Copilot Studio migriert von .NET 8 auf .NET 10 und realisiert damit deutliche Performance-Verbesserungen im WebAssembly-Bereich, indem es JIT- und AOT-Engines kombiniert und spezifische AOT-Optimierungen wie WasmStripILAfterAOT einsetzt. Das Microsoft Agent Framework erweitert sich mit einem Workflow-Programmmodell und einem SDK-Baukasten zur Erstellung autonomer AI-Agenten, die durch In-Process-Ausführungen, Zustandswiederherstellung und die Integration mit Azure OpenAI vielseitige, zustandsbasierte und verteilte Anwendungen ermöglichen.</div>
+    <div class="section-summary">Copilot Studio steigert die WebAssembly-Performance durch den Umstieg von .NET 8 auf .NET 10, wobei AOT-Kompilierungen mit aktivierter WasmStripILAfterAOT-Option, kombinierte JIT- und AOT-Engines sowie automatisches Fingerprinting den manuellen Konfigurationsaufwand minimieren und Kalt- und Warmpfade beschleunigen. Das Microsoft Agent Framework erweitert seine Funktionalitäten um ein Workflow-Programmmodell sowie einen SDK-Baukasten, der autonome AI-Agenten mit Multi-Turn-Konversationen, Zustandswiederherstellung, verteilte Ausführung und Integrationen in Azure OpenAI, GitHub Models und Microsoft Foundry ermöglicht.</div>
     <div class="article">
         <div class="article-title">Copilot Studio gets faster with .NET 10 on WebAssembly</div>
         <div class="article-date">07.05.2026</div>
@@ -240,7 +261,7 @@
     </div>
 
     <h2>Simon Willison (6 Artikel)</h2>
-    <div class="section-summary">Das Python Ctypes-Binding zur TRE Regex-Bibliothek demonstriert eine robuste Absicherung gegen ReDoS-Angriffe durch einen parallelisierten Tagged-NFA-Algorithmus, der lineare Laufzeiten und garantierte Deadline-Funktionen bietet. Anthropic treibt mit Claude Code und erweiterten API-Funktionen sowie der Nutzung des SpaceX Colossus Rechenzentrums die Automatisierung in der Code-Generierung voran, während Andon Labs mit KI-Agenten reale Geschäftsprozesse in Bereichen wie Café- und Einzelhandelsmanagement erprobt.</div>
+    <div class="section-summary">Python Ctypes-Binding nutzt einen parallelisierten Tagged-NFA-Algorithmus, um ReDoS-Anfälligkeiten in regulären Ausdrücken zu vermeiden, während Anthropic mit Upgrades rund um Code w/ Claude, Opus 4.7 und einem Deal um SpaceX Colossus den Fokus auf skalierbare Entwickler-Tools legt. KI-Agenten steuern operative Prozesse in realen Geschäftsanwendungen, wie in einem Café in Stockholm und einem Einzelhandelsstandort in San Francisco, wobei auch Risiken des agentic engineering und unzureichender manueller Codereviews thematisiert werden.</div>
     <div class="article">
         <div class="article-title">TRE Python binding — ReDoS robustness demo</div>
         <div class="article-date">08.05.2026</div>
