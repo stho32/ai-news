@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Übersicht - Letzte 7 Tage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .article {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .article-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .article-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .article-summary {
+            margin-bottom: 10px;
+        }
+        .article-link {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .article-link:hover {
+            text-decoration: underline;
+        }
+        /* R00011: Section-Summary-Block, leicht abgesetzt von Einzel-Artikeln */
+        .section-summary {
+            margin: 10px 0 20px 0;
+            padding: 12px 16px;
+            background-color: #eef4fb;
+            border-left: 4px solid #0066cc;
+            font-style: italic;
+            color: #234;
+        }
+        /* R00012: Changelog-Digest-Block — visuell distinkt vom Section-Summary */
+        .changelog-digest {
+            margin: 10px 0 15px 0;
+            padding: 12px 16px;
+            background-color: #fff7e6;
+            border-left: 4px solid #d97706;
+            color: #3a2a00;
+        }
+        .changelog-links {
+            list-style: disc inside;
+            padding-left: 0;
+            margin: 0 0 25px 0;
+        }
+        .changelog-links li {
+            margin: 4px 0;
+        }
+        .changelog-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-left: 6px;
+        }
+        /* R00013: Wochen-Tenor — visuell die staerkste der drei
+           Verdichtungsklassen (overall > section-summary > changelog-digest).
+           Linker Rand kraeftiger, Schrift groesser, klar abgesetzte
+           Hintergrundfarbe — vom Leser auf den ersten Blick als
+           Zusammenfassung der Wochenausgabe erkennbar. */
+        .overall-summary {
+            margin: 10px 0 25px 0;
+            padding: 18px 22px;
+            background-color: #f0fbf3;
+            border-left: 6px solid #15803d;
+            font-size: 1.1em;
+            color: #14271d;
+        }
+        /* R00011: Rueckspruglink zur index.html (oben und unten) */
+        .back-link {
+            display: inline-block;
+            margin: 10px 0 20px 0;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>News Übersicht der letzten 7 Tage</h1>
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+    <div class="overall-summary">Zahlreiche Beiträge unterstreichen, dass technische Modernisierungen allein keine nachhaltigen Ergebnisse erzielen, sondern die erfolgreiche Abstimmung zwischen IT und fachlichen Einheiten sowie die iterative Einbindung aller Stakeholder eine zentrale Rolle spielen. Gleichzeitig vernetzen sich Ansätze zur agilen Transformation in Militär- und Unternehmenskontexten, wobei iterative Lernmethoden und schnelle, dezentralisierte Entscheidungsfindungen im Mittelpunkt stehen. Fortschritte in der Toolchain, etwa bei der Integration von Lösungen wie Claude, GitHub Copilot und Cursor, belegen erhebliche Effizienzsteigerungen und verkürzte Entwicklungszyklen. Ergänzt wird dieses Bild durch umfassende Updates in der .NET-Welt, die mittels optimierter APIs, JIT-Verbesserungen und gesteigerter Performance den Entwicklungsalltag pragmatisch unterstützen. Insgesamt liefert die Sammlung Hinweise darauf, dass eine Kombination aus agentengetriebenen Prozessen und durchdachter Systemmodernisierung den Weg zu zukunftsfähigen, agilen Arbeitsweisen ebnet.</div>
+    <p>Generiert am: 16.05.2026 07:00 Uhr</p>
+    <p>Anzahl Artikel: 28 (zus&auml;tzlich 9 Changelog-Eintr&auml;ge aus 1 Quelle)</p>
+
+    <h2>Allan Kelly Blog (3 Artikel)</h2>
+    <div class="section-summary">Die missglückte Umsetzung von Business Process Reengineering und die daraus resultierenden hohen Implementierungskosten unterstreichen, dass technische Maßnahmen ohne die notwendige Berücksichtigung organisatorischer Voraussetzungen und iterativer Ansätze nicht ausreichend sind. Eine Darstellung zu Superforecasting liefert lediglich grundlegende HTML-Komponenten ohne technische Details, was fundierte Entscheidungen erschwert. Ukrainische Streitkräfte modernisieren ihre sowjetisch geprägte Befehlskette, setzen auf einen flexiblen Mission-Command-Ansatz und nutzen Krisenzeiten als Impuls für digitale Transformation, wie etwa den Einsatz von Drohnen, der analog auch für agile Unternehmensprozesse als Lehre dient.</div>
+    <div class="article">
+        <div class="article-title">Learning from BPR failure</div>
+        <div class="article-date">13.05.2026</div>
+        <div class="article-summary">Die missglückte Umsetzung von Business Process Reengineering (BPR) resultiert meist aus einer zu starken Fokussierung auf technische Maßnahmen und der Vernachlässigung wesentlicher organisatorischer Rahmenbedingungen. Fehlende Abstimmung zwischen IT-Abteilungen und fachlichen Einheiten sowie unrealistische Zielvorgaben führten zu suboptimalen Prozessen und hohen Implementierungskosten. Die Analyse zeigt, dass allein die Einführung moderner Softwarelösungen nicht ausreicht, wenn gleichzeitig grundlegende kulturelle und prozessuale Anpassungen unterlassen werden. Erfahrungen im Einsatz von iterativen Ansätzen und der frühzeitigen Einbindung aller Stakeholder belegen, dass eine ganzheitliche, schrittweise Transformation langfristig nachhaltigere Ergebnisse liefert.</div>
+        <a href="https://www.allankelly.net/newsletter/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Superforecasting</div>
+        <div class="article-date">13.05.2026</div>
+        <div class="article-summary">Die vorliegende Seite enthält keine inhaltlichen Details zum Thema Superforecasting. Es werden lediglich grundlegende HTML-Komponenten und Navigationslinks zu Amazon-Diensten dargestellt, ohne technische Spezifikationen, Versionsnummern, Benchmarks oder konkrete Zahlen. Es fehlen Informationen, die für technische Entscheidungen oder fundierte Prognosemodelle herangezogen werden könnten. Somit lassen sich aus diesem Material keine Aussagen ableiten, die speziellen Anforderungen erfahrener Software-Entwickler gerecht werden.</div>
+        <a href="https://amzn.to/4uyg5ia" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Lessons from war: change, command and product development</div>
+        <div class="article-date">12.05.2026</div>
+        <div class="article-summary">Ukrainische Streitkräfte modernisieren seit weniger als 10 Jahren ihre Befehlskette von einem starren, sowjetisch geprägten Modell zu einem flexiblen Mission-Command-Ansatz, bei dem lokale Führungsverantwortung und schnelle, situative Entscheidungen im Vordergrund stehen. Dabei wird deutlich, dass Krisenzeiten – trotz knapper Ressourcen – den Anstoß für Veränderungen geben, während Unternehmen in Friedenszeiten oft teure bürokratische Prozesse bevorzugen. Der Einsatz von Drohnen im Gefecht illustriert, wie Krieg als Beschleuniger für digitale Produktentwicklung wirkt, während vergleichbare westliche Ansätze von langfristigen, kostenbewussten Planungsprozessen geprägt sind. Motivierte Teams, klare operative Rahmenbedingungen und iteratives Lernen ermöglichen es, in Extremsituationen anpassungsfähige Lösungen zu entwickeln.</div>
+        <a href="https://www.allankelly.net/archives/10740/lessons-from-war-change-command-and-product-development/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Anthropic News (3 Artikel)</h2>
+    <div class="section-summary">Anthropic treibt den Einsatz von Claude-basierten KI-Lösungen in vielfältigen Anwendungsbereichen voran. PwC optimiert mit Claude, Claude Code und Claude Cowork operative Abläufe und Finanzprozesse in regulierten Branchen, während eine vierjährige Partnerschaft mit der Gates Foundation global Gesundheits-, Bildungs- und Wirtschaftsmobilitätsprogramme mithilfe von Fördermitteln, Nutzungsgutschriften und Evaluierungsframeworks unterstützt. Gleichzeitig integriert Claude for Small Business KI-gestützte Workflows in etablierte Business-Tools, um kleinen Unternehmen praktische Automatisierungslösungen anzubieten.</div>
+    <div class="article">
+        <div class="article-title">PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients</div>
+        <div class="article-date">15.05.2026</div>
+        <div class="article-summary">PwC vertieft die Zusammenarbeit mit Anthropic und integriert Claude, Claude Code und Claude Cowork in operative Prozesse, um bestehende Systeme im Vor-AI-Zeitalter zu modernisieren und Branchen wie Finanzdienstleistungen, Gesundheitswesen und Cybersecurity effizienter zu gestalten. PwC baut einen joint Center of Excellence auf und zertifiziert 30.000 US-Mitarbeiter, mit einer globalen Expansion auf Hunderttausende Angestellte. In der Produktion reduzieren Agentic-Anwendungen etwa in der Versicherungsprüfung die Durchlaufzeiten von zehn Wochen auf zehn Tage und senken Lieferzeiten in anderen Bereichen um bis zu 70 %. Die Gründung der neuen Geschäftseinheit Office of the CFO demonstriert, wie Claude-basierte Lösungen komplette Finanzprozesse in regulierten Märkten transformieren können.</div>
+        <a href="https://www.anthropic.com/news/pwc-expanded-partnership" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Anthropic forms $200 million partnership with the Gates Foundation</div>
+        <div class="article-date">14.05.2026</div>
+        <div class="article-summary">Anthropic verpflichtet sich in einer vierjährigen Partnerschaft mit der Gates Foundation, $200 Millionen über Fördermittel, Claude Nutzungsgutschriften und technischen Support in globalen Gesundheits-, Lebenswissenschafts-, Bildungs- und Wirtschaftsmobilitätsprogrammen bereitzustellen. Das Vorhaben adressiert Herausforderungen in Ländern mit eingeschränktem Zugang zu essenziellen Gesundheitsdiensten, indem es unter Einsatz von Claude Connectoren, Benchmarks und Evaluierungsframeworks die Entwicklung von Impfstoffen, Therapien sowie datenbasierte Entscheidungsfindung in Gesundheitsministerien fördert. Gleichzeitig wird Claude in Kooperation mit Partnern in den USA, Subsahara-Afrika und Indien zur Optimierung von Bildungs- und Arbeitsmarktinstrumenten eingesetzt, wobei auch landwirtschaftliche Anwendungsfälle zur Unterstützung von Kleinbauern berücksichtigt werden. Die Maßnahmen ergänzen bisherige Initiativen und schaffen öffentliche Güter, unter anderem in Form von Gesundheitsdatensätzen und Evaluierungsbenchmarks, um den gesellschaftlichen Nutzen von KI voranzutreiben.</div>
+        <a href="https://www.anthropic.com/news/gates-foundation-partnership" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Introducing Claude for Small Business</div>
+        <div class="article-date">13.05.2026</div>
+        <div class="article-summary">Anthropic integriert mit Claude for Small Business die KI in gängige Business-Tools wie Intuit QuickBooks, PayPal, HubSpot, Canva, Docusign, Google Workspace und Microsoft 365, um kleinen Unternehmen automatisierte Workflows bereitzustellen. Das Angebot umfasst 15 vorgefertigte Agentic-Workflows sowie 15 spezifische Aufgaben-Skills, die Funktionen wie die Planung der Lohnabrechnung, den Monatsabschluss und die Steuerorganisation abdecken. Nutzer aktivieren die Lösung per Toggle in Claude Cowork, wobei alle Aktionen zuerst zur Freigabe vorgelegt werden und bestehende Berechtigungen respektiert werden. Zusätzlich werden kostenlose Online-Kurse zur AI-Fluency sowie eine Roadshow (Claude SMB Tour) organisiert, um kleinen Unternehmen praxisnahe Hilfestellungen beim Einsatz von KI zu bieten.</div>
+        <a href="https://www.anthropic.com/news/claude-for-small-business" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Cursor Blog (3 Artikel)</h2>
+    <div class="section-summary">Cursor verbessert Cloud Agents, indem es Multi-Repo-Umgebungen, optimierte Dockerfile-Konfigurationen, Audit-Logs, Rollback-Funktionen und einen agentengetriebenen Setup-Prozess einführt, was Unternehmen mit Microservices wie Amplitude, Snyk und Co. zugutekommt. PayPal nutzt Cursor, um Entwicklungszyklen drastisch zu beschleunigen – etwa durch eine zehnmal schnellere Java-Aktualisierung – während Bugbot sein Preismodell auf eine nutzungsbasierte Abrechnung umstellt, die Teams flexiblere On-Demand-Kostenstrukturen bietet.</div>
+    <div class="article">
+        <div class="article-title">Development environments for your agents</div>
+        <div class="article-date">13.05.2026</div>
+        <div class="article-summary">Cursor erweitert die Funktionalität von Cloud Agents, indem sie vollständige Entwicklungsumgebungen bieten, die den Arbeitsablauf von der Codeerstellung bis zur Verifikation digital abbilden. Die neue Unterstützung für Multi-Repo-Umgebungen, basierend auf früheren multi-root workspaces, ermöglicht es Agenten, mehrere Repositories simultan zu verwalten und Änderungen organisationsweit zu analysieren – relevant für Unternehmen mit verteilten Microservices, wie etwa Amplitude, Decagon, Snyk und BILT. Verbesserte Dockerfile-Konfigurationen mit Build-Secrets und optimiertem Layer-Caching ermöglichen eine 70% schnellere Wiederverwendung von Cache-Schichten und erleichtern zudem die Versionsverwaltung von Umgebungen inklusive Audit Logs und Rollback-Features. Cursor bietet zudem einen agentengetriebenen Setup-Prozess, der fehlende Credentials identifiziert und bei Fehlkonfigurationen auf eine Basisversion zurückfällt, wobei ein automatisch generierter Dockerfile-Konfigurationsvorschlag in privater Beta für Enterprise-Kunden zur Verfügung steht.</div>
+        <a href="https://cursor.sh/blog/cloud-agent-development-environments" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Beyond efficiency: PayPal expands what&#x27;s possible to build with AI</div>
+        <div class="article-date">11.05.2026</div>
+        <div class="article-summary">PayPal hat durch den Einsatz von Cursor seine Entwicklungszyklen drastisch beschleunigt und eine Java-Aktualisierung von 3.000 Anwendungen in nur zwei Monaten realisiert – zuvor waren acht bis zwölf Monate üblich. Mit 8.000 Entwicklern und einem Jahrzehnte alten Code-Bestand steigt die Roadmap-Produktivität um 40%, während Teams, die Cursor zu über 90 % adaptieren, täglich ausliefern statt monatlicher Releases. Die agile Herangehensweise hat traditionelle Rollengrenzen verwischt und ermöglicht es Produktmanagern und Ingenieuren, gemeinsam funktionsfähige Prototypen in Stunden zu entwickeln, was zu deutlich verkürzten Lead Times und geringeren Change-Failure-Raten führt. Diese Veränderungen unterstützen PayPal dabei, in den Bereichen Payments und Commerce 2026 um 40 % mehr Capabilities als im Vorjahr bereitzustellen.</div>
+        <a href="https://cursor.sh/blog/paypal" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Updates to Bugbot for Teams and Individuals</div>
+        <div class="article-date">11.05.2026</div>
+        <div class="article-summary">Bugbot wechselt von einer monatlichen Gebühr von 40 Dollar pro Nutzer zu einem nutzungsbasierten Preismodell. Änderungen gelten für bestehende Kunden ab dem nächsten Verlängerungszeitraum nach dem 8. Juni 2026, bei einem Jahresabo aus Mai 2026 also erst ab Mai 2027. Die Abrechnung orientiert sich bei Teams am On-Demand-Verbrauch und bei Einzelplänen an einem inkludierten Nutzungsvolumen, wobei eine durchschnittliche Bugbot-Ausführung zwischen 1,00 und 1,50 Dollar kostet. Zusätzlich können Nutzer das Review-Level anpassen: Ein intensiverer Analysemodus findet intern 35 Prozent mehr Bugs, während die Auflösungsrate konstant bei 80 Prozent bleibt. Bereits bestehende Abonnenten können den Wechsel frühzeitig über das Cursor Dashboard aktivieren.</div>
+        <a href="https://cursor.sh/blog/may-2026-bugbot-changes" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>GitHub Copilot Blog (2 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Building a general-purpose accessibility agent—and what we learned in the process</div>
+        <div class="article-date">15.05.2026</div>
+        <div class="article-summary">GitHub testet einen general-purpose Accessibility Agent, der in die GitHub Copilot CLI sowie in die VS Code-Integration eingebunden wird, um Entwicklern just-in-time Antworten auf Fragen zur Barrierefreiheit zu liefern und einfache, objektive Probleme im Frontend-Code automatisch zu beheben. Der Agent hat bisher 3.535 Pull Requests geprüft und erzielt dabei eine Erfolgsquote von 68 %, wobei die häufigsten Problemfelder unter anderem die klare Darstellung von Struktur, präzise Benennung interaktiver Steuerelemente, korrekte Statusmeldungen, Alternativtexte für Nicht-Text-Inhalte sowie eine logische Tastatur-Fokus-Reihenfolge betreffen. Um den hohen Tokenverbrauch zu minimieren und die Genauigkeit zu verbessern, wurde der ursprünglich monolithische Agent in zwei separate, sandboxed Subagenten unterteilt – einen passiven Prüfer/Analytiker und einen aktiven Implementierer –, die ihre Ergebnisse über vorformatierte Template-Schemata in einer strikt linearen Anweisungskette austauschen. Zudem nutzt der Agent manuell kuratierte, strukturierte Barrierefreiheitsdaten, vereinfachte Heuristiken zur Bewertung der Code-Komplexität und Anti-Gaming-Maßnahmen, um riskante Änderungen frühzeitig zu erkennen und gezielt menschliche Interventionen zu eskalieren.</div>
+        <a href="https://github.blog/ai-and-ml/github-copilot/building-a-general-purpose-accessibility-agent-and-what-we-learned-in-the-process/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Dungeons &amp; Desktops: Building a procedurally generated roguelike with GitHub Copilot CLI</div>
+        <div class="article-date">12.05.2026</div>
+        <div class="article-summary">GitHub Dungeons verwandelt eine bestehende Codebasis mit GitHub Copilot CLI und dem Befehl /yolo in ein terminalbasiertes Roguelike, das mithilfe des Binary Space Partitioning (BSP) Algorithmus individuelle Dungeon-Layouts erzeugt. Das Layout wird durch den aktuellen Commit-Hash als Seed bestimmt, sodass jede Änderung im Repository das Dungeon dynamisch neu strukturiert. Die Erweiterung, in Go implementiert, nutzt unter anderem den /delegate-Befehl, um Feature-Implementierungen asynchron zu generieren und als Pull Request beizusteuern. Der Mechanismus kombiniert auf effiziente Weise prozedurale Generierung, reproduzierbare Zufallselemente und spielerische Konzepte wie Permadeath und progressive Schwierigkeitsgrade über fünf Level hinweg.</div>
+        <a href="https://github.blog/ai-and-ml/github-copilot/dungeons-desktops-building-a-procedurally-generated-roguelike-with-github-copilot-cli/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>GitHub Copilot Changelog (9 Eintr&auml;ge)</h2>
+    <div class="changelog-digest">Grok Code Fast 1 wird aus allen Copilot-Erlebnissen entfernt – künftig kommen stattdessen GPT-5 mini und Claude Haiku 4.5 zum Einsatz. Copilot Memory erlaubt nun Pro- und Pro+ Nutzern, individuelle Einstellungen wie Commit-Stil und Pull-Request-Struktur unabhängig von repository-spezifischen Präferenzen zu speichern. Die technische Vorschau der Copilot App bietet ein natives Desktop-Erlebnis mit separaten, isolierten Sessions und nahtloser Integration von Diff-Review und automatisierten Agent-Merges, während bei den JetBrains IDEs ein neuer CLI Agent in der öffentlichen Vorschau Aufgaben aus der IDE an einen lokal laufenden, terminalbasierten Prozess delegiert. Der Copilot Cloud Agent verbessert den Ablauf, indem er automatisch das leistungsstärkste Modell auswählt und über neue REST APIs programmatisch gesteuert sowie in bestehende Automatisierungen eingebunden werden kann. Parallel dazu liefern erweiterte REST-API-Endpunkte und der April-Nutzungsbericht detaillierte teambezogene Metriken sowie Einblicke in den Modellverbrauch und die anstehende Umstellung auf eine verbrauchsabhängige Abrechnung mittels AI Credits.</div>
+    <ul class="changelog-links">
+        <li><a href="https://github.blog/changelog/2026-05-15-copilot-memory-supports-user-preferences-for-pro-pro-users" class="article-link" target="_blank">Copilot Memory supports user preferences for Pro, Pro+ users</a> <span class="changelog-date">15.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-15-grok-code-fast-1-deprecated" class="article-link" target="_blank">Grok Code Fast 1 deprecated</a> <span class="changelog-date">15.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-14-copilot-cloud-agent-supports-auto-model-selection" class="article-link" target="_blank">Copilot cloud agent supports auto model selection</a> <span class="changelog-date">14.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-14-github-copilot-app-is-now-available-in-technical-preview" class="article-link" target="_blank">GitHub Copilot app is now available in technical preview</a> <span class="changelog-date">14.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-13-introducing-copilot-cli-agent-and-unified-sessions-view-in-github-copilot-for-jetbrains-ides" class="article-link" target="_blank">Introducing Copilot CLI agent and unified sessions view in GitHub Copilot for JetBrains IDEs</a> <span class="changelog-date">14.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-14-team-level-copilot-usage-metrics-now-available-via-api" class="article-link" target="_blank">Team-level Copilot usage metrics now available via API</a> <span class="changelog-date">14.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-13-start-copilot-cloud-agent-tasks-via-the-rest-api" class="article-link" target="_blank">Start Copilot cloud agent tasks via the REST API</a> <span class="changelog-date">13.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-12-april-reports-are-now-available-to-prepare-for-usage-based-billing" class="article-link" target="_blank">April reports are now available to prepare for usage-based billing</a> <span class="changelog-date">12.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-12-copilot-code-review-comment-experience-improvements" class="article-link" target="_blank">Copilot code review: Comment experience improvements</a> <span class="changelog-date">12.05.2026</span></li>
+    </ul>
+
+    <h2>Google AI Blog - Gemini (2 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">A smarter, more proactive Android with Gemini Intelligence</div>
+        <div class="article-date">12.05.2026</div>
+        <div class="article-summary">Gemini Intelligence integriert fortschrittliche KI in Android, um Routineaufgaben auf Geräten wie dem Samsung Galaxy S26 und Google Pixel 10 proaktiv zu automatisieren. Die neue Engine ermöglicht es, mehrstufige Abläufe in Apps – von Essensbestellungen bis hin zu Formularausfüllungen – durch visuelle Kontextanalyse und direkte Nutzerbefehle zu steuern. In Chrome fasst Gemini Inhalte zusammen, recherchiert und vergleicht Informationen, während die Funktion Rambler gesprochene, mehrsprachige Eingaben in präzise Texte umwandelt. Mit Create My Widget können Benutzer per natürlicher Sprache individuelle Widgets erstellen, unterstützt von einem aktualisierten, auf Material 3 Expressive basierenden UI-Design, das Ablenkungen reduziert und den Fokus stärkt.</div>
+        <a href="https://blog.google/products-and-platforms/platforms/android/gemini-intelligence/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Digitize your paper notes with Gemini.</div>
+        <div class="article-date">11.05.2026</div>
+        <div class="article-summary">Google stellt mit der Gemini App ein Tool bereit, um handschriftliche Notizen in strukturierte Study-Guides und Flashcards umzuwandeln. Nutzer fotografieren ihre Notizen und laden die Bilder in die App, die daraufhin mithilfe gezielter Prompts, wie „Create a study guide based on my course materials for my exams“, automatisch Zusammenfassungen erstellt. Fortgeschrittene Anwender können angeben, dass grundlegende Inhalte übersprungen und stattdessen komplexe Themen vertieft behandelt werden sollen. Die Funktionalität ist für Android (Mindestversion 301356232) und iOS (Mindestversion 322.0) verfügbar und unterstützt die effiziente Organisation von umfangreichen, handschriftlich erstellten Notizen.</div>
+        <a href="https://blog.google/innovation-and-ai/products/gemini-app/digitize-notes-gemini-study-guide/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Kent Beck - Tidy First (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Hey, N00b, We Didn&#x27;t Hire You to Complete Tasks</div>
+        <div class="article-date">15.05.2026</div>
+        <div class="article-summary">Unterstützen Sie die Weiterentwicklung von Junior-Entwicklern, indem Sie nicht auf reine Task-Erfüllung setzen, sondern deren Lernkurve und strategischen Mehrwert berücksichtigen. Signalisieren Sie als Senior deutlich, ob ein Mitarbeiter in die Kategorie A (Game-Changer), B (solider Performer) oder C (nicht langfristig tragfähig) passt – hierbei zählt vor allem, wie viel Erkenntnisse der Einzelne aus den anstehenden Aufgaben zieht. Ingenieure müssen durch gezielte, differenzierte Signale wie das Hinterfragen des eigentlichen Bedarfs einer Aufgabe, das Aufteilen von Diffs und das Erarbeiten neuer Ideen den Sprung in die A-Kategorie schaffen. Investieren Sie darüber hinaus bewusst Zeit in die persönliche Weiterbildung und die Dokumentation von Lernergebnissen, um langfristig den Team- und Unternehmenserfolg zu steigern.</div>
+        <a href="https://tidyfirst.substack.com/p/hey-n00b-we-didnt-hire-you-to-complete" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Martin Fowler (3 Artikel)</h2>
+    <div class="section-summary">LLMs unterstützen nun interaktive Interviews, um komplexe Spezifikationen zu erzeugen und zu validieren, indem sie schrittweise den erforderlichen Kontext bereitstellen. Code dient dabei zugleich als präzise Steuerungsanweisung für Maschinen und als Modell zur Entwicklung domänenspezifischer Sprachen, wobei Methoden wie TDD und Domain-Driven Design mit Sprachen wie Java, Go und Rust zum Einsatz kommen. Zudem bietet eine umfangreiche Sammlung fundierte Einblicke in agile Praktiken, Continuous Delivery, Microservices und datenorientierte Architektur, die den praktischen Austausch und die Weiterentwicklung in der Softwareentwicklung fördern.</div>
+    <div class="article">
+        <div class="article-title">Bliki: Interrogatory LLM</div>
+        <div class="article-date">14.05.2026</div>
+        <div class="article-summary">Techniken nutzen LLMs, indem sie den Benutzer interaktiv befragen, um umfangreiche und strukturierte Kontexte für komplexe Aufgaben wie Feature-Design oder Spezifikationsdokumente zu generieren. Dabei stellt sich heraus, dass das sequentielle Stellen einzelner Fragen – ein Ansatz, den Harper Reed bereits demonstriert hat – unerlässlich ist, da das Modell regelmäßig daran erinnert werden muss, nicht mehrere Fragen gleichzeitig zu formulieren. Das System kann sowohl zur Erzeugung von Inhalten als auch zur Validierung bestehender Dokumente eingesetzt werden, indem es Fachleute im Gespräch prüft, was insbesondere bei der Überwindung von Schreibblockaden und unzureichend formulierten Spezifikationen Vorteile bringt. Die Methode verlagert den Schreibaufwand vom Menschen auf den LLM-gestützten Interviewprozess, wodurch selbst bei komplexen, mehrseitigen Beschreibungen effizient Kontext generiert werden kann.</div>
+        <a href="https://martinfowler.com/bliki/InterrogatoryLLM.html" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">What is Code</div>
+        <div class="article-date">12.05.2026</div>
+        <div class="article-summary">Code dient einer doppelten Funktion: Er steuert Maschinen durch präzise Anweisungen und bildet gleichzeitig ein Modell des jeweiligen Fachdomäne, indem er ein spezifisches Vokabular etabliert. Entwickler arbeiten iterativ an der Entdeckung und Verfeinerung abstrakter Konzepte, wobei Techniken wie TDD und Prinzipien des Domain-Driven Design für den Aufbau einer gemeinsamen, domänenspezifischen Sprache entscheidend sind. Fortschritte in LLM-Technologien ermöglichen die Generierung umfangreicher, ausführbarer Codefragmente aus abstrakten Beschreibungen, was den Wert des konzeptuellen Vokabulars und damit die Bedeutung von klar definierten Abstraktionen noch verstärkt. Programmiersprachen wie Java, Go und Rust sowie ergänzende Werkzeuge – etwa das PlantUML-Tool in Verbindung mit LLMs – fördern dabei nicht nur die Umsetzung der technischen Logik, sondern unterstützen auch die kontinuierliche Validierung und Weiterentwicklung des gemeinsam geteilten Wissenstands, sodass kognitive Schulden durch unklaren Code vermieden werden.</div>
+        <a href="https://martinfowler.com/articles/what-is-code.html" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">All Content</div>
+        <div class="article-date">11.05.2026</div>
+        <div class="article-summary">Über 918 Inhalte ordnen Martin Fowler und sein Team umfangreiche Erkenntnisse zur Softwareentwicklung, agile Methoden und Architektur. Die Sammlung umfasst Themen von Refactoring und Continuous Delivery bis hin zu Microservices, Domain-Specific Languages und datenorientierter Architektur. Die strukturierte Übersicht erlaubt es, Einträge nach Titeln und Tags zu filtern, wodurch Führungskräfte und Architekten einen schnellen Zugriff auf praxisrelevante Details und methodische Überlegungen erhalten. Die kuratierte Darstellung bietet erfahrenen Entwicklern einen kompakten Zugang zu diversen Disziplinen und Erfahrungsberichten aus der Softwareentwicklung.</div>
+        <a href="https://martinfowler.com/tags/index.html" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Microsoft .NET Blog (4 Artikel)</h2>
+    <div class="section-summary">.NET 11 und .NET 11 Preview 4 liefern wesentliche Neuerungen mit einem Wechsel in .NET MAUI von Mono zu CoreCLR, was eine einheitliche Laufzeit, Verbesserungen bei Startzeiten sowie den Übergang zu NativeAOT ermöglicht, während die System.Diagnostics.Process-Klasse um ergonomische, leistungsoptimierte APIs erweitert wurde. Gleichzeitig erscheinen Servicing-Updates für .NET bzw. .NET Framework in den Versionen 8, 9 und 10, die neben sicherheitsrelevanten Fixes auch Updates für ASP.NET Core, Entity Framework Core und weitere Bibliotheken enthalten.</div>
+    <div class="article">
+        <div class="article-title">.NET MAUI Moves to CoreCLR in .NET 11</div>
+        <div class="article-date">13.05.2026</div>
+        <div class="article-summary">.NET MAUI wechselt ab .NET 11 Preview 4 standardmäßig von Mono zu CoreCLR für Android, iOS, Mac Catalyst und tvOS, sodass mobile Apps künftig dieselbe Laufzeit wie ASP.NET Core, Azure-Dienste und Desktopanwendungen nutzen. CoreCLR ermöglicht neben einer einheitlichen Toolchain auch Verbesserungen bei der Startzeit durch tiered JIT, ReadyToRun und Profile-Guided Optimization, was jedoch in größeren Android-Anwendungen zu gemeldeten Regressionsfällen führen kann. Entwickler können bei Problemen vorübergehend mit einer Projektdatei zurück zu Mono wechseln, indem sie die Eigenschaft UseMonoRuntime auf true setzen. Der Wechsel unterstützt außerdem den Übergang zu NativeAOT auf allen Plattformen, da CoreCLR die Grundlage hierfür bildet.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/dotnet-maui-moves-to-coreclr-in-dotnet-11/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Process API Improvements in .NET 11</div>
+        <div class="article-date">13.05.2026</div>
+        <div class="article-summary">.NET 11 erweitert die System.Diagnostics.Process-Klasse um eine Vielzahl neuer, ergonomischer APIs, die das Starten von Prozessen, das synchrone wie asynchrone Erfassen von Ausgabe und Fehlern sowie das Management von Prozess-Lebenszyklen deutlich vereinfachen. Mit Methoden wie Process.RunAndCaptureText[Async], Process.ReadAllText[Async] und Process.ReadAllLines[Async] wird das gleichzeitige Drainieren von Standardausgabe und -fehler inhärent deadlock-frei umgesetzt – basierend auf multiplex-basierten Leseoperationen, die unter Windows inzwischen auf asynchronen Named Pipes beruhen. Die neuen Mechanismen zur Kontrolle der Handle-Inheritance über ProcessStartInfo.InheritedHandles und zur Umleitung von Standardhandles auf beliebige SafeFileHandle-Objekte minimieren versehentliche Ressourcenkonflikte und erhöhen die Sicherheit im Zusammenspiel von Eltern- und Kindprozessen. Zusätzlich sorgen Features wie Process.StartAndForget, KillOnParentExit, StartDetached sowie ein trimmerfreundlicheres SafeProcessHandle für geringere Speicherallokationen und signifikante Performancegewinne – etwa bis zu 98× schnelleren Prozessstart auf Apple Silicon und bis zu 31,9 % kleinere NativeAOT-Binaries im Vergleich zu .NET 10.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/process-api-improvements-in-dotnet-11/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">.NET 11 Preview 4 is now available!</div>
+        <div class="article-date">12.05.2026</div>
+        <div class="article-summary">.NET 11 Preview 4 bringt umfassende Verbesserungen für Runtime, SDK, Libraries, ASP.NET Core, .NET MAUI, C# und Entity Framework Core. Die Libraries erweitern den Process-API-Satz, führen spanbasierte Deflate-, ZLib- und GZip-Encoder/Decoder-APIs ein und verbessern Floating-Point-Hex-Formatierung sowie System.Text.Json. Im Runtime-Bereich werden Libraries nun mit runtime-async kompiliert, JIT-Optimierungen und Hardwareintrinsics optimiert. Das SDK ergänzt dotnet watch um Geräteauswahl für .NET MAUI und mobile Projekte, während C# und ASP.NET Core durch klarere Diagnostik und neue Features – etwa für serverinitiierte Blazor Server-Pauses – präzise Updates erhalten. Entwickler können die Version über das .NET-Downloadportal beziehen und auf Windows empfiehlt sich der Einsatz von Visual Studio 2026 Insiders.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/dotnet-11-preview-4/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">.NET and .NET Framework May 2026 servicing releases updates</div>
+        <div class="article-date">12.05.2026</div>
+        <div class="article-summary">.NET und .NET Framework erhalten im Mai 2026 wichtige Servicing-Updates, die sowohl sicherheitsrelevante als auch andere Fehlerbehebungen beinhalten. Die Updates für .NET betreffen Versionen 10.0, 9.0 und 8.0, jeweils mit den spezifischen Releases 10.0.8, 9.0.16 und 8.0.27, und enthalten unter anderem Fixes für CVE-2026-32177, CVE-2026-35433, CVE-2026-32175 und CVE-2026-42899. Für ASP.NET Core und Entity Framework Core stehen entsprechende Changelogs und Servicing-Release-Informationen bereit, die den Update-Prozess unterstützen. Zusätzlich bietet Microsoft aktuelle Installationspakete, Container-Images und Linux-Paket-Anleitungen zur einfachen Integration in bestehende Umgebungen.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/dotnet-and-dotnet-framework-may-2026-servicing-updates/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Pragmatic Engineer Newsletter (3 Artikel)</h2>
+    <div class="section-summary">Große Unternehmen wie Google, OpenAI und Anthropic verschieben den Fokus hin zu beratenden, lösungsorientierten Funktionen in Form von Forward Deployed Engineers, während gleichzeitig neue Ansätze wie Vibe Coding und agentisches Engineering die Zusammenarbeit in der Softwareentwicklung neu definieren. Anders Hejlsbergs Rückblick auf die Entwicklung von Programmiersprachen wie Turbo Pascal, C#, und TypeScript verdeutlicht, wie kleine, agile Teams und offene Quellcode-Ökosysteme den Entwickler-Workflow erreichen, auch wenn komplexe Projekte wie GTA VI weiterhin langwierig bleiben. Brooks’ Thesen untermauern, dass technologische Verbesserungen in Versionierung, CI/CD-Tools und SRE-Rollen zwar signifikante Effizienzgewinne bringen, aber keine fundamentale 10-fache Produktivitätssteigerung bewirken.</div>
+    <div class="article">
+        <div class="article-title">The Pulse: Forward deployed engineering heats up again</div>
+        <div class="article-date">14.05.2026</div>
+        <div class="article-summary">Große Unternehmen wie Google, OpenAI und Anthropic suchen verstärkt nach Forward Deployed Engineers, wobei diese Rolle zunehmend als beratende Funktion mit lösungsorientiertem Ansatz verstanden wird. Der Artikel zeigt, dass dieser Trend in Verbindung mit signifikanten Tech-Jobverlusten und Berichten über Firmen, die ihren 100%igen Einsatz von KI belegen, steht. Zudem wird thematisiert, wie Entwicklungen wie Vibe Coding und agentisches Engineering zu einer neuen Form der Zusammenarbeit in der Softwareentwicklung führen. Die beschriebenen Trends unterstreichen den strukturellen Wandel in der technischen Landschaft, der weit über traditionelle Engineering-Rollen hinausgeht.</div>
+        <a href="https://newsletter.pragmaticengineer.com/p/the-pulse-forward-deployed-engineering" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">TypeScript, C# and Turbo Pascal with Anders Hejlsberg</div>
+        <div class="article-date">13.05.2026</div>
+        <div class="article-summary">Anders Hejlsberg erklärt, wie er mit kleinen, erfahrenen Teams – etwa sechs Designern, die sich wöchentlich mehrere Stunden trafen – Programmiersprachen schuf, die sowohl den kompletten Entwickler-Workflow als auch die Wettbewerbsfähigkeit im Markt adressieren. Turbo Pascal etwa wurde für 49,95 US-Dollar angeboten – weit unter den üblichen 500 US-Dollar – und überzeugte durch integrierte IDE und Debugging, was Piraterie nahezu verhinderte. C# profitierte von diesem Ansatz, indem moderne Sprachfeatures wie async/await implementiert wurden, um komplexe Zustandsmaschinen automatisch zu generieren. Bei TypeScript trug der Wechsel von CodePlex zu GitHub 2014 entscheidend dazu bei, dass offene Entwicklung und technische Features wie lazy evaluation und deferred imports zu einer effizienten Kompilierung führten; gleichzeitig bestimmt die Menge verfügbarer Trainingsdaten heute den Erfolg von Sprachen im Kontext von KI-unterstützter Entwicklung.</div>
+        <a href="https://newsletter.pragmaticengineer.com/p/typescript-c-and-turbo-pascal-with" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Revisiting “No Silver Bullets” in the age of AI</div>
+        <div class="article-date">12.05.2026</div>
+        <div class="article-summary">Brooks’ These, wonach keine einzelne technologische oder methodische Neuerung eine Größenordnung an Produktivitäts- oder Zuverlässigkeitssteigerung bewirken könne, bleibt auch im Zeitalter von KI weitgehend gültig. Verschiedene Entwicklungen – etwa die Ablösung von CVS, Subversion und später Git, der Einsatz moderner IDEs sowie der breitere Einsatz von CI/CD-Tools wie Jenkins, Travis CI, GitLab CI und GitHub Actions – haben die Kollaboration und Iterationsgeschwindigkeit deutlich verbessert, ohne einen 10x-Produktivitätsschub zu erzielen. Googles Einführung der SRE-Rolle im Jahr 2003 führte zu einem außerordentlichen Zuverlässigkeitsniveau, das sich bei Google Search in einer beinahe messbaren 10-fachen Verbesserung manifestiert, was zeigt, dass ein “Silver Bullet” in spezifischen Kontexten funktionieren kann. Offene Quellcode-Ökosysteme und Plattformteams (etwa seit den 2010er Jahren) haben schrittweise ebenso zu einer besseren Entwickler-Experience beigetragen, während agile Methoden wie Scrum und Kanban den Release-Zyklus – belegt an monatlichen Firefox- und Chrome-Veröffentlichungen sowie einer Verschärfung auf zweiwöchentliche Releases bei Chrome ab September – beschleunigten. Gleichzeitig bleiben die komplexen, langwierigen Softwareentwicklungen, wie am Beispiel von GTA VI (zwischen 6 und 12 Jahren Entwicklungszeit), im Vergleich zu früher kaum verkürzt.</div>
+        <a href="https://newsletter.pragmaticengineer.com/p/revisiting-no-silver-bullets-in-the" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Simon Willison (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Colophon</div>
+        <div class="article-date">14.05.2026</div>
+        <div class="article-summary">Simon Willison betreibt seit 2002 einen Blog, in dem er als Mitentwickler des Django Web Frameworks und Schöpfer von Datasette seine Expertise in Webentwicklung, Datenpublikation und Open Source dokumentiert. Der Blog basiert auf einer eigens entwickelten Django-Webanwendung, wird über Heroku gehostet und nutzt PostgreSQL zur Speicherung von Inhalten, die zusätzlich als JSON-Backups geführt und über eine Datasette-Instanz (datasette.simonwillison.net) bereitgestellt werden. Er bietet sowohl einen kostenfreien, wöchentlichen Newsletter als auch einen kostenpflichtigen, monatlichen Kurzüberblick, was unterschiedliche Leserkreise anspricht. Neben technischen Projekten engagiert er sich als Vorstandsmitglied der Python Software Foundation und beteiligt sich an verschiedenen Sponsorship-Programmen, darunter GitHub Accelerator (2023) sowie Mozilla MIECO (2023–2024).</div>
+        <a href="https://simonwillison.net/about/#about-site" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Thorsteinn Siglaugsson (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">The Free Press</div>
+        <div class="article-date">14.05.2026</div>
+        <div class="article-summary">Die Seite „The Free Press“ fungiert als aggregierte Content-Plattform, die Artikel aus den Bereichen Politik, Kultur, internationaler Angelegenheiten und Bildung strukturiert präsentiert. Die HTML-Struktur bindet zahlreiche externe Ressourcen ein – etwa diverse CSS-Dateien, Schriftarten von Google Fonts und Bilder über SubstackCDN –, was auf einen modularen, serviceorientierten Frontend-Ansatz hindeutet. Die Inhalte werden in klar abgegrenzten Kategorien mit interaktiven Elementen und responsivem Layout dargestellt, wobei ein Fallback für deaktiviertes JavaScript integriert wurde. Die Implementierung spiegelt typische Designentscheidungen moderner Webanwendungen wider, die sowohl Flexibilität als auch Performance in der Darstellung umfangreicher Newsfeeds zum Ziel haben.</div>
+        <a href="https://www.thefp.com/?utm_source=homepage_recommendations&amp;utm_campaign=557337" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Warp AI Terminal Blog (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Agents Need Feedback Loops, Not Perfect Prompts</div>
+        <div class="article-date">14.05.2026</div>
+        <div class="article-summary">Der Artikel zeigt, dass Agenten, die komplexe Aufgaben mit Urteilsvermögen übernehmen, nicht von perfekten Prompts, sondern von kontinuierlichen Feedback-Schleifen profitieren. Anhand des internen Agenten Buzz bei Warp wird demonstriert, wie ein regelbasiertes, aber bald durch prinzipienbasierte Anweisungen ersetztes System der Agentik langsam lernt, den Team-Geschmack in fundierte Entscheidungen umzusetzen. Buzz verarbeitet monatlich tausende Social-Media-Erwähnungen – etwa 50 % erfordern keine Reaktion – und entlastet so das Team, indem er potenzielle Antworten vorformuliert und über einen minimalen Slack-Feedback-Loop zur Anpassung optimiert wird. Die Änderungen werden als PRs verwaltet und geprüft, sodass die sich kontinuierlich verbessernden Agentenfähigkeiten ähnlich wie Codeversionen nachvollziehbar und rückverfolgbar bleiben.</div>
+        <a href="https://www.warp.dev/blog/agents-need-feedback-loops-not-perfect-prompts" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Windsurf Announcements (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Opus 4.7 (fast mode) is now available in Windsurf</div>
+        <div class="article-date">12.05.2026</div>
+        <div class="article-summary">Opus 4.7 (fast mode) erscheint nun in der Windsurf-Plattform, wobei der Fokus auf einer beschleunigten Codeverarbeitung liegt. Die Implementierung des „fast mode“ verkürzt Reaktionszeiten und optimiert die Effizienz in der Analyse und Verarbeitung von Quellcode. Windsurf setzt damit klar auf Performance-Steigerungen und technische Verbesserungen, die den Arbeitsablauf von Entwicklern und Architekten unterstützen. Die Neuerung unterstreicht Windsurfs Engagement, aktuelle Entwicklungsansätze und moderne Optimierungstechniken in ihre Produkte zu integrieren.</div>
+        <a href="https://codeium.com/blog/opus-4.7-fast" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+
+</body>
+</html>
