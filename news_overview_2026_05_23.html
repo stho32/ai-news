@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Übersicht - Letzte 7 Tage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .article {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .article-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .article-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .article-summary {
+            margin-bottom: 10px;
+        }
+        .article-link {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .article-link:hover {
+            text-decoration: underline;
+        }
+        /* R00011: Section-Summary-Block, leicht abgesetzt von Einzel-Artikeln */
+        .section-summary {
+            margin: 10px 0 20px 0;
+            padding: 12px 16px;
+            background-color: #eef4fb;
+            border-left: 4px solid #0066cc;
+            font-style: italic;
+            color: #234;
+        }
+        /* R00012: Changelog-Digest-Block — visuell distinkt vom Section-Summary */
+        .changelog-digest {
+            margin: 10px 0 15px 0;
+            padding: 12px 16px;
+            background-color: #fff7e6;
+            border-left: 4px solid #d97706;
+            color: #3a2a00;
+        }
+        .changelog-links {
+            list-style: disc inside;
+            padding-left: 0;
+            margin: 0 0 25px 0;
+        }
+        .changelog-links li {
+            margin: 4px 0;
+        }
+        .changelog-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-left: 6px;
+        }
+        /* R00013: Wochen-Tenor — visuell die staerkste der drei
+           Verdichtungsklassen (overall > section-summary > changelog-digest).
+           Linker Rand kraeftiger, Schrift groesser, klar abgesetzte
+           Hintergrundfarbe — vom Leser auf den ersten Blick als
+           Zusammenfassung der Wochenausgabe erkennbar. */
+        .overall-summary {
+            margin: 10px 0 25px 0;
+            padding: 18px 22px;
+            background-color: #f0fbf3;
+            border-left: 6px solid #15803d;
+            font-size: 1.1em;
+            color: #14271d;
+        }
+        /* R00011: Rueckspruglink zur index.html (oben und unten) */
+        .back-link {
+            display: inline-block;
+            margin: 10px 0 20px 0;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>News Übersicht der letzten 7 Tage</h1>
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+    <div class="overall-summary">KI-gesteuerte Agentenlösungen transformieren die Softwareentwicklung, wie durch die Fortschritte bei GitHub Copilot, Anthropic und Google Gemini belegt wird, welche agentenbasierte Workflows, verbesserte Modellperformance und nahtlose Integrationen in bestehende Entwicklungsumgebungen ermöglichen. Parallel dazu gewinnen Sicherheitsaspekte zunehmend an Bedeutung, wobei KI-gestützte Vulnerability-Scans und automatisierte Patch-Prozesse, etwa im Rahmen von Project Glasswing und Claude Security, schnellere Reaktionszeiten und robustere Systeme fördern. Die kontinuierlichen Modell-Updates und Architekturverbesserungen, unter anderem bei Gemini 3.5 Flash, Composer 2.5 und den neuen GitHub-Funktionalitäten, optimieren nicht nur die Performance, sondern senken auch die Betriebskosten und erhöhen die Effizienz. Gleichzeitig werden flexible API- und SDK-Lösungen, wie bei der Integration von Agenten in KPMG-Plattformen oder neuen Inference-Konfigurationen in Warp, ausgebaut, um individuellen Entwicklerbedürfnissen gerecht zu werden. Weitere Branchentrends betreffen das Management von Speicherkapazitäten und die Notwendigkeit sicherer, offener Entwicklungsprozesse, um Qualität und Codewartbarkeit trotz wachsender Automatisierung und Komplexität zu gewährleisten.</div>
+    <p>Generiert am: 23.05.2026 07:00 Uhr</p>
+    <p>Anzahl Artikel: 40 (zus&auml;tzlich 14 Changelog-Eintr&auml;ge aus 1 Quelle)</p>
+
+    <h2>Allan Kelly Blog (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Noel Warnell</div>
+        <div class="article-date">17.05.2026</div>
+        <div class="article-summary">Pace+Purpose verknüpft Führung, Teamprozesse und operative Umsetzung, um die Vorhersagbarkeit und Qualität von Software-Delivery signifikant zu verbessern. Mit über 20 Jahren Branchenexpertise in Sektoren wie Finanzen, FMCG, öffentlicher Sektor und Technik analysiert das Team zunächst bestehende Prozesse und entwickelt dann maßgeschneiderte Roadmaps, die messbare Geschäftsergebnisse liefern. Erste Resultate in Klarheit und Fokussierung sind bereits nach wenigen Wochen spürbar, wobei sich konsistente, skalierbare Verbesserungen typischerweise innerhalb von 3 bis 6 Monaten manifestieren. Noel Warnell und sein Team setzen dabei auf praxisnahe Beratung, bei der die Abstimmung zwischen strategischer Führung und operativen Teams im Fokus steht.</div>
+        <a href="https://www.pace-purpose.com/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Anthropic News (4 Artikel)</h2>
+    <div class="section-summary">Anthropic nutzt fortschrittliche KI-Modelle wie Mythos Preview und Claude Security, um systematisch Sicherheitslücken in zentraler Software, inklusive Open-Source-Komponenten, zu identifizieren und rasch zu beheben. Die Integration von Claude in KPMGs Digital Gateway über Microsoft Azure sowie die Übernahme von Stainless verbessern die Entwicklung agentenbasierter Anwendungen, während interdisziplinäre Dialoge die ethisch-moralische Konstitution der KI-Systeme weiter prägen.</div>
+    <div class="article">
+        <div class="article-title">Project Glasswing: An initial update</div>
+        <div class="article-date">22.05.2026</div>
+        <div class="article-summary">Anthropic verwendet im Rahmen von Project Glasswing das Modell Mythos Preview, um mithilfe von rund 50 Partnern über 10.000 hoch- bis kritisch bewertete Sicherheitslücken in zentraler Software, inklusive Open-Source-Projekten, zu identifizieren. Cloudflare meldete dabei 2.000 entdeckte Bugs (davon 400 kritisch) und Mozilla identifizierte 271 Schwachstellen in Firefox 150 – eine mehr als zehnfache Steigerung im Vergleich zu Firefox 148 mit Claude Opus 4.6. Das Modell fand in über 1.000 Open-Source-Projekten 6.202 schwerwiegende Schwachstellen, von denen 90,6 Prozent nach unabhängiger Prüfung als valide bestätigt wurden, darunter auch eine kritische Lücke in der wolfSSL-Bibliothek (CVE-2026-5194). Die Einführung von Claude Security in der öffentlichen Beta für Claude Enterprise Kunden hat bereits zur Behebung von über 2.100 Schwachstellen geführt, wobei Patches in unter zwei Wochen umgesetzt werden, anders als im meist langsamer reagierenden Open-Source-Bereich. Die Ergebnisse betonen die Notwendigkeit, Patch-Zyklen zu verkürzen und Sicherheitsprozesse zu intensivieren, um die erhöhte Gefahr durch fortschrittliche KI-gestützte Vulnerability-Scans zu kompensieren.</div>
+        <a href="https://www.anthropic.com/research/glasswing-initial-update" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">KPMG integrates Claude across its core business</div>
+        <div class="article-date">19.05.2026</div>
+        <div class="article-summary">KPMG bindet die Anthropic-KI-Lösung Claude in seine zentrale Digital Gateway-Plattform ein, um interne Arbeitsabläufe in Bereichen wie Steuern, Recht und Cybersecurity zu optimieren. Über 276.000 Mitarbeiter weltweit erhalten Zugang zu Claude, wodurch Aufgaben, die früher Wochen in Anspruch nahmen, in Minuten erledigt werden können. Die Integration basiert auf Microsoft Azure und ermöglicht es, komplexe Prozesse innerhalb des bestehenden Software-Ökosystems effizient zu modernisieren. Gleichzeitig arbeitet KPMG eng mit Anthropic und Private-Equity-Kunden zusammen, um neue, auf Claude basierende Produkte und Dienstleistungen zu entwickeln.</div>
+        <a href="https://www.anthropic.com/news/anthropic-kpmg" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Widening the conversation on frontier AI</div>
+        <div class="article-date">19.05.2026</div>
+        <div class="article-summary">Anthropic führt seit mehreren Monaten interdisziplinäre Dialoge mit Vertretern religiöser, philosophischer und kultureller Traditionen, um die Grundlagen der moralischen Ausbildung von KI-Systemen zu erarbeiten. In Experimenten integrierte man ein Tool in Claude, das vor entscheidenden Aktionen ethische Verpflichtungen abrief, was zu signifikant niedrigeren Fehlverhaltensraten in internen Alignment-Tests führte. Das Feedback aus diesen Gesprächen fließt in die weitere Entwicklung von Claude&#x27;s Konstitution ein, in der Werte und gewünschte Verhaltensweisen festgelegt werden. Zukünftige Gespräche sollen um Beiträge von Juristen, Psychologen, Schriftstellern und weiteren Experten erweitert werden, um die gesellschaftlichen Auswirkungen leistungsfähiger KI-Systeme umfassend zu adressieren.</div>
+        <a href="https://www.anthropic.com/news/widening-conversation-ai" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Anthropic acquires Stainless</div>
+        <div class="article-date">18.05.2026</div>
+        <div class="article-summary">Anthropic übernimmt Stainless, einen Anbieter von SDKs, CLIs und MCP-Server-Tools, der seit seiner Gründung im Jahr 2022 maßgeblich die Entwicklung aller offiziellen Anthropic SDKs unterstützt. Stainless wandelt API-Spezifikationen in native SDKs für Sprachen wie TypeScript, Python, Go, Java und Kotlin um, auf die Hunderte von Unternehmen vertrauen. Die Übernahme bringt das Fachwissen von Stainless in die Anthropic-Plattform ein und stärkt Claude, indem die Konnektivität von Agenten zu Daten und Tools weiter verbessert wird. Anthropic baut damit auf MCP auf, um die Integration von API-Diensten in agentenbasierte Anwendungen zukünftig effizienter zu gestalten.</div>
+        <a href="https://www.anthropic.com/news/anthropic-acquires-stainless" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Cursor Blog (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Introducing Composer 2.5</div>
+        <div class="article-date">18.05.2026</div>
+        <div class="article-summary">Composer 2.5 verbessert deutlich den Vorgänger durch robustere Leistung in lang andauernden Aufgaben, verfeinerte Kommunikation und präzisere Verhaltenssteuerung. Die neue Trainingsmethodik kombiniert skalierte RL-Umgebungen, gezieltes RL mittels textueller Rückmeldung und einen 25-fach erhöhten Einsatz synthetischer Aufgaben, um auch komplexe Codierungsprobleme zu adressieren. Die Optimierung umfasst zudem verteiltes orthogonalisiertes Training mittels Muon und duale HSDP-Mesh-Techniken, was bei einem 1T Modell eine Optimizer-Schrittdauer von 0,2 Sekunden erreicht. Composer 2.5 basiert auf dem Open-Source-Checkpoint Moonshot’s Kimi K2.5 und wird zusammen mit SpaceXAI unter Einsatz von 10x mehr Gesamt-Compute und einer Million H100-Äquivalenten trainiert; die Preise liegen bei $0,50/M Eingabe- und $2,50/M Ausgabe-Token (schnellere Variante zu $3,00/M bzw. $15,00/M), wobei in der ersten Woche eine doppelte Nutzung möglich ist.</div>
+        <a href="https://cursor.sh/blog/composer-2-5" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>GitHub Copilot Blog (2 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">GitHub recognized as a Leader in the Gartner® Magic Quadrant™ for Enterprise AI Coding Agents for the third year in a row</div>
+        <div class="article-date">22.05.2026</div>
+        <div class="article-summary">GitHub erreicht die Marktführung im Gartner Magic Quadrant 2026 für Enterprise AI Coding Agents und stellt damit seine Fähigkeit unter Beweis, den vollständigen Softwareentwicklungszyklus von der Codeerzeugung bis zur Überprüfung und Sicherheit abzudecken. GitHub Copilot unterstützt inzwischen 140.000 Organisationen – ein Wachstum von über 100 % im Jahresvergleich –, während die Nutzung von GitHub Copilot CLI innerhalb eines Monats nahezu doppelt so hoch ist. Gartner prognostiziert, dass bis 2028 asynchrone AI-Coding-Agent-Workflows die Produktivität von Entwicklerteams um 30 bis 50 % steigern werden, was die Bedeutung von agentischen Workflows im gesamten SDLC hervorhebt. Die Bewertung basiert auf GitHubs starker Umsetzung, tiefen Integrationen in diverse Entwicklungsumgebungen und robusten Governance-Kontrollen, die eine effiziente Steuerung und Sicherung von AI-gestützten Prozessen ermöglichen.</div>
+        <a href="https://github.blog/ai-and-ml/github-copilot/github-recognized-as-a-leader-in-the-gartner-magic-quadrant-for-enterprise-ai-coding-agents-for-the-third-year-in-a-row/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Take your local GitHub sessions anywhere</div>
+        <div class="article-date">18.05.2026</div>
+        <div class="article-summary">GitHub Copilot erhält eine Remote-Control-Funktion, die es erlaubt, aktive Sessions aus VS Code, der CLI oder JetBrains IDE geräteübergreifend auf github.com und in der GitHub Mobile App fortzuführen. Mit dem Befehl /remote on können Entwickler laufende Copilot CLI-Sessions in Echtzeit überwachen, über natürliche Sprachbefehle steuern und bei Bedarf umjustieren – unabhängig davon, ob sie in einem Repository oder in einem freien Verzeichnis arbeiten. Die Funktion ermöglicht einen nahtlosen Wechsel zwischen verschiedenen Arbeitsumgebungen, sodass Aufgaben vom Desktop starten und mobil abgeschlossen werden können. Dabei bleibt die Sichtbarkeit der Sessions auf den jeweiligen Benutzer beschränkt, was die Privatsphäre sicherstellt.</div>
+        <a href="https://github.blog/news-insights/product-news/take-your-local-github-sessions-anywhere/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>GitHub Copilot Changelog (14 Eintr&auml;ge)</h2>
+    <div class="changelog-digest">Bei den Modell-Updates wird deutlich, dass GitHub vermehrt auf gezielte Modelloptimierung und -erweiterung setzt: In VS Code erfolgt die automatische Auswahl optimierter KI-Modelle basierend auf Echtzeitmetriken, während in der Web-Version von Copilot Chat aus Gründen der Stabilität weniger zuverlässige Varianten wie Gemini-Modelle entfernt wurden. Gemini 3.5 Flash wurde in mehreren IDEs wie VS Code, Visual Studio, JetBrains, Xcode und Eclipse ausgerollt, und das Modellportfolio des Copilot cloud agent wurde um Claude Haiku 4.5 sowie GPT‑5.4‑mini erweitert, während Copilot Business und Enterprise künftig GPT‑5.3‑Codex als Standardmodell nutzen. Zudem wurden neue Funktionalitäten eingeführt, die die Entwicklererfahrung direkt verbessern: Die Integration einer semantischen Suche im Copilot Chat erleichtert das Finden und Filtern von Issues per natürlicher Sprache, überarbeitete Aktionsbuttons in den Code Reviews und ein In-Page-Chatpanel ermöglichen einen reibungsloseren Übergang zur aktiven Codebearbeitung. Die neu hinzugefügten Features im Bereich der Automatisierung zeigen sich auch bei der Reparatur fehlgeschlagener GitHub Actions, die nun über einen Klick direkt im Workflow-Log behoben werden können, und bei der erweiterten Remote-Steuerung im Copilot CLI, die über verschiedene Plattformen wie GitHub Mobile, Website und VS Code verfügbar ist. Gleichzeitig wurden API-Änderungen umgesetzt, bei denen beispielsweise Copilot Usage Metrics URLs auf stabile, von GitHub verwaltete Domains umgestellt wurden, ein REST API-Endpunkt zur Überprüfung der Copilot cloud agent Konfiguration eingeführt und die Copilot Spaces API allgemein verfügbar gemacht. Schließlich stellt die Open-Source-Veröffentlichung des Copilot for Eclipse Quellcodes unter der MIT-Lizenz einen weiteren Schritt dar, der detaillierte Einblicke in den Code und die dahinterstehende Architektur ermöglicht und so die Zusammenarbeit mit der Entwickler-Community fördert.</div>
+    <ul class="changelog-links">
+        <li><a href="https://github.blog/changelog/2026-05-21-github-copilot-for-eclipse-is-open-source" class="article-link" target="_blank">GitHub Copilot for Eclipse is open source</a> <span class="changelog-date">21.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-20-auto-model-selection-now-routes-based-on-your-task-in-vs-code" class="article-link" target="_blank">Auto model selection now routes based on your task in VS Code</a> <span class="changelog-date">20.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-20-copilot-usage-metrics-reports-now-use-github-owned-download-urls" class="article-link" target="_blank">Copilot usage metrics reports now use GitHub-owned download URLs</a> <span class="changelog-date">20.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-20-semantic-issue-search-in-copilot-chat" class="article-link" target="_blank">Semantic issue search in Copilot Chat</a> <span class="changelog-date">20.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-20-updates-to-available-models-in-copilot-on-web" class="article-link" target="_blank">Updates to available models in Copilot on web</a> <span class="changelog-date">20.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-19-easily-apply-copilot-code-review-feedback-with-copilot-cloud-agent" class="article-link" target="_blank">Easily apply Copilot code review feedback with Copilot cloud agent</a> <span class="changelog-date">19.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-19-gemini-3-5-flash-is-generally-available-for-github-copilot" class="article-link" target="_blank">Gemini 3.5 Flash is generally available for GitHub Copilot</a> <span class="changelog-date">19.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-18-ask-questions-in-context-with-copilot-on-web" class="article-link" target="_blank">Ask questions in context with Copilot on web</a> <span class="changelog-date">18.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-18-audit-repository-copilot-cloud-agent-configuration-via-the-rest-api" class="article-link" target="_blank">Audit repository Copilot cloud agent configuration via the REST API</a> <span class="changelog-date">18.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-18-copilot-spaces-api-now-generally-available" class="article-link" target="_blank">Copilot Spaces API now generally available</a> <span class="changelog-date">18.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-18-copilot-cloud-agent-fast-cost-efficient-models-for-simple-tasks" class="article-link" target="_blank">Copilot cloud agent: Fast, cost-efficient models for simple tasks</a> <span class="changelog-date">18.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-17-gpt-5-3-codex-is-now-the-base-model-for-copilot-business-and-enterprise" class="article-link" target="_blank">GPT-5.3-Codex is now the base model for Copilot Business and Enterprise</a> <span class="changelog-date">18.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-18-one-click-fixes-for-failing-actions-with-copilot-cloud-agent" class="article-link" target="_blank">One-click fixes for failing Actions with Copilot cloud agent</a> <span class="changelog-date">18.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-18-remote-control-for-copilot-cli-sessions-now-generally-available-on-mobile-web-and-vs-code" class="article-link" target="_blank">Remote control for Copilot CLI sessions now generally available on mobile, web, and VS Code</a> <span class="changelog-date">18.05.2026</span></li>
+    </ul>
+
+    <h2>Google AI Blog (7 Artikel)</h2>
+    <div class="section-summary">Google treibt mit neuen Gemini-Modellen, Managed Agents und der Erweiterung des Entwickler-Ökosystems über Tools wie Antigravity, Gemini API und Google AI Studio den praktischen Einsatz agentbasierter KI-Lösungen voran. Gleichzeitig optimiert Google hybride Meetings und wissenschaftliche Anwendungen, etwa mit Gemini for Science, und integriert nahtlos Funktionen zur Code-Ausführung, Dateimanagement und Datenanalyse in bestehende Cloud- und Workspace-Umgebungen.</div>
+    <div class="article">
+        <div class="article-title">AI</div>
+        <div class="article-date">22.05.2026</div>
+        <div class="article-summary">Google bündelt Fortschritte in der KI, wobei der Schwerpunkt auf der Weiterentwicklung der Gemini App liegt, die mit ständig aktiven, agentischen Funktionen unter anderem das Digitalisieren von Notizen und das Erzeugen von Dateien ermöglicht. Im Beitrag wird zudem präsentiert, wie KI-Technologien in der Forschung vorangetrieben werden – etwa in Experimenten zu Gemini for Science, in verbesserten Gruppenmeetings bei Google Beam und im Aufbau von supraleitenden sowie neutralen Atomquantensystemen. Entwickler erhalten mit Managed Agents in der Gemini API und Google AI Studio neue Werkzeuge, um eigene Ideen auf Basis fortschrittlicher KI-Lösungen umzusetzen. Die vorgestellten Technologien und Ansätze werden im Kontext der jüngsten Google I/O 2026 thematisiert, was auf die strategische Ausrichtung von Google hin zu einer stärker agentischen KI-Nutzung hinweist.</div>
+        <a href="https://blog.google/innovation-and-ai/technology/ai/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">View more from Google Research</div>
+        <div class="article-date">22.05.2026</div>
+        <div class="article-summary">Google sammelt im Jahr 2025 acht Schlüsselbereiche, in denen bahnbrechende Forschungsfortschritte erzielt wurden. Neue KI-Modelle und Anwendungen wie die Gemini app und NotebookLM veranschaulichen, wie innovative Konzepte in der Robotik, Wissenschaft und Produktentwicklung zusammenwirken. Google Research, Google DeepMind und Google Labs geben damit Einblick in interdisziplinäre Fortschritte, die über traditionelle Ansätze hinausgehen. Ergänzend rückt auch die Entwicklung in Google Cloud und verbundenen Infrastrukturen in den Fokus, um den quantitativen und qualitativen Technologiewandel greifbar zu machen.</div>
+        <a href="https://blog.google/innovation-and-ai/technology/research/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">A new experiment brings better group meetings to Google Beam</div>
+        <div class="article-date">20.05.2026</div>
+        <div class="article-summary">Google Beam nutzt HP Dimensions immersive Display, um Teilnehmer von Nicht-Beam-Geräten in ihrer tatsächlichen Größe darzustellen, sodass sie wirken, als säßen sie physisch am selben Tisch. Räumliches Audio positioniert Stimmen direkt an die jeweilige Person, was das Gefühl einer gemeinsamen Präsenz stärkt. Interne Studien ergaben, dass diese Maßnahmen den sozialen Zusammenhalt um 50 % erhöhen und die Wahrnehmung, aktiv zum Gespräch beizutragen, um 21 % verbessern. Google erweitert damit seine Zusammenarbeit mit Google Workspace und Zoom, um hybride Meetings noch inklusiver zu gestalten.</div>
+        <a href="https://blog.google/innovation-and-ai/models-and-research/google-research/google-beam-group-meetings/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Bring any idea to life: Google AI Studio at I/O 2026</div>
+        <div class="article-date">19.05.2026</div>
+        <div class="article-summary">Google AI Studio integriert nahtlos Google Workspace und ermöglicht über den Export zu Google Antigravity eine lokale Weiterführung von Projekten, wobei sämtliche Projektdateien, Konversationen und Secrets mitübertragen werden. Neue Designfeatures bieten Funktionen wie die automatische, kontextbezogene Bildgenerierung mittels Nano Banana und ein In-Preview-Edit-Tool zur direkten visuellen Anpassung. Mit der Vorregistrierung für die mobile App können Entwickler auch unterwegs vollständige Build-Erfahrungen sammeln und Projekte direkt von der Hand verfeinern. Zudem lässt sich nun über AI Studio eine native Android-App erstellen, bei der produktionsreifer Kotlin-Code mit dem aktuellen Jetpack Compose-Pattern generiert, ein browserbasierter Emulator sowie ADB-Unterstützung geboten und eine direkte Veröffentlichung in den Google Play Internal Test Track ermöglicht wird. Erst zwei Apps können kostenfrei in Google Cloud deployed werden, ohne dass dafür eine Kreditkarte erforderlich ist.</div>
+        <a href="https://blog.google/innovation-and-ai/technology/developers-tools/google-ai-studio-io-2026/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Building the agentic future: Developer highlights from I/O 2026</div>
+        <div class="article-date">19.05.2026</div>
+        <div class="article-summary">Gemini 3.5 Flash liefert deutlich bessere Benchmark-Ergebnisse als Gemini 3.1 Pro und läuft dabei viermal schneller als andere Modelle, was den Übergang von einfachen Prompts zu produktionsreifen agentbasierten Workflows ermöglicht. Google erweitert mit der neuen Antigravity 2.0 Desktopanwendung, dem Antigravity CLI und dem Antigravity SDK – alle optimal auf die Gemini-Modelle abgestimmt – das Entwickler-Ökosystem, um parallele Agent-Workflows, dynamische Subagents und nahtlose Integration in Google AI Studio, Android und Firebase zu unterstützen. Die Einführung von Managed Agents in der Gemini API erlaubt es, mittels eines einzelnen API-Calls isolierte Linux-Umgebungen zu starten, in denen Agenten persistent und multi-turn-fähig arbeiten können. Mit dem neuen Google AI Ultra Abonnement für 100 USD/Monat, das eine 5× höhere Nutzung als der AI Pro Plan bietet und bis zum 25. Mai 2026 Bonus-Credits gewährt, sowie dem Start des Build with Gemini XPRIZE Hackathons mit einem Preispool von 2 Mio. USD, senkt Google die infrastrukturellen Hürden und fördert die Realisierung anspruchsvoller Anwendungen.</div>
+        <a href="https://blog.google/innovation-and-ai/technology/developers-tools/google-io-2026-developer-highlights/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Gemini for Science: AI experiments and tools for a new era of discovery</div>
+        <div class="article-date">19.05.2026</div>
+        <div class="article-summary">Google stellt mit Gemini for Science eine Suite von AI-Experimenten vor, die den wissenschaftlichen Entdeckungsprozess beschleunigen soll. Die Plattform kombiniert Tools wie Co‑Scientist für die Hypothesengenerierung, AlphaEvolve und ERA (Empirical Research Assistance) für die parallele Generierung und Bewertung von Codevarianten sowie NotebookLM für strukturierte Literaturanalysen. Erste Tests von Science Skills, einem Bundle, das über 30 bedeutende Life-Science-Datenbanken integriert – etwa UniProt, AlphaFold Database und InterPro – zeigen, dass komplexe Analysen, die normalerweise Stunden dauern, in Minuten abgeschlossen werden können. Die Tools werden bereits in Partnerschaften mit Unternehmen wie BASF und Klarna sowie in wissenschaftlichen Kooperationen mit Institutionen wie Stanford, Imperial College London und The Crick Institute erprobt, wobei die Validierungspapiere zu ERA und Co‑Scientist heute in Nature erschienen sind.</div>
+        <a href="https://blog.google/innovation-and-ai/technology/research/gemini-for-science-io-2026/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Introducing Managed Agents in the Gemini API</div>
+        <div class="article-date">19.05.2026</div>
+        <div class="article-summary">Der Artikel führt aus, dass die Gemini API nun die Ausführung von Managed Agents ermöglicht. Mit nur einem API-Aufruf aktiviert der Antigravity Agent, basierend auf Gemini 3.5 Flash, ein isoliertes, temporäres Linux-Umfeld, in dem der Agent Aufgaben wie das Ausführen von Code, Dateimanagement, Web-Browsing und die Nutzung externer Tools übernimmt. Entwickler können zudem eigene Agenten konfigurieren, indem sie AGENTS.md- und SKILL.md-Dateien verwenden, wodurch komplexe Orchestrierung entfällt und der gesamte Interaktionszustand über Folgeaufrufe erhalten bleibt. Die Funktionalität ist über die Interactions API und im Google AI Studio verfügbar, während für Unternehmen ein privater Preview-Zugang über die Gemini Enterprise Agent Platform angeboten wird.</div>
+        <a href="https://blog.google/innovation-and-ai/technology/developers-tools/managed-agents-gemini-api/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Google AI Blog - Gemini (4 Artikel)</h2>
+    <div class="section-summary">Gemini 3.5 Flash und Gemini Omni Flash profitieren von deutlich gesteigerter Token-Verarbeitung und beschleunigter Inferenz, wodurch komplexe Aufgaben wie Agentic-Aufgaben, Coding und multimodale Videoerzeugung effizienter umgesetzt werden. Die neuen Modelle werden in zahlreichen Google-Produkten wie Search, YouTube, Docs und Maps eingesetzt, während optimierte TPU-Generationen und Sicherheitsframeworks die Infrastruktur und den Schutz weiter verbessern. Zudem erweitert Google die Nutzeroberflächen und integriert KI-Agenten in Workspace-Apps, um interaktive, kontextbezogene Erlebnisse zu schaffen.</div>
+    <div class="article">
+        <div class="article-title">Gemini 3.5: frontier intelligence with action</div>
+        <div class="article-date">19.05.2026</div>
+        <div class="article-summary">Gemini 3.5 präsentiert sich als neueste Modellreihe von Google, mit 3.5 Flash als leistungsstarkem Modell für Agentic- und Codierungsaufgaben. 3.5 Flash erreicht Benchmarks wie 76,2% bei Terminal‐Bench 2.1, 1656 Elo im GDPval-AA, 83,6% im MCP Atlas und 84,2% im CharXiv Reasoning, während es bis zu viermal mehr Tokens pro Sekunde generiert als vergleichbare Modelle. Das Modell ist bereits weltweit verfügbar – über die Gemini App, AI Mode in Google Search, Google Antigravity, Gemini API in Google AI Studio und Android Studio – und ermöglicht so den Einsatz komplexer, langanhaltender Arbeitsabläufe sowohl für Entwickler als auch für Unternehmen. Gleichzeitig wird intern bereits an 3.5 Pro gearbeitet, das nächsten Monat breiter ausgerollt werden soll, wobei neueste Frontier Safety Frameworks und Interpretierbarkeitstools zum Einsatz kommen, um Cyber- und CBRN-Schutzstandards zu erhöhen.</div>
+        <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">I/O 2026: Welcome to the agentic Gemini era</div>
+        <div class="article-date">19.05.2026</div>
+        <div class="article-summary">Der Anstieg der Token-Verarbeitung von 480 Billionen auf über 3,2 Billiarden pro Monat unterstreicht den massiven Tipp in Richtung KI-getriebener Anwendungen, der sich in über 8,5 Millionen Entwicklerprojekten und 19 Milliarden verarbeiteten Token pro Minute widerspiegelt. Google investiert stark in seine Infrastruktur und führt die 8. Generation von TPUs ein, wobei TPU 8t für das Training – mit nahezu dreimaliger Rohleistung gegenüber dem Vorgängermodell – und TPU 8i für die Inferenz ausgelegt sind, um Skalierbarkeit und Energieeffizienz (bis zu 2× bessere Performance-per-Watt) zu optimieren. Die neuen Gemini-Modelle, darunter Gemini Omni Flash und Gemini 3.5 Flash, demonstrieren signifikante Fortschritte bei Agentic-Fähigkeiten, Coding-Performance und Output-Geschwindigkeiten, wobei Gemini 3.5 Flash viermal mehr Output-Tokens pro Sekunde liefert als vergleichbare Modelle und Unternehmen potenziell über 1 Milliarde Dollar jährlich einsparen können. Mit der Integration von KI in Produkte wie Search, Gemini App, Docs Live, YouTube und Maps sowie der Erweiterung mit Antigravity 2.0 und Gemini Spark wird die agentische Ära eingeläutet, in der KI als zentraler Aktivator für verbesserte, kontextbezogene und interaktive Nutzererlebnisse dient.</div>
+        <a href="https://blog.google/innovation-and-ai/sundar-pichai-io-2026/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Introducing Gemini Omni</div>
+        <div class="article-date">19.05.2026</div>
+        <div class="article-summary">Gemini Omni Flash erweitert die Gemini-Modellfamilie um ein Modell, das multimodale Eingaben – darunter Bilder, Audio, Video und Text – in hochwertige, kontextuell fundierte Videos umsetzt. Nutzer können per natürlicher Sprachsteuerung Videos interaktiv bearbeiten, wobei das System physikalische Zusammenhänge wie Gravitation und Fluiddynamik korrekt simuliert und damit realistische Szenen kreiert. Basierend auf den Fortschritten von Nano Banana in der Bildgenerierung und -bearbeitung wird Gemini Omni Flash zunächst über die Gemini App, Google Flow sowie YouTube Shorts bereitgestellt und soll in den nächsten Wochen auch über APIs für Entwickler und Unternehmen verfügbar gemacht werden. Zukünftig plant Google zudem die Erweiterung der Ausgabemodalitäten um Bilder und Audio.</div>
+        <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">The Gemini app becomes more agentic, delivering proactive, 24/7 help</div>
+        <div class="article-date">19.05.2026</div>
+        <div class="article-summary">Google erweitert die Gemini App um mehrere neue Funktionen, die weltweit mehr als 900 Mio. Nutzer monatlich versorgen. Gemini 3.5 Flash kombiniert moderne Modellarchitektur mit geringer Latenz, während das neue Design „Neural Expressive“ die Benutzeroberfläche durch flüssige Animationen, haptisches Feedback und eine nahtlos integrierte Live-Konversation modernisiert. Gemini Omni ermöglicht es, Text-, Bild- und Videoeingaben in kinoreife Videos umzuwandeln, und der Daily Brief aggregiert aus Gmail und Kalenderdaten proaktiv personalisierte Morgenupdates. Zudem führt Gemini Spark, basierend auf Gemini 3.5 und dem Antigravity-Harness, einen 24/7-KI-Agenten ein, der in Workspace-Apps integriert arbeitet; die macOS-App erhält parallel neue Voice-Funktionen und lokale Workflow-Optimierungen.</div>
+        <a href="https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Kent Beck - Tidy First (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Scope Is The Steering Wheel</div>
+        <div class="article-date">21.05.2026</div>
+        <div class="article-summary">Die Begrenzung und schrittweise Priorisierung von Projektzielen steuert maßgeblich, wie Zeit und Kosten kontrolliert werden. Ein überbordender Scope bindet Ressourcen, verzögert Feedback und führt zu unzuverlässigen Schätzungen, da Teams versuchen, alle Ziele gleichzeitig zu erfüllen. Durch eine selektive Fokussierung auf den wertvollsten Teil der Anforderungen gelingt es, früher Ergebnisse zu erzielen, Verschwendung zu vermeiden und die Transparenz im Entwicklungsprozess zu erhöhen. Die bewusste Entscheidung für reduzierte Anforderungen zwingt Teams zu klaren Prioritäten und macht den Fahrplan des Projekts berechenbar.</div>
+        <a href="https://tidyfirst.substack.com/p/scope-is-the-steering-wheel" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Martin Fowler (2 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Bliki: Vibe Coding</div>
+        <div class="article-date">21.05.2026</div>
+        <div class="article-summary">Vibe Coding nutzt die Fähigkeiten von LLMs wie dem Cursor Composer w Sonnet in Verbindung mit Tools wie SuperWhisper, sodass Entwickler durch reine Eingabe von Befehlen funktionierenden Code erhalten, ohne dessen Inhalt zu analysieren. Die Vorgehensweise, die auch von Nicht-Programmierern eingesetzt werden kann, resultiert häufig in Software, die hinsichtlich Wartbarkeit, Korrektheit und Sicherheit erhebliche Schwächen aufweist. Der Begriff wurde im Februar 2025 von Andrej Karpathy geprägt und hebt die extreme Abhängigkeit von LLMs hervor. Im Gegensatz zum Agentic Programming, wo Entwickler den von LLMs generierten Code kritisch prüfen, eignet sich Vibe Coding primär für kurzlebige, persönliche oder experimentelle Projekte.</div>
+        <a href="https://martinfowler.com/bliki/VibeCoding.html" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Maintainability sensors for coding agents</div>
+        <div class="article-date">19.05.2026</div>
+        <div class="article-summary">Ein internes Analytics-Dashboard für Community Manager in TypeScript, NextJS und React wird mittels vielfältiger Sensoren überwacht, um die langfristige Wartbarkeit und interne Qualität sicherzustellen. Verschiedene Sensoren wie Type Checker, ESLint, Semgrep, dependency-cruiser, GitLeaks und Mutationstests laufen dabei sowohl während der Entwicklungsphase als auch im CI-Pipeline-Setup und bei wiederholten Prüfzyklen, um funktionale, strukturelle und sicherheitsrelevante Aspekte des Codes zu überprüfen. Mit einem selbstgebauten ESLint-Formatter wird der AI-Agent durch konkrete, angepasste Warnhinweise (z. B. bei no-explicit-any oder überhöhten cyclomatischen Komplexitäten) angeregt, selbstreflektierende Entscheidungen zu treffen und gezielte Refaktorierungen vorzunehmen. Die Experimente nutzen Modelle wie Cursor, Claude Code, OpenCode – im Einsatz sind dabei Claude Sonnet, Claude Opus und der composer-2 Modell, sodass eine kontinuierliche Evaluierung und Optimierung der Codequalität realisiert wird.</div>
+        <a href="https://martinfowler.com/articles/sensors-for-coding-agents.html" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Microsoft .NET Blog (3 Artikel)</h2>
+    <div class="section-summary">Das neue Microsoft.AgentGovernance.Extensions.ModelContextProtocol für .NET 8+ sichert AI-Anwendungen, indem es Tools über YAML-definierte Policies und automatisierte Startup-Scans gegen Angriffe absichert. C# verschärft ab Version 16 (mit Unterstützung in .NET 11/12) den Umgang mit „unsafe“-Code durch explizite Safety-Kommentare, während .NET 10 den Abhängigkeitsgraphen optimiert, indem es redundante Pakete entfernt und den NuGet-Auditprozess strafft.</div>
+    <div class="article">
+        <div class="article-title">Announcing Agent Governance Toolkit MCP Extensions for .NET</div>
+        <div class="article-date">21.05.2026</div>
+        <div class="article-summary">Microsoft erweitert mit dem Paket Microsoft.AgentGovernance.Extensions.ModelContextProtocol, das als Public Preview für .NET 8+ verfügbar ist, die Möglichkeiten des offiziellen MCP C# SDK zur sicheren Integration von Tools in AI-Anwendungen. Das Paket ermöglicht eine einmalige Registrierung in der bestehenden MCP-Server-Build-Pipeline, wobei Policies über YAML-Dateien definiert werden können, um Aufrufe zu erlauben, zu blockieren oder zu drosseln. Es führt einen Startup-Scan durch, der unsichere Tool-Definitionen erkennt – etwa bei Tool Poisoning, Typosquatting oder versteckten Befehlen –, und setzt gleichzeitige Laufzeitprüfungen, Authentifizierungslogik sowie Response-Sanitization durch, bevor Ergebnisse an das Modell zurückgegeben werden. Der Standard ist dabei auf einen geschlossenen Fail-Modus eingestellt, indem Optionen wie ScanToolsOnStartup, FailOnUnsafeTools und EnableAudit out-of-the-box aktiviert sind.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/announcing-agent-governance-toolkit-mcp-extensions-for-dotnet/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Improving C# Memory Safety</div>
+        <div class="article-date">21.05.2026</div>
+        <div class="article-summary">Die neue C#-Speichersicherheitsinitiative macht den Gebrauch von „unsafe“ expliziter und verlagert den Schwerpunkt von der bloßen Schirmsetzung unsicherer Operationen hin zur Dokumentation und Durchsetzung von Sicherheitsverträgen. Mit C# 16 und der geplanten Opt‑in-Unterstützung in .NET 11 (Produktionsreife in .NET 12) propagiert der Compiler unsichere Operationen nur noch dann, wenn sie im Methodensignatur explizit gekennzeichnet und durch innere unsafe-Blöcke umschlossen sind – ähnlich wie in Rust. Entwickler müssen nun explizite Safety-Kommentare („&lt;safety&gt;“-Blöcke) bereitstellen, die die spezifischen Auflagen beschreiben, welche der Aufrufer erfüllen muss, um undefiniertes Verhalten zu vermeiden. Die neue Sicherheitsarchitektur ermöglicht so eine feinere Kontrolle beim Übergang von sicherem zu unsicherem Code und unterstützt damit auch Supply-Chain-Standards sowie spätere Migrationsschritte in bestehenden .NET Runtime-Bibliotheken.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/improving-csharp-memory-safety/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">NuGet Package Pruning: Cleaner Dependencies and Actionable Vulnerability Reports</div>
+        <div class="article-date">18.05.2026</div>
+        <div class="article-summary">.NET 10 entfernt automatisch Pakete aus dem Abhängigkeitsgraph, die bereits von den .NET Runtime Libraries bereitgestellt werden – etwa System.Text.Json in Version 10.0.x –, um false positive Sicherheitswarnungen und unnötige Restore-Arbeiten zu vermeiden. NuGetAuditMode wird in .NET 10 standardmäßig auf „all“ gesetzt, wodurch nur die tatsächlich verwendeten transitive Abhängigkeiten geprüft werden. Dadurch sinken die Warnungen zu transitive Sicherheitslücken in der Telemetrie um 70 %, und Wiederherstellungszeiten können um bis zu 50 % schneller ablaufen. Zudem behandelt NuGet direkte PackageReference-Einträge in diesem Bereich durch Anpassungen wie PrivateAssets=&#x27;all&#x27; und IncludeAssets=&#x27;none&#x27; und signalisiert mittels NU1510, wenn ein Eintrag komplett entfernt werden kann.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/nuget-package-pruning-in-dotnet-10/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>PowerShell Team Blog (2 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">PowerShell is now notarized and hardened for macOS</div>
+        <div class="article-date">21.05.2026</div>
+        <div class="article-summary">PowerShell-Pakete für macOS werden ab der nächsten Version (PowerShell 7.4 und höher) notariert, wodurch Gatekeeper-Warnungen zu nicht verifizierten Entwicklern entfallen. Die .pkg-Installer und Tarballs wurden zudem gehärtet, indem sie mit den von Apple empfohlenen Sicherheitsentitlements gebaut werden. Ein zusätzliches Update korrigiert fehlerhafte Dateiberechtigungen in den Tarballs. Damit werden mehr als 14 langanhaltende GitHub-Issues adressiert, was den Installationsprozess für macOS-Nutzer deutlich vereinfacht.</div>
+        <a href="https://devblogs.microsoft.com/powershell/powershell-notarized-hardened-macos/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">PowerShell PSResource Roadmap and Best Practices</div>
+        <div class="article-date">20.05.2026</div>
+        <div class="article-summary">PSResourceGet definiert einen sicheren Ansatz zur Verwaltung von PowerShell-Paketen in Unternehmen, bei dem die Trennung von Paketentdeckung und Produktionsbereitstellung im Fokus steht. Unternehmen sollen Community-Quellen wie die PowerShell Gallery lediglich als Intake-Quelle nutzen und über ein zentrales, geprüftes Repository – etwa über Azure Artifacts oder private Azure Container Registries – ihre Produktion absichern. Microsoft empfiehlt, für Microsoft-eigene Module den Microsoft Artifact Registry (MAR) als vertrauenswürdige Quelle zu verwenden, um klare Vertrauensgrenzen zu schaffen. In der Roadmap von PSResourceGet 1.3-preview1 stehen Features wie parallele Installationen, native DSC V3-Ressourcenunterstützung, ORAS-Integration für OCI-Registry-Kompatibilität sowie die Unterstützung von Cross-Repository-Abhängigkeiten im Mittelpunkt, während Windows PowerShell zugunsten von PowerShell (Core) eingestellt wird.</div>
+        <a href="https://devblogs.microsoft.com/powershell/powershell-psresource-roadmap-and-best-practices/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Pragmatic Engineer Newsletter (3 Artikel)</h2>
+    <div class="section-summary">Antigravity 2.0 verzichtet bewusst auf eine integrierte Entwicklungsumgebung, was in der neuen IDE-Variante zu zahlreichen Bugs, einer unübersichtlichen Oberfläche und Problemen bei der Nutzung von Gemini-Tokens führt. Googles Android Rust Team demonstriert, dass strikte Compiler-Prüfungen und Editionen (2015 bis 2024) Zuverlässigkeit im Backend gewährleisten, während der Linux-Kernel Rust als nicht mehr experimentell einstuft. Eine Umfrage belegt, dass AI-gestützte Tools zwar repetitive Aufgaben reduzieren, jedoch zu unrealistischen Geschäftserwartungen, sinkender Codequalität und erhöhtem Mentoringbedarf – besonders bei Junior-Entwicklern – führen.</div>
+    <div class="article">
+        <div class="article-title">The Pulse: Antigravity 2.0 takes ‘IDE’ out of its new IDE</div>
+        <div class="article-date">21.05.2026</div>
+        <div class="article-summary">Antigravity 2.0 verzichtet im neuen Design bewusst auf die typische integrierte Entwicklungsumgebung, was bei der neu eingeführten IDE-Variante zu starker Kritik führt. Entwickler beanstanden eine Vielzahl von Bugs, eine unübersichtliche Benutzeroberfläche und mangelnde Unterstützung der zugrunde liegenden Modelle. Zudem verursacht die ineffiziente Nutzung von Gemini-Tokens zusätzliche Probleme, die den praktischen Nutzen des Tools infrage stellen.</div>
+        <a href="https://newsletter.pragmaticengineer.com/p/the-pulse-antigravity-20-takes-ide" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Why Rust is different, with Alice Ryhl</div>
+        <div class="article-date">20.05.2026</div>
+        <div class="article-summary">Alice Ryhl von Googles Android Rust Team demonstriert, warum Rust vor allem im Backend für hohe Zuverlässigkeit sorgt, indem es Speicherfehler durch strikte Compiler-Prüfungen eliminiert. Entwickler profitieren von einem Feedback-Loop, bei dem Compilerfehler direkt zur sicheren Refaktorisierung führen und so viele Sicherheitslücken vermeiden. Rust Editionen aus 2015, 2018, 2021 und 2024 erlauben es, neue Sprachfeatures wie async/await ohne Kompatibilitätsprobleme einzuführen. Der Linux-Kernel hat, wie beim Maintainer Summit im Dezember 2025 bestätigt wurde, Rust den Status „nicht mehr experimentell“ verliehen, was die zunehmende Etablierung der Sprache in sicherheitskritischen Systemen unterstreicht.</div>
+        <a href="https://newsletter.pragmaticengineer.com/p/why-rust-is-different-with-alice" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">AI’s impact on software engineers in 2026: key trends, Part 2</div>
+        <div class="article-date">19.05.2026</div>
+        <div class="article-summary">Mehr als 900 Antworten aus der Umfrage belegen, dass AI-gestützte Tools einerseits repetitive Aufgaben reduzieren und produktiveres Arbeiten ermöglichen, andererseits aber zu unrealistischen Geschäftserwartungen und sinkender Codequalität führen. Unternehmen haben Schwierigkeiten, AI auf organisatorischer Ebene einzuführen – die Vorteile hängen stark von einer bereits gut etablierten Engineering-Kultur mit strikten Guardrails, umfangreicher Dokumentation und einer soliden Codebasis ab. Einige Großunternehmen (z. B. solche mit über 10.000 Mitarbeitern) berichten bereits von Rollbacks bezüglich AI-Tools, da der Fokus zu sehr auf Output und Kostenreduktion liegt, während gleichzeitig Qualität und Wartbarkeit leiden. Junior-Entwickler stoßen dabei auf besondere Hürden: Sie verbrauchen deutlich mehr AI-Tokens und haben Probleme, verlässlich zwischen gutem und schlechtem Code zu unterscheiden, wodurch der Mentoringbedarf steigt.</div>
+        <a href="https://newsletter.pragmaticengineer.com/p/ai-impact-on-software-engineers-part-2" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Simon Willison (9 Artikel)</h2>
+    <div class="section-summary">Steigende KI-Datenmengen und damit einhergehende Memoryknappheit führen zu massiven Preisanpassungen bei DRAM-Produkten, was sowohl kostensensitive Smartphone-Märkte als auch Großkunden wie Apple vor Herausforderungen stellt. Google treibt die Integration neuer KI-Modelle wie Gemini 3.5 Flash und Gemini Omni in seine Produkte voran, während der Wettbewerb um LLM-Leistungen mit Modellen wie GPT‑5.1, Claude Opus 4.5 und Gemini 3 die Entwicklung neuer Anwendungsansätze sowie Verbesserungen in Reinforcement Learning und Codequalität beschleunigt. Open-Source-Entwicklungen und sichere Deployment-Strategien bleiben dabei zentral, wie der Einsatz von Datasette, Django und entsprechende Sicherheitsrichtlinien im öffentlichen Sektor sowie technische Kurzvorträge auf der PyCon US 2026 belegen.</div>
+    <div class="article">
+        <div class="article-title">The memory shortage is causing a repricing of consumer electronics</div>
+        <div class="article-date">22.05.2026</div>
+        <div class="article-summary">Die Memoryknappheit, befeuert durch den explosiven Anstieg des KI-Datenverkehrs, zwingt Hersteller zur Umverteilung von Fertigungskapazitäten: So steigt der Anteil an HBM von 2 Prozent in 2023 auf erwartete 20 Prozent Ende 2026, während DDR- und LPDDR-Speicher zurückgefahren werden. Diese strategische Neuausrichtung führt zu drastischen Preiserhöhungen, etwa um 250 Prozent für LPDDR4, 220 Prozent für LPDDR5 und bis zu 414 Prozent auf DDR5-Preise in einigen Regionen, was den Aufbau kosteneffizienter Endgeräte erheblich erschwert. Budget-Smartphone-Anbieter wie Transsion, Oppo und Vivo sind bereits von einem 13-prozentigen weltweiten Rückgang der Smartphone-Auslieferungen und über 20-prozentigen Rückgängen in Afrika und dem Nahen Osten betroffen, wodurch preissensitive Kunden zunehmend abgeschöpft werden. Große Player wie Apple müssen mittlerweile kurzfristige DRAM-Lieferverträge akzeptieren – Apple zahlte für LPDDR5X einen Aufschlag von 100 Prozent – und verschieben Produkteinführungen, während hyperskalierende Anbieter entscheidende Teile ihres CapEx allein in DRAM investieren.</div>
+        <a href="https://davidoks.blog/p/ai-is-killing-the-cheap-smartphone" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">A pelican for GPT-5.5 via the semi-official Codex backdoor API</div>
+        <div class="article-date">20.05.2026</div>
+        <div class="article-summary">Simon Willison baut Open-Source-Tools rund um Datenjournalismus, insbesondere Datasette und SQLite, und hat als Mitentwickler des Django Web Frameworks sowie als ehemaliger Engineering Director bei Eventbrite einschlägige Erfahrungen gesammelt. Er betreibt einen umfangreichen Blog unter simonwillison.net und bietet neben einem kostenlosen wöchentlichen auch einen kostenpflichtigen monatlichen Newsletter an, der in etwa zehn Minuten die wichtigsten Entwicklungen zusammenfasst. Der Blog wird als individuelle Django-Anwendung auf Heroku mit PostgreSQL betrieben, wobei JSON-Backups in ein Datasette-Deployment integriert werden. Seit Februar 2026 finanziert er sich teilweise über wöchentliche Sponsoren, die unter anderem GitHub-Support und Textbanner umfassen.</div>
+        <a href="https://simonwillison.net/about/#subscribe" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Everything Google Cloud customers need to know coming out of Google I/O</div>
+        <div class="article-date">20.05.2026</div>
+        <div class="article-summary">Google Cloud integriert bei I/O 26 eine Reihe neuer KI-Modelle und Plattformen in seine bestehenden Angebote. Gemini 3.5 Flash liefert als stärkstes Agenten- und Codierungsmodell beeindruckende Benchmarks (Terminal-Bench 2.1: 76,2 %, GDPval-AA: 1656 Elo, MCP Atlas: 83,6 %), während Gemini 3.5 Pro derzeit getestet wird und Gemini Omni in den kommenden Wochen für multimodale Videoverarbeitung bereitgestellt wird. Google Antigravity erweitert mit der neuen Antigravity 2.0 Desktop-App und einem zugehörigen CLI die Infrastruktur zur agentengestützten Entwicklung und senkt damit Entwicklungszyklen sowie Betriebskosten. Gleichzeitig führt Gemini Spark einen 24/7 persönlichen KI-Agenten ein, der Routineaufgaben in Google Workspace und über benutzerdefinierte Connectoren autonom übernimmt, während der Managed Agents API und CodeMender Entwicklern sichere, in Google-gehosteten Umgebungen betreute Agenten sowie automatisierte Code-Sicherheitsprüfungen ermöglichen.</div>
+        <a href="https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">How fast is 10 tokens per second really?</div>
+        <div class="article-date">20.05.2026</div>
+        <div class="article-summary">Interaktive Simulationen verdeutlichen, dass lokale LLM-Benchmarks Geschwindigkeiten von 47 tok/s (M3) bis 500 tok/s (Groq) erreichen können. Vier Betriebsmodi – code, text, think und agent – ermöglichen unterschiedliche Darstellungsweisen von Token-Streams, etwa zur visuellen Hervorhebung von Pseudocode oder simulierter Denkprozesse. Tastaturkürzel und Presets (5 tok/s für Raspberry-Pi-Modelle, 60 tok/s für typische hosted Modelle wie Claude oder GPT, 200 tok/s für Groq, 800 tok/s für Cerebras-Klasse) demonstrieren praxisnah die Auswirkungen variierender Tokenraten. Die Darstellung basiert auf einer BPE-ähnlichen Tokenisierung, wobei erwähnt wird, dass Code deutlich tokenreicher als englische Prosa ist und dies die Wahrnehmung der Geschwindigkeit entscheidend beeinflusst.</div>
+        <a href="https://mikeveerman.github.io/tokenspeed/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">The last six months in LLMs in five minutes</div>
+        <div class="article-date">19.05.2026</div>
+        <div class="article-summary">Claude Sonnet 4.5, GPT-5.1, Gemini 3, GPT-5.1 Codex Max und schließlich Claude Opus 4.5 bestimmten ab November 2025 den Wettstreit um die überlegene LLM-Leistung, wobei Gemini 3 herausragend überzeugte. Reinforcement Learning from Verifiable Rewards verbesserte die Codequalität signifikant, sodass Coding Agents nun robust im täglichen Einsatz arbeiten. Projekte wie OpenClaw, das innerhalb weniger Monate von einem obskuren Repository zum gefragten persönlichen AI-Assistenten wurde, und micro‑javascript, ein Experiment zur Ausführung von JavaScript in Python via Pyodide und WebAssembly, illustrierten experimentelle Anwendungen im neuen LLM-Zeitalter. Im April erweiterten Google mit Gemma 4, das chinesische GLM mit GLM-5.1 und Qwen mit Qwen3.6-35B-A3B die Landschaft der open weight Modelle, die auch auf leistungsschwächeren Laptops neue Maßstäbe setzen.</div>
+        <a href="https://simonwillison.net/2026/May/19/5-minute-llms/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">notes on Gemini 3.5 Flash</div>
+        <div class="article-date">19.05.2026</div>
+        <div class="article-summary">Google integriert Gemini 3.5 Flash (Modell-ID: gemini-3.5-flash) direkt in Kernprodukte wie Google Search, Antigravity, AI Studio und Enterprise-Plattformen, wodurch Milliarden Nutzer weltweit erreicht werden. Das Modell verfügt über einen Knowledge-Cutoff im Januar 2025, unterstützt 1.048.576 Input-Token und 65.536 maximale Output-Token, verzichtet jedoch auf den &quot;computer use&quot;-Modus und bietet im Wesentlichen ähnliche Features wie die früheren Gemini 3.x-Versionen. Die Preisgestaltung von $1,50 pro Million Input-Token und $9 pro Million Output-Token markiert einen deutlichen Anstieg – drei- bzw. sechsfach so hoch wie bei Gemini 3 Flash Preview und Gemini 3.1 Flash-Lite –, womit es in Benchmarks, z. B. einem Benchmarkpreis von ca. $1.551,60 für den High-Modus, in einer höheren Preisklasse als Vorgängermodelle und Wettbewerber wie GPT‑5.5 und Claude Opus 4.7 positioniert wird. Google führt zudem eine neue, beta-geprägte Interactions API ein, die serverseitiges History-Management realisiert und an Konzepten wie den OpenAI Responses orientiert ist.</div>
+        <a href="https://simonwillison.net/2026/May/19/gemini-35-flash/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">AI, open code and vulnerability risk in the public sector</div>
+        <div class="article-date">17.05.2026</div>
+        <div class="article-summary">Offene Quellcode-Veröffentlichung bleibt im öffentlichen Sektor Standard, sofern Systeme über klar definierte Besitzer, automatisierte Hygienetools, Abhängigkeits- und Vulnerabilitätsmanagement sowie festgelegte Patch-SLAs verfügen. AI-gestützte Analyseverfahren, wie in Berichten des UK AI Security Institute erwähnt – beispielhaft bei der Evaluation von Claude Mythos Preview am 13. April 2026 –, verkürzen die Lücke zwischen Entdeckung und Ausnutzung von Schwachstellen, was ein rasches Remediation-Management unabdingbar macht. Entscheidend ist, dass offene Code-Repositories zwar die externe Überprüfung und Wiederverwendbarkeit fördern, jedoch nur in Kombination mit einem sicheren-by-design-Ansatz, bei dem sensible Details wie interne Netzwerkkonfigurationen konsequent ausgeschlossen werden. Die Empfehlungen adressieren zudem, dass Ausnahmefälle, in denen Repositories geschlossen werden müssen, explizit begründet, zeitlich befristet und regelmäßig überprüft werden sollten, um eine „privat als Standard“-Falle zu vermeiden.</div>
+        <a href="https://www.gov.uk/guidance/ai-open-code-and-vulnerability-risk-in-the-public-sector" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">GDS weighs in on the NHS’s decision to retreat from Open Source</div>
+        <div class="article-date">17.05.2026</div>
+        <div class="article-summary">GDS veröffentlicht eine richtungsweisende Guidance, in der NHS Englands Entscheidung, aufgrund von Befürchtungen vor AI-gestützten Angriffen nahezu 200 öffentliche Code-Repositories zu schließen, klipp und klar zurückgewiesen wird. Die neue Richtlinie kritisiert, dass das bloße Verbergen von Code – etwa durch das Schließen von Repositories – weder die mangelnde verantwortliche Verwaltung noch die Notwendigkeit einer sicheren Systemarchitektur behebt. Stattdessen wird betont, dass offene Entwicklung ein wichtiges Mittel zur kontinuierlichen Verbesserung von Sicherheit und Qualität darstellt, da populäre Repositories häufig bereits von Dritten gespiegelt oder geforkt wurden. Zudem weist der Text darauf hin, dass das übermäßige Vertrauen in private Repositories eine trügerische Sicherheit erzeugt und letztlich Ressourcen für eine fundierte Fehlerbehebung unterminiert.</div>
+        <a href="https://shkspr.mobi/blog/2026/05/gds-weighs-in-on-the-nhss-decision-to-retreat-from-open-source/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">first commit</div>
+        <div class="article-date">16.05.2026</div>
+        <div class="article-summary">Lightning Talks der PyCon US 2026 erlauben maximal fünfminütige Kurzpräsentationen zu verschiedensten Themen rund um Python. Die Session, angesetzt für Samstag, den 16. Mai 2026 von 17:45 bis 18:45 Uhr, wird in mehreren Räumen wie Room 103ABC, 104AB, 104C sowie im Grand Ballroom A und B abgehalten. Unter den ausgelegten Themen berichtet Simon Willison in seinem Kurzvortrag „The last six months in LLMs in five minutes“ über aktuelle Entwicklungen im Bereich Large Language Models, ergänzt durch weitere Beiträge, etwa zu DSLs für Rollenspielsysteme, betriebswirtschaftlichen Aspekten der Python-Nutzung sowie Ansätzen zur Identifikation von Paket-Schwachstellen. Die Veranstaltung richtet sich an Python-Interessierte und verknüpft Einblicke in technische Neuerungen mit praktischen Anwendungen, wobei alle Sprecher dazu angehalten werden, pünktlich vor Ort zu erscheinen, da die Reihenfolge der Beiträge noch bestimmt wird.</div>
+        <a href="https://us.pycon.org/2026/schedule/presentation/175/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Warp AI Terminal Blog (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Bring your own inference to Warp</div>
+        <div class="article-date">20.05.2026</div>
+        <div class="article-summary">Warp erweitert nun die Kontrolle über Inference, indem Entwickler ihre eigenen API-Schlüssel von OpenAI, Anthropic oder Google sowie benutzerdefinierte Endpunkte, kompatibel mit der OpenAI Chat Completions API, in den Warp Agent integrieren können. Die neuen Features – Bring your own inference (BYOK) und Unterstützung für eigene Inference-Endpunkte – stehen ab sofort sowohl auf dem kostenfreien als auch auf den bezahlten Plänen zur Verfügung, wobei bei kleinen Teams (bis zu 10 Personen) keine Warp Credits abgezogen werden. Die Änderungen ermöglichen individuelle Modellkonfigurationen und Experimentieren mit Modellen, die bislang nicht nativ unterstützt wurden, und fördern so mehr Flexibilität und Transparenz in der Handhabung von Inference-Kosten. Langfristig wird durch die Integration eines leichten Rust Client Harness und Unterstützung des Agent Client Protocols angestrebt, lokale Modelle direkt anzubinden und weitere Agenten-Harnesses in die Terminal-Oberfläche zu integrieren.</div>
+        <a href="https://www.warp.dev/blog/bring-your-own-inference-to-warp" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+
+</body>
+</html>
