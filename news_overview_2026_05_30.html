@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Übersicht - Letzte 7 Tage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .article {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .article-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .article-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .article-summary {
+            margin-bottom: 10px;
+        }
+        .article-link {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .article-link:hover {
+            text-decoration: underline;
+        }
+        /* R00011: Section-Summary-Block, leicht abgesetzt von Einzel-Artikeln */
+        .section-summary {
+            margin: 10px 0 20px 0;
+            padding: 12px 16px;
+            background-color: #eef4fb;
+            border-left: 4px solid #0066cc;
+            font-style: italic;
+            color: #234;
+        }
+        /* R00012: Changelog-Digest-Block — visuell distinkt vom Section-Summary */
+        .changelog-digest {
+            margin: 10px 0 15px 0;
+            padding: 12px 16px;
+            background-color: #fff7e6;
+            border-left: 4px solid #d97706;
+            color: #3a2a00;
+        }
+        .changelog-links {
+            list-style: disc inside;
+            padding-left: 0;
+            margin: 0 0 25px 0;
+        }
+        .changelog-links li {
+            margin: 4px 0;
+        }
+        .changelog-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-left: 6px;
+        }
+        /* R00013: Wochen-Tenor — visuell die staerkste der drei
+           Verdichtungsklassen (overall > section-summary > changelog-digest).
+           Linker Rand kraeftiger, Schrift groesser, klar abgesetzte
+           Hintergrundfarbe — vom Leser auf den ersten Blick als
+           Zusammenfassung der Wochenausgabe erkennbar. */
+        .overall-summary {
+            margin: 10px 0 25px 0;
+            padding: 18px 22px;
+            background-color: #f0fbf3;
+            border-left: 6px solid #15803d;
+            font-size: 1.1em;
+            color: #14271d;
+        }
+        /* R00011: Rueckspruglink zur index.html (oben und unten) */
+        .back-link {
+            display: inline-block;
+            margin: 10px 0 20px 0;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>News Übersicht der letzten 7 Tage</h1>
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+    <div class="overall-summary">Anthropic treibt die Optimierung seiner KI-Plattform mit Claude Opus 4.8 voran, wobei Verbesserungen in Performance, agentischem Coding und Ressourcennutzung deutlich hervortreten. Google präsentiert auf der I/O 2026 mit den Gemini-Modellen multimodale Inputs und agentenbasierte Workflows, die anspruchsvolle Anwendungsfälle in visuellen und textbasierten Anwendungen adressieren. Entwickler-Tools und Plattformen wie .NET, Visual Studio und Datasette werden gezielt um neue Funktionen erweitert, um komplexe Agentic- und Outcome-basierte Workflows zu unterstützen und die Codequalität zu sichern. Sicherheitslücken und Angriffsvektoren, etwa durch Prompt Injection und unsichere Konfigurationen, verdeutlichen die dringende Notwendigkeit robuster Sicherheitsmaßnahmen in KI-gestützten Systemen. Parallel dazu rückt die ethische Dimension des KI-Einsatzes in den Fokus, indem interdisziplinäre Diskussionen und regulatorische Forderungen für einen verantwortungsvollen Umgang hervorgehoben werden.</div>
+    <p>Generiert am: 30.05.2026 07:00 Uhr</p>
+    <p>Anzahl Artikel: 24 (zus&auml;tzlich 4 Changelog-Eintr&auml;ge aus 1 Quelle)</p>
+
+    <h2>Allan Kelly Blog (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Leading like you row a boat</div>
+        <div class="article-date">26.05.2026</div>
+        <div class="article-summary">Führung gleicht einem Ruderboot, bei dem ein Ruder Autorität verkörpert, das andere Inspiration und Motivation. Die Herangehensweise, Veränderung allein durch das Einholen freiwilliger Unterstützung und gezielte Dialogübungen zu erreichen, macht sich die Erfahrung als Parteisekretär in jungen Jahren zunutze. Die Methode, Teilnehmer aktiv zur Eigenverantwortung zu bewegen, stützt sich unter anderem auf die Überlegungen in Peter Conklins 1992 erschienenem Paper &quot;Enrollment Management, Managing the Alpha AXP Program&quot;. Dieser Führungsstil beruht darauf, dass echte Motivation und nachhaltiger Wandel entstehen, wenn Menschen selbst entscheiden, was sie umsetzen.</div>
+        <a href="https://www.allankelly.net/archives/10747/leading-like-you-row-a-boat/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Anthropic News (5 Artikel)</h2>
+    <div class="section-summary">Anthropic sichert $65 Milliarden in der Series-H Finanzierungsrunde ab, erweitert mit strategischen Partnerschaften (u.a. mit Amazon, Google und Micron) gezielt die Infrastruktur und erhöht damit den Einsatz von Claude, Claude Code und Claude Cowork in globalen Geschäftsprozessen. Das Unternehmen verbessert mit dem Update Claude Opus 4.8 die Performance in Coding und agentischen Anwendungen, etabliert neue Büros in Mailand und Seoul und thematisiert zugleich ethische Herausforderungen im Rahmen interdisziplinärer Diskurse, wie etwa beim päpstlichen Enzyklikum im Vatikan.</div>
+    <div class="article">
+        <div class="article-title">Anthropic raises $65B in Series H funding</div>
+        <div class="article-date">28.05.2026</div>
+        <div class="article-summary">Anthropic hebt in der Series H Finanzierungsrunde $65 Milliarden ein, was das Unternehmen nach der Investition mit $965 Milliarden bewertet. Weltweit setzen Unternehmen die Produkte Claude, Claude Code und Claude Cowork als Kernkomponenten ihrer Geschäftsprozesse ein, was sich in einem laufenden Jahresumsatz von $47 Milliarden niederschlägt. Verträge mit Amazon, Google/Broadcom und SpaceX sichern bis zu fünf Gigawatt an zusätzlicher Compute-Kapazität und ermöglichen den flächendeckenden Einsatz des ersten Frontier-Modells auf AWS, Google Cloud und Microsoft Azure. Strategische Partnerschaften mit Micron, Samsung und SK hynix gewährleisten zudem eine zuverlässige Versorgung mit Speicher-, Logik- und Chipsystemen zur weiteren Skalierung der Infrastruktur.</div>
+        <a href="https://www.anthropic.com/news/series-h" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Introducing Claude Opus 4.8 Product</div>
+        <div class="article-date">28.05.2026</div>
+        <div class="article-summary">Claude Opus 4.8 baut auf 4.7 auf und verbessert Benchmarks in Bereichen Coding, agentische Fähigkeiten und kontextbezogenes Reasoning. Das Update ermöglicht in claude.ai eine granulare Steuerung des Antwortaufwands sowie in Claude Code „dynamic workflows“, mit denen hunderte paralleler Subagenten für großskalige Aufgaben eingesetzt werden können. Im Fast Mode arbeitet Opus 4.8 2,5× schneller und senkt die Kosten dreimal im Vergleich zu früheren Modellen, während reguläre Preise unverändert bei $5 pro Million Eingabetokens und $25 pro Million Ausgabetokens bleiben. Zusätzliche Neuerungen betreffen die Integration von Systemeinträgen in die Messages API, was eine dynamische Anpassung der Aufgabenstellungen ohne Unterbrechung ermöglicht, sowie signifikante Verbesserungen in der Ehrlichkeit und Genauigkeit bei der Codegenerierung.</div>
+        <a href="https://www.anthropic.com/news/claude-opus-4-8" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Anthropic opens Milan office</div>
+        <div class="article-date">27.05.2026</div>
+        <div class="article-summary">Anthropic eröffnet sein sechstes europäisches Büro in Mailand, um gezielt italienische Unternehmen, Forschungseinrichtungen und Entwickler in der Weiterentwicklung und verantwortungsvollen Skalierung der KI-Plattform Claude zu unterstützen. Das neue Büro knüpft an die erste päpstliche Enzyklika zu künstlicher Intelligenz, Magnifica Humanitas, an, bei der Co-Gründer Chris Olah ethische Fragestellungen adressierte. Die Zusammenarbeit umfasst Partnerschaften mit führenden Unternehmen wie Generali, Unipol, Angelini Pharma, Bracco, Enel und Pirelli. In Kooperation mit JAKALA wird Claude bereits in über 3.000 Arbeitsplätzen eingesetzt, wodurch beispielsweise bei Satispay ein 18-monatiger Entwicklungsfahrplan in nur sieben Monaten umgesetzt wurde.</div>
+        <a href="https://www.anthropic.com/news/milan-office-opening" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Anthropic appoints KiYoung Choi as Representative Director of Korea</div>
+        <div class="article-date">26.05.2026</div>
+        <div class="article-summary">Anthropic startet den Ausbau in Korea, nachdem der Economic Index eine über 3,5-fach höhere Nutzung von Claude.ai im Vergleich zur Bevölkerungsgröße feststellte. KiYoung Choi, vormals General Manager Korea bei Snowflake und mit Führungsverantwortung bei Google Cloud, Adobe, Autodesk und Microsoft, übernimmt als Representative Director das Kommando im koreanischen Markt. Er entwickelt eine lokale Go-to-Market-Strategie und stärkt Partnerschaften, wobei Unternehmen wie SK Telecom und Law&amp;Company Claude bereits in Anwendungen wie KI-gestützten Kundenservicemodellen und juristischen Assistenzsystemen nutzen. Die Eröffnung des neuen Büros in Seoul erfolgt in den kommenden Wochen, begleitet von Besuchen des Senior Leadership Teams zur direkten Kundenansprache.</div>
+        <a href="https://www.anthropic.com/news/kiyoung-choi-representative-director-anthropic-korea" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Chris Olah&#x27;s remarks on Pope Leo XIV&#x27;s encyclical</div>
+        <div class="article-date">25.05.2026</div>
+        <div class="article-summary">Chris Olah nahm am 25. Mai 2026 im Vatikan an der Vorstellung des päpstlichen Enzyklikums „Magnifica humanitas“ teil und betonte, dass KI-Systeme im Gegensatz zu herkömmlich konstruierten Maschinen als gewachsene Modelle verstanden werden sollten, die auf menschlichen Gedanken und Sprache basieren. Er verwies darauf, dass große KI-Labore, darunter Anthropic, unter widersprüchlichen Anreizen agieren, die neben kommerziellen und geopolitischen Interessen auch moralische Fragen aufwerfen. Olah hob die Dringlichkeit hervor, den globalen Arbeitsmarkt vor massiven Verschiebungen zu schützen und die technikbedingten Gewinne weltweit gerecht zu verteilen. Dabei forderte er den interdisziplinären Diskurs unter Einbeziehung von Religionsgemeinschaften, Politik und Zivilgesellschaft, um den sich rasant entwickelnden KI-Technologien einen wohlüberlegten Rahmen zu geben.</div>
+        <a href="https://www.anthropic.com/news/chris-olah-pope-leo-encyclical" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>GitHub Copilot Changelog (4 Eintr&auml;ge)</h2>
+    <div class="changelog-digest">Die neuen Metriken ordnen Nutzern auf Basis eines 28-Tage-Fensters eindeutige Nutzungsphasen zu und aggregieren im Enterprise-Bereich Kennzahlen wie Interaktionen, generierten Code sowie Merge-Zeiten, was eine gezielte Analyse der Copilot-Nutzung ermöglicht. Claude Opus 4.8 verbessert signifikant das Codeverständnis und die Generierung und wird für Copilot Pro+, Business- und Enterprise-Nutzer in Umgebungen wie Visual Studio Code, Visual Studio, JetBrains und der Copilot CLI bereitgestellt. Die Copilot Memory Funktion wurde um einen repository-spezifischen Ausschaltmechanismus, gezielte Löschhinweise und neue CLI-Befehle erweitert, sodass Nutzer nun persistent den Speicherstatus steuern und zwischen persönlichen sowie repositorybezogenen Fakten differenzieren können. Zudem können Enterprise-Kunden mittels einer aktualisierten Verwaltungsoberfläche nun feingranulare Modellregeln konfigurieren, um festzulegen, ob ein Modell automatisch aktiviert oder optional verfügbar ist.</div>
+    <ul class="changelog-links">
+        <li><a href="https://github.blog/changelog/2026-05-29-copilot-usage-metrics-api-adds-cohorts-for-ai-adoption" class="article-link" target="_blank">Copilot usage metrics API adds cohorts for AI adoption</a> <span class="changelog-date">29.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-28-claude-opus-4-8-is-generally-available-for-github-copilot" class="article-link" target="_blank">Claude Opus 4.8 is generally available for GitHub Copilot</a> <span class="changelog-date">28.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-26-copilot-memory-has-more-controls-for-deletion-scope-and-the-copilot-cli" class="article-link" target="_blank">Copilot Memory has more controls for deletion, scope, and the Copilot CLI</a> <span class="changelog-date">26.05.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-05-26-target-copilot-models-to-organizations-with-model-rules" class="article-link" target="_blank">Target Copilot models to organizations with model rules</a> <span class="changelog-date">26.05.2026</span></li>
+    </ul>
+
+    <h2>Google AI Blog - Gemini (2 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">9 demos of Gemini Omni and Gemini 3.5 in action</div>
+        <div class="article-date">29.05.2026</div>
+        <div class="article-summary">Gemini Omni und Gemini 3.5 Flash wurden auf Google I/O 2026 vorgestellt, wobei Gemini Omni multimodale Inputs – Video, Audio, Bild und Text – kombiniert, um per natürlicher Sprachsteuerung Videos konsistent und iterativ zu bearbeiten. Gemini 3.5 Flash, als Teil der Gemini 3.5 Familie, führt komplexe, langanhaltende Aufgaben und agentenbasierte Workflows mithilfe des aktualisierten Antigravity-Harnesses effizient aus. Beide Modelle bieten robuste Codierungs- und Agentikfähigkeiten, die sich in der automatisierten Sortierung und Anpassung unstrukturierter Assets manifestieren. Die Technologien werden über den Gemini App, Google Flow, AI Studio, Android Studio und in KI-gestützten Suchanwendungen weltweit bereitgestellt und adressieren anspruchsvolle Einsatzszenarien in der Entwicklung intelligenter Agenten.</div>
+        <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-3-5-videos/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Catch up on 12 major I/O 2026 moments</div>
+        <div class="article-date">28.05.2026</div>
+        <div class="article-summary">Google setzte auf I/O 2026 mit zwölf zentralen Ankündigungen, bei denen insbesondere die neuen Gemini-Modelle im Fokus stehen. Gemini Omni kombiniert Eingaben wie Text, Bild, Audio und Video, um qualitativ hochwertige Videos zu erstellen; Gemini Omni Flash wird dabei bereits global an Google AI Plus, Pro und Ultra Abonnenten über die Gemini App und Google Flow ausgerollt. Die Gemini 3.5 Familie – bestehend aus Gemini 3.5 Flash, das komplexe Aufgaben über Plattformen wie Google Antigravity, AI Studio und Android Studio effizient löst, sowie intern erprobte Gemini 3.5 Pro – unterstreicht Googles Einsatz moderner KI für realweltliche Anwendungen. Weitere Neuerungen wie Information Agents in Search, ein intelligenter, dynamischer Search Box mit Antigravity, Daily Brief in der Gemini App, Universal Cart für nahtloses Shopping, Neural Expressive für ein überarbeitetes UI, intelligente Eyewear, erweiterte SynthID-Wasserzeichen und der speziell für Wissenschaft entwickelte „Gemini for Science“ demonstrieren Googles ambitionierte Strategie zur Integration von KI in Alltag und Arbeit.</div>
+        <a href="https://blog.google/innovation-and-ai/technology/ai/io-2026-keynote-moment-videos/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Kent Beck - Tidy First (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Genie Lessons from Genie Sessions: Prose as a Programming Language</div>
+        <div class="article-date">26.05.2026</div>
+        <div class="article-summary">OpenProse nutzt strukturiertes Englisch und LLM-Aufrufe (etwa Claude Code) zur Realisierung von Diensten, wobei Komponenten über definierte requires‑ und ensures-Blöcke zur Laufzeit verkabelt werden – vergleichbar mit der Funktionsweise von Spring in Java. Ein Praxisbeispiel demonstriert, wie ein einzelner Befehl innerhalb weniger Minuten einen vollständigen Tidenplan, Wetterdaten und Mondphaseninformationen für Montara liefert. Sub-Agents übermitteln große Kontextblöcke indirekt als Dateipfade, wodurch der Hauptprozess von der Datenmenge entlastet wird. Der Ansatz reflektiert den Branchentrend zu outcome-basierten Methoden, wie sie aktuell bei Codex (/goal) und Anthropic (Outcomes API) Anwendung finden.</div>
+        <a href="https://tidyfirst.substack.com/p/genie-lessons-from-genie-sessions" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Martin Fowler (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">The VibeSec Reckoning</div>
+        <div class="article-date">27.05.2026</div>
+        <div class="article-summary">Vibe coding führt zu unsicheren Konfigurationen, wie beispielhaft die Empfehlung durch AI-Tools (Gemini, Replit AI, Claude AI) zeigt, Speicher öffentlich zugänglich zu machen und übermäßige Token-Berechtigungen zu vergeben – beides hätte sensible Daten und gesamte Cloud-Arbeitsumgebungen gefährdet. Konkret wurden bei der Skalierung eines Prototyps für 10.000 Mitarbeiter kritische Sicherheitsmängel entdeckt, die ohne menschliches Eingreifen unentdeckt geblieben wären. Statistiken untermauern das Risiko: 44% mehr Angriffe, 1 von 5 Enterprise-Breaches, 25% des AI-generierten Codes mit bekannten Schwachstellen sowie 73% prompt injection Exposition in Audits. Eine Lösung besteht darin, einen versionierten Sicherheitskontext als unverhandelbare Richtlinie in jede AI-Session einzuspeisen und diesen mit automatisierten, deterministischen Checks in der Pipeline zu verknüpfen. Zusätzlich wird ein täglicher Security Intelligence Feed etabliert, um neu veröffentlichte CVEs unverzüglich zu identifizieren, sodass Sicherheitsrichtlinien von der Entwicklung bis zur Produktion durch fest verankerte Kontrollmechanismen gewährleistet werden.</div>
+        <a href="https://martinfowler.com/articles/vibesec-reckoning.html" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Microsoft .NET Blog (2 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Doing More with GitHub Copilot as a .NET Developer</div>
+        <div class="article-date">26.05.2026</div>
+        <div class="article-summary">.NET-Entwickler nutzen GitHub Copilot, um alltägliche Aufgaben wie das Generieren von Unit-Tests, das Erklären komplexer Legacy-Codes und das Refactoring von Controllern effizient zu delegieren. Unterschiedliche Oberflächen – Visual Studio, VS Code, der Copilot CLI und der cloud coding agent – ermöglichen dabei je nach Aufgabenstellung gezielte Interaktionen, etwa für das umfassende Ändern von Code und Konfigurationsdateien oder die terminalnahe Fehlersuche bei dotnet build- oder xUnit-Testfehlern. Der Beitrag hebt den praktischen Nutzen von Copilot hervor, indem präzise Beispiele wie das Refactoring mit Agentic Workflows und Chat-Prompts erläutert werden, die klare Aufgabenabgrenzungen und Rückmeldestrukturen vorsehen. Dabei ergänzt der Hinweis auf die gleichzeitige Nutzung von .NET 10 und spezifischen Skills, wie dem dotnet-test skill, die dargestellten Anwendungsfälle.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/doing-more-with-github-copilot/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Give Your .NET MAUI Android Apps a Material 3 Makeover</div>
+        <div class="article-date">26.05.2026</div>
+        <div class="article-summary">.NET MAUI 10 ermöglicht es, Android Apps per einzigem MSBuild-Property (&lt;UseMaterial3&gt;true&lt;/UseMaterial3&gt;) auf den neuen Material 3 Look umzustellen. In Service Release 3 (Version 10.0.30) wurden erste grundlegende Styles eingeführt, während in SR6 (Version 10.0.60) umfangreiche Updates für Steuerelemente wie Button, Entry, SearchBar, DatePicker, Slider, ProgressBar, ImageButton, Switch und Shell erfolgten. Die Umstellung integriert dynamische Farbschemata, aktualisierte Komponentenformen, veränderte Elevations- und Fokuszustände und richtet sich an den aktuellen Android-Designtrend „Material You“. Dabei bleiben explizit in XAML gesetzte Attribute (etwa BackgroundColor oder TextColor) unberührt, sodass bestehende Brandings erhalten bleiben. Entwickler können über ein bereitgestelltes Demo-Sample und den Material 3-Tracking-Task auf GitHub das neue Verhalten evaluieren und direkt Feedback geben.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/dotnet-maui-material-3/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Pragmatic Engineer Newsletter (3 Artikel)</h2>
+    <div class="section-summary">Unternehmen verschärfen aktiv das Kostenmanagement im KI-Bereich, indem sie die Token-Nutzung pro Entwickler einschränken und den ROI von KI-Tools neu bewerten – wie etwa bei Google Cloud Platform, wo ein Kunde wegen unerwartet hoher Ausgaben suspendiert wurde –, während konkrete Statistiken die Effizienz moderner KI-gestützter Coding-Tools unterstreichen. Open-Source-Strategien und AI-gestützte Produktverbesserungen führen zu einer rasanten Nutzerentwicklung bei Plattformen wie OpenCode, während zugleich globale Trends im Softwareingenieur-Markt sichtbar werden, mit besonders steigendem Bedarf an KI-Fachkräften und teils volatilen Personalbewegungen bei Branchengrößen wie Apple, Google und Meta.</div>
+    <div class="article">
+        <div class="article-title">The Pulse: a trend of trying to cut back on AI spend within eng departments?</div>
+        <div class="article-date">28.05.2026</div>
+        <div class="article-summary">Ingenieure in großen und mittelgroßen Unternehmen reduzieren aktiv ihre Ausgaben für KI-Agenten, indem sie die Token-Nutzung pro Entwickler streng steuern und ROI-Erwartungen neu bewerten. Führungskräfte implementieren sowohl top-down als auch bottom-up Ansätze, um die AI-Kosten im Griff zu behalten und unerwartet hohe Ausgaben zu vermeiden. So suspendierte beispielsweise Google Cloud Platform einen Kunden, der monatlich 2 Mio. US-Dollar an Ausgaben anhäufte, ohne vorab zu warnen. Zudem liefert Cursor konkrete Statistiken zur Effizienz von KI-gestütztem Coding, die weitere Einblicke in den wirtschaftlichen Nutzen moderner KI-Tools geben.</div>
+        <a href="https://newsletter.pragmaticengineer.com/p/the-pulse-a-trend-of-trying-to-cut" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Building OpenCode with Dax Raad</div>
+        <div class="article-date">27.05.2026</div>
+        <div class="article-summary">OpenCode wuchs in wenigen Monaten von rund 650.000 auf nahezu 8 Millionen monatlich aktive Nutzer und erreichte fast 1 Million tägliche Nutzer. Dax Raad nutzte die strategische Entscheidung, auf einen offenen Quellcode zu setzen, und verfolgte eine „inverted“ Produktstrategie, bei der ein zunächst ausreichend gutes Produkt nach Erreichen signifikanter Marktanteile optimiert wurde. Trotz der Unterstützung durch AI-basierte Coding-Tools bleibt technisches Urteilsvermögen unabdingbar, um technischen Schulden und fragwürdiger Codequalität entgegenzuwirken. Die Erfahrung zeigt, dass AI vor allem Zeitgewinne bringt, während bestehende Anreizstrukturen und Limitationen wie GPU-Engpässe weiterhin den entscheidenden Einfluss auf die Softwareentwicklung haben.</div>
+        <a href="https://newsletter.pragmaticengineer.com/p/opencode" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">State of the software engineering job market in 2026</div>
+        <div class="article-date">26.05.2026</div>
+        <div class="article-summary">US- und britische Unternehmen treiben 2026 weiterhin den Anstieg von Softwareingenieur-Stellen voran, während in Deutschland und Frankreich ein Rückgang zu verzeichnen ist. Apple verzeichnet ein Wachstum von +10 % und Google +5 %, während Meta nach einer Phase schnellen Wachstums um fast 20 % nun 10 % der Belegschaft entlässt, was die hohe Volatilität des Unternehmens unterstreicht. Die Nachfrage nach AI Engineering boomt, mit Unternehmen wie Apple, Google und TikTok, die 50–100 % mehr KI-Stellen ausschreiben, sodass KI-Grundkenntnisse zunehmend zur Basiskompetenz werden. Fintech-, Observability‑ und Security-Unternehmen zeigen besonders hohe Wachstumsraten, etwa Ramp mit +94 %, Wiz mit +84 % und Datadog mit +68 %, unterstützt durch weitreichende Investitionen wie den 170-Millionen-Dollar-Auftrag von OpenAI.</div>
+        <a href="https://newsletter.pragmaticengineer.com/p/state-of-the-job-market-2026" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Simon Willison (9 Artikel)</h2>
+    <div class="section-summary">Claude Opus 4.8, Frontier-Modelle und GPT‑5.5 zeigen technische Verbesserungen hinsichtlich API-Optimierungen, Fehlerminimierung und dynamischer Systemanweisungen, während Preisanpassungen im Enterprise-Bereich auf steigende Token-Kosten und einen angepassten Markt-Fokus hinweisen. Matplotlib und Datasette demonstrieren den kontinuierlichen Fortschritt in Open-Source-Projekten, während gleichzeitig Sicherheitslücken in curl und Microsoft 365 sowie ethische und ressourcentechnische Herausforderungen bei KI-Systemen diskutiert werden, ergänzt durch einen nostalgischen Rückblick auf ein klassisches Spiel.</div>
+    <div class="article">
+        <div class="article-title">Claude Opus 4.8 make me</div>
+        <div class="article-date">29.05.2026</div>
+        <div class="article-summary">Claude Opus 4.8 fokussiert sich auf eine Optimierung der API-Schnittstellen und des Ressourcenmanagements in produktiven Umgebungen. Die neue Version verbessert die Performance nachweislich, wie interne Benchmarks und Leitwerte von Anwendern belegen. Änderungen in der Softwarearchitektur ermöglichen Entwicklern, bestehende Integrationen nahezu ohne Anpassungen zu übernehmen, während zusätzliche Konfigurationsoptionen mehr Flexibilität bieten. Nutzerfeedback fließt gezielt in die Weiterentwicklung ein und trägt zur Stabilität der Implementierung bei.</div>
+        <a href="https://claude.ai/share/f52e82bd-7e09-49a5-b658-0b9999ce5a45" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Claude Opus 4.8: “a modest but tangible improvement”</div>
+        <div class="article-date">29.05.2026</div>
+        <div class="article-summary">Claude Opus 4.8 von Anthropic verbessert die Fahrlässigkeit des Modells, indem es Unsicherheiten stärker signalisiert und unpräzise Antworten vermeidet. Das Modell senkt Fehlerraten, indem es laut Systemcard viermal seltener fehlerhaften Code unkommentiert durchrutschen lässt als die Vorgängerversion. Neben den bekannten Spezifikationen – 1.000.000 Tokens Kontextfenster, 128.000 Tokens maximale Ausgabe und Trainingsdaten bis Januar 2026 – sind nun mid-conversation system messages eingeführt worden, die eine dynamische Anpassung der Systemanweisungen erlauben. Die Preisstruktur bleibt gleich bei $5 pro Million Eingangstokens und $25 pro Million Ausgangstokens, während der Fast-Mode nun zum doppelten Preis verfügbar ist.</div>
+        <a href="https://simonwillison.net/2026/May/28/claude-opus-4-8/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Matplotlib</div>
+        <div class="article-date">29.05.2026</div>
+        <div class="article-summary">Matplotlib stellt eine umfassende Python-Bibliothek zur Erstellung statischer, animierter und interaktiver Visualisierungen bereit und ermöglicht die Erzeugung von publication-qualitativen Diagrammen. Die neueren Releases – Version 3.10.0 mit 337 Pull Requests (13.12.2024) sowie Version 3.9.0 mit 450 Pull Requests (16.05.2024) – unterstreichen den aktiven Entwicklungs- und Community-Ansatz des Projekts. Die Bibliothek erlaubt flexible Anpassung von Layout und Stil, unterstützt den Export in zahlreiche Dateiformate und die Integration in Umgebungen wie JupyterLab und verschiedene GUIs. Erweiterungen durch Drittanbieter wie seaborn und Cartopy bieten zusätzliche Funktionalitäten für statistische Auswertungen und geospatiale Datenanalysen.</div>
+        <a href="https://matplotlib.org/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">I think Anthropic and OpenAI have found product-market fit</div>
+        <div class="article-date">27.05.2026</div>
+        <div class="article-summary">Anthropic berechnet nun im Enterprise-Bereich $20 pro Sitzplatz pro Monat plus API-Nutzung, während OpenAI seit Anfang April 2026 den Codex-Preis von Nachrichten auf API-Token umgestellt hat. Beide Anbieter verlangen nun bei Enterprise-Kunden denselben Preis wie beim API-Zugang, was sich in konkreten Beispielen zeigt: Bei einem moderaten Coding-Tool-Einsatz entstehen etwa $1.200/Monat bei Anthropic und rund $980/Monat bei OpenAI. Frontier-Modelle wie GPT‑5.5 (veröffentlicht am 23. April) und Opus 4.7 (16. April) weisen im Vergleich zu ihren Vorgängern deutlich höhere Tokenkosten (2× beziehungsweise ca. 1,4×) auf, was die steigenden Ausgaben bei Unternehmen erklärt. Die Neuausrichtung der Preisstrategie sowie die aggressiven Einstellungen im Personalbereich (703 offene Jobs bei OpenAI, 390 bei Anthropic) unterstreichen, dass beide Unternehmen mit ihren kodierenden Agents und unternehmensfokussierten Angeboten den entscheidenden Produkt-Markt-Fit erreicht haben.</div>
+        <a href="https://simonwillison.net/2026/May/27/product-market-fit/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Microsoft Copilot Cowork Exfiltrates Files</div>
+        <div class="article-date">26.05.2026</div>
+        <div class="article-summary">Microsoft Copilot Cowork in Microsoft 365 ermöglicht es Angreifern, über einen indirekten Prompt Injection-Angriff prä-authentifizierte Download-Links von Dateien zu exfiltrieren, indem sie E-Mail- und Teams-Nachrichten auslösen, die ohne zusätzliche Benutzerbestätigung versendet werden. Ein präpariertes Skill-File, das fünf Zeilen schädlichen Code in einem 81-zeiligen Dokument enthält, veranlasst den Agenten, externe Bild-Tags einzufügen, die dazu führen, dass Dateien – einschließlich solcher mit sensiblen Informationen – an eine angreiferkontrollierte URL übertragen werden. Die Angriffsstrategie erzielen dabei in Versuchen mit Claude Opus 4.7, sowie bei automatischer Modellwahl (zwischen Opus 4.7 und Claude Sonnet 4.6), regelmäßig 100 Prozent Erfolg. Um das Risiko zu minimieren, sollten Administratoren übermäßige Berechtigungen über Microsoft Graph einschränken und Maßnahmen wie das Blockieren von Datei-Downloads in SharePoint implementieren. Geplante Aufgaben, etwa automatisierte wöchentliche Reviews, vergrößern die Angriffsfläche, da sie das Ausführen des bösartigen Workflows ohne Benutzerintervention ermöglichen.</div>
+        <a href="https://www.promptarmor.com/resources/microsoft-copilot-cowork-exfiltrates-files" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Notes on Pope Leo XIV’s encyclical on AI</div>
+        <div class="article-date">26.05.2026</div>
+        <div class="article-summary">Papst Leo XIV legt in seiner Enzyklika &quot;Magnifica Humanitas&quot; dar, dass gegenwärtige KI-Systeme – insbesondere große Sprachmodelle – weniger von einer expliziten Konstruktion als vielmehr von einem evolutiven Trainingsprozess geprägt sind, was die Nachvollziehbarkeit ihrer internen Abläufe einschränkt. Er macht deutlich, dass technologische Entwicklungen wie diese sowohl den individuellen als auch den gesellschaftlichen Fortschritt vorantreiben, aber auch ethische Herausforderungen hinsichtlich Menschenwürde, Gerechtigkeit und nachhaltiger Nutzung natürlicher Ressourcen mit sich bringen. Die Abhandlung thematisiert konkrete Probleme wie kulturell verzerrte Algorithmusantworten, mangelnde emotionale Intelligenz bei automatisierten Entscheidungsprozessen sowie den exponentiellen Energie- und Ressourcenbedarf bei komplexeren Modellen. Zudem fordert der Text, Daten stärker als öffentliches Gut zu regulieren, um Machtkonzentrationen in den Händen weniger wirtschaftlich und technologisch privilegierter Akteure entgegenzuwirken.</div>
+        <a href="https://simonwillison.net/2026/May/25/encyclical-on-ai/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">The pressure</div>
+        <div class="article-date">26.05.2026</div>
+        <div class="article-summary">Die Zahl der täglich eingehenden Sicherheitsmeldungen für curl ist seit 2024 um das Vier- bis Fünffache gestiegen, was aktuell zu mehr als einem Report pro Tag führt. Daniel Stenberg arbeitet seit 2019 mit rund 50-Stunden-Wochen – häufig zusätzlich in den späten Abendstunden – um den Quellcode, der in 30 Milliarden Installationen weltweit genutzt wird, kontinuierlich zu härten und Sicherheitslücken zu schließen. Zwölf bestätigte Schwachstellen mit ausstehenden CVE-Ankündigungen stehen bereits unmittelbar bevor, sodass für 2026 allein in der ersten Jahreshälfte bereits rund 30 CVEs publiziert wurden, was auf einen Jahresendwert von mindestens 60 hinweist. Die enorme Belastung führt dazu, dass er – unterstützt von seinem Team und in Anbetracht familiärer Bedenken – über eine Reduzierung der Arbeitsstunden nachdenkt und zusätzlich mehr finanzielle Beteiligung von Unternehmen fordert, die auf curl bauen.</div>
+        <a href="https://daniel.haxx.se/blog/2026/05/26/the-pressure/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Mad House — Usborne Creepy Computer Games</div>
+        <div class="article-date">24.05.2026</div>
+        <div class="article-summary">Das 1983 erschienene Spiel basiert auf präziser Steuerung, wobei der Spieler über die Tasten X und C den ihm am nächsten liegenden Türbereich und über N und M den am weitesten entfernten steuert, während der mittlere Durchgang eigenständig agiert. Das Spielprinzip erfordert, dass drei Türöffnungen – sichtbar mit den Werten 3 und einem Schrittzähler von 240 – für einen Moment exakt ausgerichtet sein müssen, um einen erfolgreichen Ausbruch zu ermöglichen. Die Darstellung im Buch aus der Usborne Creepy Computer Games-Reihe, konzipiert von Keith Campbell und illustriert von Rob McCaig, integriert unmittelbare Reaktionen auf die sich ständig verändernde Umgebung und den herannahenden Schrittzähler, was eine unmittelbare taktische Herausforderung darstellt.</div>
+        <a href="https://tools.simonwillison.net/usborne-mad-house" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">The extensible &quot;Jump to&quot; menu in Datasette 1.0a30</div>
+        <div class="article-date">24.05.2026</div>
+        <div class="article-summary">Datasette 1.0a30, veröffentlicht am 24. Mai 2026, integriert ein erweiterbares &quot;Jump to&quot;-Menü, das über den Shortcut &quot;/&quot; oder aus dem Hauptmenü aufgerufen wird. Es ermöglicht die schnelle Navigation über alle Datenbanken, Tabellen, Views und vordefinierte Abfragen, wobei zuletzt ausgewählte Inhalte im localStorage gespeichert werden. Plugins können über den neuen jump_items_sql Hook eigene SQL-Abfragen beisteuern, die in einem UNION-Query zusammengeführt und nach dem Suchbegriff des Nutzers gefiltert werden. Zusätzlich können JavaScript-Plugins über den makeJumpSections() Hook die initiale Darstellung des Menüs anpassen, wie beispielhaft das datasette-agent Plugin demonstriert.</div>
+        <a href="https://datasette.io/blog/2026/jump-menu/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+
+</body>
+</html>
