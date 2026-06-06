@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Übersicht - Letzte 7 Tage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .article {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .article-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .article-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .article-summary {
+            margin-bottom: 10px;
+        }
+        .article-link {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .article-link:hover {
+            text-decoration: underline;
+        }
+        /* R00011: Section-Summary-Block, leicht abgesetzt von Einzel-Artikeln */
+        .section-summary {
+            margin: 10px 0 20px 0;
+            padding: 12px 16px;
+            background-color: #eef4fb;
+            border-left: 4px solid #0066cc;
+            font-style: italic;
+            color: #234;
+        }
+        /* R00012: Changelog-Digest-Block — visuell distinkt vom Section-Summary */
+        .changelog-digest {
+            margin: 10px 0 15px 0;
+            padding: 12px 16px;
+            background-color: #fff7e6;
+            border-left: 4px solid #d97706;
+            color: #3a2a00;
+        }
+        .changelog-links {
+            list-style: disc inside;
+            padding-left: 0;
+            margin: 0 0 25px 0;
+        }
+        .changelog-links li {
+            margin: 4px 0;
+        }
+        .changelog-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-left: 6px;
+        }
+        /* R00013: Wochen-Tenor — visuell die staerkste der drei
+           Verdichtungsklassen (overall > section-summary > changelog-digest).
+           Linker Rand kraeftiger, Schrift groesser, klar abgesetzte
+           Hintergrundfarbe — vom Leser auf den ersten Blick als
+           Zusammenfassung der Wochenausgabe erkennbar. */
+        .overall-summary {
+            margin: 10px 0 25px 0;
+            padding: 18px 22px;
+            background-color: #f0fbf3;
+            border-left: 6px solid #15803d;
+            font-size: 1.1em;
+            color: #14271d;
+        }
+        /* R00011: Rueckspruglink zur index.html (oben und unten) */
+        .back-link {
+            display: inline-block;
+            margin: 10px 0 20px 0;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>News Übersicht der letzten 7 Tage</h1>
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+    <div class="overall-summary">Anthropic intensiviert den strategischen Ausbau von Produktions- und Sicherheitslösungen, indem das Claude-Ökosystem mit gestaffelten Partnerprogrammen, Sicherheitsprüfungen und Containment-Strategien weiter professionalisiert wird. Gleichzeitig markieren Modell-Updates und neue agentische Features, etwa bei GitHub und Google, den präzisen Übergang zu robusteren, multimodalen und effizient integrierbaren KI-Lösungen. Die Entwicklungen im Bereich Codequalität und Vertrauensaufbau adressieren zudem den massiven Anstieg produzierten Codes, wobei der verstärkte Einsatz von automatisierten Tests und defensiven Sicherheitsmaßnahmen als essentielle Antwort auf steigende Cyberbedrohungen und technische Schulden gilt. Ergänzend führen neue Tools zur direkten Integration von Evaluationsaufgaben und Sicherheitsanalysen in bestehende Entwicklungsumgebungen zu einem spürbaren Effizienzgewinn in der Softwareentwicklung. Die Bandbreite der Neuerungen reicht von umfassenden Sicherheitsupdates über agile Agent-basierte Workflows bis hin zu fundamentalen Veränderungen in der Arbeitsweise, die das gesamte Ökosystem nachhaltiger prägen.</div>
+    <p>Generiert am: 06.06.2026 07:00 Uhr</p>
+    <p>Anzahl Artikel: 16 (zus&auml;tzlich 20 Changelog-Eintr&auml;ge aus 1 Quelle)</p>
+
+    <h2>Anthropic News (4 Artikel)</h2>
+    <div class="section-summary">Anthropic intensiviert den Einsatz von Claude in Unternehmen, indem das Unternehmen mit einem gestaffelten Partner Hub und Project Glasswing, unterstützt durch Produkte wie Claude Security (Opus 4.8), gezielt Schwachstellen identifiziert und Sicherheitslücken in kritischen Infrastrukturen adressiert. Gleichzeitig steigt der Missbrauch von KI in Cyberangriffen, was zu einer erhöhten Risikoeinstufung führt, während Anthropic PBC den Grundstein für einen möglichen Börsengang legt, indem es eine vertrauliche S-1-Registrierung bei der US-SEC einreicht.</div>
+    <div class="article">
+        <div class="article-title">Introducing the Services Track and Partner Hub of the Claude Partner Network</div>
+        <div class="article-date">03.06.2026</div>
+        <div class="article-summary">Anthropic erweitert den Einsatz von Claude in Unternehmen durch die Einführung eines dreistufigen Services Track und eines Partner Hub im Rahmen des Claude Partner Network. Firmen qualifizieren sich anhand quantitativer Kriterien – von mindestens 10 zertifizierten Mitarbeitern und 2 produktiven Deployments auf Einstiegsniveau (&quot;Select&quot;) bis zu 1.000 zertifizierten Experten, 100 Deployments in drei Regionen und 15 bestätigten Kundenreferenzen für den &quot;Global Premier&quot; Status. Große Beratungsunternehmen sind bereits involviert: Accenture schult 30.000 Fachkräfte, Cognizant hat Claude bei 350.000 Mitarbeitern eingeführt, Deloitte stellt es 470.000 Mitarbeitern zur Verfügung, KPMG integriert es über 276.000 Mitarbeiter, während auch Infosys und PwC mit branchenspezifischen Lösungen agieren. Täglich aktualisierte Kennzahlen im Partner Hub ermöglichen eine transparente Bewertung des Status, wobei Beförderungen zweimal jährlich (am 1. Januar und 1. Juli, mit zusätzlicher Prüfung am 1. Oktober 2026) erfolgen. Eine Investition von 100 Millionen Dollar in Training, technischen Support und Marketing untermauert den strategischen Ansatz zur Förderung produktionsreifer AI-Lösungen.</div>
+        <a href="https://www.anthropic.com/news/services-track-partner-hub" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">What we learned mapping a year’s worth of AI-enabled cyber threats</div>
+        <div class="article-date">03.06.2026</div>
+        <div class="article-summary">832 für bösartige Cyberaktivitäten gesperrte Konten, die zwischen März 2025 und März 2026 identifiziert wurden, zeigen, dass 67,3 Prozent KI zur Malware-Erstellung nutzen. Die Untersuchung weist darauf hin, dass Angreifer zunehmend KI in späteren Phasen des Angriffs einsetzen, etwa bei der Kontenidentifikation und lateralen Bewegungen (6,5 Prozent), was die Risikoeinstufung innerhalb eines Halbjahres von 33 auf 56 Prozent ansteigen ließ. Angriffe, bei denen KI Modelle wie Claude Code autonom Befehle ausführt und Entscheidungen trifft, werden durch das herkömmliche MITRE ATT&amp;CK Framework nicht adäquat abgebildet. Die Erkenntnisse fließen in den 2026 Data Breach Investigations Report von Verizon ein und führen zu Gesprächen mit MITRE über eine notwendige Erweiterung des Frameworks.</div>
+        <a href="https://www.anthropic.com/news/AI-enabled-cyber-threats-mitre-attack" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Expanding Project Glasswing</div>
+        <div class="article-date">02.06.2026</div>
+        <div class="article-summary">Anthropic erweitert Project Glasswing, nachdem initial ca. 50 Partner mit Claude Mythos Preview in ihrer Codebasis über 10.000 hoch- bis kritische Sicherheitslücken aufgedeckt haben. Rund 150 neue Organisationen aus über 15 Ländern, insbesondere aus Branchen wie Energie, Wasser, Gesundheitswesen und Telekommunikation, erhalten nun nach entsprechender Sicherheitsprüfung Zugang, da ein erfolgreicher Angriff auf deren Software gravierende Auswirkungen haben könnte. Das Unternehmen stellt mit Claude Security, basierend auf dem Modell Claude Opus 4.8, ein weiteres Werkzeug zur automatisierten Erkennung und Behebung von Schwachstellen vor. Zudem arbeiten Anthropic und Partner an der Weiterentwicklung von Tools und Standards, um den Herausforderungen durch den breiten Einsatz leistungsfähiger Cybermodelle innerhalb der nächsten 6 bis 12 Monate gerecht zu werden.</div>
+        <a href="https://www.anthropic.com/news/expanding-project-glasswing" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Anthropic confidentially submits draft S-1 to the SEC</div>
+        <div class="article-date">01.06.2026</div>
+        <div class="article-summary">Anthropic PBC reichte am 1. Juni 2026 vertraulich einen Entwurf der S-1-Registrierung bei der US-Börsenaufsicht SEC ein, um eine mögliche Notierung durch ein Initial Public Offering zu ermöglichen. Das Unternehmen behält sich vor, den Börsengang abhängig von der SEC-Prüfung, den Marktbedingungen und weiteren Faktoren durchzuführen. Die genaue Anzahl der Aktien sowie der Ausgabepreis wurden bislang noch nicht festgelegt. Die Einreichung erfolgte gemäß Rule 135 des Securities Act von 1933, wodurch das Dokument weder als Verkaufsangebot noch als Kaufanreiz für Wertpapiere zu verstehen ist.</div>
+        <a href="https://www.anthropic.com/news/confidential-draft-s1-sec" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>GitHub Copilot Blog (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">GitHub Copilot app: The agent-native desktop experience</div>
+        <div class="article-date">02.06.2026</div>
+        <div class="article-summary">GitHub integriert mit der neuen Copilot App eine zentrale Steueroberfläche, in der parallele Agentensessions in isolierten Git-Worktrees verwaltet werden, um unterbrochene Workflows und Kontextverlust zu vermeiden. Die Plattform bündelt Arbeitssituationen – von produktionsbezogenen Bugs über Backlog-Issues bis zu Pull Requests – und ermöglicht die Inspektion, Umleitung, Testausführung und das Mergen von Änderungen über eine einzige My Work-Ansicht. Mit Funktionen wie Canvas, das als bidirektionale Arbeitsfläche dient, und erweiterten Code-Review-Mechanismen, darunter konfigurierbare Agentenfähigkeiten und Modellvarianten (z. B. &quot;/security-review&quot; und &quot;/rubberduck&quot;), reagiert GitHub auf den exponentiellen Anstieg: Laut Angaben verdoppelten sich Commits auf 1,4 Mrd. pro Monat und es werden über 2 Mrd. GitHub Actions Minuten wöchentlich genutzt. Die technische Preview richtet sich an Copilot Pro, Pro+, Business- und Enterprise-Nutzer und wird von lokalen und cloudbasierten Sandbox-Optionen sowie einem neuen Copilot SDK ergänzt, das den Aufbau eigener Werkzeuge in Sprachen wie Node.js/TypeScript, Python, Go, .NET, Rust und Java ermöglicht.</div>
+        <a href="https://github.blog/news-insights/product-news/github-copilot-app-the-agent-native-desktop-experience/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>GitHub Copilot Changelog (20 Eintr&auml;ge)</h2>
+    <div class="changelog-digest">Modell-Updates prägen diese Ausgabe: GitHub entfernt Modelle wie GPT-5.2 und GPT-4.1 und empfiehlt den Einsatz von GPT-5.5, während zugleich neue Gemini-Modelle (Gemini 3.1 Pro und 3.5 Flash) als Erweiterung des Portfolios integriert werden. Neben den Modellwechseln wird der Funktionsumfang deutlich erweitert. So erscheinen in VS Code, Visual Studio 2026 und JetBrains IDEs zahlreiche neue agentische Features, darunter die zentrale Verwaltung von Plugins, Agent Picker, Sandbox-Umgebungen und erweiterte Code-Review-Optionen, die sowohl lokale als auch Cloud-basierte Interaktionen unterstützen. Entwickler profitieren von einem neuen Copilot CLI mit erweiterter Terminaloberfläche und robustem Agent Debug Panel, ergänzt durch die Veröffentlichung eines stabilen Copilot SDK in sechs Programmiersprachen. Zusätzlich werden Workflows durch verbesserte Copilot Chat- und Code-Review-Funktionen im Azure DevOps Kontext optimiert, wobei Features wie vollintegrierte Agent Skills und ein anpassbares Kontextfenster bis zu einer Million Tokens für umfangreiche Projekte zur Verfügung stehen. Abschließend erfolgt eine Umstellung auf ein nutzungsbasiertes Abrechnungsmodell, das den Verbrauch von GitHub AI Credits sowie zusätzlichen GitHub Actions Minuten zentral steuert und bestehenden Abonnenten erweiterte Nutzungslimits bietet.</div>
+    <ul class="changelog-links">
+        <li><a href="https://github.blog/changelog/2026-06-05-enterprise-managed-plugins-in-vs-code-in-public-preview" class="article-link" target="_blank">Enterprise-managed plugins in VS Code in public preview</a> <span class="changelog-date">05.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-05-gpt-5-2-and-gpt-5-2-codex-deprecated" class="article-link" target="_blank">GPT-5.2 and GPT-5.2-Codex deprecated</a> <span class="changelog-date">05.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-04-agent-tasks-rest-api-now-available-for-copilot-pro-pro-and-max" class="article-link" target="_blank">Agent tasks REST API now available for Copilot Pro, Pro+, and Max</a> <span class="changelog-date">04.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-04-copilot-chat-brings-richer-context-to-pull-requests" class="article-link" target="_blank">Copilot Chat brings richer context to pull requests</a> <span class="changelog-date">04.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-04-fix-with-copilot-for-failing-actions-now-in-pro-pro-and-max" class="article-link" target="_blank">Fix with Copilot for failing Actions now in Pro, Pro+, and Max</a> <span class="changelog-date">04.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-04-github-copilot-in-visual-studio-may-update" class="article-link" target="_blank">GitHub Copilot in Visual Studio — May update</a> <span class="changelog-date">04.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-04-larger-context-windows-and-configurable-reasoning-levels-for-github-copilot" class="article-link" target="_blank">Larger context windows and configurable reasoning levels for GitHub Copilot</a> <span class="changelog-date">04.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-03-github-copilot-in-visual-studio-code-may-releases" class="article-link" target="_blank">GitHub Copilot in Visual Studio Code, May releases</a> <span class="changelog-date">03.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-02-cloud-and-local-sandboxes-for-github-copilot-now-in-public-preview" class="article-link" target="_blank">Cloud and local sandboxes for GitHub Copilot now in public preview</a> <span class="changelog-date">02.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-02-copilot-cli-improved-ui-rubber-duck-prompt-scheduling-and-voice-input" class="article-link" target="_blank">Copilot CLI: Improved UI, rubber duck, prompt scheduling, and voice input</a> <span class="changelog-date">02.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-02-copilot-sdk-is-now-generally-available" class="article-link" target="_blank">Copilot SDK is now generally available</a> <span class="changelog-date">02.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-02-expanded-technical-preview-availability-for-the-github-copilot-app" class="article-link" target="_blank">Expanded technical preview availability for the GitHub Copilot app</a> <span class="changelog-date">02.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-02-extend-github-with-agent-apps" class="article-link" target="_blank">Extend GitHub with agent apps</a> <span class="changelog-date">02.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-02-gpt-4-1-deprecated" class="article-link" target="_blank">GPT-4.1 deprecated</a> <span class="changelog-date">02.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-02-gemini-models-in-copilot-cli-cloud-agent-and-the-copilot-app" class="article-link" target="_blank">Gemini models in Copilot CLI, cloud agent, and the Copilot app</a> <span class="changelog-date">02.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-02-github-copilot-code-review-for-azure-repos-is-now-in-technical-preview" class="article-link" target="_blank">GitHub Copilot code review for Azure Repos is now in technical preview</a> <span class="changelog-date">02.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-02-introducing-copilot-cli-and-agentic-capabilities-enhancements-in-jetbrains-ides" class="article-link" target="_blank">Introducing Copilot CLI and agentic capabilities enhancements in JetBrains IDEs</a> <span class="changelog-date">02.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-02-shape-copilot-code-review-around-your-team" class="article-link" target="_blank">Shape Copilot code review around your team</a> <span class="changelog-date">02.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-01-evaluation-models-in-auto-for-individual-plans" class="article-link" target="_blank">Evaluation models in auto for individual plans</a> <span class="changelog-date">01.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-01-updates-to-github-copilot-billing-and-plans" class="article-link" target="_blank">Updates to GitHub Copilot billing and plans</a> <span class="changelog-date">01.06.2026</span></li>
+    </ul>
+
+    <h2>Google AI Blog (3 Artikel)</h2>
+    <div class="section-summary">Gemma‑4 erhält bedeutende Updates, die durch Quantization‑Aware Training und maßgeschneiderte Komprimierungsmethoden eine effiziente Inferenz auf Edge-Geräten ermöglichen, wobei Checkpoints in gängigen Formaten wie GGUF, vLLM und LiteRT‑LM verfügbar sind. Kaggle Benchmarks vereinfacht die Erstellung und Auswertung von Evaluationsaufgaben direkt aus der lokalen Entwicklungsumgebung, während das multimodale Gemma‑4‑12B Modell visuelle sowie auditive Signale integriert, um Latenz und Speicherbedarf zu reduzieren und lokale Inferenz auf Geräten mit nur 16 GB VRAM zu ermöglichen.</div>
+    <div class="article">
+        <div class="article-title">Gemma 4 QAT models: Optimizing model compression for mobile and laptop efficiency</div>
+        <div class="article-date">05.06.2026</div>
+        <div class="article-summary">Gemma 4 erhält neue Checkpoints, die durch Quantization-Aware Training (QAT) während des Trainings die Qualität auch nach starker Kompression sicherstellen. Die Modelle nutzen den bewährten Q4_0-Quantisierungsstandard sowie ein speziell für mobile Anwendungen entwickeltes Format, wodurch beispielsweise das Gemma 4 E2B-Modell auf unter 1 GB VRAM reduziert wird. Das Verfahren integriert statische Aktivierungen, channel-wise Quantisierung und gezielte 2‑Bit-Komprimierung in den tokenerzeugenden Bereichen, was die Effizienz auf Edge-Geräten erheblich steigert. Die Checkpoints, etwa für Gemma 4 12B, sind bereits über Plattformen wie Hugging Face in GGUF-, vLLM- und LiteRT-LM-Formaten verfügbar und lassen sich nahtlos in bestehende Entwicklungsworkflows integrieren.</div>
+        <a href="https://blog.google/innovation-and-ai/technology/developers-tools/quantization-aware-training-gemma-4/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Kaggle is making AI benchmark creation effortless</div>
+        <div class="article-date">04.06.2026</div>
+        <div class="article-summary">Kaggle Benchmarks ermöglicht es nun, Evaluationsaufgaben direkt aus der lokalen Entwicklungsumgebung zu erstellen, zu validieren, zu pushen, auszuführen und herunterzuladen. Entwickler können dabei den Kaggle CLI sowie den „write‑kaggle‑benchmarks skill“ nutzen, um in natürlicher Sprache Benchmark-Aufgaben zu definieren – etwa so, dass geprüft wird, ob „300+140=460“ korrekt ist. Die Integration in gängige Entwicklungsumgebungen wie VSCode, Antigravity und Cursor verkürzt den Weg von der Idee zur Evaluation erheblich. Über 10.000 von der globalen AI-Community erstellte Tasks schaffen transparente öffentliche Leaderboards, die den Fortschritt in der Bewertung komplexer KI-Fähigkeiten messbar machen.</div>
+        <a href="https://blog.google/innovation-and-ai/technology/developers-tools/build-kaggle--benchmarks-locally/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Introducing Gemma 4 12B: a unified, encoder-free multimodal model</div>
+        <div class="article-date">03.06.2026</div>
+        <div class="article-summary">Gemma 4 12B von Google Deepmind liefert multimodale Intelligenz in einem kompakten 12-Milliarden-Parameter-Modell, das ohne separate Enkodierer visuelle und auditive Signale direkt in den LLM-Backbone einspeist. Die vereinfachte Architektur setzt auf eine einzelne Matrixmultiplikation für Bilder und projiziert rohe Audiosignale in den gleichen Darstellungsraum wie Text, wodurch Latenz und Speicherbedarf reduziert werden – so ermöglicht das Modell lokale Inferenz auf Laptops mit lediglich 16 GB VRAM. Mit einer Performance, die dem 26B Mixture-of-Experts-Modell nahekommt, unterstützt Gemma 4 12B komplexe, mehrstufige Reasoning- und agentbasierte Workflows sowie Multi-Token-Prediction, um Reaktionszeiten zu minimieren. Die Veröffentlichung unter Apache 2.0 sowie umfangreiche Integrationsoptionen über Plattformen wie Hugging Face, llama.cpp und Google Cloud fördern eine nahtlose Einbindung in bestehende Entwicklerökosysteme, was durch bereits über 150 Millionen Downloads der Gemma‑4-Reihe belegt wird.</div>
+        <a href="https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Google AI Blog - Gemini (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">The latest AI news we announced in May 2026</div>
+        <div class="article-date">05.06.2026</div>
+        <div class="article-summary">Im Mai 2026 stellte Google auf der Google I/O und beim Android Show eine Reihe neuer AI-Produkte vor, darunter den Übergang in die „agentische Ära“ mit der Einführung von Gemini 3.5 für komplexe, mehrstufige agentische Workflows und Gemini Omni, das multimodale Inhalte wie Videos aus beliebigen Eingaben generiert. Die Neuerungen umfassen außerdem eine überarbeitete Gemini App, den Universal Cart für plattformübergreifendes Shopping sowie einen neuen Google Health App und Fitbit Air, die mit hochpräziser Sensortechnik umfassende Gesundheitsdaten überwachen. Ergänzt werden diese Updates durch hardwarebasierte Innovationen wie den Googlebook, der speziell auf Gemini Intelligence ausgelegt ist, und durch erweiterte Suchfunktionen mit agentischer Codierung. Zudem präsentiert Google Fortschritte in Bereichen wie realitätsgetreuer 3D-Umgebungssimulation, musikalischer Zusammenarbeit und dem Einsatz von quantenbasierten Methoden zur Transformation der Life Sciences.</div>
+        <a href="https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-may-2026/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Kent Beck - Tidy First (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Trust Factory</div>
+        <div class="article-date">02.06.2026</div>
+        <div class="article-summary">Software entsteht aus Code und Vertrauen, wobei Code schnell erstellt wird, während Vertrauen langsam aufgebaut wird und in einem einzigen Fehltritt verloren gehen kann. XP Classic – im Gegensatz zu neuen XPAI-Ansätzen – schafft durch Praktiken wie automatisierte Tests, Pair Programming, kontinuierliche Integration, wöchentliche Planung, kontinuierliche Bereitstellung, Refactoring und Observability eine Infrastruktur, in der Vertrauen zwischen Teammitgliedern und gegenüber den Kunden aufgebaut wird. Diese Techniken fördern zugleich die eigene Vertrauenswürdigkeit, da sie kontinuierlich dazu anregen, Fehlerquellen zu minimieren und die Systemintegrität zu wahren. Auf der Ebene der Prinzipien verstärken Werte wie Humanität, gegenseitiger Nutzen, kontinuierliche Verbesserung, Flow und Redundanz das gegenseitige Vertrauen, das als Fundament für nachhaltige Softwareentwicklung dient. Kritisch wird angemerkt, dass eine einseitige, KI-gestützte Einzelentwicklung das feine Gleichgewicht zwischen schneller Funktionsentwicklung und dem Aufbau von Vertrauen destabilisieren kann.</div>
+        <a href="https://tidyfirst.substack.com/p/trust-factory" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Pragmatic Engineer Newsletter (2 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Kubernetes and retiring at the top with Kelsey Hightower</div>
+        <div class="article-date">03.06.2026</div>
+        <div class="article-summary">Kelsey Hightower erklärt seinen Aufstieg vom selbstgelernten Techniker zum Google Distinguished Engineer und zeigt auf, wie er durch Open-Source-Arbeit und öffentliche Vorträge langfristige Karriereeffekte erzielte. Er demonstriert, dass technologische Fortschritte wie der Übergang von imperativen Werkzeugen (etwa Puppet) zu deklarativen Systemen (wie Terraform und Kubernetes) im Dienste des Menschen stehen und nachhaltige Veränderungen in der Infrastruktur bewirken. Anhand seiner Erfahrungen bei Google und eines Angebots von Microsoft, das sein Gehalt verzehnfachte, wird deutlich, dass kontinuierliche Selbstverbesserung und das Ausloten ungewöhnlicher Karrierepfade entscheidende Erfolgsfaktoren sind. Hightower betont zudem, dass es wichtiger ist, echte Probleme zu lösen – zum Beispiel durch gezielte Automatisierung und das Setzen von Guardrails für KI-Agenten – als mit Technologien um ihrer selbst willen zu glänzen.</div>
+        <a href="https://newsletter.pragmaticengineer.com/p/kubernetes-and-retiring-at-the-top" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Ideas: slow down to speed up when working with AI agents</div>
+        <div class="article-date">02.06.2026</div>
+        <div class="article-summary">Softwareentwickler produzieren aktuell mehr als doppelt so viel Code wie noch vor sechs Monaten, was zu Herausforderungen in puncto Codequalität, Zuverlässigkeit und technische Schulden führt. Die Überlegungen zeigen auf, dass eine bewusste Verlangsamung der Arbeitsprozesse – etwa beim Einsatz von KI-Agenten – dabei helfen kann, langfristig effizientere und robustere Software zu entwickeln. Gergely Orosz untermauert diese These im Kontext aktueller Entwicklungen und praktischer Erfahrungen, wie sie bei Veranstaltungen wie der Craft Conference in Budapest diskutiert werden. Experten wie Kent Beck und Hillel Wayne tragen dabei zur Debatte über den sinnvollen Einsatz von KI-Tools im Softwareentwicklungsprozess bei.</div>
+        <a href="https://newsletter.pragmaticengineer.com/p/ideas-slow-down-to-speed-up-when" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Simon Willison (3 Artikel)</h2>
+    <div class="section-summary">Meta’s KI-Support-Chatbot ermöglicht Angreifern, Kontrolle über prominente Instagram-Accounts zu erlangen, wobei kritische Prozesse der automatisierten Supportfunktionen zur Schwachstelle wurden. Anthropic minimiert Angriffsrisiken bei claude.ai, Claude Code und Claude Cowork durch mehrschichtige Containment-Strategien mit isolierten Umgebungen und OS-level Sandboxes. Gleichzeitig signalisiert der Rückzug eines langjährigen Open-Source-Entwicklers den tiefgreifenden Wandel in der Tech-Branche, der durch den wachsenden Einfluss künstlicher Intelligenz vorangetrieben wird.</div>
+    <div class="article">
+        <div class="article-title">Hackers Simply Asked Meta AI to Give Them Access to High-Profile Instagram Accounts. It Worked</div>
+        <div class="article-date">01.06.2026</div>
+        <div class="article-summary">Hacker nutzten Meta’s KI-Support-Chatbot, um per Chat-Befehl die mit ausgewählten Instagram-Accounts verbundene E-Mail-Adresse ändern zu lassen und so die Kontrolle über hochkarätige Profile wie den Barack Obama White House Account und den Account des Chief Master Sergeant der Space Force sowie Sephora-Konten zu erlangen. Die Angreifer posteten Videos und Screenshots, die den einfachen Ablauf verdeutlichen, in denen der Bot angewiesen wird, eine neue E-Mail-Adresse zu verknüpfen, nachdem der Hacker den entsprechenden Verifizierungscode zugesagt hatte. Meta hatte bereits im März angekündigt, KI-basierte Supportfunktionen über alle Facebook- und Instagram-Konten einzuführen, damit kritische Aufgaben wie Passwortzurücksetzungen automatisiert durchgeführt werden können. Die Vorfälle unterstreichen die Risiken, wenn kritische Supportprozesse auf autonome KI-Systeme ausgelagert werden, ohne die Möglichkeit, bei Problemen an einen menschlichen Mitarbeiter weitergeleitet zu werden.</div>
+        <a href="https://www.404media.co/hackers-simply-asked-meta-ai-to-give-them-access-to-high-profile-instagram-accounts-it-worked/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">How we contain Claude across products</div>
+        <div class="article-date">30.05.2026</div>
+        <div class="article-summary">Anthropic setzt bei claude.ai, Claude Code und Claude Cowork auf eine mehrschichtige Containment-Strategie, die neben modellbasierten Sicherheitsmechanismen vorrangig auf strikte Isolation der Ausführungsumgebung setzt. Bei claude.ai wird Code in einem gVisor-Container ausgeführt, wodurch ein flüchtiges Dateisystem und kontrollierte egress Controls implementiert werden, um den Blastradius zu minimieren. Claude Code operiert lokal mit einem menschlichen Eingriff, der bei Bedarf durch ein OS-level Sandbox (Seatbelt auf macOS, bubblewrap auf Linux) ergänzt wird und bereits zu einer 84%igen Reduktion von Genehmigungsaufforderungen geführt hat, während Claude Opus 4.7 auf dem Gray Swan Agent Red Teaming Benchmark eine Angriffsrate von nur ca. 0,1% bei Einzeldurchläufen und 5–6% bei 100 adaptiven Versuchen erreicht. Bei Claude Cowork kommt ein hybrider Ansatz zum Einsatz, bei dem ein lokaler VM-basierter Modus mit separaten Mount-Optionen und einem defensiven, in-VM platzierten Man-in-the-Middle-Proxy verwendet wird, um sowohl Codeausführung als auch Datenexfiltration strikt zu begrenzen.</div>
+        <a href="https://www.anthropic.com/engineering/how-we-contain-claude" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">I Am Retiring from Tech to Live Offline</div>
+        <div class="article-date">30.05.2026</div>
+        <div class="article-summary">Chad Whitacre legt seinen Rückzug aus der Tech-Branche fest und sucht künftig ein Leben abseits digitaler Vernetzung. Er führt an, dass der zunehmende Einfluss künstlicher Intelligenz den bisherigen Enthusiasmus und Einsatz in Open-Source-Projekten – unter anderem während seiner Tätigkeit bei Sentry – erheblich gedämpft hat. Nach mehr als 15 Jahren intensiver Mitarbeit in Open-Source-Communities verabschiedet er sich aus einer Welt, in der technische Entwicklungen zunehmend von AI-gesteuerten Prozessen dominiert werden. Gleichzeitig unterstützt er mit einer Spendenaktion seinen langjährigen Freund Dana, was seinen Abschied von der Branche begleitet.</div>
+        <a href="https://openpath.quest/2026/i-am-retiring-from-tech-to-live-offline/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Stefan Lieser (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">IOSP Plugin für Rider</div>
+        <div class="article-date">01.06.2026</div>
+        <div class="article-summary">Das aktualisierte IOSP-Plugin für Rider integriert den existierenden Roslyn Analyzer zur Erkennung von IOSP-Verletzungen direkt in die Entwicklungsumgebung. Nach Installation über den JetBrains Marketplace erscheint in Rider eine eigene Settings-Seite, über die sich u. a. der Schwellwert der Metrik, das Ausschließen von Testmethoden sowie ignorierte Namespaces konfigurieren lassen. Die Inspektionseinstellungen unter Settings – Editor – Inspection Settings – C# – IOSP Violation erlauben zudem die Wahl, ob Verstöße als Fehler, Warnung, Suggestion oder Hint formatiert werden, wobei der Standardmodus Warnungen mit farblicher Hervorhebung darstellt. Anhand eines Beispiels, bei dem der Ausdruck „30*1000“ als geringfügige Verletzung mit Metric = 2 gewertet wird, zeigt das Plugin über einen Tooltip den Anteil von Integration und Operation an.</div>
+        <a href="https://ccd-akademie.de/iosp-plugin-fuer-rider/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+
+</body>
+</html>
