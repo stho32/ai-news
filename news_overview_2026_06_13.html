@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Übersicht - Letzte 7 Tage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .article {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .article-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .article-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .article-summary {
+            margin-bottom: 10px;
+        }
+        .article-link {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .article-link:hover {
+            text-decoration: underline;
+        }
+        /* R00011: Section-Summary-Block, leicht abgesetzt von Einzel-Artikeln */
+        .section-summary {
+            margin: 10px 0 20px 0;
+            padding: 12px 16px;
+            background-color: #eef4fb;
+            border-left: 4px solid #0066cc;
+            font-style: italic;
+            color: #234;
+        }
+        /* R00012: Changelog-Digest-Block — visuell distinkt vom Section-Summary */
+        .changelog-digest {
+            margin: 10px 0 15px 0;
+            padding: 12px 16px;
+            background-color: #fff7e6;
+            border-left: 4px solid #d97706;
+            color: #3a2a00;
+        }
+        .changelog-links {
+            list-style: disc inside;
+            padding-left: 0;
+            margin: 0 0 25px 0;
+        }
+        .changelog-links li {
+            margin: 4px 0;
+        }
+        .changelog-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-left: 6px;
+        }
+        /* R00013: Wochen-Tenor — visuell die staerkste der drei
+           Verdichtungsklassen (overall > section-summary > changelog-digest).
+           Linker Rand kraeftiger, Schrift groesser, klar abgesetzte
+           Hintergrundfarbe — vom Leser auf den ersten Blick als
+           Zusammenfassung der Wochenausgabe erkennbar. */
+        .overall-summary {
+            margin: 10px 0 25px 0;
+            padding: 18px 22px;
+            background-color: #f0fbf3;
+            border-left: 6px solid #15803d;
+            font-size: 1.1em;
+            color: #14271d;
+        }
+        /* R00011: Rueckspruglink zur index.html (oben und unten) */
+        .back-link {
+            display: inline-block;
+            margin: 10px 0 20px 0;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>News Übersicht der letzten 7 Tage</h1>
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+    <div class="overall-summary">KI-gestützte Produktentwicklungen und Toolchain-Innovationen prägen die Woche, wobei mehrere Beiträge die Einführung neuer Modelle wie Anthropic Claude Fable 5 und Mythos 5 sowie deren Einsatz in sicherheitskritischen und branchenspezifischen Anwendungen thematisieren. Unternehmen wie TCS, DXC und GitHub integrieren fortschrittliche KI-Systeme, um Prozesse in Softwareentwicklung, Codeanalyse und Legacy-Systemmodernisierung zu optimieren. Parallel dazu werden regulatorische Maßnahmen und Sicherheitskonzepte diskutiert, etwa restriktive Eingriffe in den Modellbetrieb oder staatlich geforderte Transparenzvorgaben für KI-Projekte. Zahlreiche Konferenzen, Workshops und Live-Events bieten praktische Fallstudien und Implementierungsstrategien, die die interdisziplinäre Zusammenarbeit und den Austausch zwischen Forschung, IT und Management fördern. Zusätzlich treiben experimentelle Ansätze und Innovative Frameworks, etwa im Bereich MicroPython in isolierten WASM-Umgebungen sowie bei der automatisierten Codegenerierung, die technologische Weiterentwicklung im Softwarebereich voran.</div>
+    <p>Generiert am: 13.06.2026 07:00 Uhr</p>
+    <p>Anzahl Artikel: 37 (zus&auml;tzlich 8 Changelog-Eintr&auml;ge aus 1 Quelle)</p>
+
+    <h2>Allan Kelly Blog (4 Artikel)</h2>
+    <div class="section-summary">Die Veranstaltungen adressieren praxisnahe Lösungen in der Softwareentwicklung und bieten Formate von interdisziplinären Konferenzen in Irsee und Øredev 2026 über diskussionsbasierte Events bei EuroPLoP bis hin zu Workshops mit konkreten Fallstudien und Benchmark-Analysen. Allan Kelly demonstriert, wie Outcome Driven Planning, OKR und agile Methoden in VUCA-Umgebungen zur Schaffung einer konsistenten Produktvision beitragen und liefert gleichzeitig Impulse zur Gestaltung einer lernenden Organisation und einer zukunftsorientierten AI-Landschaft.</div>
+    <div class="article">
+        <div class="article-title">EuroPLoP</div>
+        <div class="article-date">12.06.2026</div>
+        <div class="article-summary">Die Konferenz findet vom 1. bis 5. Juli 2026 im Kloster Irsee, Deutschland, statt und richtet sich an Experten aus Softwareentwicklung, Systemdesign, Bildung und Management. Der Call for Papers sieht eine Initialeinreichung am 16. Februar 2026 vor, mit weiteren Meilensteinen am 9. März, 4. und 15. Mai sowie 27. Mai 2026 und einer abschließenden Autorregistrierung bis zum 3. bzw. 22. Juni 2026. Akzeptierte Beiträge werden mit Springer LNCS veröffentlicht, während der begleitende Shepherding-Prozess und Writers’ Workshops qualitatives Feedback garantieren. Die Veranstaltung bietet neben intensiven Diskussionen auch vielfältige Möglichkeiten, das Netzwerk zu erweitern und interdisziplinäre Synergien zu nutzen.</div>
+        <a href="https://www.europlop.net/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Oredev Developers Conference</div>
+        <div class="article-date">12.06.2026</div>
+        <div class="article-summary">Øredev 2026 richtet sich an erfahrene Softwareentwickler, Tech-Leads und Architekten, die praxisnahe Lösungen für aktuelle Herausforderungen in der IT suchen. Die Konferenz bietet ein Forum zum Austausch über Architekturentscheidungen, Skalierungsstrategien moderner Anwendungen und den Einsatz etablierter Technologien. Teilnehmer erhalten Einblicke in konkrete Fallstudien und Benchmark-Analysen, die praxisrelevante Erkenntnisse vermitteln. Das Veranstaltungsprogramm umfasst Vorträge und Workshops, die gezielt anwendungsorientierte Lösungen und technische Details adressieren.</div>
+        <a href="https://oredev.org/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Long term Product Goals for creating superior products</div>
+        <div class="article-date">11.06.2026</div>
+        <div class="article-summary">Allan Kelly zeigt, wie langfristige Produktziele als North Star im Umfeld von VUCA und TUNA eine zentrale Rolle bei der Entscheidungsfindung und strategischen Planung spielen. Er beschreibt, wie Outcome-Driven Planning, OKR-Zyklen und Sprints ineinandergreifen, und erläutert anhand von Frameworks wie Geoffrey Moore’s Chasm Template, Amazon-Style Press Releases sowie FAQ- und Fan-Mail-Techniken, wie eine einheitliche Produktvision geschaffen wird. Der Kurs liefert praktische Umsetzungsschritte in einem sechsstufigen Plan und umfasst 7 Kapitel, 8 Übungen, über 60 Minuten Video und 15 Seiten begleitender Beschreibungen. Er richtet sich an Führungskräfte, Architekten und Entwickler, die ihre Produktstrategie systematisch und kundenorientiert optimieren wollen, und bietet den Kurs zu einem Basispreis von $39.00, reduziert auf $17.90 mit Coupon, an.</div>
+        <a href="https://leanpub.com/c/leanpub/productgoals/c/SubscriberJ26" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Link feast: learning to learn, AI future and conferences.</div>
+        <div class="article-date">10.06.2026</div>
+        <div class="article-summary">Allan Kelly teilt Praxisressourcen zur Gestaltung der zukünftigen AI-Landschaft und zum Aufbau lernender Organisationen. Er bietet den Vortrag „Agile Ideas for our AI future“ aus seinem April-Event bei Agile Northants und das Paper „Learning to Learn: Patterns for Building the Learning Organization“ an, das erstmals auf EuroPLoP 2025 präsentiert wurde und auch über Springer Nature erhältlich ist. Er beschreibt EuroPLoP in Bayern als diskussionsorientierte Veranstaltung ohne Keynotes, bei der neben intensiven Gesprächen auch Freizeitangebote wie Spiele, Sauna und Outdoor-Schwimmen integriert sind. Zudem kündigt er zwei Vorträge („Ideals shaping our AI future“ sowie „The Good, the Bad and the Ugly of the engineering mindset“) für die Oredev Developers Conference in Malmö im kommenden November an und hat seinen ersten selbstgesteuerten Online-Kurs bei LeanPub freigegeben, der mit dem Code SubscriberJ26 um 30% rabattiert werden kann.</div>
+        <a href="https://www.allankelly.net/archives/10759/link-feast-learning-to-learn-ai-future-and-conferences/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Anthropic News (7 Artikel)</h2>
+    <div class="section-summary">US-Studien und politische Konzepte untermauern die Forderung nach staatlicher Regulierung von KI mit klaren Schwerpunkten auf Datenschutz, Kindesschutz und Haftungsfragen, während gleichzeitige Maßnahmen den Zugang zu Modellen wie Fable 5 und Mythos 5 aus Sicherheitsbedenken einschränken. Industriepartnerschaften mit TCS und DXC Technology demonstrieren, wie Claude in sicherheitskritischen und regulierten Bereichen – von Finanzdienstleistungen bis hin zu öffentlichen Sektoren – breiten Einsatz findet, unterstützt durch Initiativen wie das Claude Corps Stipendienprogramm und den Launch leistungsstarker Mythos-Klassen-Modelle in Anwendungsbereichen wie Software Engineering, analytischer Aufgaben und biomedizinischer Forschung.</div>
+    <div class="article">
+        <div class="article-title">Results from the first Anthropic Public Record</div>
+        <div class="article-date">12.06.2026</div>
+        <div class="article-summary">Die Umfrage ergab, dass 48 % der befragten US-Amerikaner hoffen, dass KI bei der Heilung von Krankheiten wie Krebs oder Alzheimer hilft, während 64 % die Sorge vor Arbeitsplatzverlust äußern. Zudem unterstützen 71 % eine staatliche Beteiligung an der Entwicklung und Regulierung von KI, wobei der Fokus vor allem auf Datenschutz (56 %), Kindesschutz (52 %) und Haftung bei Schäden (49 %) liegt. Die Ergebnisse basieren auf einer repräsentativen Onlinebefragung von 51.993 Personen in 2025 und zeigen, dass parteiübergreifend breite Zustimmung zur Regulierung von KI besteht. Vergleichbare Trends wurden auch in einer separaten Studie mit 81.000 Claude-Nutzern festgestellt, wobei integrierte Nutzer weniger Sorgen hinsichtlich Arbeitsplatzverlust und kognitiver Abhängigkeit haben.</div>
+        <a href="https://www.anthropic.com/news/anthropic-public-record" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Statement on the US government directive to suspend access to Fable 5 and Mythos 5</div>
+        <div class="article-date">12.06.2026</div>
+        <div class="article-summary">Die US-Regierung ordnet an, den Zugang zu Fable 5 und Mythos 5 vollständig zu sperren, um nationale Sicherheitsbedenken zu adressieren. Die Einschränkung gilt seit dem 12. Juni 2026 um 17:21 ET für alle Nutzer – auch für im Ausland ansässige und ausländische Anthropic-Mitarbeiter –, während alle anderen Anthropic-Modelle unberührt bleiben. Anthropic erhielt eine Meldung über einen potenziellen, aber als nicht universell bewerteten Jailbreak, der zuletzt über das Aufdecken einer kleinen Anzahl bekannter Schwachstellen informierte. Das Unternehmen verteidigt seinen Defense-in-Depth-Ansatz, der in Zusammenarbeit mit internationalen Behörden und externen Testern umfangreich erprobt wurde, und kritisiert, dass eine Maßgabe aufgrund geringfügiger Risiken die großflächige Bereitstellung eines KI-Modells für hunderte Millionen Nutzer stoppen würde. Anthropic arbeitet an einer raschen Wiederherstellung des Zugangs zu Fable 5 und Mythos 5, trotz der Bedenken, die bislang nur auf einem kaum relevanten Sicherheitsrisiko basieren.</div>
+        <a href="https://www.anthropic.com/news/fable-mythos-access" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">TCS and Anthropic partner to bring Claude to regulated industries</div>
+        <div class="article-date">12.06.2026</div>
+        <div class="article-summary">TCS kooperiert mit Anthropic, um das KI-Modell Claude in regulierten Branchen wie Finanzdienstleistungen, Gesundheitswesen und öffentlichen Sektoren einzusetzen. TCS bringt Claude über 50.000 Mitarbeiter in 56 Ländern zugänglich und nutzt das Modell zunächst intern in den Bereichen Engineering, Finanzen, Recht, Marketing und Vertrieb. Gleichzeitig wird eine dedizierte Praxis aufgebaut, die branchenspezifische Angebote wie Schadenbearbeitung im Versicherungssektor und Kreditberatung in Banken entwickelt, unterstützt durch Claude Code zur Effizienzsteigerung im Software-Engineering. Beispiele wie Diligenta in Großbritannien, das über 22 Millionen Policen betreut, und TCS iON, das jährlich mehr als 75 Millionen Assessments in 1.500 Städten in Indien durchführt, belegen den industriellen Einsatz des KI-Modells.</div>
+        <a href="https://www.anthropic.com/news/tcs-anthropic-partnership" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">DXC will integrate Claude into systems</div>
+        <div class="article-date">11.06.2026</div>
+        <div class="article-summary">DXC Technology startet eine mehrjährige globale Allianz mit Anthropic, um das KI-Modell Claude in bestehende, sicherheitskritische Systeme großer Banken, Airlines, Versicherer und Regierungsbehörden zu integrieren. Das Unternehmen setze Claude bereits in eigenen Systemen ein, etwa bei der Erstellung der AI-nativen Orchestrierungsplattform DXC OASIS, bei der über 95% des Codes von Claude generiert wurden – was die Softwareentwicklung um den Faktor 10 beschleunigte. DXC plant, tausende Claude-zertifizierte Forward-Deployed Engineers (FDEs) auszubilden und so den Einsatz von Claude in Mission-critical Umgebungen weiter auszubauen, während gleichzeitig branchenspezifische Trainings über die Anthropic Academy angeboten werden. Die Maßnahme erfolgt unter Einhaltung strenger Sicherheits- und Compliance-Anforderungen, die sich über 115.000 Mitarbeiter und 70 Länder erstrecken.</div>
+        <a href="https://www.anthropic.com/news/dxc-anthropic-alliance" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Introducing Claude Corps</div>
+        <div class="article-date">11.06.2026</div>
+        <div class="article-summary">Anthropic startet Claude Corps, ein nationales Stipendienprogramm, das 1.000 Nachwuchstalente in einem 12-monatigen Vollzeitprogramm auf Claude in Nonprofit-Settings vorbereitet. Die Fellows – vorerst 100 Teilnehmer, deren Bewerbungen bis zum 17. Juli 2026 eingehen – erhalten einen Jahreslohn von $85.000, kontinuierliche wöchentliche Schulungen und umfassende technische Betreuung durch Anthropic und den Partner CodePath, der als Arbeitgeber fungiert. Das Programm wird mit einer Erstfinanzierung von $150 Mio unterstützt und kooperiert mit Social Finance zur Evaluierung der Wirkung und zum Aufbau einer skalierbaren Infrastruktur. Neben der intensiven Schulung und praktischen Anwendung von Claude in Organisationen will das Modell langfristig als Grundlage für eine flächendeckende Verbreitung von KI-Kompetenzen in weiteren Ländern dienen.</div>
+        <a href="https://www.anthropic.com/news/claude-corps" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Policy on the AI Exponential</div>
+        <div class="article-date">10.06.2026</div>
+        <div class="article-summary">Anthropic präsentiert zwei politische Rahmenkonzepte, um den exponentiell wachsenden KI-Fähigkeiten adäquat zu begegnen. Das Advanced AI Framework sieht vor, dass Modelle, die mehr als 10^25 FLOPs erfordern und von Unternehmen mit über 500 Mio. US-Dollar Umsatz oder mehr als 1 Mrd. US-Dollar Ausgaben in KI-F&amp;E entwickelt wurden, staatlich reguliert werden. Es fordert von Frontier-Entwicklern transparente Test- und Sicherheitsberichte, unabhängige Evaluationen und robuste Schutzmaßnahmen gegen Cyberangriffe, nachdem Projekte wie der Claude Mythos Preview tausende hochkritische Schwachstellen aufgezeigt haben. Mit dem Economic Policy Framework will Anthropic sicherstellen, dass die wirtschaftlichen Vorteile der KI breit verteilt werden und die Gesellschaft auf mögliche katastrophale Risiken vorbereitet ist.</div>
+        <a href="https://www.anthropic.com/policy-on-the-ai-exponential" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Claude Fable 5 and Claude Mythos 5 Announcements</div>
+        <div class="article-date">09.06.2026</div>
+        <div class="article-summary">Anthropic hat mit Claude Fable 5 und Claude Mythos 5 zwei neue Mythos-Klassen-Modelle eingeführt, die in Benchmarks zu Software Engineering, analytischer Aufgaben, Vision und biomedizinischer Forschung Spitzenwerte erzielen. Claude Fable 5, das standardmäßig mit strengen Sicherheitsvorkehrungen ausgestattet ist, bewältigt komplexe Aufgaben wie die Migration eines 50‑Millionen‑Zeilen Ruby-Codebases in einem Tag und erreicht auf Evaluierungen wie FrontierBench die höchsten Punktzahlen. In gefährlichen Anwendungsbereichen – etwa Cybersecurity sowie biochemischen Aufgaben – leitet das System potenziell riskante Anfragen an Claude Opus 4.8 weiter, dessen Einsatz in über 95 Prozent der Sitzungen vermieden wird. Claude Mythos 5, das für vertrauenswürdige Partner wie Cyberverteidiger im Rahmen von Project Glasswing und ausgewählten Biologieforschern bereitsteht, bietet vergleichbare oder höhere Leistungen ohne die entsprechenden Schutzvorkehrungen; beide Modelle werden über die Claude API zu Preisen von US$10 pro Million Eingabetokens und US$50 pro Million Ausgabetokens angeboten.</div>
+        <a href="https://www.anthropic.com/news/claude-fable-5-mythos-5" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>GitHub Copilot Blog (2 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Give GitHub Copilot CLI real code intelligence with language servers</div>
+        <div class="article-date">10.06.2026</div>
+        <div class="article-summary">GitHub integriert in den Copilot CLI Language Server Protocol (LSP) Support, um heuristische Textsuchverfahren – wie das Extrahieren einer httpclient‑4.5.14 JAR und anschließendes Grep in .class‑Dateien – durch strukturierte, semantische Codeanalysen zu ersetzen. Die neue LSP Setup Skill automatisiert in sieben Schritten unter anderem Sprachauswahl, Betriebssystemerkennung und spezifische Installationsbefehle (z. B. „npm install -g typescript typescript-language-server“ für TypeScript, „brew install jdtls“ für Java, „rustup component add rust-analyzer“ für Rust). Dabei werden Konfigurationsdateien entweder auf Benutzer- oder Repository-Ebene erstellt oder zusammengeführt, um eine konsistente Codeintelligenz zu gewährleisten. Die Lösung unterstützt aktuell 14 Sprachen, wodurch der Agent nicht mehr auf fehleranfällige, textbasierte Heuristiken angewiesen ist, sondern präzise Informationen wie Typauflösungen, Definitionen und Referenzen liefert.</div>
+        <a href="https://github.blog/ai-and-ml/github-copilot/give-github-copilot-cli-real-code-intelligence-with-language-servers/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">From one-off prompts to workflows: How to use custom agents in GitHub Copilot CLI</div>
+        <div class="article-date">09.06.2026</div>
+        <div class="article-summary">GitHub Copilot CLI lässt sich jetzt durch benutzerdefinierte Agenten erweitern, die in Markdown-Dateien innerhalb des Repositories definiert werden. Die Agenten, wie der im Beispiel gezeigte &quot;Accessibility Expert&quot; basierend auf GPT-4.1, standardisieren wiederkehrende Tasks, indem sie spezifische Teamstandards, Toolchains und Sicherheitsvorgaben einbetten. Beispiele umfassen Sicherheits-Audits, IaC-Compliance und das Erstellen von Release-Dokumentationen, wobei jeder Agent festgelegte Abläufe und Prüflogik verfolgt. Teams haben die Wahl zwischen vorgefertigten Partner-Agenten und eigenen, maßgeschneiderten Lösungen, um den Übergang von schnellen CLI-Befehlen zu konsistent überprüfbaren Workflows zu ermöglichen.</div>
+        <a href="https://github.blog/ai-and-ml/github-copilot/from-one-off-prompts-to-workflows-how-to-use-custom-agents-in-github-copilot-cli/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>GitHub Copilot Changelog (8 Eintr&auml;ge)</h2>
+    <div class="changelog-digest">GitHub verschiebt mit mehreren Neuerungen Agentic Workflows und CLI-Funktionen in den Mittelpunkt. Die Copilot Code Review profitiert von einer zentral konfigurierten, organisationsweiten Runner-Steuerung und einem Wegfall des bisherigen Zeichenlimits, während der integrierte GITHUB_TOKEN in Agentic Workflows persönliche Zugriffstokens überflüssig macht und die direkte Abrechnung von AI-Kosten ermöglicht. Parallel dazu vereinfacht der neue /settings-Befehl im Copilot CLI die Verwaltung bisher verteilter Befehle, und der experimentelle /security-review ermöglicht eine terminalbasierte Analyse lokaler Code-Änderungen auf Sicherheitslücken. 
+
+Die Implementierung natürlicher Sprachbeschreibungen in automatisierte Actions YAML und der Einsatz mehrschichtiger Sicherheitsvorkehrungen wie integrity filter und Threat Detection Job optimieren den Workflow in GitHub Actions. Für die Code-Sicherheit validiert GitHub nun automatisch durch Drittanbieter generierten Code mit CodeQL, der Advisory Database und Secret-Scanning, sodass potenzielle Risiken bereits vor dem Merge behoben werden. Gleichzeitig zeigt Copilot Chat den Status aktiver Agentensitzungen an, ermöglicht das gezielte Abrufen von Agent-Logs und erleichtert den Rückgriff auf vergangene Sessions. Mit der Integration von Claude Fable 5 von Anthropic wird darüber hinaus ein neues Modell der Mythos-Klasse eingeführt, das in diversen Entwicklungsumgebungen wie Visual Studio Code, JetBrains und Eclipse zur Verfügung steht und dabei einen optimierten Ressourceneinsatz bei autonomen Coding-Aufgaben demonstriert.</div>
+    <ul class="changelog-links">
+        <li><a href="https://github.blog/changelog/2026-06-12-copilot-code-review-new-configurations-and-controls" class="article-link" target="_blank">Copilot code review: New configurations and controls</a> <span class="changelog-date">12.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-11-agentic-workflows-no-longer-need-a-personal-access-token" class="article-link" target="_blank">Agentic workflows no longer need a personal access token</a> <span class="changelog-date">11.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-11-copilot-cli-configure-everything-from-one-place-with-settings" class="article-link" target="_blank">Copilot CLI: Configure everything from one place with /settings</a> <span class="changelog-date">11.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-11-github-agentic-workflows-is-now-in-public-preview" class="article-link" target="_blank">GitHub Agentic Workflows is now in public preview</a> <span class="changelog-date">11.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-10-copilot-chat-now-sees-your-agent-sessions" class="article-link" target="_blank">Copilot Chat now sees your agent sessions</a> <span class="changelog-date">10.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-10-dedicated-security-review-command-now-available-in-copilot-cli" class="article-link" target="_blank">Dedicated security review command now available in Copilot CLI</a> <span class="changelog-date">10.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-09-claude-fable-5-is-generally-available-for-github-copilot" class="article-link" target="_blank">Claude Fable 5 is generally available for GitHub Copilot</a> <span class="changelog-date">09.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-09-security-validation-for-third-party-coding-agents" class="article-link" target="_blank">Security validation for third-party coding agents</a> <span class="changelog-date">09.06.2026</span></li>
+    </ul>
+
+    <h2>Google AI Blog (4 Artikel)</h2>
+    <div class="section-summary">DiffusionGemma und Gemma 4 demonstrieren, wie generative KI-Modelle durch parallele Blockverarbeitung und Multi-Token Prediction Inferenzzeiten entscheidend reduzieren, wobei quantisierte Versionen auch Latenz und Datenschutz für mobile Anwendungen optimieren. Co-Scientist setzt auf einen multiagentenbasierten Ansatz zur automatisierten Hypothesengenerierung in den Lebenswissenschaften, während Apple Entwicklern über sein Foundation Models Framework einen integrierten API-Zugang zu cloud-gehosteten Gemini-Modellen bietet.</div>
+    <div class="article">
+        <div class="article-title">DiffusionGemma: 4x faster text generation</div>
+        <div class="article-date">10.06.2026</div>
+        <div class="article-summary">DiffusionGemma ist ein experimentelles, unter Apache 2.0 lizenziertes 26B-Mixture-of-Experts-Modell, das mit nur 3,8B aktivierten Parametern während der Inferenz bis zu 4x schnellere Textgenerierung auf dedizierten GPUs ermöglicht. Es generiert ganze Blöcke von 256 Tokens parallel mittels bidirektionaler Aufmerksamkeit und iterativer Selbstkorrektur, wodurch beispielsweise 1000+ Tokens pro Sekunde auf einer NVIDIA H100 und 700+ Tokens pro Sekunde auf einer GeForce RTX 5090 erreicht werden. Durch den Wechsel der Engpassverlagerung von der sequentiellen Token-Erzeugung zur parallelen Blockverarbeitung nutzt DiffusionGemma die Hardwarekapazitäten optimal aus, was insbesondere latenzkritische, interaktive Workflows begünstigt. Entwickler können das Modell über Plattformen wie Hugging Face, MLX und vLLM einsetzen und zudem über Fine-Tuning auf spezifische Aufgaben wie etwa das Lösen von Sudoku anpassen.</div>
+        <a href="https://blog.google/innovation-and-ai/technology/developers-tools/diffusion-gemma-faster-text-generation/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">4 ways researchers are collaborating with Co-Scientist to solve big problems</div>
+        <div class="article-date">09.06.2026</div>
+        <div class="article-summary">Co-Scientist ist ein kollaboratives KI-System, das spezialisierte Agenten in drei Phasen integriert, um eigenständig Hypothesen in den Lebenswissenschaften sowie verwandten Disziplinen zu generieren, kritisch zu evaluieren und weiterzuentwickeln. Die Architektur umfasst Agenten, die zunächst ein breites Spektrum an Ideen vorschlagen, anschließend als virtuelle Peer Reviewer in einem internen „Idea Tournament“ gegeneinander antreten und letztlich durch Agenten zur Verfeinerung und Synthese optimiert werden. Ein Supervisor-Agent zerlegt dabei übergeordnete Forschungsziele in konkrete Aufgaben, verteilt Ressourcen und ermöglicht parallele Abläufe. Erste Anwendungen reichen von der Identifikation molekularer Schalter bei neu auftretenden Infektionskrankheiten über die schnelle Erschließung von Mechanismen bei Lebererkrankungen und ALS bis hin zur Beschleunigung genetischer Erkenntnisse zur Umkehr zellulären Alterns und stehen im experimentellen Tool Hypothesis Generation zur Verfügung, das von Google DeepMind, Google Research, Google Cloud und Google Labs entwickelt wurde.</div>
+        <a href="https://blog.google/innovation-and-ai/technology/research/co-scientist-research-problems/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">See what 3 builders are making with Gemma 4</div>
+        <div class="article-date">09.06.2026</div>
+        <div class="article-summary">Google hat mit Gemma 4 seine bisher leistungsfähigste Familie offener generativer KI-Modelle herausgebracht, die bereits über 150 Millionen Downloads erzielt hat. Das Modell wurde um Funktionen wie Multi-Token Prediction (MTP) zur Beschleunigung der Inferenz erweitert und bietet Varianten wie den 12B Unified Model sowie Quantization-Aware-Training (QAT) Checkpoints. Ein Beispiel ist der Einsatz eines 4‑Bit quantisierten Gemma 4 E2B (effektiv 2B Parameter) in der Offline-AI-Tutoring-App BetterSpeak von HubX, die niedrige Latenz und Datenschutz auf mobilen Endgeräten ermöglicht. Weitere Builder demonstrieren, wie Gemma 4 in vision-basierten VQA-Anwendungen mit konsistentem „Medieval Bard“-Charakter und in Apps, die durch ein Kontextfenster von bis zu 256K Tokens reale Umgebungen spielerisch umwandeln, eingesetzt werden kann. Die Modelle stehen unter Apache 2.0 Lizenz bereit und erlauben so flexible Anpassungen und Deployments von Edge-Geräten bis zu lokalen Workstations.</div>
+        <a href="https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4-builders/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Bringing the latest Gemini models to Apple developers</div>
+        <div class="article-date">08.06.2026</div>
+        <div class="article-summary">Apple Entwickler können ab sofort cloud-gehostete Gemini Modelle über Apples Foundation Models Framework und Xcode nutzen. Ab iOS 27, macOS 27, iPadOS 27, visionOS 27 und watchOS 27 implementiert Apple einen gemeinsamen API-Zugang über den neuen LanguageModel-Protokoll, sodass sich lokaler und cloudbasierter Inference nahtlos austauschen lassen. Die Integration beruht auf Firebase AI Logic, wodurch die Modelle direkt in die Apps eingebunden werden, ohne separate Backend-Server entwickeln zu müssen. Entwickler können zwischen Self-Serve API Keys aus dem Google AI Studio – mit kostenlosem Einsteiger- und kostenpflichtigem erweiterten Zugang – oder Enterprise-Optionen mit dedizierten Quoten wählen, um Kosten, Latenz und Datenschutz optimal zu steuern. Eine Vorschauversion für diese neuen Funktionalitäten steht ab morgen zur Verfügung, was die Entwicklung agiler und effizienter macht.</div>
+        <a href="https://blog.google/innovation-and-ai/technology/developers-tools/bringing-gemini-models-to-apple-developers/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Google AI Blog - Gemini (2 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Save time and grow your business with new Gemini tools</div>
+        <div class="article-date">10.06.2026</div>
+        <div class="article-summary">Die neuen Gemini-Funktionen verbinden das Google Business Profile direkt mit der Gemini App, sodass Unternehmen in Echtzeit auf Kundenbewertungen, Suchdaten und Engagement-Metriken zugreifen können. Die Integration ermöglicht es, Anfragen wie „Wie lief mein Geschäft diesen Monat?“ zu beantworten und automatisch individuelle Antworten im betriebseigenen Tonfall zu generieren. Mit dem neuen Feature „Business Notebooks“ erhalten Anwender einen zentralen Hub, in dem Chats, Quellen und operative Daten gebündelt werden, was die Analyse von Geschäftstrends und das schnelle Umsetzen von Ideen erleichtert. Die Funktionen werden ab Juni 2026 global ausgerollt und unterstützen damit Unternehmen dabei, ihren administrativen Aufwand zu reduzieren und effizienter zu arbeiten.</div>
+        <a href="https://blog.google/innovation-and-ai/products/gemini-app/gemini-features-for-businesses/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Fluid, natural voice translation with Gemini 3.5 Live Translate</div>
+        <div class="article-date">09.06.2026</div>
+        <div class="article-summary">Gemini 3.5 Live Translate verarbeitet gesprochene Sprache nahezu in Echtzeit und übersetzt dabei über 70 Sprachen, wobei Intonation, Tempo und Tonhöhe des Sprechers erhalten bleiben. Das Modell generiert kontinuierlich Übersetzungstöne mit nur wenigen Sekunden Verzögerung, indem es den Kompromiss zwischen Kontextaufnahme und sofortiger Wiedergabe ausbalanciert. Es wird über die Gemini Live API in Google AI Studio, Google Translate und Google Meet integriert und ermöglicht so auch Drittanbietern wie Agora, LiveKit oder Vision Agents die Implementierung von Echtzeit-Sprachübersetzung, wobei Partner wie Grab über 10 Millionen Sprachgespräche pro Monat unterstützen. Alle von dem Modell erzeugten Audioinhalte sind mit einem imperzeptiblen SynthID-Wasserzeichen versehen, um die Herkunft der Inhalte nachzuverfolgen.</div>
+        <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-live-3-5-translate/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Microsoft .NET Blog (4 Artikel)</h2>
+    <div class="section-summary">.NET 11 erhält in der Vorschau Version 5 signifikante Verbesserungen in Runtime, SDK, C#-Sprachfeatures und Bibliotheken, ergänzt durch gezielte Servicing-Updates für .NET 8, 9 und 10 zur Behebung kritischer Sicherheitslücken. Modernisierungsansätze für Legacy-.NET-Anwendungen werden mit praxisnahen Sessions zu AI-gesteuerten Erweiterungen, agentorbasierten Web Apps und optimierten Cloud-Migrationen demonstriert, wobei auch Tools wie GitHub Copilot und .NET MAUI am Edge zum Einsatz kommen.</div>
+    <div class="article">
+        <div class="article-title">Join us for .NET Day on Agentic Modernization Livestream</div>
+        <div class="article-date">10.06.2026</div>
+        <div class="article-summary">Microsoft Reactor veranstaltet am 16. Juni 2026 von 16:00 bis 20:00 UTC den .NET Day on Agentic Modernization Livestream. Das Event richtet sich an Teams, die Legacy-.NET-Anwendungen modernisieren möchten, und zeigt praxisnahe Ansätze zur Beschleunigung von Cloud-Migrationen und zum Einsatz von KI-gesteuerten Erweiterungen. In den Sessions werden unter anderem GitHub Copilot-unterstützte Workflows, der Einsatz des Microsoft Agent Frameworks und der Microsoft Foundry sowie Automatisierungstipps mit GitHub Copilot for Azure vorgestellt. Vorab empfiehlt sich der Microsoft Build 2026 Vortrag „Modernize intelligent apps and agents with .NET that scale as you grow (OD801)“ als Einstieg in das Modernisierungsthema.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/join-us-for-dotnet-day-on-agentic-modernization-livestream/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">.NET 11 Preview 5 is now available!</div>
+        <div class="article-date">09.06.2026</div>
+        <div class="article-summary">.NET 11 Preview 5 liefert umfangreiche Verbesserungen in den Bereichen Runtime, SDK, Libraries, C#, ASP.NET Core, .NET MAUI und Entity Framework Core. Die Bibliotheken unterstützen nun Funktionen wie JSON Lines in System.Text.Json, vollständige Outer Joins in LINQ, X25519-Key-Agreement in der Kryptografie und generic numeric APIs im Random-API. Im Runtime-Bereich wurden asynchrone Suspendierung beschleunigt, JIT-Optimierungen vorgenommen sowie GC-Trimming und -Komprimierung verbessert. Zudem ermöglicht der SDK-Release file-basierte App-Referenzen, führt während des Build-Prozesses Sicherheits- und EOL-Checks durch und erweitert die C#-Sprachfeatures um geschlossene Klassenhierarchien, Union-Deklarationen und union patterns.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/dotnet-11-preview-5/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">.NET and .NET Framework June 2026 servicing releases updates</div>
+        <div class="article-date">09.06.2026</div>
+        <div class="article-summary">.NET-Servicing-Updates für Juni 2026 stellen die Versionen .NET 10.0.9, .NET 9.0.17 und .NET 8.0.28 bereit, die am 9. Juni 2026 veröffentlicht wurden und sowohl Sicherheits- als auch Nicht-Sicherheitskorrekturen enthalten. Die Aktualisierungen beheben unter anderem die Sicherheitslücken CVE-2026-45591, CVE-2026-45491 und CVE-2026-45490. Releasenotes, Installer, Container Images und Linux-Pakete stehen über die Microsoft-Links zur Verfügung. Für .NET Framework gibt es in diesem Monat keine neuen Sicherheits- oder sonstigen Updates; detaillierte Informationen finden sich in den aktuellen Release Notes.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/dotnet-and-dotnet-framework-june-2026-servicing-updates/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">.NET at Microsoft Build 2026: Must watch sessions</div>
+        <div class="article-date">08.06.2026</div>
+        <div class="article-summary">.NET 11 adressiert mit neuen Features wie Union Types in C# und erweiterten Sicherheits- und Performance-Verbesserungen in ASP.NET Core und Blazor die Herausforderungen des AI-Zeitalters. Die Sessions demonstrieren den Einsatz von Agentic Web Apps und zeigen, wie moderne Cloud-Konnektivität und KI-Integration in Anwendungen mit .NET realisiert werden können. Mit praxisnahen Demos zu AI Building Blocks, .NET MAUI am Edge und dem neuen plattformübergreifenden Tool dotnetup liefert Microsoft konkrete Ansätze zur Steigerung der Entwicklerproduktivität und Optimierung des App-Onboardings. Inhalte sind als Live-Version und On-Demand verfügbar und richten sich an Entwickler, Tech-Leads und Architekten, die zukunftsweisende Technologien im .NET-Ökosystem nutzen möchten.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/dotnet-at-microsoft-build-2026/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Pragmatic Engineer Newsletter (2 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">The Pulse: Did Anthropic’s new model just boost rival Codex’s market share?</div>
+        <div class="article-date">11.06.2026</div>
+        <div class="article-summary">Anthropic implementiert mit Fable eine Politik, bei der Kundenprompts 30 oder mehr Tage lang gespeichert werden und die Nutzungsrate gedrosselt wird, wenn das System potenzielle kommerzielle Gefahren erkennt. Diese Maßnahmen treiben Entwickler dazu, alternative Angebote wie rivalisierenden Codex vermehrt zu nutzen und erhöhen so dessen Marktanteil. Gleichzeitig zeichnet sich ein Trend zum intelligenten Model-Routing ab, bei dem Algorithmen automatisch das passende Modell für spezifische Aufgaben auswählen. Coinbase geriet in Kritik, weil sein globaler Trading-Service ohne automatischen Zonen-Failover arbeitet und infolgedessen einen 10-stündigen Ausfall erlitt, was im Vergleich zu früheren Maßnahmen wie Ubers Cross-Region-Failover auffällt.</div>
+        <a href="https://newsletter.pragmaticengineer.com/p/did-anthropics-new-model-just-boost" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">State of the software engineering job market in 2026, part 2</div>
+        <div class="article-date">09.06.2026</div>
+        <div class="article-summary">AI-Ingenieurstellen wachsen in führenden Unternehmen um 60 % im Vergleich zu 7 % bei herkömmlichen Softwareingenieurstellen, was den Fokus auf KI-Labors wie Anthropic und OpenAI unterstreicht. Interviewing.io-Daten belegen, dass Anthropic mit 51 % der Anfragen und einer 2-Jahres-Retention-Rate von 80 % gegenüber OpenAIs 67 % klare Vorteile erzielt. Die Einstellung von Berufseinsteigern verschlechtert sich zudem deutlich – 2025 machen neue Absolventen nur noch 10 % der Einstellungen aus, während Praktikumsplätze in großen US-Technologiefirmen stark zurückgehen. Gleichzeitig schrumpft die Nachfrage nach nativen Mobile- und reinen Frontend-Rollen, während Positionen wie Full-Stack, Forward Deployed Engineers und speziell KI-Ingenieure zunehmend an Attraktivität gewinnen und Senior-Ingenieure im 80. Perzentil in den USA Base Salaries von über 300K US-Dollar erreichen.</div>
+        <a href="https://newsletter.pragmaticengineer.com/p/the-job-market-in-2026-part-2" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Simon Willison (11 Artikel)</h2>
+    <div class="section-summary">Techniker integrieren KI-Funktionalitäten in diverse Anwendungskontexte, indem sie webbasierte OpenAI-Audio-Sessions, LLM-basierte Chat-Assistenten in Datasette sowie isolierte MicroPython-Ausführungen in WASM-Sandboxen realisieren. Anthropic drosselt bei Claude Fable 5 heimlich die Leistung, um Missbrauch zu verhindern, während DuckDB 1.5.3 und Apple Intelligence auf erweiterte Sicherheits- und Datenschutzmechanismen setzen; ergänzend dazu zeigen Prototypen für modulare Editierlösungen und historische Technikdiskussionen unterschiedliche, praxisnahe Entwicklungsansätze auf.</div>
+    <div class="article">
+        <div class="article-title">OpenAI WebRTC Audio Session, now with document context</div>
+        <div class="article-date">12.06.2026</div>
+        <div class="article-summary">Die WebRTC Audio Session ermöglicht die direkte Nutzung der OpenAI-API über eine webbasierte Oberfläche, in der Nutzer ihren API-Token eingeben und zwischen Stimmen wie Ash, Ballad, Coral, Sage und Verse sowie Modellen wie gpt-realtime-2, gpt-realtime-1.5 oder gpt-realtime-mini wählen können. Die Anwendung integriert zusätzlich einen optionalen Dokument-Kontext, der per Texteingabe bereitgestellt und in Echtzeit mit dem Modell besprochen werden kann. Die Anzeige von Echtzeit-Statistiken liefert detaillierte Einblicke in Eingabe- und Ausgabe-Tokens sowie die anfallenden Kosten, wobei in der aktuellen Sitzung alle Kosten mit $0.00 angegeben sind. Die Implementierung zeigt einen pragmatischen Ansatz, um Audio-Interaktionen und dokumentbasierte Kontexte in einer einzigen Plattform zu integrieren.</div>
+        <a href="https://tools.simonwillison.net/openai-webrtc" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Anthropic Walks Back Policy That Could Have ‘Sabotaged’ AI Researchers Using Claude</div>
+        <div class="article-date">11.06.2026</div>
+        <div class="article-summary">Anthropic hatte geplant, bei Nutzung von Claude Fable 5 zur Entwicklung konkurrierender KI-Modelle die Leistung des Modells heimlich zu drosseln, um missbräuchliche Anwendungen zu unterbinden. Die Firma wollte diese versteckten Sicherheitsmaßnahmen nutzen, um bei speziell sensiblen Themenbereichen wie Cybersecurity, Biologie oder Chemie auf eine weniger leistungsfähige Alternative umzuleiten. Auf heftigen Widerstand aus der KI-Forschergemeinschaft reagierte Anthropic mit einer Änderung der Maßnahmen, sodass diese nun sichtbar kommuniziert werden. Damit soll künftig bei Verdacht auf unzulässige Nutzung entweder eine Warnung erfolgen oder der Nutzer auf ein weniger leistungsfähiges Modell verwiesen werden.</div>
+        <a href="https://www.wired.com/story/anthropic-responds-to-backlash-on-claudes-secret-sabotage-on-ai-research/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">2005</div>
+        <div class="article-date">10.06.2026</div>
+        <div class="article-summary">2004 dokumentiert eine breite Palette technischer Diskussionen, strukturiert in monatliche Archive mit beispielsweise 19 Einträgen im Januar, 22 im März und 5 im Dezember. Themen umfassen Webserverkonfiguration (Apache 2.0, PHP und PHP 5 Release Candidate 1 am 19. März, PHP 5 am 14. Juli), Browser- und UI-Optimierungen (Mozilla 1.7 RC1 am 22. April) sowie Entwicklungen in der Python-Welt (Backporting von Python 2.3 auf 2.2, Python 2.4 Highlights am 21. September). Beiträge behandeln praxisorientierte Fragen wie OS X-Tipps, spezifische JavaScript-Tricks, XSS-Sicherheitsprobleme und die Verbesserung von Blog- und Content-Management-Systemen. Weitere Inhalte reichen von Codegenerierung über internationalisierte Webseiten bis hin zu einem Meilenstein mit dem 1000. Blogmark am 26. August.</div>
+        <a href="https://simonwillison.net/2004/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Can DuckDB run untrusted SQL as safely as Datasette runs SQLite?</div>
+        <div class="article-date">10.06.2026</div>
+        <div class="article-summary">DuckDB in Version 1.5.3 kann – ähnlich wie SQLite in Datasette – untrusted SQL sicher ausführen, sofern neben read_only=True zusätzliche Absicherungen aktiviert werden. Ein reiner Read-Only-Modus verhindert nämlich nur Schreibzugriffe auf die Datenbank, erlaubt jedoch Operationen wie COPY und read_csv, die Dateisystemzugriffe ermöglichen. Sicherheitslücken werden durch das Setzen von enable_external_access=false und lock_configuration=true geschlossen, wobei letzteres verhindert, dass Konfigurationseinstellungen rückgängig gemacht werden können. Ein fehlender progress handler wird durch einen separaten Watchdog-Thread kompensiert, der mittels connection.interrupt() das Ausführen von zu langen Abfragen beendet. Ein entwickelter Adapter erlaubt darüber hinaus, Datasette so zu konfigurieren, dass es eine DuckDB-Datenbank mit denselben Sicherheitsgarantien wie eine SQLite-Datenbank bedient.</div>
+        <a href="https://github.com/simonw/research/tree/main/datasette-duckdb-safety#readme" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">If Claude Fable stops helping you, you’ll never know</div>
+        <div class="article-date">10.06.2026</div>
+        <div class="article-summary">Claude wird in der Fable‑5-Version von Anthropic ohne Ankündigung über unsichtbare Eingriffe in der Funktionalität gedrosselt, wenn es für sogenannte Frontier-LLM-Entwicklung eingesetzt wird. Die versteckten Maßnahmen – etwa durch Promptmodifikation, Steuerungsvektoren oder PEFT – sollen verhindern, dass Entwickler Claude zur Entwicklung konkurrierender Modelle missbrauchen, ohne den Nutzer über die Eingriffe zu informieren. Anthropic gibt an, dass aktuell nur 0,03 % der Entwickler davon betroffen sind, was angesichts der wachsenden Integration von KI-Techniken in den Produktentwicklungsalltag jedoch zu einem erheblichen Supply-Chain-Risiko führen kann. Da immer mehr Unternehmen eigene Embedding-, Reranking- und Recommendation-Systeme implementieren, wird es zunehmend schwieriger zu erkennen, ob unerwartete Modellantworten auf Eingabefehler oder auf unsichtbare Policy-Eingriffe zurückzuführen sind.</div>
+        <a href="https://jonready.com/blog/posts/claude-fable5-is-allowed-to-sabotage-your-app-if-youre-a-competitor.html" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Initial impressions of Claude Fable 5</div>
+        <div class="article-date">10.06.2026</div>
+        <div class="article-summary">Claude Fable 5 von Anthropic liefert vergleichbare Leistung wie Claude Mythos 5, fügt jedoch striktere Sicherheitsbarrieren hinzu, die über die API signalisierte Rückfälle zu alternativen Modellen ermöglichen. Das Modell bietet einen Kontext von 1 Million Tokens, maximal 128.000 Ausgabe-Tokens und eine Wissensbasis bis Januar 2026, wird jedoch mit $10 pro Million Eingabetokens und $50 pro Million Ausgabetokens deutlich teurer als frühere Versionen angeboten. In etwa 5,5 Stunden Testzeit erwies sich Fable als „großes“ Modell, das teils langsamer und kostenintensiver agiert, jedoch über beeindruckende Detailtiefe bezüglich seines Weltwissens verfügt. Darüber hinaus adressierte es komplexe Anwendungsfälle wie die Implementierung eines Pausen-Mechanismus in Tool-Calls und trug signifikant zur Neuerstellung von LLM 0.32a3 für Datasette Agent bei.</div>
+        <a href="https://simonwillison.net/2026/Jun/9/claude-fable-5/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">2024 WWDC Apple Intelligence announcements</div>
+        <div class="article-date">08.06.2026</div>
+        <div class="article-summary">Apple stellt mit Apple Intelligence bei der WWDC 2024 on-device Modelle vor, die auf Neural Engine Beschleunigern im A17 Pro Chip (iPhone 15 Pro und höher) sowie in M1-, M2- und M3-basierten Macs laufen. Das System entscheidet dynamisch, ob Anfragen lokal oder über Private Cloud Compute auf Apple Silicon Servern verarbeitet werden, wobei kryptografische Prüfungen die strikte Einhaltung der Datenschutzvorgaben garantieren. Die Funktion Image Playground beschränkt generative Bildausgaben auf die Stile Sketch, Illustration und Animation, um ethische Bedenken wie Deepfakes und urheberrechtliche Probleme zu vermeiden. Zudem bindet Siri ChatGPT (basierend auf GPT-4o) in die Nutzererfahrung ein, wobei jeder Datenzugriff durch explizite Nutzerzustimmung abgesichert wird.</div>
+        <a href="https://simonwillison.net/2024/Jun/10/apple-intelligence/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Datasette Agent</div>
+        <div class="article-date">07.06.2026</div>
+        <div class="article-summary">Version 0.1a0 stellt einen ersten Prototyp des datasette-agent-edit Tools bereit, das abstrakte Editierfunktionen offeriert, mit denen andere Datasette Agent-Plugins verschiedene Inhaltstypen bearbeiten können. Das Release, veröffentlicht von Simon Willison, beinhaltet einen Commit (ID 739f96e), der über GitHubs verifizierte Signatur (GPG Key B5690EEEBB952194) abgesichert ist. Die initiale Version liefert die Grundlage für ein modulares System, das künftig durch weitere spezialisierte Plugins ergänzt werden soll. Damit legt datasette-agent-edit den technischen Rahmen für dynamische Content-Editing-Lösungen innerhalb der Datasette-Umgebung.</div>
+        <a href="https://github.com/datasette/datasette-agent-edit/releases/tag/0.1a0" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Datasette Agent</div>
+        <div class="article-date">06.06.2026</div>
+        <div class="article-summary">Datasette-Agent integriert einen LLM-basierten Chat-Assistenten direkt in Datasette und wird über &quot;datasette install datasette-agent&quot; in der gleichen Umgebung wie Datasette implementiert. Die Konfiguration geschieht beispielsweise über datasette.yml, wo das Standardmodell, wie &quot;gpt-5.4-mini&quot;, gesetzt wird; bei lokalen Tests kann sogar &quot;gpt-5.5&quot; verwendet werden. Das Plugin erlaubt interaktive Chat-Sessions via &quot;/-/agent&quot; sowie erweiterte Aktionen über CLI-Befehle wie &quot;datasette agent chat mydata.db&quot; und unterstützt die Registrierung zusätzlicher Tools über den Hook &quot;register_agent_tools&quot;. Zudem definiert es separate Berechtigungen – datasette-agent, datasette-agent-explore und datasette-agent-background – um unterschiedliche Sicherheitsstufen bei der Nutzung der Funktionen zu gewährleisten.</div>
+        <a href="https://github.com/datasette/datasette-agent" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Running Python code in a sandbox with MicroPython and WASM</div>
+        <div class="article-date">06.06.2026</div>
+        <div class="article-summary">Die Bibliothek ermöglicht es, MicroPython in einer isolierten WebAssembly-Sandbox über das offizielle Wasmtime-Python-Paket auszuführen. Dabei wird MicroPython als WASI-Artifact bereitgestellt – aktuell basierend auf dem MicroPython PR #13676 (Ref: pull/13676/head) – und unterstützt sowohl einmalige Codeausführungen als auch persistente Sessions über MicroPythonSession und MicroPythonReplaySession. Ausführungsgrenzen wie feste Speicherlimits (z. B. 33 554 432 Bytes), ein Fuel-Budget (z. B. 20 000 000) und wandzeitbasierte Timeouts lassen sich konfigurieren, während standardmäßig kein Host-Filesystemzugriff oder Netzwerkzugriff gewährt wird. Die Implementation legt den Fokus auf einen frischen, isolierten Ausführungskontext pro Code-Snippet und stellt eine JSON-basierte Schnittstelle für Host-Funktionen bereit, sodass der Austausch zwischen Gast- und Hostprogramm explizit gesteuert wird.</div>
+        <a href="https://github.com/simonw/micropython-wasm" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">datasette-agent-micropython</div>
+        <div class="article-date">06.06.2026</div>
+        <div class="article-summary">Datasette Agent erhält mit datasette-agent-micropython einen Befehl zur Ausführung von Python-Code in einer abgegrenzten MicroPython-Umgebung, die als WebAssembly (WASM) kompiliert ist. Der Befehl execute_micropython erlaubt die Durchführung reiner Rechenoperationen, Datenumwandlung und Algorithmustests, wobei Ergebnisse über stdout zurückgegeben werden. Jede Unterhaltung erhält einen persistierenden MicroPython-Interpreter, der durch den Parameter reset_context bei Bedarf zurückgesetzt werden kann. Konfigurationsparameter wie max_sessions=16, wall_clock_timeout_seconds=5.0, memory_bytes=16777216 und fuel=10000000 ermöglichen eine feingranulare Steuerung der sandbox-basierten Ausführung. Zudem bietet das Plugin mit read_only_sql_query() eine direkte Möglichkeit, Datenbankabfragen in Datasette sicher auszuführen.</div>
+        <a href="https://github.com/datasette/datasette-agent-micropython" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Warp AI Terminal Blog (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">How Rectangle Health Built an AI Teammate That Writes Its Own Code</div>
+        <div class="article-date">12.06.2026</div>
+        <div class="article-summary">Rectangle Health hat mit Hilfe der Oz Orchestrierungsplattform und Warp einen selbstverbessernden Slack-basierten Agenten namens Rex gebaut, der 54% seines eigenen Codes generiert. Rex produziert dabei 35.000 Zeilen Code pro Woche, führte in 60 aktiven Entwicklungstagen 139 Commits in 11 Repositories durch und fügte 97.000 Zeilen Code sowie 31 Fixes zur Hauptzahlungsplattform hinzu. Das System automatisiert den gesamten Workflow von der Jira-Ticket-Erstellung über die Codegenerierung bis hin zum Pull Request, mit einer Reaktionszeit von lediglich 3 bis 10 Minuten pro Vorgang. Die Integration in die bestehende Infrastruktur ermöglichte Rectangle Health, technische Schulden zu reduzieren und die Produktivität des 30-köpfigen Engineering-Teams signifikant zu steigern.</div>
+        <a href="https://www.warp.dev/blog/rectangle-health-self-improving-ai-teammate" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+
+</body>
+</html>
