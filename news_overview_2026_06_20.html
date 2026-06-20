@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Übersicht - Letzte 7 Tage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .article {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .article-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .article-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .article-summary {
+            margin-bottom: 10px;
+        }
+        .article-link {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .article-link:hover {
+            text-decoration: underline;
+        }
+        /* R00011: Section-Summary-Block, leicht abgesetzt von Einzel-Artikeln */
+        .section-summary {
+            margin: 10px 0 20px 0;
+            padding: 12px 16px;
+            background-color: #eef4fb;
+            border-left: 4px solid #0066cc;
+            font-style: italic;
+            color: #234;
+        }
+        /* R00012: Changelog-Digest-Block — visuell distinkt vom Section-Summary */
+        .changelog-digest {
+            margin: 10px 0 15px 0;
+            padding: 12px 16px;
+            background-color: #fff7e6;
+            border-left: 4px solid #d97706;
+            color: #3a2a00;
+        }
+        .changelog-links {
+            list-style: disc inside;
+            padding-left: 0;
+            margin: 0 0 25px 0;
+        }
+        .changelog-links li {
+            margin: 4px 0;
+        }
+        .changelog-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-left: 6px;
+        }
+        /* R00013: Wochen-Tenor — visuell die staerkste der drei
+           Verdichtungsklassen (overall > section-summary > changelog-digest).
+           Linker Rand kraeftiger, Schrift groesser, klar abgesetzte
+           Hintergrundfarbe — vom Leser auf den ersten Blick als
+           Zusammenfassung der Wochenausgabe erkennbar. */
+        .overall-summary {
+            margin: 10px 0 25px 0;
+            padding: 18px 22px;
+            background-color: #f0fbf3;
+            border-left: 6px solid #15803d;
+            font-size: 1.1em;
+            color: #14271d;
+        }
+        /* R00011: Rueckspruglink zur index.html (oben und unten) */
+        .back-link {
+            display: inline-block;
+            margin: 10px 0 20px 0;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>News Übersicht der letzten 7 Tage</h1>
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+    <div class="overall-summary">KI-gestützte Entwicklungswerkzeuge und optimierte Toolchain-Prozesse prägen diese Woche. Mehrere Beiträge dokumentieren Fortschritte bei GitHub Copilot, Qubot und verwandten Tools, die den Token-Verbrauch senken und die Automatisierung von Build-Analysen und Code-Reviews verbessern. Die Integration von LLMs in Arbeitsabläufe wird in unterschiedlichen Kontexten erprobt, von terminalbasierten AI-Agents bis hin zu spezialisierten Anwendungen in Medizin und Cloud-Datenmanagement. Gleichzeitig rücken Sicherheitsaspekte in den Fokus, da automatisierte adversariale Angriffe und komplexe Zugriffskontrollen neue Herausforderungen aufzeigen. Insgesamt setzen die Entwicklungen auf eine stärkere Vernetzung von KI und Softwareengineering, was Effizienzgewinne ermöglicht, jedoch das Management zunehmender Komplexität erfordert.</div>
+    <p>Generiert am: 20.06.2026 07:00 Uhr</p>
+    <p>Anzahl Artikel: 21 (zus&auml;tzlich 12 Changelog-Eintr&auml;ge aus 1 Quelle)</p>
+
+    <h2>Allan Kelly Blog (2 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Enrollment Management, Managing the Alpha AXP Program</div>
+        <div class="article-date">19.06.2026</div>
+        <div class="article-summary">Der Artikel liefert keine inhaltlichen Details zur Verwaltung des Alpha AXP Programms, sondern zeigt lediglich die HTML-Struktur ohne technischen Inhalt. Es fehlen konkrete Versionsnummern, technische Daten und Benchmarks, sodass zentrale Entscheidungen oder Modellparameter nicht nachvollzogen werden können. Die Darstellung beschränkt sich auf reine Platzhalterelemente, was auf fehlende Anzeige des eigentlichen Inhalts hinweist.</div>
+        <a href="https://ieeexplore.ieee.org/document/526832" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Trapped in the system</div>
+        <div class="article-date">16.06.2026</div>
+        <div class="article-summary">Die Schilderung einer Situation in einem sicherheitsbewussten Büro zeigt, wie widersprüchliche Prozesse und starre Zugangsregeln den Arbeitsablauf massiv stören können. Eigene Erlebnisse – von der Stromprognose über Telekom-Lösungen bis hin zur Bürozugangsproblematik – belegen, dass das praktische Durchlaufen von Systemen oft die einzige Möglichkeit ist, die dahinterliegenden Zusammenhänge zu verstehen. Trotz moderner Werkzeuge wie Jira und DevOps führt die Vielzahl sich ständig ändernder Regeln dazu, dass digitale Identitäten nicht akzeptiert werden und Mitarbeiter mehr Zeit mit Prozessen als mit der eigentlichen Arbeit verbringen. Die Erfahrungen unterstreichen, dass in großen Organisationen oft ein Zuviel an Formalitäten und Komplexität besteht, weshalb ein vereinfachter, pragmatischer Ansatz zu effizienteren Abläufen führen kann.</div>
+        <a href="https://www.allankelly.net/archives/10764/trapped-in-the-system/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Anthropic News (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Anthropic opens Seoul office and announces new partnerships across the Korean AI ecosystem</div>
+        <div class="article-date">17.06.2026</div>
+        <div class="article-summary">Anthropic eröffnet ein Büro in Seoul, um eng mit koreanischen Großunternehmen, Startups, Forschungseinrichtungen und dem öffentlichen Sektor zusammenzuarbeiten. Das Unternehmen unterzeichnete ein MOU mit dem koreanischen Ministerium für Wissenschaft und ICT, um die sichere Anwendung und Evaluierung von KI-Modellen, insbesondere in der koreanischen Sprache, voranzutreiben. Große Player wie NAVER, Nexon, LG CNS, Hanwha Solutions und Samsung SDS setzen bereits Claude und Claude Code ein, wobei tausende Ingenieure an Projekten für produktivitätssteigernde Anwendungen arbeiten. Zusätzlich kooperiert Anthropic mit dem National AI Research Lab (NAIRL) und Organisationen wie Good Neighbors Korea, um KI-Sicherheit, -Robustheit und praxisnahe Forschung voranzubringen, während gleichzeitig Events wie der Claude Build Day die Entwickler-Community stärken.</div>
+        <a href="https://www.anthropic.com/news/seoul-office-partnerships-korean-ai-ecosystem" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>GitHub Copilot Blog (4 Artikel)</h2>
+    <div class="section-summary">Qubot integriert GitHub Copilot zu einer Plattform, die über Slack, VS Code und die Copilot CLI GitHub-Daten per natürlicher Sprache abfragt und die Ergebnisse in Markdown-Pull Requests dokumentiert – unterstützt durch eine dreiteilige Architektur und spezielle Abfrage-Engine, die Kusto, Trino und einen eigens entwickelten MCP-Server einbindet. Gleichzeitig optimiert GitHub Copilot den Token-Verbrauch in Langsessions mittels verbessertem Prompt-Caching und routingbasierter Modellwahl (HyDRA) und erweitert die Funktionalität der parallelen Entwicklungsarbeit durch den standardmäßigen Einsatz von Git worktrees sowie durch eine CLI mit integrierten Slash-Befehlen zur präzisen Steuerung terminalbasierter AI-Agents.</div>
+    <div class="article">
+        <div class="article-title">How we built an internal data analytics agent</div>
+        <div class="article-date">19.06.2026</div>
+        <div class="article-summary">Qubot nutzt GitHub Copilot, um Hubbern den selbständigen Zugang zu GitHub-Daten per natürlicher Sprache zu ermöglichen. Der Agent bietet über Slack, VS Code und den Copilot CLI eine benutzerfreundliche Schnittstelle, bei der jede Anfrage als Copilot-Cloud-Agent instanziiert und Ergebnisse automatisch in Markdown-Pull Requests dokumentiert wird. Eine dreiteilige Architektur – bestehend aus Benutzeroberfläche, einer fein abgestimmten Kontextschicht (unterteilt in bronze, silver und gold) und einer Abfrage-Engine – verbessert nicht nur die Genauigkeit, sondern liefert etwa dreimal schneller korrekte Antworten. Die Abfrage-Engine verbindet sich dabei nahtlos mit Kusto für explorative Analysen und mit Trino für komplexe Joins, wobei ein eigens entwickelter MCP-Server eingesetzt wird. Das integrierte Evaluationsframework mit strukturierten Testfällen und automatisierter Statistiksammlung sichert kontinuierlich die Qualität und Leistung von Qubot.</div>
+        <a href="https://github.blog/ai-and-ml/github-copilot/how-we-built-an-internal-data-analytics-agent/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Getting more from each token: How Copilot improves context handling and model routing</div>
+        <div class="article-date">17.06.2026</div>
+        <div class="article-summary">GitHub Copilot reduziert in Langsessions den Token-Verbrauch, indem es wiederkehrende Kontextinformationen durch verbessertes Prompt-Caching und das verzögerte Laden von Tool-Definitionen minimiert. Die Technik verhindert, dass vollständige Tool-Schemas bei jedem Turnus geladen werden müssen – ein entscheidender Vorteil bei der Nutzung mehrerer Tools wie MCP, Terminalbefehle und Dateioperationen. Mittels der „Auto“-Funktion wird, gestützt auf Echtzeit-Messwerte und das routingorientierte Modell HyDRA, automatisch das jeweils passende Modell ausgewählt; in internen Evaluierungen erzielte HyDRA in einem „Peak“-Modus 12,9 % Einsparungen und im „Aggregat“-Modus sogar 72,5 % bei einer Auflösungsrate von 70,8 %, während über 19 Sprachen hinweg maximal 4 Punkte Abweichung verzeichnet wurden. Die optimierte Modellwahl erfolgt an natürlich vorkommenden Cache-Grenzen und sorgt so dafür, dass mehr Credits in die konkrete Aufgabenbearbeitung fließen – eine Strategie, die heute in GitHub Copilot für VS Code, auf github.com und in mobilen Anwendungen aktiv ist und demnächst auch in der Copilot CLI verfügbar sein wird.</div>
+        <a href="https://github.blog/ai-and-ml/github-copilot/getting-more-from-each-token-how-copilot-improves-context-handling-and-model-routing/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">What are git worktrees, and why should I use them?</div>
+        <div class="article-date">16.06.2026</div>
+        <div class="article-summary">Git worktrees ermöglichen seit 2015 das parallele Arbeiten an mehreren Branches, ohne den Umweg über Stashing und häufige Kontextwechsel. Mit dem Befehl &quot;git worktree add ../hotfix-workspace -b hotfix-bug main&quot; können Entwickler eine isolierte Arbeitsumgebung erstellen, in der der bestehende Editor-Kontext unverändert bleibt. Die Methode reduziert den mentalen Aufwand, der bei herkömmlichen Branch-Wechseln und mehrmaligem Ausführen von Abhängigkeiten entsteht, birgt allerdings Herausforderungen wie doppelten Speicherbedarf und manuelle Ordnerverwaltung. Moderne Tools wie der GitHub Copilot App setzen worktrees standardmäßig ein, um die Produktivität in einer zunehmend parallelen Entwicklungsumgebung zu steigern.</div>
+        <a href="https://github.blog/ai-and-ml/github-copilot/what-are-git-worktrees-and-why-should-i-use-them/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">GitHub Copilot CLI for Beginners: Overview of common slash commands</div>
+        <div class="article-date">15.06.2026</div>
+        <div class="article-summary">GitHub Copilot CLI bietet über eine Reihe integrierter Slash-Befehle die Möglichkeit, den terminalbasierten AI-Agenten direkt zu steuern. Durch Befehle wie /model, /context, /compact, /clear und /resume können Entwickler Modelle auswählen, Token-Nutzung überwachen, bestehende Sessions fortsetzen oder den Kontext komprimieren, um innerhalb des vorgegebenen Kontextfensters effizient zu arbeiten. Mit /diff lassen sich aktuelle Änderungen im Code nachvollziehen, während /cwd einen Wechsel des Arbeitsverzeichnisses innerhalb mehrerer Repositories ermöglicht, und /reset-allowed-tools dient zur Rücksetzung erteilter Berechtigungen. Die Funktionen erlauben eine präzise Abstimmung des Workflows und vereinfachen repetitive Aufgaben, was insbesondere in komplexen Umgebungen und bei der Verwaltung von Projekten innerhalb von Unternehmen den Entwicklungsprozess optimiert.</div>
+        <a href="https://github.blog/ai-and-ml/github-copilot/github-copilot-cli-for-beginners-overview-of-common-slash-commands/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>GitHub Copilot Changelog (12 Eintr&auml;ge)</h2>
+    <div class="changelog-digest">MAI‑Code‑1‑Flash kommt nun in diversen Copilot‑Oberflächen zum Einsatz und wird schrittweise an unterschiedliche Nutzergruppen ausgerollt, während gleichzeitig der Support für Opus 4.6 eingestellt wird und Entwickler auf Opus 4.8 umsteigen müssen. Copilot Chat wählt dynamisch das jeweils passende Modell – etwa GPT‑5.4 oder Claude Sonnet 4.6 – anhand der Anfragekomplexität aus, um den Tokenverbrauch zu optimieren und die Antwortqualität zu steigern. Neue Funktionen verbessern die Interaktion im Repository: AGENTS.md‑Dateien ermöglichen maßgeschneiderte Code Reviews, Copilot‑generierte Pull Requests werden nun über author:@me‑Abfragen konsolidiert ausgegeben und in den automatisch generierten Release Notes erscheint neben dem Hinweis @copilot auch der spezifische Nutzernamen des auslösenden Entwicklers. Gleichzeitig erleichtert der Agent Finder die Auswahl passender AI‑Agents aus konfigurierbaren Katalogen, und Enterprise‑Administratoren können über neue Richtlinien in .github‑Einstellungen den automatischen Yolo‑Modus in Copilot CLI und VS Code abschalten. Die Erweiterungen der Usage Metrics API um das Feld ai_credits_used sowie die neu kombinierte server- und clientseitige Telemetrie sorgen für konsistentere Nutzerberichte. Zudem erleichtern neue Registrierungs- und Upgrade‑Optionen den Wechsel zwischen Copilot‑Plänen, während die Copilot App ab sofort auf macOS, Windows und Linux als Desktop‑Oberfläche verfügbar ist.</div>
+    <ul class="changelog-links">
+        <li><a href="https://github.blog/changelog/2026-06-19-ai-credits-consumed-per-user-now-in-the-copilot-usage-metrics-api" class="article-link" target="_blank">AI credits consumed per user now in the Copilot usage metrics API</a> <span class="changelog-date">19.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-18-copilot-code-review-agents-md-support-and-ui-improvements" class="article-link" target="_blank">Copilot code review: AGENTS.md support and UI improvements</a> <span class="changelog-date">18.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-18-copilot-authored-pull-requests-now-included-in-author-searches" class="article-link" target="_blank">Copilot-authored pull requests now included in author searches</a> <span class="changelog-date">18.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-18-generated-release-notes-credit-you-for-copilot-pull-requests" class="article-link" target="_blank">Generated release notes credit you for Copilot pull requests</a> <span class="changelog-date">18.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-18-mai-code-1-flash-available-on-more-copilot-surfaces" class="article-link" target="_blank">MAI-Code-1-Flash available on more Copilot surfaces</a> <span class="changelog-date">18.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-18-upcoming-deprecation-of-opus-4-6-fast" class="article-link" target="_blank">Upcoming deprecation of Opus 4.6 (fast)</a> <span class="changelog-date">18.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-17-agent-finder-for-github-copilot-now-available" class="article-link" target="_blank">Agent finder for GitHub Copilot now available</a> <span class="changelog-date">17.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-17-auto-mode-in-copilot-chat-available-for-all-users" class="article-link" target="_blank">Auto mode in Copilot Chat available for all users</a> <span class="changelog-date">17.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-17-copilot-individual-plan-sign-ups-are-reopening" class="article-link" target="_blank">Copilot individual plan sign-ups are reopening</a> <span class="changelog-date">17.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-17-enterprise-managed-settings-now-support-bypass-permission-controls" class="article-link" target="_blank">Enterprise-managed settings now support bypass permission controls</a> <span class="changelog-date">17.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-17-github-copilot-app-generally-available" class="article-link" target="_blank">GitHub Copilot app generally available</a> <span class="changelog-date">17.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-15-copilot-usage-metrics-now-include-more-of-your-active-users" class="article-link" target="_blank">Copilot usage metrics now include more of your active users</a> <span class="changelog-date">15.06.2026</span></li>
+    </ul>
+
+    <h2>Google AI Blog (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">New research shows how AMIE, our medical AI, could help manage health conditions.</div>
+        <div class="article-date">17.06.2026</div>
+        <div class="article-summary">AMIE (Articulate Medical Intelligence Explorer) von Google Research erweitert seinen Einsatz von der reinen Diagnosestellung hin zur langfristigen Krankheitsbewirtschaftung, indem es in Echtzeit empathische Patientendialoge führt und klinische Leitlinien über umfangreiche Dokumentationen hinweg abgleicht. Die Forschung, veröffentlicht in „Nature“, nutzt die Long-Context-Fähigkeiten der Gemini Modelle und zeigt in einer verblindeten Studie mit Patientenschauspielern, dass AMIE in der Gesamtbewertung des Management-Reasonings mit 21 Hausärzten vergleichbar ist und deutlich präzisere Behandlungspläne sowie eine bessere Leitlinienübereinstimmung erzielt. Die Ergebnisse deuten darauf hin, dass eine derartige KI künftigen medizinischen Support leisten und Ärzten mehr Zeit für Patienteninteraktionen ermöglichen könnte. In einem nächsten Schritt untersucht Google, wie AMIE in klinischen Settings integriert werden kann, und führt eine landesweite randomisierte Studie zur Bewertung von KI in der virtuellen Versorgung durch.</div>
+        <a href="https://blog.google/innovation-and-ai/models-and-research/google-research/amie-for-disease-management-in-nature/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Google AI Blog - Gemini (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">June Pixel Drop: New features for creators, Gemini upgrades and more</div>
+        <div class="article-date">16.06.2026</div>
+        <div class="article-summary">Google integriert im June Pixel Drop neue, hardware-nahe Features, etwa integrierte Screen Reactions, bei denen während der Bildschirmaufnahme ein Selfievideo in Echtzeit aufgenommen und positioniert wird. Gemini Omni – Teil der Gemini-Familie – ermöglicht es Nutzern, per natürlicher Sprache Videos, Musik und Fotobeiträge zu erstellen und zu bearbeiten, wobei auch original Audio-Tracks generiert werden können. Das Update erweitert die Multitasking-Fähigkeiten, indem jede App in einen schwebenden „Bubble“-Modus konvertiert werden kann, und führt Voice Translate auf dem Pixel 10a ein, das in der Vorschau Übersetzungen zwischen Englisch, Deutsch, Spanisch, Französisch, Italienisch, Portugiesisch und Hindi unterstützt. Zusätzlich laufen die Rollouts parallel zu Android 17 und Wear OS 7, wobei Sicherheitsfeatures wie automatisierte Notfallbenachrichtigungen in kritischen Situationen integriert werden.</div>
+        <a href="https://blog.google/products-and-platforms/devices/pixel/june-2026-pixel-drop/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Kent Beck - Tidy First (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Recommendations</div>
+        <div class="article-date">15.06.2026</div>
+        <div class="article-summary">Kent Beck empfiehlt eine handverlesene Auswahl an Substack-Newslettern, die sowohl technische Tiefen wie TDD, Hexagonal und Clean Architecture als auch breitere Themen rund um Engineering, Führung und wirtschaftliche Zusammenhänge abdecken. Die Empfehlungen reichen von fundierten Software-Entwicklungsansätzen in Newslettern wie The Pragmatic Engineer und Refactoring bis hin zu praxisnahen Einblicken in VC-Mechanismen und Startup-Kulturen, wie sie in The VC Corner und The Founders Corner® präsentiert werden. Ergänzt wird das Angebot durch Beiträge, die persönliche und kulturelle Perspektiven beleuchten, etwa bei After Burnout und Messy Humans, und damit eine vielseitige Inspirationsquelle für erfahrene Entwickler, Tech-Leads und Architekten bieten. Die kuratierte Liste liefert konkrete Ressourcen von etablierten Experten, die fundierte Impulse für nachhaltige Software Delivery und strategische Entscheidungen im Technologieumfeld geben.</div>
+        <a href="https://newsletter.kentbeck.com/recommendations" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Martin Fowler (2 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Building Reliable Agentic AI Systems</div>
+        <div class="article-date">16.06.2026</div>
+        <div class="article-summary">Bayer AG und Thoughtworks realisieren mit PRINCE eine Cloud-Plattform, die durch Agentic Retrieval-Augmented Generation und Text-to-SQL präklinische Forschungsdaten – von strukturiertem Studiendatenmaterial (über Athena) bis zu unstrukturierten PDF-Berichten (indexiert in Amazon OpenSearch Service) – integriert und abrufbar macht. Eine Conversational UI in React greift auf ein von LangGraph orchestriertes Backend zu, das mit FastAPI betrieben wird und die Zustände mittels PostgreSQL (LangGraph Checkpointer) sowie DynamoDB verwaltet. Die Architektur teilt Verantwortlichkeiten in spezialisierte Agenten – Researcher, Reflection und Writer – die durch gezielte Kontextdisziplin und interne Feedback‑Schleifen komplexe, mehrstufige Workflows in präklinischen Szenarien steuern. Der Einsatz von hybriden Retrieval-Strategien (mit gewichteten Resultaten aus semantischer Vektorsuche und Keywords), dynamischer SQL-Generierung via few-shot Prompting und robusten Error-Handling-Mechanismen gewährleistet Zuverlässigkeit und Transparenz in einem regulatorisch anspruchsvollen Umfeld. Die iterative Weiterentwicklung seit dem Markteintritt im Jahr 2024 unterstreicht, wie kritische Engineeringentscheidungen (Tool-Fallbacks, kontinuierliche Evaluation über Langfuse, manuelle und automatische Retries) Produktionsqualität in komplexen LLM-Anwendungen sichern.</div>
+        <a href="https://martinfowler.com/articles/reliable-llm-bayer.html" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Fragments: June 16</div>
+        <div class="article-date">16.06.2026</div>
+        <div class="article-summary">Prag Dave Thomas unterstreicht, dass LLM-basierte Programmierung repetitive Aufgaben reduziert, Feedbackzyklen beschleunigt und damit neue Möglichkeiten eröffnet, etwa um längst zurückgestellte Projekte wiederzubeleben. Die DDD Europe 2026 bestätigte den anhaltenden Wert von Domain-Driven Design, wobei Eric Evans in seiner Keynote Erfahrungen mit LLMs präsentierte – ein Thema, das auch in Gesprächen über unterschiedliche Kommunikationsregister (Exploring, Brainstorming, Deciding, Implementing) vertieft wurde. Charity Majors weist darauf hin, dass die Diskrepanz zwischen AI-Enthusiasten und Skeptikern zu existenziellen Herausforderungen führt, während Simon Willison erklärt, dass Anthropic und OpenAI mit Produkten wie Claude Code und Codex nun aggressivere Enterprise-Preismodelle verfolgen, da sie kurz vor einem möglichen IPO stehen. Mike Masnick erinnert an historische Entwicklungen der Internet-Mediation, in der die zentrale Steuerung von Aufmerksamkeit digitale Dezentralisierung zunehmend behindert und damit künftige Wettbewerbsfähigkeit gefährdet.</div>
+        <a href="https://martinfowler.com/fragments/2026-06-16.html" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Microsoft .NET Blog (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">AI-Powered MSBuild Investigation with the Microsoft Binlog MCP Server</div>
+        <div class="article-date">17.06.2026</div>
+        <div class="article-summary">Microsoft integriert AI-gestützte Analyse direkt in MSBuild, indem der neue Binlog MCP Server auf Basis des offenen Model Context Protocol (MCP) .binlog-Dateien auswertet und 15 spezialisierte Werkzeuge (z. B. binlog_overview, binlog_errors, binlog_compare) für Fehlerdiagnose, Property-Tracing und Performanceanalyse bereitstellt. Der Server nutzt die MSBuild Structured Log Viewer Bibliothek und ermöglicht es KI-Assistenten wie GitHub Copilot, durch natürliche Sprache Build-Probleme in komplexen Multi-Projekt-Lösungen zu identifizieren und Lösungsvorschläge zu erarbeiten. Mit dem dotnet-msbuild Plugin können ab Visual Studio 17.14 oder in Visual Studio Code (via settings.json und .vscode/mcp.json Konfiguration) direkt entsprechende Abfragen gestartet und verglichen werden. Anonyme Telemetriedaten helfen, die Werkzeuge weiter zu optimieren, ohne sensible Informationen zu erfassen.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/msbuild-binlog-mcp-server/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Pragmatic Engineer Newsletter (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Why is Meta destroying its engineering organization?</div>
+        <div class="article-date">16.06.2026</div>
+        <div class="article-summary">Meta verschiebt den Fokus radikal hin zur Entwicklung von KI-Modellen und opfert dabei die bewährte, freigeistige Engineering-Kultur, die zuvor durch hohe Autonomie und messbaren Impact geprägt war. Mit der rasanten Einführung der Llama-Modelle – Llama 1 (Februar 2023), Llama 2 (Juni 2023), Llama 3 (April 2024) und dem enttäuschenden Llama 4 (April 2025) – investiert Meta massiv in den Aufbau eines eigenen LLM, während gleichzeitig strategische Schlüsselinvestitionen wie 49 % an Scale AI für 14,8 Mrd. US‑Dollar stattfinden. In einem Top‑Down-Ansatz werden Ingenieure ohne Opt-out-Möglichkeit in invasive Tracking-Systeme einbezogen und 30–50 % der technischen Belegschaft, insbesondere aus den Kernteams wie Infrastruktur und Security, zwangsweise in Daten-Labeling-Rollen überführt. Die Einführung hyperaggressiver, Metrik-basierter Performance Reviews – inklusive der Messung von AI-generierten Token – führt zu einem zunehmenden Fokus auf performative statt substanzielle Arbeit, was sich sogar in massiven Systemausfällen wie dem schwerwiegenden Instagram-Ausfall am 30. Mai manifestiert. Die Entscheidungen von CEO Mark Zuckerberg und Alexandr Wang riskieren damit nicht nur den reibungslosen Betrieb zentraler Produkte, sondern treiben auch langjährige, erfahrene Ingenieure dazu, das Unternehmen zu verlassen.</div>
+        <a href="https://newsletter.pragmaticengineer.com/p/why-is-meta-destroying-its-engineering" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Simon Willison (6 Artikel)</h2>
+    <div class="section-summary">Datasette erweitert seine Funktionalitäten um sichere Ausführung von HTML‑ und JavaScript‑Anwendungen in isolierten iframes, während neue LLM-Techniken wie Z.ai&#x27;s GLM‑5.2 und diverse LLM‑Tool‑Use-Ansätze die Leistungsfähigkeit und Integration externer Werkzeuge optimieren. Automatisierte adversariale Angriffe demonstrieren weiterhin die Verwundbarkeit großer Sprachmodelle, und durch Projekte wie Pyodide 314.0 sowie agile Software‑Engineering-Praktiken wird deutlich, dass trotz zunehmender Automatisierung menschliche Expertise und robuste Sicherheitsmechanismen unverzichtbar bleiben.</div>
+    <div class="article">
+        <div class="article-title">Datasette Apps: Host custom HTML applications inside Datasette</div>
+        <div class="article-date">18.06.2026</div>
+        <div class="article-summary">Datasette Apps erweitert Datasette um eigenständige HTML‑ und JavaScript‑Anwendungen, die in einem strikt abgesicherten &lt;iframe&gt; mit definierten CSP-Regeln laufen. Der neue Plugin erlaubt es, sowohl schreibgeschützte als auch über stored queries gesteuerte Schreibzugriffe auf SQL-Datenbanken auszuführen, wobei Datasette 1.0a31 diese Funktionalität durch einen umfangreichen Sicherheitsansatz unterstützt. Technische Mechanismen wie die Kombination aus sandboxed iframes, &lt;meta&gt;‑basierter CSP und MessageChannel‑Kommunikation, die ursprünglich über postMessage implementiert wurden, gewährleisten, dass unautorisierte Zugriffe oder Datenexfiltrierung unterbunden werden. Die Entwicklung profitierte von intensiver KI-Unterstützung, wobei frühe Prototypen mit Claude Opus 4.6, Codex Desktop und GPT‑5.5 erstellt und in einem Sicherheitstest mit Claude Fable 5 validiert wurden.</div>
+        <a href="https://simonwillison.net/2026/Jun/18/datasette-apps/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">GLM-5.2 is probably the most powerful text-only open weights LLM</div>
+        <div class="article-date">17.06.2026</div>
+        <div class="article-summary">GLM-5.2 von Z.ai besitzt 753 Milliarden Parameter und eine Modellgröße von 1,51 TB, wobei der Kontext von 200.000 Tokens auf 1 Million Tokens erweitert wurde. Das Modell verwendet 40 aktive Parameter (Mixture of Experts) und erreichte auf dem Artificial Analysis Intelligence Index v4.1 mit einem Wert von 51 höhere Punktzahlen als MiniMax-M3 (44), DeepSeek V4 Pro (max. 44) und Kimi K2.6 (43). Es wird über OpenRouter zu Preisen von $1,40 pro Million Eingabetokens und $4,40 pro Million Ausgabetokens angeboten, im Vergleich zu GPT-5.5 ($5/$30) und Claude Opus 4.5-4.8 ($5/$25). GLM-5.2 zeigt exzellente Ergebnisse bei der Generierung von voll animierten SVG-Grafiken, während bestimmte Aufgaben wie die Animation eines „NORTH VIRGINIA OPOSSUM ON AN E-SCOOTER“ hinter den Leistungen der GLM-5.1-Version zurückbleiben.</div>
+        <a href="https://simonwillison.net/2026/Jun/17/glm-52/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Universal and Transferable Adversarial Attacks on Aligned Language Models</div>
+        <div class="article-date">15.06.2026</div>
+        <div class="article-summary">Automatisierte adversariale Angriffe fügen gezielt berechnete Zeichenfolgen an Nutzereingaben an, um Sicherheitseinschränkungen in LLMs wie ChatGPT-3.5-Turbo, Bard und Claude zu umgehen und schädliche Inhalte zu provozieren. Die Methode verwendet dabei offen zugängliche LLM-Gewichte, um sukzessive Zeichen zu bestimmen, die eine hohe Wahrscheinlichkeit für ungefilterte Antworten erzeugen, und ermöglicht so die Produktion nahezu unbegrenzter Varianten. Angriffe, die transferierbar zwischen offenen und geschlossenen Systemen sind, schaffen es, etablierte Sicherheitsbarrieren zu überwinden, was in Analogie zu langanhaltenden Herausforderungen im Bereich der Computer-Vision steht. Forscher von Carnegie Mellon University, Google DeepMind und weiteren Institutionen weisen darauf hin, dass die inhärente Anfälligkeit tiefer neuronaler Netzwerke möglicherweise unvermeidlich ist und autonome KI-Anwendungen vor gravierende Sicherheitskompromisse stellt.</div>
+        <a href="https://llm-attacks.org/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">llm-tool-use</div>
+        <div class="article-date">15.06.2026</div>
+        <div class="article-summary">LLM‑Tool‑Use umfasst Methoden, bei denen Sprachmodelle externe Werkzeuge in ihren Verarbeitungsablauf integrieren, indem sie gezielt Funktionsaufrufe an diese Tools initiieren. So erlaubt beispielsweise datasette‑agent 0.3a0 mit dem neuen Tool execute_write_sql interaktive Datenbankmanipulation unter Berücksichtigung von Nutzerberechtigungen, während datasette‑agent‑edit einen modularen Ansatz zur kollaborativen Textbearbeitung realisiert. Mit llm‑openrouter 0.5 erfolgt die Ansteuerung von 179 tool‑fähigen Modellen über einheitliche CLI‑Befehle, was die Entwicklung von komplexen Agentensystemen unterstützt. Mehrstufige Systeme, wie Kimi K2.5, die bis zu 100 Subagenten parallel einsetzen und eine bis zu 4,5‑fache Leistungssteigerung erzielen, sowie Projekte von Meta, Google und Anthropic, unterstreichen den praktischen Mehrwert externer Tool‑Integration bei der Realisierung anspruchsvoller LLM‑Anwendungen.</div>
+        <a href="https://simonwillison.net/tags/llm-tool-use/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Why AI hasn’t replaced software engineers, and won’t</div>
+        <div class="article-date">14.06.2026</div>
+        <div class="article-summary">Der Einsatz von KI im Software Engineering reduziert vor allem die Ausführungsphase des „decide–execute–deliver“-Modells, während Entscheidungsfindung und Ergebnisverantwortung weitgehend menschliche Domäne bleiben. Beispiele von Unternehmen wie Block (4.000 Jobs), Snap (1.000 Jobs) und Intuit (3.000 Jobs) zeigen, dass als Ursache von Stellenkürzungen oft finanzielle Zwänge und strukturelle Umstrukturierungen angegeben werden – nicht die reine Überlegenheit von KI. Studien, etwa von der Federal Reserve, weisen darauf hin, dass Softwareingenieure trotz eines um rund 3 Prozentpunkten verlangsamten Wachstums weiterhin verstärkt nachgefragt werden, was durch die Elastizität der Softwareproduktion begünstigt wird. Zudem fallen Praktiken wie „vibe coding“ und die größere Realität der „agentic engineering“ als Basis für zuverlässige Softwareentwicklung ins Gewicht, was belegt, dass menschliche Expertise bei komplexen Entscheidungen und der Überwachung von KI-generierten Lösungen unverzichtbar bleibt.</div>
+        <a href="https://www.normaltech.ai/p/why-ai-hasnt-replaced-software-engineers" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Publishing WASM wheels to PyPI for use with Pyodide</div>
+        <div class="article-date">13.06.2026</div>
+        <div class="article-summary">Pyodide 314.0 ermöglicht das direkte Veröffentlichen von WASM Wheels auf PyPI, was bisherigen manuellen Aufwand bei über 300 Paketen beendet. Mit Unterstützung des in PEP 783 definierten PyEmscripten-Plattformstandards können Entwickler jetzt ihre Pakete, ähnlich wie native Wheels für Linux, macOS oder Windows, publizieren. Beispielhaft zeigt das Projekt luau-wasm, das als 276KB großes Wheel (luau_wasm-0.1a0-cp314-cp314-pyemscripten_2026_0_wasm32) erfolgreich über GitHub Actions und cibuildwheel erstellt wurde. Eine BigQuery-Analyse identifiziert derzeit 28 Pakete auf PyPI, die den neuen pyemscripten_202*_wasm32-Tag verwenden.</div>
+        <a href="https://simonwillison.net/2026/Jun/13/publishing-wasm-wheels/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Windsurf Announcements (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Introducing Security in Devin Review</div>
+        <div class="article-date">18.06.2026</div>
+        <div class="article-summary">Devin Review analysiert jeden Pull Request mit der Präzision eines spezialisierten Sicherheitsexperten und identifiziert dabei sowohl offensichtliche als auch komplexe Logikfehler, wie etwa fehlende Autorisierungsprüfungen oder falsch implementierte Geschäftslogik, die in traditionellen, signaturbasierten Scannern oft unbemerkt bleiben. Die integrierte Sicherheitsüberprüfung arbeitet direkt im gewohnten Code-Review-Workflow, sodass Entwickler keinerlei zusätzliche Tools verwenden oder zwischen Umgebungen wechseln müssen. Für jeden gefundenen Fehler liefert Devin nicht nur eine Kategorisierung inklusive CWE-ID, sondern generiert auch einen konkreten Fix, der als merge-ready Pull Request eingereicht wird. Sicherheitslücken werden so unmittelbar innerhalb desselben Workflows adressiert, was der wachsenden Codebasis und den steigenden Entwicklungsgeschwindigkeiten gerecht wird.</div>
+        <a href="https://codeium.com/blog/security-in-devin-review" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+
+</body>
+</html>
