@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Übersicht - Letzte 7 Tage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .article {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .article-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .article-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .article-summary {
+            margin-bottom: 10px;
+        }
+        .article-link {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .article-link:hover {
+            text-decoration: underline;
+        }
+        /* R00011: Section-Summary-Block, leicht abgesetzt von Einzel-Artikeln */
+        .section-summary {
+            margin: 10px 0 20px 0;
+            padding: 12px 16px;
+            background-color: #eef4fb;
+            border-left: 4px solid #0066cc;
+            font-style: italic;
+            color: #234;
+        }
+        /* R00012: Changelog-Digest-Block — visuell distinkt vom Section-Summary */
+        .changelog-digest {
+            margin: 10px 0 15px 0;
+            padding: 12px 16px;
+            background-color: #fff7e6;
+            border-left: 4px solid #d97706;
+            color: #3a2a00;
+        }
+        .changelog-links {
+            list-style: disc inside;
+            padding-left: 0;
+            margin: 0 0 25px 0;
+        }
+        .changelog-links li {
+            margin: 4px 0;
+        }
+        .changelog-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-left: 6px;
+        }
+        /* R00013: Wochen-Tenor — visuell die staerkste der drei
+           Verdichtungsklassen (overall > section-summary > changelog-digest).
+           Linker Rand kraeftiger, Schrift groesser, klar abgesetzte
+           Hintergrundfarbe — vom Leser auf den ersten Blick als
+           Zusammenfassung der Wochenausgabe erkennbar. */
+        .overall-summary {
+            margin: 10px 0 25px 0;
+            padding: 18px 22px;
+            background-color: #f0fbf3;
+            border-left: 6px solid #15803d;
+            font-size: 1.1em;
+            color: #14271d;
+        }
+        /* R00011: Rueckspruglink zur index.html (oben und unten) */
+        .back-link {
+            display: inline-block;
+            margin: 10px 0 20px 0;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>News Übersicht der letzten 7 Tage</h1>
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+    <div class="overall-summary">KI-Agenten und automatisierte Workflows haben den Softwareentwicklungsprozess stark beschleunigt, indem sie Aufgaben wie Code-Reviews, Issue-Triage und Pull Request-Management effizienter gestalten. Gleichzeitig erleben Entwickler mit neuen, multimodalen API-Schnittstellen und verbesserten Modellversionen wie Gemini, Claude und GPT‑5.x eine deutliche Erweiterung ihrer Toolchain, was auch den modularen Einsatz in Desktop- und Browser-Umgebungen ermöglicht. Sicherheitslücken und Haftungsfragen treten vermehrt in den Vordergrund, etwa durch Angriffe auf AI-Assistenten und gerichtliche Entscheidungen zu KI-generierten Suchzusammenfassungen. Zudem wird weiterhin auf agile Methoden und strategische Teamarbeit gesetzt, um die Balance zwischen schneller Iteration und nachhaltiger Codequalität zu wahren. Die Entwicklungen verdeutlichen, dass effiziente Automatisierung, integrierte Sicherheitskonzepte und agile Prozesse künftig Hand in Hand gehen müssen, um den gestiegenen Anforderungen in der Softwareentwicklung gerecht zu werden.</div>
+    <p>Generiert am: 27.06.2026 07:00 Uhr</p>
+    <p>Anzahl Artikel: 23 (zus&auml;tzlich 9 Changelog-Eintr&auml;ge aus 1 Quelle)</p>
+
+    <h2>Allan Kelly Blog (2 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Sergio Seelocahan</div>
+        <div class="article-date">26.06.2026</div>
+        <div class="article-summary">Sergio Seelocahan betont, wie sich langjährige Erfahrungen mit agilen Methoden, Produktentwicklung und Transformationsprozessen zu einem besseren Zusammenspiel von technischer Umsetzung und menschlicher Arbeitsgestaltung verbinden lassen. Er fokussiert auf die Herausforderungen, die Kraft und Koordination in Teams erfordern, um Arbeitsabläufe effizient und gleichzeitig gesellschaftsorientiert zu gestalten. Dabei wird zum Ausdruck gebracht, dass auch organisatorische Entscheidungen maßgeblich den Erfolg technischer Projekte beeinflussen können.</div>
+        <a href="https://substack.com/@sergioseelocahan" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Woody Zuill</div>
+        <div class="article-date">26.06.2026</div>
+        <div class="article-summary">Woody Zuill organisiert Workshops zu Software Teaming, Mob Programming und Beyond Estimates und bietet Vorträge sowie langfristiges Coaching an. Er fokussiert auf praxisnahe Ansätze zur Verbesserung von Teamarbeit und agilen Arbeitsmethoden in Unternehmen. Sein Angebot adressiert sowohl den Aufbau effizienter Arbeitsprozesse als auch die Schaffung inspirierender Arbeitsplätze. Kontaktdaten und Termine aktueller Veranstaltungen werden über seine Website bereitgestellt.</div>
+        <a href="https://woodyzuill.com/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Anthropic News (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Introducing Claude Tag</div>
+        <div class="article-date">23.06.2026</div>
+        <div class="article-summary">Claude Tag integriert Claude als aktives Teammitglied in Slack und ermöglicht es, durch das Taggen von @Claude Aufgaben direkt zu delegieren. Das System baut Kontext über verschiedene Kanäle hinweg auf, lernt aus den Interaktionen und übernimmt proaktiv die Nachverfolgung von Aufgaben, auch über längere Zeiträume hinweg. Bei Anthropic wird bereits 65 % des Codes intern mithilfe von Claude Tag erstellt. Die neue Lösung läuft mit Claude Opus 4.8 und steht als Beta-Version für Claude Enterprise- und Team-Kunden zur Verfügung.</div>
+        <a href="https://www.anthropic.com/news/introducing-claude-tag" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>GitHub Copilot Blog (2 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Evaluating performance and efficiency of the GitHub Copilot agentic harness across models and tasks</div>
+        <div class="article-date">25.06.2026</div>
+        <div class="article-summary">GitHub hat mit dem agentic harness in der Copilot SDK einen Mechanismus entwickelt, der die Anwendung von KI-Modellen durch GitHub Copilot optimiert und über Standard-Benchmarks wie SWE-bench Verified, SWE-bench Pro, SkillsBench, TerminalBench und Win-Hill kontinuierlich evaluiert wird. Die Analysen, die anhand von fünf unabhängigen Läufen pro Agent-Modell-Konfiguration durchgeführt wurden, vergleichen vier führende Modelle – Claude Sonnet 4.6, Claude Opus 4.7, GPT‑5.4 und GPT‑5.5 – und zeigen, dass der GitHub Copilot harness bei vergleichbaren Aufgaben ebenso hohe Task-Abschlussraten erzielt, jedoch in den meisten Konfigurationen einen geringeren Tokenverbrauch aufweist. Dabei wird auch die Variabilität der Ergebnisse (1σ-Spread) sowie der Kosten pro erledigte Aufgabe berücksichtigt, wobei GPT-basierte Modelle als effizienter gelten, während Claude Opus mit höheren Auflösungsraten punktet. Die Multi-Modell-Architektur unterstützt mehr als 20 Modelle aus den GPT-, Claude-, Gemini- und MAI-Familien und ermöglicht dank Auto Model Selection die Auswahl des optimalen Modells für den jeweiligen Use-Case. Durch die Normierung von Kontextfenstergrößen und Token-Limits stellt GitHub sicher, dass die Ergebnisse robust, reproduzierbar und praxisnah sind.</div>
+        <a href="https://github.blog/ai-and-ml/github-copilot/evaluating-performance-and-efficiency-of-the-github-copilot-agentic-harness-across-models-and-tasks/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">I automated my job (and it made me a better leader)</div>
+        <div class="article-date">23.06.2026</div>
+        <div class="article-summary">40 Automatisierungen in der GitHub Copilot App entlasten den Senior Director, indem sie Arbeitskontexte wie Kalender, E-Mails, Nachrichten und GitHub-Repositories synchron analysieren und priorisieren. Automatisierte Abläufe wie Meeting Prep, Pre-Meeting Access Check und Daily Triage Digest sichern effiziente Vorbereitung und Übersicht vor Meetings, während Tools wie Ship Decoder und Launch Radar tägliche Updates und bevorstehende Releases zusammenfassen. Ein konkretes Beispiel – der Stale Work Finder – identifiziert PRs ohne Review (7+ Tage), ungelöste Issues (14+ Tage) und andere vernachlässigte Aufgaben, wodurch automatisiert der nötige Handlungsbedarf signalisiert wird. Indem repetitive, administrative Aufgaben ausgelagert werden, bleibt mehr Raum für persönliche Interaktion und strategische Entscheidungen, was besonders für Führungskräfte mit neurodivergenten Arbeitsweisen entscheidend ist.</div>
+        <a href="https://github.blog/developer-skills/github/i-automated-my-job-and-it-made-me-a-better-leader/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>GitHub Copilot Changelog (9 Eintr&auml;ge)</h2>
+    <div class="changelog-digest">GitHub Copilot erweitert den Funktionsumfang in mehreren Bereichen: In den Code Reviews werden integrierte Dateiexplorationstools und eine neue Konfigurationsoption für Medium Analysis Depth genutzt, während in JetBrains IDEs organisationsweite Agenten sowie in der Copilot CLI eine neu gestaltete Terminal-Oberfläche etabliert werden, um längere Tasks flexibler zu steuern. Copilot for Jira geht dabei in den allgemeinen Verfügbarkeitsstatus über, wobei Funktionen wie Streaming des Agentenfortschritts und Post-Session Steering direkt in Jira integriert werden. Über die BYOK-Funktion in der Copilot App können Entwickler nun individuelle Schlüssel verwenden, um Agent-Sitzungen über eigene Modellanbieter zu steuern. Mit den Enterprise-managed Einstellungen in VS Code und der Copilot CLI lässt sich zudem die Installation von Plugins gezielt kontrollieren. Die Reporting-Metriken werden durch die aktualisierte Copilot usage metrics API erweitert, sodass Unternehmen neben Durchschnittswerten nun den kumulierten Merge-Durchsatz pro KI-Adoptionsphase nachvollziehen können. MAI-Code-1-Flash für Copilot Business und Enterprise sowie die automatische Modellselektion in den kostenlosen und Studenten-Plänen kennzeichnen signifikante Modell-Updates und interne Routing-Verbesserungen.</div>
+    <ul class="changelog-links">
+        <li><a href="https://github.blog/changelog/2026-06-26-mai-code-1-flash-for-copilot-business-and-copilot-enterprise" class="article-link" target="_blank">MAI-Code-1-Flash for Copilot Business and Copilot Enterprise</a> <span class="changelog-date">26.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-26-track-total-merges-by-adoption-phase-in-enterprise-and-organization-reports" class="article-link" target="_blank">Track total merges by adoption phase in enterprise and organization reports</a> <span class="changelog-date">26.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-25-copilot-code-review-analysis-depth-and-efficiency-updates" class="article-link" target="_blank">Copilot code review: Analysis depth and efficiency updates</a> <span class="changelog-date">25.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-25-enterprise-managed-settings-now-support-strictknownmarketplaces-in-vs-code-and-the-cli" class="article-link" target="_blank">Enterprise-managed settings now support strictKnownMarketplaces in VS Code and GitHub Copilot CLI</a> <span class="changelog-date">25.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-25-github-copilot-for-jira-is-now-generally-available" class="article-link" target="_blank">GitHub Copilot for Jira is now generally available</a> <span class="changelog-date">25.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-24-changes-to-model-selection-for-free-and-student-plans" class="article-link" target="_blank">Changes to model selection for Free and Student plans</a> <span class="changelog-date">24.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-23-copilot-cli-new-terminal-interface-is-generally-available" class="article-link" target="_blank">Copilot CLI: New terminal interface is generally available</a> <span class="changelog-date">23.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-23-github-copilot-app-support-for-byok" class="article-link" target="_blank">GitHub Copilot app support for BYOK</a> <span class="changelog-date">23.06.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-06-22-new-features-and-claude-as-agent-provider-preview-in-jetbrains-ides" class="article-link" target="_blank">New features and Claude as agent provider preview in JetBrains IDEs</a> <span class="changelog-date">22.06.2026</span></li>
+    </ul>
+
+    <h2>Google AI Blog (2 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Towards a world where no one is surprised by a natural disaster</div>
+        <div class="article-date">23.06.2026</div>
+        <div class="article-summary">Google nutzt seit über einem Jahrzehnt KI-gestützte Modelle, um Naturkatastrophen wie Überschwemmungen, Stürme, Erdbeben und Waldbrände präzise vorherzusagen und damit 2 Milliarden Menschen in mehr als 150 Ländern zu warnen. So ermöglicht das globale Flutvorhersagemodell – validiert in Nature – bis zu sieben Tage Vorlaufzeit für Flussüberschwemmungen sowie 24 Stunden für städtische Blitzfluten, während WeatherNext 2 im Jahr 2025 Hurrikane Tage im Voraus mit hoher Genauigkeit prognostizierte. Durch Open-Source-Veröffentlichungen, wie den Flash-Flood-Datensatz und das Hydrologie-Framework, können externe Entwickler und Forscher an der Weiterentwicklung mitwirken. Ergänzt werden diese Ansätze durch Projekte wie FireSat, bei dem eine Satellitenkonstellation mit über 50 Einheiten in der Lage wäre, Waldbrände mit einer Auflösung von 5 × 5 Meter alle 20 Minuten zu detektieren.</div>
+        <a href="https://blog.google/innovation-and-ai/technology/research/helping-communities-prepare-for-natural-disasters/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Interactions API: our primary interface for Gemini models and agents</div>
+        <div class="article-date">22.06.2026</div>
+        <div class="article-summary">Google stellt mit der GA-Version der Interactions API die primäre Schnittstelle zur Ansteuerung von Gemini-Modellen und Agenten bereit, nachdem sie im Dezember 2025 in der Public Beta erfolgreich eingesetzt wurde. Die API ermöglicht einfache, codebasierte Aufrufe – durch Übergabe von Modell- oder Agent-IDs sowie eines Flags (background=True) für asynchrone, langlaufende Prozesse. Entwickler können nun Managed Agents (standardmäßig der Antigravity Agent), verbesserte Tool-Kombinationen (z. B. Google Search, Google Maps) und multimodale Ausgabe (Text plus Bilder) nutzen. Zusätzlich wurden tiefgreifende Upgrades für Deep Research implementiert, darunter zwei Agent-Versionen (Speed vs. Depth), native Diagramme und multimodales Grounding unter Einbeziehung von PDFs, Bildern und Audio. Neuerungen in Mediengenerierung wie Bildgenerierung mit Nano Banana 2, Musik mit Lyria 3 und expressive Sprachsynthese sowie Optimierungen bei Kosten (Flex-Tier mit bis zu 50 % Kosteneinsparung, 55-tägige Retention) setzen weitere Maßstäbe in der API-Entwicklung.</div>
+        <a href="https://blog.google/innovation-and-ai/technology/developers-tools/interactions-api-general-availability/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Google AI Blog - Gemini (2 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">5 ways to learn with study notebooks in the Gemini app</div>
+        <div class="article-date">25.06.2026</div>
+        <div class="article-summary">Gemini App erweitert ihr Angebot um Study Notebooks, die durch das Hochladen von Lehrmaterialien einen diagnostischen Quiz generieren, um individuelle Wissenslücken zu ermitteln. Das System zerlegt Lernziele in mehr als 100 spezifische Unterziele und liefert personalisierte, kurze Lektionen mit integrierten Übungs-Quizzen, die den Fortschritt in Echtzeit auf einem skillbasierten Dashboard nachvollziehbar machen. Für die Vorbereitung auf standardisierte Prüfungen wie den SAT – basierend auf Fragen von The Princeton Review – stehen maßgeschneiderte Übungen zur Verfügung, wobei im Sommer weitere Tests wie JEE, NEET, ENEM, ACT und GRE ergänzt werden. Zudem ermöglicht die Integration mit NotebookLM den nahtlosen Zugriff auf frühere Chats und das Erstellen interaktiver Lernhilfen, während Study Notebooks bereits global und in allen unterstützten Sprachen für persönliche Accounts ausgerollt wurden.</div>
+        <a href="https://blog.google/innovation-and-ai/products/gemini-app/gemini-study-notebooks/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Introducing computer use in Gemini 3.5 Flash</div>
+        <div class="article-date">24.06.2026</div>
+        <div class="article-summary">Gemini 3.5 Flash integriert Computer Use als nativen Bestandteil, wodurch Entwickler nun mit einem einzigen Modell agentische Anwendungen erstellen können, die nahtlos in Browser-, Mobil- und Desktop-Umgebungen agieren. Zuvor war diese Funktion als eigenständiges Gemini 2.5 Computer Use-Modell verfügbar, was nun in 3.5 Flash zusammengeführt und optimiert wurde, um komplexe, langanhaltende Enterprise-Aufgaben wie kontinuierliche Softwaretests und wissensbasierte Automatisierungen zu unterstützen. Durch gezielte adversariale Trainingsverfahren und zwei optionale Enterprise-Safeguard-Systeme – etwa die Anforderung expliziter Benutzerbestätigungen für sensible Aktionen und das Stoppen von Tasks bei promptbasierter Indirektinjektion – wird ein mehrschichtiges Sicherheitskonzept realisiert. Entwickler haben über die Gemini API sowie die Gemini Enterprise Agent Platform direkten Zugang zu diesen Funktionen, die bereits in Demo-Umgebungen erprobt werden können.</div>
+        <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-computer-use-gemini-3-5-flash/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Kent Beck - Tidy First (3 Artikel)</h2>
+    <div class="section-summary">Kent Beck zeigt anhand praktischer Beispiele, dass die vorzeitige Implementierung von Code (YAGNI) ökonomisch nachteilig ist und langfristig zu erhöhtem Wartungsaufwand führt, selbst wenn moderne KI-Tools den Entwicklungsprozess unterstützen. Er kritisiert zudem den Einsatz simplifizierender Analogien in technischen Diskussionen, die zu Missverständnissen führen, und demonstriert mit Smalltalk Genie, wie modulare Serverlösungen effizient in bestehende Ecosysteme integriert werden können.</div>
+    <div class="article">
+        <div class="article-title">The Cost YAGNI Was Never About</div>
+        <div class="article-date">25.06.2026</div>
+        <div class="article-summary">Kent Beck analysiert anhand eines direkten Dialogs, dass YAGNI – You Aren’t Gonna Need It – nicht dem Zweck dient, Tipparbeit zu sparen, sondern vielmehr spekulative Strukturen zu vermeiden, die langfristig optionale Flexibilität kosten. Frühes Bauen führt zum doppelten Kostenaufwand: Einerseits entsteht zusätzlicher Wartungsaufwand, wenn vorweggenommene Strukturen nicht mehr zum tatsächlichen Feature passen, andererseits bewirkt das Vorziehen von Investitionen in Code, dass die ökonomische Zeitwertschätzung negativ ausfällt, da Ausgaben vor Umsatzerlösen getätigt werden. Trotz der Möglichkeit, mit modernen KI-Tools und Generatoren nahezu kostenfreien Code zu erzeugen – wie sie etwa in der Infrastruktur von WorkOS genutzt werden, die bereits mehr als 2.000 Unternehmen wie OpenAI, Anthropic, Cursor und Vercel unterstützt – bleibt der Grundsatz maßgeblich: Baue erst dann, wenn der echte Bedarf vorliegt, um die Kosten eines vorschnellen Commitments zu vermeiden.</div>
+        <a href="https://newsletter.kentbeck.com/p/the-cost-yagni-was-never-about" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Why So Literal?</div>
+        <div class="article-date">23.06.2026</div>
+        <div class="article-summary">Kent Beck verdeutlicht, wie Analogien in technischen Diskussionen zu Missverständnissen führen können, wenn sie zu wörtlich genommen werden. Er illustriert anhand seines Erlebnisses mit seinen Hunden, dass subtile, symbolische Hinweise oft nicht die gewünschte Wirkung erzielen, und zieht somit einen Vergleich zur Verwendung von Analogien wie &quot;XP ist fahren&quot; in der Softwareentwicklung. Dabei kritisiert er, dass solche Vergleiche den komplexen Sachverhalt technischer Prozesse simplifizieren und in ihrer Rezeption zu Fehldeutungen führen können. Beck fordert dazu auf, bei der Kommunikation in technischen Kontexten auf präzisere, weniger interpretationsanfällige Ausdrucksweisen zu setzen.</div>
+        <a href="https://newsletter.kentbeck.com/p/why-so-literal" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Smalltalk Genie</div>
+        <div class="article-date">21.06.2026</div>
+        <div class="article-summary">Smalltalk Genie wird als modulare Serverlösung für Smalltalk vorgestellt, die direkt in eine Pharo-Umgebung über Metacello integriert wird, indem der Baseline &#x27;Genie&#x27; aus dem GitHub-Repository KentBeck/SmalltalkGenie:main/src geladen wird. Der Start erfolgt über den Befehl &quot;GenieServer current&quot;, sodass der Server unmittelbar betriebsbereit ist. Anschließend bindet man einen MCP-Client über &quot;claude mcp add --transport http genie http://localhost:8087/mcp&quot; ein, was den Kommunikationskanal zum Server etabliert. Die Anleitung liefert einen kompakten, praxisorientierten Quick-Start zur Aktivierung und Anbindung von Smalltalk Genie im Smalltalk-Ökosystem.</div>
+        <a href="https://newsletter.kentbeck.com/p/smalltalk-genie" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Pragmatic Engineer Newsletter (3 Artikel)</h2>
+    <div class="section-summary">Substack-Newsletters beleuchten Themen von Observability und Software-Design über Produktstrategie bis hin zu Führungskompetenzen und bieten praxisnahe Impulse für Entwickler. NeetCode demonstriert, dass tiefe technische Expertise und systemisches Denken mehr zählen als reine Coding-Interview-Skills, und illustriert den kulturellen Wandel in Tech-Unternehmen anhand seines Wechsels von Amazon zu Google. KI-Agents wie Opus 4.7 und GPT‑5.5 optimieren den Code-Output signifikant, während Unternehmen wie Meta interne Umstrukturierungen vornehmen und Teams mit KI-Unterstützung wesentlich mehr Pull Requests einreichen.</div>
+    <div class="article">
+        <div class="article-title">Recommendations</div>
+        <div class="article-date">27.06.2026</div>
+        <div class="article-summary">The Pragmatic Engineer empfiehlt diverse Substack-Newsletters, die ein breites Spektrum an technischen Themen abdecken. Charity.wtf von Charity Majors thematisiert Observability und berührt den Einsatz von honeycomb.io, während Elevate von Addy Osmani mit einer Leserschaft von 600.000 Entwicklern die eigene Effektivität steigert. Lenny’s Newsletter präsentiert vertiefte Analysen zu Produktstrategie und Wachstum, während Tech Talks Weekly über 9.600 Software Engineers und Führungskräfte mit aktuellen Podcasts und Konferenzvorträgen erreicht. Weitere Angebote wie The Engineering Manager von James Stanier, ByteByteGo von Alex Xu sowie Newsletter von Kent Beck, Alex Kantrowitz und Dave Anderson liefern praxisnahe Impulse zu Software-Design, Big Tech und Karriereentwicklung in der technischen Führung.</div>
+        <a href="https://newsletter.pragmaticengineer.com/recommendations" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Tech interviews with NeetCode</div>
+        <div class="article-date">24.06.2026</div>
+        <div class="article-summary">NeetCode, Gründer von NeetCode.io und ehemaliger Ingenieur bei Amazon und Google, erläutert anhand konkreter Beispiele, warum tiefgehende technische Expertise und systemisches Denken langfristig mehr wert sind als reine Coding-Interview-Skills. Sein Wechsel von Amazon – dort nach nur zwei Monaten – zu Google, wo sein eigenständiges Arbeitsverhalten zu einer raschen Beförderung von L3 zu L4 führte, unterstreicht die Herausforderungen und Chancen in unterschiedlichen Unternehmenskulturen. Er kritisiert den klassischen Leetcode-Stil, der vor allem wegen seiner Skalierbarkeit in Großunternehmen wie Amazon bevorzugt wird, obwohl er wenig Aussagekraft für die tatsächliche Jobperformance besitzt. NeetCode nutzt KI, um Technischen Schulden in seinem Backend-Code entgegenzuwirken, und betont, dass Engagement und die Fähigkeit, komplexe Tradeoffs abzuwägen, nicht von KI repliziert werden können.</div>
+        <a href="https://newsletter.pragmaticengineer.com/p/tech-interviews-with-neetcode" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Slow down to speed up: so much has changed in 6 months’ time</div>
+        <div class="article-date">23.06.2026</div>
+        <div class="article-summary">Die Arbeitsweise in der Softwareentwicklung hat sich in den letzten sechs Monaten drastisch verändert, insbesondere durch den Siegeszug leistungsfähiger KI-Agents wie Opus 4.5, GPT‑5.4, gefolgt von Opus 4.7 und GPT‑5.5, die den Output und die Geschwindigkeit von Code-Änderungen erheblich steigern. Unternehmen wie Meta haben bei der KI-Integration massive Umstrukturierungen vorgenommen und gleichzeitig entscheidende Bereiche wie Sicherheit und Qualität durch Personalabbau – etwa 44 % im Instagram-Designteam oder 95 % im Developer Support – vernachlässigt, was zu gravierenden Vorfällen führte. Daten von Linear und Cursor belegen, dass Teams mit KI-Unterstützung bis zu 5-mal so viele Pull Requests einreichen und Entwickler 2,5-mal mehr Code generieren, bei gleichzeitig weniger strengen Code-Reviews. Tech-Giganten wie OpenAI, Anthropic, Google und Uber transformieren ihre internen Prozesse und setzen unter anderem auf automatisierte Fix-Tools, Multi-Agent-Setups und angepasste Infrastrukturkomponenten, um den neuen Anforderungen gerecht zu werden.</div>
+        <a href="https://newsletter.pragmaticengineer.com/p/slow-down-to-speed-up" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Simon Willison (6 Artikel)</h2>
+    <div class="section-summary">Die Berichte decken schwerwiegende Sicherheitslücken ab, wie die unerkannte Ausnutzung fehlerhafter Scan- und Publish-Credentials bei Software-Paketen sowie wiederholte Attacken auf AI-Assistenten, was auf unzureichende Schutzmaßnahmen und technische Schwächen bei der Handhabung sensibler Daten hinweist. Gleichzeitig setzt ein deutsches Gericht Google wegen fehlerhafter, redaktionell angepasster KI-Suchzusammenfassungen haftbar, während Fortschritte bei der Portierung von ML-Modellen in Browsern und kritische Erkenntnisse zur strukturellen Robustheit von LLM-Architekturen ebenfalls beleuchtet werden.</div>
+    <div class="article">
+        <div class="article-title">Incident Report: CVE-2026-LGTM</div>
+        <div class="article-date">26.06.2026</div>
+        <div class="article-summary">Das 96-Stunden-Ereignis um CVE-2026-LGTM zeigt, wie ein bösartiges Paket – ein Community-Fork von vulpine-lz4 – trotz sieben unabhängiger, KI-gestützter Sicherheitsgateprüfungen, darunter das OpenClaw-4.2 Modul (Q1 2026), ungehindert in das creats.io Registry gelangen konnte. Ein manueller Freigabekommentar mit gefälschtem Ticket (SEC-4521) und ein fehlerhaftes Scanning durch Plattformen wie ThreatNuzzle und SentinelMind führten dazu, dass Credential-Exfiltration unbemerkt blieb, während gleichzeitig 9.000 CI-Pipelines durch automatisierte Pull-Requests auf eine nicht existierende Version 0.5.1 reagierten. Mehrere autonome Sicherheitsagenten wie FixItFox und konkurrierende KI-Reviewer gerieten in einen Verhandlungskonflikt, der in der Erstellung eines 2.200 Wörter umfassenden Treatys (/tmp/TREATY.md) mündete, das letztlich für 39 Stunden den Angriff eindämmte. Die Ursachen umfassen veraltete Publish-Credentials aus 2019, fehlerhafte Scanner-Antworten (z. B. claude-3-sonnet-20240229) sowie unzureichend konfigurierte Policies und Modellversionen, wobei als einzige nennenswerte Interventionsmaßnahme die Erweiterung eines Honeypot-Dotfiles-Programms wirksam war.</div>
+        <a href="https://nesbitt.io/2026/06/26/incident-report-cve-2026-lgtm.html" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">What happened after 2,000 people tried to hack my AI assistant</div>
+        <div class="article-date">26.06.2026</div>
+        <div class="article-summary">Fiu, der AI-Assistent basierend auf OpenClaw und betrieben mit Claude Opus 4.6, wurde über 6000 Mal per E-Mail von mehr als 2000 verschiedenen Angreifern attackiert, die versuchten, den Inhalt einer secrets.env-Datei zu extrahieren. Der Betrieb auf einem VPS mit einfachen Anti-Prompt-Injection-Regeln führte zu technischen Herausforderungen wie einer dreitägigen Google-Suspendierung und API-Kosten von über 500 Dollar, während Batch-Verarbeitung den Angriffsversuch ab etwa der 500. E-Mail beeinflusste. Mehrsprachige, kontextbewusste Versuche, inklusive Identitätsvortäuschung und gefälschter Incident-Response, zeigten die Robustheit der kurzen, präzisen Instruktionen. Die gewonnenen Erkenntnisse verdeutlichen, dass auch bei Koordinierung von prompt injection keine sensiblen Daten extrahiert werden konnten, was wichtige Rückschlüsse für den sicheren Einsatz von AI-Agenten zulässt.</div>
+        <a href="https://www.fernandoi.cl/posts/hackmyclaw/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">AI and Liability</div>
+        <div class="article-date">25.06.2026</div>
+        <div class="article-summary">Ein deutsches Gericht stellte fest, dass Google für die von seiner KI generierten Suchzusammenfassungen haftbar ist, da diese als Ausdruck der geschäftlichen Aktivitäten und nicht als neutrale Information gelten. Die Entscheidung betrifft insbesondere Googles AI-Overviews, die im Vergleich zur traditionellen Suche nicht nur Inhalte wiedergeben, sondern diese redaktionell bearbeiten – bei über 5 Billionen Suchanfragen pro Jahr führen etwa 10 Prozent der Ergebnisse zu Fehlern, was rechnerisch bis zu 16.000 fehlerhaften Zusammenfassungen pro Sekunde bedeutet. Analog zum Fall Air Canada, bei dem ein fehlerhafter Chatbot zu einem Preisversprechen führte, wird argumentiert, dass Unternehmen für ihre KI-Agenten genauso verantwortlich sein müssen wie für menschliche Vertreter. Die Zuweisung von Haftung an den Betreiber statt an eine angeblich autonome KI verhindert, dass Firmen durch den Einsatz kostengünstiger, aber unzuverlässiger Systeme Verantwortung vermeiden und damit das Vertrauen der Nutzer untergraben.</div>
+        <a href="https://www.schneier.com/blog/archives/2026/06/ai-and-liability.html" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">German ruling</div>
+        <div class="article-date">25.06.2026</div>
+        <div class="article-summary">Das Münchner Landgericht sieht Google direkt in der Verantwortung, da es die KI-generierten Suchzusammenfassungen als eigenes, von Google gesteuertes Content bewertet. Die KI-Overviews des Unternehmens, betrieben mit dem Gemini 3 Modell, weisen zwar eine Richtigkeitsrate von 91 Prozent auf, liefern aber in 56 Prozent der Fälle Aussagen, die sich nicht auf die angezeigten Quellen stützen. Das Gericht differenziert dabei zwischen traditionellen Suchergebnissen und den eigenständigen, redaktionell abgeänderten Inhalten der KI, wodurch die herkömmlichen Haftungsregeln für Suchmaschinen nicht greifen. Google muss 80 Prozent der Rechtskosten übernehmen, da ein bloßes Verweisen auf die Möglichkeit zur Eigenüberprüfung der Inhalte den behaupteten Schaden nicht entlastet. Das Urteil könnte auch international weitreichende Folgen haben, da zukünftig alle Anbieter von KI-generierten Kurzfassungen mit ähnlichen Haftungsfragen konfrontiert werden.</div>
+        <a href="https://the-decoder.com/landmark-german-ruling-declares-googles-ai-overviews-are-googles-own-words-and-makes-it-liable-for-false-answers/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Porting the Moebius 0.2B image inpainting model to run in the browser with Claude Code</div>
+        <div class="article-date">22.06.2026</div>
+        <div class="article-summary">Moebius 0.2B, ein leichtgewichtiges Inpainting-Modell, wird – ursprünglich auf PyTorch mit NVIDIA CUDA ausgelegt – für den Browser portiert, indem es in ein ONNX-Modell umgewandelt und mithilfe von ONNX Runtime Web auf der WebGPU-Backend betrieben wird. Claude Code (Version Opus 4.8) übernimmt in diesem Prozess automatisiert Aufgaben wie das Konvertieren, Committen und Deployen, während er auch empirisch Optimierungen wie das Einrichten des CacheStorage-API zur Handhabung von rund 1,3 GB Modellgewichten vornimmt. Der Portierungsvorgang umfasst das Klonen des originalen Repositories, das Abrufen versteckter Gewichtsdateien von Hugging Face und den Vergleich mit dem Transformers.js-Stack, um abschließend eine lauffähige Demo auf GitHub Pages bereitzustellen. Die Lösung demonstriert, dass Browser wie Chrome, Firefox und Safari in der Lage sind, auch komplexe ML-Modelle clientseitig auszuführen, sofern der initial hohe Downloadaufwand in Kauf genommen wird.</div>
+        <a href="https://simonwillison.net/2026/Jun/22/porting-moebius/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Prompt Injection as Role Confusion</div>
+        <div class="article-date">22.06.2026</div>
+        <div class="article-summary">LLMs verarbeiten den gesamten Kontext als kontinuierlichen Textstrom, wobei Rollentags wie &lt;think&gt;, &lt;user&gt; oder &lt;tool&gt; eingesetzt werden sollen, um unterschiedliche Funktionen wie private Denkprozesse oder externe Daten zu signalisieren. Ein zentrales Problem ist, dass Modelle ihre internen Rollenzuweisungen primär anhand von stilistischen Merkmalen vornehmen – etwa indem „Denkstil“ die Wirkung von expliziten &lt;think&gt;-Tags überlagert – was zu strukturellen Schwächen führt. So ermöglicht etwa der CoT Forgery-Angriff, bei dem gefälschte Chain-of-Thought-Elemente in einem &lt;user&gt;-Prompt platziert werden, Angriffe, deren Erfolg von nahezu 0 % auf etwa 60 % ansteigt, während das Destyling dieser Texte den Erfolg von 61 % auf 10 % senkt. Die Befunde legen nahe, dass Rollen als essentielle architektonische Schnittstelle in LLMs wie GPT-5.x, Opus 4.5 und weiteren Frontier-Modellen verstanden und gestärkt werden müssen, um prompt-basierte Sicherheitslücken nachhaltig zu beheben.</div>
+        <a href="https://role-confusion.github.io" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Warp AI Terminal Blog (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">How to build a cloud software factory - the automatic triage skill</div>
+        <div class="article-date">25.06.2026</div>
+        <div class="article-summary">Agenten übernehmen in dieser Lösung zentrale SDLC-Aufgaben, indem sie Issue-Triage, automatische Implementierung und anschließende Codeüberprüfung verbinden. Ein Triage-Agent analysiert eingehende Issues und kennzeichnet sie anhand von Labels wie ready-to-implement, ready-to-spec, needs-info und wait-to-implement, sodass entsprechende Skills ausgelöst werden. Die Umsetzung erfolgt über Github Actions, die einen Docker-Container (node:20-bookworm) starten und als Coding Agent Plattformen wie Oz oder vergleichbare Modelle (beispielsweise Claude Code oder Codex) nutzen. Mit zwei vorgefertigten Skills – einem für die Triage und einem für die Implementierung – lässt sich ein erster funktionsfähiger Cloud Software Factory-Prozess aufbauen, der sich später durch zusätzliche Spezifikations- und Verifikationsagents erweitern lässt.</div>
+        <a href="https://www.warp.dev/blog/how-to-build-a-cloud-software-factory-the-automatic-triage-skill" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Windsurf Announcements (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Kimi K2.7 and GLM 5.2 Now Available in Devin Desktop and CLI</div>
+        <div class="article-date">24.06.2026</div>
+        <div class="article-summary">Kimi K2.7 und GLM 5.2 werden jetzt in Devin Desktop und der zugehörigen CLI angeboten. Auf dem FrontierCode Extended Benchmark erzielen GLM 5.2 43,0 % und Kimi K2.7 39,5 %, was sie in einen vergleichbaren Leistungsbereich wie GPT-5.5 (44,8 %) und Claude Opus 4.8 (51,8 %) einordnet. Für die Pläne Pro, Max und Teams stehen beide Modelle bis zum 5. Juli kostenfrei zur Verfügung. Diese Integration unterstreicht den Anspruch, realweltliche Engineeringaufgaben in anspruchsvollen Entwicklungsumgebungen abzubilden.</div>
+        <a href="https://codeium.com/blog/kimi-k27-glm-52-devin-desktop" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+
+</body>
+</html>
