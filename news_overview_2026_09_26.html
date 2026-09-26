@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Übersicht - Letzte 7 Tage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .article {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .article-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .article-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .article-summary {
+            margin-bottom: 10px;
+        }
+        .article-link {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .article-link:hover {
+            text-decoration: underline;
+        }
+        /* R00011: Section-Summary-Block, leicht abgesetzt von Einzel-Artikeln */
+        .section-summary {
+            margin: 10px 0 20px 0;
+            padding: 12px 16px;
+            background-color: #eef4fb;
+            border-left: 4px solid #0066cc;
+            font-style: italic;
+            color: #234;
+        }
+        /* R00012: Changelog-Digest-Block — visuell distinkt vom Section-Summary */
+        .changelog-digest {
+            margin: 10px 0 15px 0;
+            padding: 12px 16px;
+            background-color: #fff7e6;
+            border-left: 4px solid #d97706;
+            color: #3a2a00;
+        }
+        .changelog-links {
+            list-style: disc inside;
+            padding-left: 0;
+            margin: 0 0 25px 0;
+        }
+        .changelog-links li {
+            margin: 4px 0;
+        }
+        .changelog-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-left: 6px;
+        }
+        /* R00013: Wochen-Tenor — visuell die staerkste der drei
+           Verdichtungsklassen (overall > section-summary > changelog-digest).
+           Linker Rand kraeftiger, Schrift groesser, klar abgesetzte
+           Hintergrundfarbe — vom Leser auf den ersten Blick als
+           Zusammenfassung der Wochenausgabe erkennbar. */
+        .overall-summary {
+            margin: 10px 0 25px 0;
+            padding: 18px 22px;
+            background-color: #f0fbf3;
+            border-left: 6px solid #15803d;
+            font-size: 1.1em;
+            color: #14271d;
+        }
+        /* R00014: Video-Kacheln — Nebenspur, deutlich schmaler als die
+           Artikel-Spalte, mehrere Kacheln pro Zeile. */
+        .video-tiles-heading {
+            font-size: 1.1em;
+            color: #555;
+            margin-top: 30px;
+        }
+        .video-tiles {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+        .video-tile {
+            display: block;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            overflow: hidden;
+            padding-bottom: 10px;
+            text-decoration: none;
+            color: inherit;
+            background: #fff;
+        }
+        .video-tile:hover {
+            border-color: #0066cc;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+        }
+        .video-thumb {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            background: #eee;
+        }
+        .video-title {
+            font-weight: bold;
+            font-size: 0.95em;
+            margin: 10px 10px 4px 10px;
+        }
+        .video-meta {
+            font-size: 0.8em;
+            color: #888;
+            margin: 0 10px 6px 10px;
+        }
+        .video-summary {
+            font-size: 0.85em;
+            color: #444;
+            margin: 0 10px;
+            line-height: 1.4;
+        }
+
+        /* R00011: Rueckspruglink zur index.html (oben und unten) */
+        .back-link {
+            display: inline-block;
+            margin: 10px 0 20px 0;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>News Übersicht der letzten 7 Tage</h1>
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+    <div class="overall-summary">AI-Modelle und agentenbasierte Ansätze prägen diese Woche mit umfangreichen Produktupdates, die verstärkt auf verbesserte Performance, Sicherheit und kosteneffiziente Preisstrategien setzen. Mehrere Systeme, darunter Versionen wie Claude Opus 5.5, GPT-6 Sol/Luna, Grok 4.7 und Gemini 3.8, demonstrieren signifikante Leistungssteigerungen bei komplexen Aufgaben, effizienten Code-Migrationen und erweiterten Kommunikationsfähigkeiten, während aggressive Preisanpassungen den Wettbewerb anheizen. Gleichzeitig zeigen Entwicklungen in der UI- sowie Code-Rendering-Technologie und in interaktiven Canvas-Lösungen, wie spezifische Arbeitsabläufe und Echtzeit-Kollaborationen optimiert werden können. Fortschritte in spezialisierten Anwendungsfeldern finden sich unter anderem in einem AI-gestützten enzymatischen Forschungskonzept und in präzisen Entscheidungsmodellen für Klassifikationsaufgaben. Zudem erweitern Maßnahmen im Bereich Sicherheitsüberwachung und Cloud-Integration das technische Fundament, was sowohl in der Diagnostik großer Codebasen als auch in der Bewertung kritischer Infrastrukturen Ausdruck findet.</div>
+    <p>Generiert am: 26.09.2026 07:00 Uhr</p>
+    <p>Anzahl Artikel: 20 (zus&auml;tzlich 14 Changelog-Eintr&auml;ge aus 1 Quelle) (zus&auml;tzlich 3 Videos)</p>
+
+    <h2 class="video-tiles-heading">Videos der Woche</h2>
+    <div class="video-tiles">
+        <a class="video-tile" href="https://www.youtube.com/watch?v=FXgNcAXzZwI" target="_blank" rel="noopener noreferrer">
+            <img class="video-thumb" src="https://i.ytimg.com/vi/FXgNcAXzZwI/hqdefault.jpg" alt="" loading="lazy">
+            <div class="video-title">Overwhelmed by Tech Changes? Watch This  💆‍♂️</div>
+            <div class="video-meta">Modern Software Engineering (Dave Farley) &middot; 24.09.2026</div>
+            <div class="video-summary">The continuous change in the tech industry can be overwhelming, but it&#x27;s crucial to focus on learning areas that are enjoyable or beneficial without stressing over the inability to learn everything.</div>
+        </a>
+        <a class="video-tile" href="https://www.youtube.com/watch?v=wK5WgbqtI50" target="_blank" rel="noopener noreferrer">
+            <img class="video-thumb" src="https://i.ytimg.com/vi/wK5WgbqtI50/hqdefault.jpg" alt="" loading="lazy">
+            <div class="video-title">The Last Year Has Changed Everything I Knew About TDD After 20 Years</div>
+            <div class="video-meta">Modern Software Engineering (Dave Farley) &middot; 23.09.2026</div>
+            <div class="video-summary">I&#x27;ve been practising TDD as a software engineer for over 20 years. This last year, with AI&#x27;s introduction, has changed EVERYTHING I thought I knew. Many developers are finding that their established expertise and daily workflows are under pressure as new tools change the landscape of our industry.…</div>
+        </a>
+        <a class="video-tile" href="https://www.youtube.com/watch?v=h3Ecz_0Zy0g" target="_blank" rel="noopener noreferrer">
+            <img class="video-thumb" src="https://i.ytimg.com/vi/h3Ecz_0Zy0g/hqdefault.jpg" alt="" loading="lazy">
+            <div class="video-title">The AI Blind Spot in Tech Leadership</div>
+            <div class="video-meta">Modern Software Engineering (Dave Farley) &middot; 21.09.2026</div>
+            <div class="video-summary">An identified gap in how AI is being utilized by leaders to understand and influence the development and evolution of complex systems. The potential need for AI tools to assist leaders in strategic decisions is discussed.</div>
+        </a>
+    </div>
+
+    <h2>Anthropic News (3 Artikel)</h2>
+    <div class="section-summary">Claude entdeckt ein neues, mit CRISPR vergleichbares Enzymsystem namens ART über umfangreiche AI-gestützte Analysen und führt damit experimentelle Laboruntersuchungen durch. Gleichzeitig erzielt Claude Opus 5.5 signifikante Effizienz- und Kostenvorteile in Softwareentwicklungs- und Sicherheitsbenchmarks und automatisiert datenbasierte Reaktionen beim Ebolavirus-Ausbruch in der Demokratischen Republik Kongo, wodurch präzisere Lageberichte und verbesserte logistische Planungen ermöglicht werden.</div>
+    <div class="article">
+        <div class="article-title">Science Claude discovers a novel enzyme system with CRISPR-like repeats</div>
+        <div class="article-date">23.09.2026</div>
+        <div class="article-summary">Claude identifizierte in einem von Anthropic initiierten Forschungsprogramm ein bislang unbekanntes Enzymsystem namens ART, das aus einer Reverse-Transkriptase (RT) in Jumbo-Phagen, einem assoziierten Partnergen und einer langen, gleichmäßig angeordneten DNA-Repeat-Array besteht – eine Kombination, die bisher nur in wenigen programmierbaren Systemen wie CRISPR beobachtet wurde. In einer Kampagne, bei der rund 950 AI-Agenten über 21 Stunden hinweg insgesamt 210 Millionen Tokens durchsuchten, filterte Claude aus über 200.000 RTs 3.500 neue Kandidatensysteme heraus und konzentrierte sich schließlich auf zwanzig besonders vielversprechende Fälle. Das System wurde in Analogien zu bekannten molekularbiologischen Methoden validiert, wobei erste Laboruntersuchungen bestätigten, dass das ART-Array als Distinkt kurzRNAs exprimiert wird, was auf eine möglicherweise funktionell vergleichbare Rolle zu CRISPR hindeutet. Die Ergebnisse wurden bereits als Preprint veröffentlicht und zeigen, wie AI-gesteuerte Hypothesengenerierung den Weg zu neuen Entdeckungen in der Biotechnologie ebnen kann.</div>
+        <a href="https://www.anthropic.com/news/claude-discovers-novel-enzyme-system" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Introducing Claude Opus 5.5</div>
+        <div class="article-date">22.09.2026</div>
+        <div class="article-summary">Claude Opus 5.5 liefert bei anspruchsvollen Softwareaufgaben Leistungen, die vergleichbar mit Claude Fable 5.1 sind, und reduziert dabei die Betriebskosten um 40 % gegenüber Opus 5. Das Modell ermöglicht unter anderem eine 680.000-zeilige Code-Migration innerhalb eines Tages und erzielt in Benchmarks wie Terminal-Bench 4.0, FrontierCode und CursorBench signifikante Effizienzgewinne, wodurch es in Agentic Coding, Computer- und Wissensarbeit insbesondere im Vergleich zu GPT-6 Astra und GPT-5.6 Sol punktet. Zusätzlich verbessert Opus 5.5 die Sicherheit durch ein automatisiertes Verhaltensaudit, das kritische Fehlverhalten in hunderttausenden simulierten Szenarien minimiert sowie robuste Schutzmaßnahmen bei Cybersecurity und in biologischen Anwendungen integriert. Das Modell wird nun für verschiedene Plattformen wie AWS, Google Cloud und Microsoft Azure bereitgestellt und erleichtert durch Preisanpassungen sowie erweiterte Nutzungslimits den produktiven Einsatz in unternehmenskritischen Umgebungen.</div>
+        <a href="https://www.anthropic.com/claude-opus-5-5" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">The Situation Report</div>
+        <div class="article-date">22.09.2026</div>
+        <div class="article-summary">Die Reaktion auf den Bundibugyo-Ebolavirus-Ausbruch in der Demokratischen Republik Kongo stützt sich auf automatisierte Datenanalysen, die von Anthropic&#x27;s Claude, Claude Science und spezifischen Claude Skills durchgeführt werden. In den letzten 24 Stunden wurden 58 neue bestätigte Fälle und 23 Todesfälle registriert; insgesamt beläuft sich die Zahl auf 7.672 Fälle mit 3.699 Todesfällen (48,2 % Fatalitätsrate) – Ituri trägt mit 77,1 % der Fälle maßgeblich zur Belastung bei. Durch den Einsatz von Claude werden Daten aus Gesundheitsberichten, die über WhatsApp und PowerPoint übermittelt werden, automatisiert extrahiert, verifiziert und in weniger als einer Stunde zu detaillierten Lageberichten zusammengeführt, was den bisherigen, zeitraubenden manuellen Prozess erheblich beschleunigt. Gleichzeitig ermöglicht diese datenbasierte Vorgehensweise unter anderem den Vergleich mehrerer Krankheitsmodelle und unterstützt die logistische Planung, beispielsweise bei der Platzierung neuer Behandlungseinrichtungen, sowie die Evaluierung von Impfstoffoptionen wie Ervebo, das für verwandte Ebolavirus-Stämme zugelassen ist.</div>
+        <a href="https://www.anthropic.com/features/ebola-response" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Cursor Blog (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Introducing Grok 4.7</div>
+        <div class="article-date">21.09.2026</div>
+        <div class="article-summary">SpaceXAI präsentiert mit Grok 4.7 ein Modell, das dank eines größeren Basismodells und einer verlängerten Reinforcement-Learning-Phase komplexe Coding- und Wissensaufgaben effizient bearbeitet. Die längere Trainingsdauer und der Fokus auf langwierige Aufgaben ermöglichen eine verbesserte Kontextverarbeitung sowie eine gründlichere Selbstüberprüfung. Benchmarks wie CursorBench 4.0 bestätigen die wettbewerbsfähige Preis-Leistung: Bei Preisen von 2 US-Dollar pro Million Input-Tokens und 6 US-Dollar pro Million Output-Tokens erzielt Grok 4.7 doppelt so schnelle Ergebnisse wie vergleichbare Modelle. Ein komplett neuer Safeguard-Stack sorgt für herausragende Sicherheitsleistungen, indem er bei Dual-Use-Anwendungen wie Cybersecurity nur 3,3 Prozent riskanter Prompts zulässt und auf LatchBio mit 62,4 Prozent bei Biosafety abschneidet. Zudem verbessert das Modell die Erstellung von Dokumenten und Präsentationen, was sich in den GDPval- und AA Briefcase-Benchmarks widerspiegelt.</div>
+        <a href="https://x.ai/news/grok-4-7" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>GitHub Copilot Blog (3 Artikel)</h2>
+    <div class="section-summary">Die GitHub Copilot App ermöglicht es, durch natürlich formulierte Befehle interaktive, bidirektionale Canvases zu erstellen, die komplexe Arbeitsabläufe wie Release Notes, Kanban-Boards oder Checklisten modellieren und dabei Chat-Oberflächen durch spezialisierte Benutzeroberflächen ersetzen – unter anderem in Szenarien wie Connect-4, Winget-basierter Paketverwaltung oder einem SQLite-Interface, unterstützt durch Modelle wie GPT-5.6 Sol und GPT-5.6 Luna. Gleichzeitig optimiert die App den Pull-Request-Renderer für auch extrem große Diffs durch einen innovativen, zweigeteilten Geometrieansatz, der ein flüssiges Scroll- und Rendering-Erlebnis mithilfe adaptiver Messzyklen und präziser Scroll-Anker sicherstellt.</div>
+    <div class="article">
+        <div class="article-title">GitHub Copilot app for Beginners: How to build custom workflows with canvases</div>
+        <div class="article-date">25.09.2026</div>
+        <div class="article-summary">Entwickler definieren in natürlicher Sprache den gewünschten Workflow, der durch den Befehl /create-canvas in eine interaktive Benutzeroberfläche umgesetzt wird. Die GitHub Copilot App generiert daraus ein dynamisches, bidirektionales Canvas, das sowohl Nutzereingaben als auch Agentenaktionen in Echtzeit synchronisiert. Mit dem Canvas lassen sich verschiedene Arbeitsabläufe – etwa für Release Notes, Kanban-Boards oder Checklisten – modellieren und individuell anpassen. Die erstellten Erweiterungen können projektbezogen oder persönlich genutzt und bei Bedarf weiter verfeinert werden.</div>
+        <a href="https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-build-custom-workflows-with-canvases/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">When chat is the wrong UI</div>
+        <div class="article-date">24.09.2026</div>
+        <div class="article-summary">Chat-Oberflächen stoßen häufig an ihre Grenzen, wenn präzise, wiederkehrende Aufgaben an KI-Agenten delegiert werden sollen. Die GitHub Copilot App ermöglicht mit ihren &quot;canvases&quot; die Erstellung maßgeschneiderter, voll funktionsfähiger UIs, die sowohl lokal Code ausführen als auch über bidirektionale Kanäle mit dem Copilot-Agenten kommunizieren. Beispiele wie ein interaktives Connect-4-Spiel, eine Winget-basierte Paketverwaltung und ein SQLite-Interface zeigen, wie dedizierte Tools den reinen Chat ersetzen können, um Token zu sparen und den Arbeitsfluss zu optimieren – auch im Umgang mit Modellen wie GPT-5.6 Sol und GPT-5.6 Luna. Dieser Ansatz entlastet die KI, indem er Routineaufgaben in spezialisierte Anwendungen auslagert, sodass Entwickler effizientere, zielgerichtete Interaktionen realisieren können.</div>
+        <a href="https://github.blog/ai-and-ml/github-copilot/when-chat-is-the-wrong-ui/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Rendering huge pull requests in the GitHub Copilot app</div>
+        <div class="article-date">23.09.2026</div>
+        <div class="article-summary">GitHub hat in der Copilot App den Pull-Request-Renderer grundlegend überarbeitet, um auch bei extrem großen Pull Requests – zuletzt getestet mit 2.200 Dateien, über einer Million veränderter Zeilen und mehr als 400 Inline-Kommentaren – ein flüssiges Scroll- und Rendering-Erlebnis zu gewährleisten. Der klassische Ansatz der Virtualisierung, bei dem der DOM auf sichtbare Codezeilen beschränkt wird, wird durch eine zweigeteilte Geometrie ergänzt: eine deterministische Geometrie für den Code, die in der Höhe feststeht, und eine dynamische Geometrie für Kommentare, deren exakte Höhe erst zur Laufzeit ermittelt wird. Die Implementierung verzichtet auf per-Comment ResizeObserver und nutzt stattdessen einen scroll- und idle-gesteuerten Messzyklus, der nur nahe dem Viewport aktive Messungen durchführt, um ruckartiges Scrollen zu vermeiden. Zudem sorgt eine präzise Scroll-Anker-Logik dafür, dass Anpassungen im Höhenlayout der Kommentare nicht zu sichtbaren Sprüngen führen, während gleichzeitig der Datenstream des Diffs inkrementell geladen und syntaktische Hervorhebungen asynchron optimiert werden.</div>
+        <a href="https://github.blog/engineering/user-experience/rendering-huge-pull-requests-in-the-github-copilot-app/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>GitHub Copilot Changelog (14 Eintr&auml;ge)</h2>
+    <div class="changelog-digest">GitHub Copilot präsentiert mehrere neue Modelle, darunter Claude Opus 5.5, GPT-6 Sol, GPT-6 Luna und Grok 4.7, die in verschiedenen Clients wie Visual Studio Code, JetBrains IDEs, Xcode, Copilot Mobile und über die CLI auswählbar sind und dabei verbrauchsabhängig abgerechnet werden. Die Erweiterungen beinhalten wassergekennzeichnete Ausgaben und eine optimierte Fehlerbehebung bei mehrstufigen Aufgaben, was den agentischen Coding-Ansatz unterstützt. Gleichzeitig bieten agentic autofix und Copilot Memory verbesserte Mechanismen zur Bearbeitung von Sicherheitswarnungen, während Copilot in Slack, Microsoft Teams und JetBrains-IDE Kontextdaten erweitert und die Steuerung von Agentensitzungen verbessert. Neue, projektbezogene Sandbox-Richtlinien in der Copilot App sowie die Integration von OpenTelemetry ermöglichen eine präzisere Kontrolle über Datei-, Netzwerk- und Credential-Zugriffe und liefern erweiterte Telemetriedaten. Ein In-Product Validator prüft nun Unternehmenskonfigurationen in JSON-Settings, während die globale Default-Policy und verbesserte Einstellungen für Copilot Code Review über persönliche und unternehmensweite Panels für mehr Flexibilität sorgen. Ergänzt wird das Angebot durch eine überarbeitete Copilot Usage Metrics API, die detaillierte Kennzahlen zu Pull-Request-Review-Zeiten liefert, sowie durch ein whole codebase indexing in der Copilot CLI für C++-Projekte, das die Entwicklungseffizienz in großen Codebasen steigert.</div>
+    <ul class="changelog-links">
+        <li><a href="https://github.blog/changelog/2026-09-25-agentic-autofix-now-uses-copilot-memory" class="article-link" target="_blank">Agentic autofix now uses Copilot Memory</a> <span class="changelog-date">25.09.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-09-24-default-enablement-of-copilot-features-for-copilot-business-and-enterprise" class="article-link" target="_blank">Default Enablement of Copilot features for Copilot Business and Enterprise</a> <span class="changelog-date">25.09.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-09-25-enterprise-managed-settings-in-product-validator" class="article-link" target="_blank">Enterprise managed settings in-product validator</a> <span class="changelog-date">25.09.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-09-25-github-copilot-weekly-releases-september-21" class="article-link" target="_blank">GitHub Copilot weekly releases — September 21</a> <span class="changelog-date">25.09.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-09-25-updates-to-github-copilot-for-slack-and-microsoft-teams" class="article-link" target="_blank">Updates to GitHub Copilot for Slack and Microsoft Teams</a> <span class="changelog-date">25.09.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-09-25-usage-metrics-api-adds-pull-request-review-stages" class="article-link" target="_blank">Usage metrics API adds pull request review stages</a> <span class="changelog-date">25.09.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app" class="article-link" target="_blank">Local sandboxing in the GitHub Copilot app</a> <span class="changelog-date">23.09.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-09-23-copilot-code-review-more-ways-to-request-and-configure-reviews" class="article-link" target="_blank">More ways to request and configure Copilot code reviews</a> <span class="changelog-date">23.09.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-09-22-new-features-and-improvements-in-copilot-for-jetbrains" class="article-link" target="_blank">New features and improvements in Copilot for JetBrains</a> <span class="changelog-date">23.09.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-09-22-opentelemetry-in-the-github-copilot-app" class="article-link" target="_blank">OpenTelemetry in the GitHub Copilot app</a> <span class="changelog-date">23.09.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-09-22-claude-opus-5-5-is-now-available-in-github-copilot" class="article-link" target="_blank">Claude Opus 5.5 is now available in GitHub Copilot</a> <span class="changelog-date">22.09.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-09-22-faster-c-code-intelligence-with-whole-codebase-indexing" class="article-link" target="_blank">Faster C++ code intelligence with whole codebase indexing</a> <span class="changelog-date">22.09.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-09-22-openais-gpt-6-sol-and-gpt-6-luna-now-available" class="article-link" target="_blank">OpenAI’s GPT-6 Sol and GPT-6 Luna now available</a> <span class="changelog-date">22.09.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-09-21-grok-4-7-is-now-available-in-github-copilot" class="article-link" target="_blank">Grok 4.7 is now available in GitHub Copilot</a> <span class="changelog-date">21.09.2026</span></li>
+    </ul>
+
+    <h2>Google AI Blog (2 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Behind Project Suncatcher, our moonshot to put AI in space</div>
+        <div class="article-date">24.09.2026</div>
+        <div class="article-summary">Google startet Project Suncatcher, um in einem Prototyp-Satelliten zu überprüfen, ob Google Tensor Processing Units (TPUs), konkret die Trillium TPUs, die rauen Bedingungen des Weltraums – etwa Vibrationen bis zu 50–100 g, extreme thermische Schwankungen und hohe Strahlungsdosen – überstehen können. Im Rahmen der Transporter-18-Mission mit SpaceX wird der Test in einem 10-minütigen Raketenstart simuliert, wobei Ergebnisse aus Erschütterungstests und Protonenbestrahlung (an der UC Davis Crocker Nuclear Laboratory) bereits vielversprechende Überlebenswerte liefern. Darüber hinaus untersucht das Team innovative Kühlansätze, die in einer thermischen Vakuumkammer erprobt wurden, um die in einem luftleeren Raum entstehende Hitze effizient abzuleiten. Ein weiteres Ziel ist die Entwicklung hochpräziser Laser-Kommunikationssysteme, die bei späteren Missionen ab 2027 den hochbandbreitigen Datenaustausch zwischen Satelliten ermöglichen sollen.</div>
+        <a href="https://blog.google/innovation-and-ai/models-and-research/google-research/google-project-suncatcher-facts/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Google Beam expands with new regions, partners, and customers</div>
+        <div class="article-date">23.09.2026</div>
+        <div class="article-summary">Google Beam erweitert seinen Einsatz in sechs Ländern – den USA, Kanada, Großbritannien, Frankreich, Deutschland und Japan – und wird über 18 Channel-Partner bereitgestellt. Das System, umgesetzt in Zusammenarbeit mit HP als HP Dimension with Google Beam, integriert sich in Google Meet und Zoom und soll echte, face-to-face Verbindungen ermöglichen. Interne Tests bei Google belegen einen 50% stärkeren Teamzusammenhalt, eine um 33% leichtere Verständigung und eine Reduktion von Folgetreffen um 21%. Erste Einsätze bei Partnern wie Bain, Netflix und Capital Group zeigen, dass Beam insbesondere bei Recruitingprozessen und global verteilten Teams klare Vorteile liefert. Ab Oktober können interessierte Unternehmen Beam an ausgewählten Industrious-Standorten, etwa in Atlanta, Chicago, New York und Palo Alto, testen.</div>
+        <a href="https://blog.google/innovation-and-ai/technology/research/google-beam-expansion/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Google AI Blog - Gemini (3 Artikel)</h2>
+    <div class="section-summary">Gemini 3.8 Live Avatar kombiniert Live-Dialogleistungen mit niedriglatenter Video-Übertragung, präzisem Lip-Syncing und Unterstützung von 97 Sprachen, während Unternehmen aus vorgefertigten oder eigenen Avataren wählen und gleichzeitig Inhalte mittels SynthID wassergekennzeichnet werden. Die Gemini App integriert externe Productivity-, Creativity- und Lifestyle-Tools in einem einzigen Arbeitsbereich, und Gemini 3.8 Flash TTS sowie Flash-Lite TTS ermöglichen mit über 2.000 Stimmenoptionen die präzise Erzeugung individueller, expressiver Stimmen in mehr als 100 Sprachen, stets abgesichert durch SynthID-Watermarking und Consent-Verifizierung.</div>
+    <div class="article">
+        <div class="article-title">Introducing Gemini 3.8 Live with Live Avatar</div>
+        <div class="article-date">24.09.2026</div>
+        <div class="article-summary">Gemini 3.8 Live with Live Avatar integriert nahezu in Echtzeit visuelle Präsenz in die konversationellen KI-Fähigkeiten von Gemini, indem Live-Dialogleistung mit niedrig-latenz Streaming-Video kombiniert wird. Die Lösung ermöglicht präzises Lip-Syncing, natürliche Gesichtsausdrücke und flüssigen Turn-Taking für dynamische Interaktionen und unterstützt dabei nahtlos 97 Sprachen. Durch asynchrone Tool-Ausführung können komplexe Aufgaben im Hintergrund abgewickelt werden, ohne den Dialogfluss zu unterbrechen. Unternehmen können aus einer Bibliothek vorgefertigter Avatare wählen oder eigene, markenspezifische Avatare erstellen, während alle generierten Inhalte mittels SynthID wassergekennzeichnet werden, um Transparenz zu gewährleisten.</div>
+        <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-with-live-avatar/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">A new wave of Connected Apps is rolling out to Gemini</div>
+        <div class="article-date">23.09.2026</div>
+        <div class="article-summary">Google ermöglicht mit Gemini App die direkte Integration externer Tools in einem einzigen Arbeitsbereich, wodurch das Wechseln zwischen Tabs entfällt. Nutzer können nun über Gemini Settings oder per @-Erwähnung im Chat Anwendungen aus den Bereichen Productivity (z. B. Airtable, Linear, monday.com, PandaDoc, Wispr AI, Zoho), Creativity (Adobe, Picsart, Squarespace, Webflow) und Lifestyle (apartments.com, Experian, Peloton, SeatGeek) verbinden. Der Rollout beginnt am 23. September 2026 und zielt darauf ab, Arbeitsabläufe durch gebündelten Zugriff zu optimieren.</div>
+        <a href="https://blog.google/innovation-and-ai/products/gemini-app/new-connected-apps-gemini/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Gemini 3.8 text-to-speech says hello</div>
+        <div class="article-date">23.09.2026</div>
+        <div class="article-summary">Gemini 3.8 Flash TTS und Gemini 3.8 Flash-Lite TTS erweitern die Gemini Audio-Familie, indem sie die Erstellung individueller, expressiver Stimmen per natürlicher Sprachsteuerung ermöglichen. Mit Flash TTS können Entwickler völlig neue Stimmen kreieren und diese in Projekten wie Gaming, Audiobooks oder virtuellen Assistenten punktgenau in Dialekt, Akzent und Emotionalität anpassen, während Flash-Lite TTS für hochvolumige Anwendungen und kosteneffiziente Skalierung optimiert ist. Beide Modelle unterstützen mehr als 100 Sprachen, bieten Zugriff auf über 2.000 produktionsreife Stimmen und ermöglichen die präzise Replikation von Stimmen anhand eines 30-sekündigen Audiosamples – immer mit Sicherheitsfeatures wie SynthID-Watermarking und eingebauter Consent-Verifizierung. In Benchmark-Vergleichen erreichte Gemini 3.8 Flash TTS Spitzenwerte (71,4 im Hume AI Voice Design Benchmark; 60,8 in der Akzentmodellierung) und wird seit September 2026 über Plattformen wie Gemini API, Google AI Studio, Gemini Notebook und Google Vids ausgerollt.</div>
+        <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Martin Fowler (2 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Fragments: September 24</div>
+        <div class="article-date">24.09.2026</div>
+        <div class="article-summary">Rob Bowley kritisiert, dass die mediale Fokussierung auf spekulative KI-Gefahren von den realen Sicherheitsproblemen ablenkt, die bereits durch die unsichere Vernetzung bestehender Systeme entstanden sind. Cyberangriffe verursachen Millionenverluste, während der Einsatz von KI in kritischen Infrastrukturen zu einer gefährlichen &quot;Lethal Trifecta&quot; führt. Nikita Prokopov fordert in seinem Beitrag eine Reduzierung der Farbdifferenzierung beim Syntax-Highlighting, da zu viele Farben den Leser irritieren und wichtigen Code weniger hervorheben; er empfiehlt, nur vier Kategorien zu differenzieren. Die Debatte um Forward Deployed Engineers wird anhand von Vinoo Ganeshs Ausführungen beleuchtet, der FDEs als Bindeglied zwischen Kunden und der Weiterentwicklung von Plattformen (unter anderem Palantir) sieht – ein Konzept, das bereits seit Jahrzehnten in der agilen Zusammenarbeit von Entwicklern und Geschäftspartnern verankert ist.</div>
+        <a href="https://martinfowler.com/fragments/2026-09-24.html" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Healthy Feedback</div>
+        <div class="article-date">24.09.2026</div>
+        <div class="article-summary">Thoughtworks setzt auf kontinuierlichen, peer-to-peer Feedbackaustausch, um das Wachstum von Individuen und Teams zu fördern und betrachtet jedes Feedback – sei es zur Stärkung des Selbstvertrauens oder zur Steigerung der Effektivität – als positiv. Die Praxis basiert auf Prinzipien wie Radical Candor, bei der persönliche Fürsorge und direkte Ansprache Hand in Hand gehen, sowie dem SBI- bzw. CSBI-Format, das Kontext und Beobachtungen klar voneinander trennt. Feedback wird als Telemetrie für das Sozialverhalten innerhalb von Teams verstanden, das früh, regelmäßig und in den natürlichen Arbeitsabläufen geteilt werden sollte – vorzugsweise in privaten, synchronen Gesprächen statt in orchestrierten Events oder im Rahmen von Performance Reviews. Durch gezielte Maßnahmen wie das Einholen von Zustimmung vor kritischen Gesprächen, das Einladen zu offenen Lösungsansätzen und das getrennte Anerkennen von positiven Beiträgen wird eine nachhaltige Feedbackkultur etabliert, die über kurzfristige Applausmomente hinaus Vertrauen und Effektivität aufbaut.</div>
+        <a href="https://martinfowler.com/articles/healthy-peer-feedback.html" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Microsoft .NET Blog (3 Artikel)</h2>
+    <div class="section-summary">Das neue AG-UI .NET SDK ermöglicht die direkte Interaktion mit dem standardisierten AG-UI Protokoll und ersetzt bisherige Varianten durch Funktionen wie AddAGUIServer() und MapAGUIServer(), was die Implementierung agentbasierter Applikationen vereinfacht. Gleichzeitig wird ab dem 23. September 2026 bei neuen NuGet-Paketen ein neuer X.509 Zertifikatfingerabdruck vorausgesetzt, sodass Nutzer ihre nuget.config entsprechend anpassen müssen, um Installationsfehler zu vermeiden. Ein zusätzliches Beispiel zeigt, wie ein ThreadPoolWatcher plattformabhängig Memory Dumps unter Windows und Linux erzeugt und dabei den Dump-Prozess inklusive Schutzmaßnahmen gegen wiederholte Ausführungen kapselt.</div>
+    <div class="article">
+        <div class="article-title">AG-UI Protocol now has a first-class .NET SDK</div>
+        <div class="article-date">25.09.2026</div>
+        <div class="article-summary">.NET-Entwickler können nun dank des neuen AG-UI .NET SDK direkt mit dem standardisierten AG-UI Protokoll interagieren, um Agent-Applikationen ohne zusätzlichen Boilerplate-Code zu implementieren. Das SDK, veröffentlicht unter MIT-Lizenz auf NuGet, bietet neben AGUI.Client und AGUI.Server auch Unterstützung für Protobuf-basierte Formatierung und Server-Sent Events, sodass Ereignisse wie RUN_STARTED, TEXT_MESSAGE_CONTENT und STATE_DELTA einheitlich übertragen werden. Es integriert sich in bestehende IChatClient-Ansätze – bereits aus Microsoft.Extensions.AI – und ermöglicht so eine nahtlose Kommunikation zwischen .NET-Backends und Frontends, unabhängig davon, ob diese in C#, TypeScript oder Python implementiert sind. Microsoft Agent Framework nutzt nun die AGUI.*-Pakete, wobei API-Namen wie AddAGUIServer() und MapAGUIServer() die bisherigen Varianten ersetzt haben.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/ag-ui-dotnet-sdk/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Microsoft is updating its author-signing certificate starting September 23, 2026</div>
+        <div class="article-date">23.09.2026</div>
+        <div class="article-summary">Ab dem 23. September 2026 wird Microsoft bei neuen NuGet-Paketen einen neuen X.509 Signaturzertifikat verwenden, während bestehende Pakete mit dem alten Zertifikat weiter verifiziert werden können. Das Update betrifft insbesondere Nutzer, die in ihren nuget.config-Dateien oder per dotnet nuget verify explizit Microsoft als vertrauenswürdigen Herausgeber mit definierten SHA-256 Fingerabdrücken bestätigen. Der alte Zertifikat-Fingerprint lautet 566A31882BE208BE4422F7CFD66ED09F5D4524A5994F50CCC8B05EC0528C1353, der neue lautet 9A1B131BEE0605433056A4EA3815478A8E177961A968C6C0027C1093D1FEB630. Kunden müssen ihre Konfigurationen anpassen – entweder über das Hinzufügen des neuen Zertifikats per dotnet nuget trust Befehl oder durch manuelle Änderung der nuget.config – um Paketinstallationsfehler (NU3034) zu vermeiden.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/microsoft-author-signing-certificate-update-2026/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Creating a memory dump in C#</div>
+        <div class="article-date">22.09.2026</div>
+        <div class="article-summary">Das Beispiel demonstriert die Implementierung eines ThreadPoolWatcher, der periodisch Tasks in den Thread-Pool einspeist und anhand der Ausführungsdauer (z. B. 3000 ms) ermittelt, ob der Pool gesättigt ist, um dann einen vollständigen Memory Dump zu erstellen. Die Windows-Variante verwendet dafür die native Funktion MiniDumpWriteDump aus dbghelp.dll und erzeugt im Beispiel einen Dump von ca. 125 MB, während unter Linux mittels des createdump-Utilities ein Dump von ca. 800 MB generiert wird. Die vorgestellten Klassen kapseln den Dump-Prozess inklusive der nötigen plattformspezifischen Anpassungen (z. B. prctl für Yama LSM unter Linux) und betonen dabei geeignete Schutzmaßnahmen gegen wiederholte Dump-Erstellungen, um sensible Informationen zu vermeiden. Die erstellten Dump-Dateien lassen sich in Visual Studio verwalten, um detailliert Call Stacks und den Speicherzustand zur Fehlersuche und Diagnose nachzuvollziehen.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/creating-a-memory-dump-in-csharp/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Simon Willison (2 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Claude Opus 5.5, GPT-6 Sol, GPT-6 Luna, and a new price war</div>
+        <div class="article-date">22.09.2026</div>
+        <div class="article-summary">Anthropic senkt mit Claude Opus 5.5 die Token-Preise um 20 % gegenüber früheren Versionen (von $5/$25 auf $4/$20 pro Million Token) und passt gleichzeitig den Kommunikationsstil an das Feedback an. OpenAI steigert den Preiskampf: Mit GPT-6 Sol und GPT-6 Luna reduziert das Unternehmen die Preise gegenüber GPT-5.6 Sol und Luna um 50 %, sodass GPT-6 Luna jetzt bei $0.10/M bzw. $0.50/M liegt und GPT-6 Sol ähnliche Kostenvorteile bietet. Dabei konkurriert OpenAI direkt mit Modellen wie Grok 4.7, das zuvor bei $2/$6 lag, während andere Modelle wie GPT-6 Astra und Claude Fable 5.1 im Premiumsegment bei $10/$50 verbleiben. Ein weiterer praktischer Aspekt: Bei maximaler Denkleistung scheiterte Claude Opus 5.5, als es beim Erzeugen eines SVG-Bildes das 128.000-Token-Limit erreichte, was Zweifel am Einsatz des „max“-Modus für komplexere Aufgaben weckt.</div>
+        <a href="https://simonwillison.net/2026/Sep/22/opus-and-sol-and-luna/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Jev introduces a new shape of LLM—System One, aka Decision Models</div>
+        <div class="article-date">21.09.2026</div>
+        <div class="article-summary">TypeSafe AI präsentiert mit Jev einen Decision-Model-Ansatz, der neben klassischem Text-Input numerische, probabilistische Bewertungen zurückliefert. Das System verarbeitet Fragen parallel und erlaubt drei Typen von Anfragen: Ja/Nein („Noul“-Fragen), Auswahlfragen und Skalierungsfragen, wobei die Entscheidung auf Fließkommazahlen von 0 bis 1 basiert. Bei einem Preis von 0,042 US-Dollar pro Million Tokens – günstiger als etwa GPT‑5 Nano zu 0,05 US-Dollar/Million – setzt Jev auf günstige, skalierbare Entscheidungshilfen für Klassifikationsaufgaben wie Spam-Erkennung oder Suchreranking. Parallel experimentiert die Entwickler-Community mit alternativen Implementierungen wie Kev, das Qwen 3.5 in Varianten mit 0,8B, 4B und 9B Parametern nutzt, und liefert damit erste Benchmark-Ergebnisse über JevBench.</div>
+        <a href="https://simonwillison.net/2026/Sep/21/jev/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Thorsteinn Siglaugsson (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">From Symptoms to Causes</div>
+        <div class="article-date">24.09.2026</div>
+        <div class="article-summary">Die Seite enable-javascript.com liefert konkrete Anleitungen zum Aktivieren von JavaScript in den fünf gängigsten Browsern – Google Chrome, Mozilla Firefox, Apple Safari, Opera und Internet Explorer – und beschreibt detailliert, welche Menüpunkte und Optionen anzuwählen sind. Die Anleitung für Google Chrome zeigt, wie man im Menü „Customize and control“ über „Settings“ und „Advanced settings“ zu den „Content settings“ gelangt, während Firefox-Anwender über die Eingabe von about:config und das Umschalten der Einstellung „javascript.enabled“ den nötigen Schalter aktivieren. Zusätzlich bietet die Seite einen einsetzbaren &lt;noscript&gt;-Code, der Webentwicklern ermöglicht, Benutzer ohne aktiviertes JavaScript entsprechend zu informieren. Die Erklärungen werden durch Bildbeispiele unterstützt, die den Ablauf der Einstellungen in den jeweiligen Browsern veranschaulichen.</div>
+        <a href="https://enable-javascript.com/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+
+</body>
+</html>
