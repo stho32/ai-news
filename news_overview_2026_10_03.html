@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Übersicht - Letzte 7 Tage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .article {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .article-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .article-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .article-summary {
+            margin-bottom: 10px;
+        }
+        .article-link {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .article-link:hover {
+            text-decoration: underline;
+        }
+        /* R00011: Section-Summary-Block, leicht abgesetzt von Einzel-Artikeln */
+        .section-summary {
+            margin: 10px 0 20px 0;
+            padding: 12px 16px;
+            background-color: #eef4fb;
+            border-left: 4px solid #0066cc;
+            font-style: italic;
+            color: #234;
+        }
+        /* R00012: Changelog-Digest-Block — visuell distinkt vom Section-Summary */
+        .changelog-digest {
+            margin: 10px 0 15px 0;
+            padding: 12px 16px;
+            background-color: #fff7e6;
+            border-left: 4px solid #d97706;
+            color: #3a2a00;
+        }
+        .changelog-links {
+            list-style: disc inside;
+            padding-left: 0;
+            margin: 0 0 25px 0;
+        }
+        .changelog-links li {
+            margin: 4px 0;
+        }
+        .changelog-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-left: 6px;
+        }
+        /* R00013: Wochen-Tenor — visuell die staerkste der drei
+           Verdichtungsklassen (overall > section-summary > changelog-digest).
+           Linker Rand kraeftiger, Schrift groesser, klar abgesetzte
+           Hintergrundfarbe — vom Leser auf den ersten Blick als
+           Zusammenfassung der Wochenausgabe erkennbar. */
+        .overall-summary {
+            margin: 10px 0 25px 0;
+            padding: 18px 22px;
+            background-color: #f0fbf3;
+            border-left: 6px solid #15803d;
+            font-size: 1.1em;
+            color: #14271d;
+        }
+        /* R00014: Video-Kacheln — Nebenspur, deutlich schmaler als die
+           Artikel-Spalte, mehrere Kacheln pro Zeile. */
+        .video-tiles-heading {
+            font-size: 1.1em;
+            color: #555;
+            margin-top: 30px;
+        }
+        .video-tiles {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+        .video-tile {
+            display: block;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            overflow: hidden;
+            padding-bottom: 10px;
+            text-decoration: none;
+            color: inherit;
+            background: #fff;
+        }
+        .video-tile:hover {
+            border-color: #0066cc;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+        }
+        .video-thumb {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            background: #eee;
+        }
+        .video-title {
+            font-weight: bold;
+            font-size: 0.95em;
+            margin: 10px 10px 4px 10px;
+        }
+        .video-meta {
+            font-size: 0.8em;
+            color: #888;
+            margin: 0 10px 6px 10px;
+        }
+        .video-summary {
+            font-size: 0.85em;
+            color: #444;
+            margin: 0 10px;
+            line-height: 1.4;
+        }
+
+        /* R00011: Rueckspruglink zur index.html (oben und unten) */
+        .back-link {
+            display: inline-block;
+            margin: 10px 0 20px 0;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>News Übersicht der letzten 7 Tage</h1>
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+    <div class="overall-summary">Enterprise-AI-Initiativen gewinnen weiter an Dynamik, wobei Ausbildungsprogramme und Einsatzszenarien wie das Claude-Training und dessen Integration in groß angelegte Entwicklungsumgebungen den Trend zur breiten Anwendung generativer Modelle unterstreichen. Mehrere Beiträge dokumentieren signifikante Modell-Updates, unter anderem bei Anthropic mit Claude Sonnet 5.5 und bei Google mit den Gemini-Versionen, die in Bereichen wie Softwareentwicklung, Cyberabwehr und auch der Skalierung von Token-Ausgaben neue Leistungslevels erreichen. Gleichzeitig erweitern Toolchain-Innovationen und Automatisierungslösungen, etwa in GitHub Copilot, Blazor AI Komponenten und Warp, das Spektrum innovativer Arbeitsprozesse in der Softwareentwicklung. Cybersecurity rückt verstärkt in den Fokus, indem fortschrittliche Modelle eigenständig Sicherheitslücken identifizieren und autonome Exploit-Ketten entwickeln. Parallel werden traditionelle IT-Infrastrukturen und Cloud-Lösungen, wie SQL Server on Azure Local und MongoDB Modernizations, modernisiert und optimiert, während experimentelle Projekte aus den Bereichen Satellitentechnologie und medizinische Vorhersagemodelle zusätzliche Anwendungsfelder erschließen.</div>
+    <p>Generiert am: 03.10.2026 07:00 Uhr</p>
+    <p>Anzahl Artikel: 30 (zus&auml;tzlich 8 Changelog-Eintr&auml;ge aus 1 Quelle) (zus&auml;tzlich 2 Videos)</p>
+
+    <h2 class="video-tiles-heading">Videos der Woche</h2>
+    <div class="video-tiles">
+        <a class="video-tile" href="https://www.youtube.com/watch?v=LO60O07e2KU" target="_blank" rel="noopener noreferrer">
+            <img class="video-thumb" src="https://i.ytimg.com/vi/LO60O07e2KU/hqdefault.jpg" alt="" loading="lazy">
+            <div class="video-title">Build Team Trust Fast 🤝</div>
+            <div class="video-meta">Modern Software Engineering (Dave Farley) &middot; 01.10.2026</div>
+            <div class="video-summary">Pair programming is said to enhance cultural aspects within a team, converting solitary work environments into collaborative ones. By frequently changing pairs, team members can share knowledge, build relationships, and develop mutual trust, all of which are important for productivity and job…</div>
+        </a>
+        <a class="video-tile" href="https://www.youtube.com/watch?v=T4qP5baf6r8" target="_blank" rel="noopener noreferrer">
+            <img class="video-thumb" src="https://i.ytimg.com/vi/T4qP5baf6r8/hqdefault.jpg" alt="" loading="lazy">
+            <div class="video-title">Why Bad Onboarding Forces You to Over-Hire (And How to Fix Your Pipeline)</div>
+            <div class="video-meta">Modern Software Engineering (Dave Farley) &middot; 30.09.2026</div>
+            <div class="video-summary">Fix your hiring process with tech recruitment expert Suzi Edwards-Alexander, interviewed by Sam Newman on the Modern Software Engineering channel. Learn how bad onboarding hurts software engineering teams, how a CTO, tech lead, or engineering lead can fix tech recruiting, and why hiring developers…</div>
+        </a>
+    </div>
+
+    <h2>Anthropic News (3 Artikel)</h2>
+    <div class="section-summary">Anthropic stärkt den Enterprise-AI-Sektor, indem das Unternehmen in die Ausbildung von 10.000 Frontier Deployed Engineers investiert und gleichzeitig Partnerschaften mit Firmen wie Barclays aufbaut, um Claude und Claude Code systematisch in Unternehmensprozessen zu verankern. Gleichzeitig bringt Anthropic mit Claude Sonnet 5.5 eine Modellversion auf den Markt, die in Bereichen wie Codierung, Bugfixing und Dokumentenerstellung signifikante Leistungs- und Kostenvorteile bietet und dabei hohe Sicherheitsstandards einhält.</div>
+    <div class="article">
+        <div class="article-title">Anthropic invests $100 million to train 10,000 engineers and tackle the enterprise AI talent gap</div>
+        <div class="article-date">02.10.2026</div>
+        <div class="article-summary">Anthropic investiert 100 Millionen US-Dollar in die Claude Frontier Academy, um bis Ende 2027 10.000 Frontier Deployed Engineers (FDE) auszubilden. Das Programm, das mit einer mehrtägigen In-Person-Schulung in San Francisco, New York und London startet, bildet Softwareingenieure in einem zweistufigen Residency-Modell aus, das an die medizinische Ausbildung angelehnt ist. Teilnehmer, die von Unternehmen wie Accenture, Bain, Capgemini, Commonwealth Bank of Australia, Deloitte, McKinsey, Morgan Stanley und Novo Nordisk nominiert werden, durchlaufen zunächst einen Praxisteil mit simulierten Enterprise-Deployments und Sicherheitsreviews, bevor sie in einer 12-wöchigen Residency reale Claude-Projekte in ihrem Unternehmen umsetzen. Die Ausbildung soll den Fachkräftemangel im Enterprise-AI-Sektor bekämpfen und Unternehmen bei der Implementierung von Claude-Systemen zur Optimierung von Prozessen und Entwicklung neuer Produkte unterstützen.</div>
+        <a href="https://www.anthropic.com/news/claude-frontier-academy" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Barclays scales Claude to upgrade operations and improve client experience</div>
+        <div class="article-date">01.10.2026</div>
+        <div class="article-summary">Barclays erweitert seine strategische Zusammenarbeit mit Anthropic, um den Einsatz von Claude und Claude Code global voranzutreiben, um Softwareentwicklung zu beschleunigen, Legacy-Systeme zu modernisieren und operative Effizienz zu steigern. Die Bank plant, dass bis Ende 2026 50% der Entwickler Claude Code nutzen und bis 2027 die Mehrheit der Softwareingenieure darauf zugreift. Das System unterstützt bereits 16.000 Mitarbeiter im Rahmen des seit 2025 live geschalteten Colleague Knowledge Assistant, der mehr als eine Million Suchanfragen bearbeitet hat, und verarbeitet in der Global Markets Einheit täglich ca. 120.000 E-Mails. Dabei gewährleistet Barclays durch robuste Sicherheitskontrollen und strikte Governance einen regulierungskonformen und zuverlässigen Einsatz der AI.</div>
+        <a href="https://www.anthropic.com/news/barclays-scales-claude" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Introducing Claude Sonnet 5.5</div>
+        <div class="article-date">28.09.2026</div>
+        <div class="article-summary">Claude Sonnet 5.5 von Anthropic verbessert die Performance von Sonnet 5 deutlich und erreicht beispielsweise 70,6 % auf der Terminal-Bench 4.0, verglichen mit 10,3 % der Vorgängerversion, während es in komplexen Anwendungen fast mit Claude Opus 5.5 mithalten kann. Die neue Version liefert Ergebnisse 30 % schneller und benötigt pro Aufgabe deutlich weniger Tokens, was in Tests zu einer Kosteneinsparung von bis zu 30 % führt – zu den Preisen von $2 pro Million Inputtokens, $10 pro Million Outputtokens und $0,20 pro Million Token für Cache Reads. Das Modell zeigt vor allem in der Codierung, wo es etwa 10 Punkte auf FrontierCode erzielt und im CursorBench nahezu mit Opus 5.5 konkurriert, sowie bei alltäglichen Aufgaben wie Bugfixing und der Erstellung von Dokumenten und Präsentationen signifikante Verbesserungen. Zusätzlich wurden Cybersecurity-Safeguards implementiert, die in etwa den Standards von Opus 5.5 entsprechen, und es kommen Maßnahmen gegen Distillation-Attacken sowie für die Wahrung der „preserved thinking“ ein, um die Sicherheit im produktiven Einsatz zu erhöhen. Claude Sonnet 5.5 ist ab sofort über Plattformen wie AWS, Google Cloud und Azure mit der Kennung „claude-sonnet-5-5“ verfügbar und unterstützt eine flexible Effort-Steuerung zur Balance zwischen Kosten, Geschwindigkeit und Qualität.</div>
+        <a href="https://www.anthropic.com/claude-sonnet-5-5" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>GitHub Copilot Changelog (8 Eintr&auml;ge)</h2>
+    <div class="changelog-digest">Die neuen Funktionen von GitHub Copilot erweitern die Automatisierungsmöglichkeiten deutlich. Dynamische Workflows in der Copilot CLI, im Copilot App und im Copilot SDK ermöglichen es, komplexe, mehrstufige Prozesse – etwa im Incident Management – durch eine Kombination aus automatisierten Schritten und manueller Agentenarbeit zu orchestrieren, während Desktop-Automatisierung in den macOS- und Windows-Anwendungen Mausklicks, Tastatureingaben und Navigation in traditionellen GUI-basierten Umgebungen steuert. Die aktuellen Erweiterungen in VS Code, inklusive HydraFusion im Forschungs-Preview, fügen zusätzliche intelligente Funktionen wie agent merge, geplante Automatisierungen und projektkontextualisierte Sitzungen hinzu, sodass Entwickler nahtlos zwischen allgemeinen Copilot-Chats und dedizierten Agentenprozessen wechseln können. Im Bereich der Modell-Updates werden ältere Varianten wie Gemini 3.5/3.6 Flash, Kimi K2.7 Code und Claude Opus 4.7 ab Oktober 2026 deaktiviert und durch neuere Modelle – Gemini 3.8 Flash, Kimi K3, Claude Opus 5.5, OpenAI GPT-6.1 Sol sowie Anthropic’s Claude Sonnet 5.5 – ersetzt, wobei der Rollout gestaffelt und in unterschiedlichen Entwicklungsumgebungen wie Visual Studio Code, JetBrains IDEs und weiteren integriert erfolgt. Über die neuen REST- und GraphQL-Schnittstellen können Entwickler zudem Code Reviews in eigene Workflows einbetten, wobei Effort-Level konfigurierbar und ein standardisierter Balanced-Level für Repositories eingeführt wird.</div>
+    <ul class="changelog-links">
+        <li><a href="https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level" class="article-link" target="_blank">Copilot code review: API support and new default effort level</a> <span class="changelog-date">02.10.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-10-02-selected-models-in-github-copilot-deprecated" class="article-link" target="_blank">Selected models in GitHub Copilot deprecated</a> <span class="changelog-date">02.10.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-10-01-dynamic-workflows-in-copilot-cli-and-the-copilot-app" class="article-link" target="_blank">Dynamic workflows in Copilot CLI and the Copilot app</a> <span class="changelog-date">01.10.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps" class="article-link" target="_blank">GitHub Copilot can now interact with desktop apps with computer use</a> <span class="changelog-date">01.10.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-10-01-github-copilot-in-vs-code-september-2026-releases" class="article-link" target="_blank">GitHub Copilot in VS Code, September 2026 releases</a> <span class="changelog-date">01.10.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-09-30-hydrafusion-in-vs-code-and-the-github-copilot-app" class="article-link" target="_blank">HydraFusion in VS Code and the GitHub Copilot app</a> <span class="changelog-date">30.09.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-09-29-gpt-6-1-sol-in-github-copilot" class="article-link" target="_blank">GPT-6.1 Sol in GitHub Copilot</a> <span class="changelog-date">29.09.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-09-28-claude-sonnet-5-5-in-github-copilot" class="article-link" target="_blank">Claude Sonnet 5.5 in GitHub Copilot</a> <span class="changelog-date">28.09.2026</span></li>
+    </ul>
+
+    <h2>Google AI Blog (2 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Our Project Suncatcher prototype satellite is in orbit</div>
+        <div class="article-date">01.10.2026</div>
+        <div class="article-summary">Das Project Suncatcher Satellitenprototyp, entwickelt in Zusammenarbeit mit Planet, erreichte am 01. Oktober 2026 den Orbit via SpaceX’ Transporter-18-Rideshare-Mission. Der Satellit bestätigt seit dem Start, dass die Systeme wie erwartet funktionieren, was die Grundlage für weitere Experimente legt. Im Rahmen des langfristigen Forschungsvorhabens wird evaluiert, ob skalierbare Machine-Learning-Infrastrukturen im All realisierbar sind, indem die Belastbarkeit von TPUs unter Strahlung, thermischen Extrembedingungen und mechanischem Stress getestet wird. Die zugrunde liegende Methodik und erste Ergebnisse sind in einem peer-reviewed Artikel in der Zeitschrift Joule dokumentiert.</div>
+        <a href="https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-prototype/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Google&#x27;s AI ranks #1 for predicting flu hospitalizations</div>
+        <div class="article-date">30.09.2026</div>
+        <div class="article-summary">Google-AI-Forecast-Modelle, entwickelt mit der Empirical Research Assistance (ERA), erzielten in der CDC-Bewertung der 2025–26-Influenza-Saison die besten Vorhersagen für krankheitsbedingte Krankenhausaufenthalte. Die CDC-FluSight-Initiative kombiniert wöchentliche Prognosen von staatlichen, industriellen und akademischen Teams, um den Bedarf an medizinischen Ressourcen auf Staatsebene zu bestimmen. Unter 39 geprüften Modellen konnte Googles Modell die beobachteten Hospitalisierungen exakt replizieren, was den Mehrwert empirischer Optimierungsalgorithmen unterstreicht. Die zugrundeliegende ERA-Technologie, deren Forschungsergebnisse in Nature veröffentlicht wurden, wird nun als experimentelles Wissenschaftstool vertrauenswürdigen Testern zur Verfügung gestellt.</div>
+        <a href="https://blog.google/innovation-and-ai/models-and-research/google-research/google-science-ai-flu-forecasts/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Google AI Blog - Gemini (4 Artikel)</h2>
+    <div class="section-summary">Gemini 4 Argon demonstriert in realen Softwareentwicklungs-, Enterprise- und Cyberabwehr-Workflows herausragende Verbesserungen, indem es das Output-Token-Limit auf 1 Million erweitert und Sicherheitslücken eigenständig identifiziert und patcht. Modelle wie Gemini 3.8 Flash und Flash Cyber steigern die Effizienz bei komplexen technischen Simulationen, während Gemini Live mit Guided Vision auf Android barrierefreie, sprachgesteuerte visuelle Unterstützung in Echtzeit bietet. Die Entwicklungen umfassen zudem die Integration von Gemini Apps auf diversen Plattformen, neue Angebote wie Googlebook und WeatherNext 3 sowie wissenschaftliche Fortschritte in der Genom- und Gehirnkartierung.</div>
+    <div class="article">
+        <div class="article-title">The latest AI news we announced in September 2026</div>
+        <div class="article-date">02.10.2026</div>
+        <div class="article-summary">Gemini 4 Argon demonstriert fortgeschrittene Argumentationsfähigkeiten mit einem 1-Millionen-Token Output-Limit und wird über das Fairwind-Programm gezielt zur Cyberabwehr eingesetzt. Gemini 3.8 Flash und 3.8 Flash Cyber optimieren dabei Softwareentwicklung und automatisierte Sicherheitsprozesse, während natürliche Sprachmodelle wie Gemini 3.8 Live und deren TTS-Varianten (Flash-Lite TTS, Flash TTS) die Interaktion per Stimme verbessern. Zudem wurden neue Connected Apps in der Gemini App integriert, Gemini ist nun auch für Windows verfügbar und Googlebook kann vorbestellt werden, während WeatherNext 3 als globales Wettermodell mit Echtzeit-Satellitendaten läuft. Wissenschaftliche Fortschritte umfassen unter anderem den AlphaGenome Atlas zur Kartierung menschlicher DNA, das MAPL-EMIT-Modell – das 50 % mehr Methanemissionen erkennt und über 23.000 bisher unerkannte Emissionsquellen identifiziert – sowie die erste vollständige 3D-Gehirnkarte einer männlichen Fruchtfliege.</div>
+        <a href="https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Guided Vision in Gemini Live: built for accessibility</div>
+        <div class="article-date">01.10.2026</div>
+        <div class="article-summary">Guided Vision in Gemini Live ermöglicht auf Android-Geräten (ab Android 9) in Echtzeit gesprochene visuelle Unterstützung, indem es Nutzern ermöglicht, ihre Kamera zu teilen und dynamische Audio-Beschreibungen sowie präzise Reframings zu erhalten. Das System wurde in enger Zusammenarbeit mit der blinden und sehbehinderten Community entwickelt und basiert auf umfangreichen Tests, bei denen über 1.000 Aira-Vertrauens-Testnutzer und zehntausende Stunden visuelle Datenauswertung einbezogen wurden. Nutzer können Guided Vision über die Gemini App, Accessibility-Shortcuts oder direkt über Google TalkBack aktivieren, um alltägliche visuelle Aufgaben wie das Lesen feiner Texte, das Auffinden von Gegenständen oder das Beschreiben von Objekten zu unterstützen. Das Angebot unterstützt zudem natürliche Gespräche in mehreren Sprachen, basierend auf Rückmeldungen aus Regionen wie Indien, Brasilien, Singapur, Indonesien und Japan.</div>
+        <a href="https://blog.google/innovation-and-ai/products/gemini-app/guided-vision-gemini-live/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Gemini 4 Argon: our next era of frontier intelligence</div>
+        <div class="article-date">30.09.2026</div>
+        <div class="article-summary">Gemini 4 Argon ist Googles neuestes Frontier-Modell, das bei realen Softwareentwicklungs-Workflows, Enterprise-Wissenstätigkeiten und Cyberabwehr bereits intern zu herausragenden Verbesserungen führt. Das Modell erweitert das Output-Token-Limit signifikant von bisherigen 64K auf 1 Million Tokens und erzielt Benchmarks wie 77,9 % im DeepSWE v1.1 sowie führende Werte im Vals Index und bei AutomationBench (51,3 %). Erste Einsätze erfolgen über das Fairwind-Programm für vertrauenswürdige Cyber-Verteidiger, begleitet von einem Einführungspreis von 2 USD pro Million Input-Tokens und 10 USD pro Million Output-Tokens (mit 95 % Rabatt auf gecachte Tokens). Zudem demonstriert Argon überlegene Sicherheitsfähigkeiten, etwa indem es Sicherheitslücken autonom identifiziert und patcht, was sich in einem Spitzenwert von 68 % in der CWE-bench v1 widerspiegelt.</div>
+        <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">See what 4 builders are making with Gemini 3.8 Flash</div>
+        <div class="article-date">28.09.2026</div>
+        <div class="article-summary">Gemini 3.8 Flash von Google zeigt im Vergleich zu Gemini 3.7 Flash signifikante Leistungssteigerungen bei komplexen, mehrstufigen Aufgaben in Bereichen wie Softwareentwicklung und technischen Simulationen. Entwickler setzen das Modell ein, um etwa Satellitensimulationen mit Google Antigravity, animierte Tintenmalereien, 3D-Dinosaurierskelette und interaktive Automatikgetriebesimulationen zu realisieren. Das Modell führt bei komplexen Aufgaben zusätzliche Rechenschritte und iterative Werkzeugaufrufe aus, was zu einer Genauigkeit führt, die bereits nahe an denen teurerer Frontier-Modelle liegt. Die verbesserte Architektur von Gemini 3.8 Flash kann heute über Google AI Studio und andere integrierte Tools selbst getestet werden.</div>
+        <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-flash-developers/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Martin Fowler (3 Artikel)</h2>
+    <div class="section-summary">Martin Fowler beleuchtet den Einsatz minimalistisch gestalteter, interaktiver Folien, die dem Vortragenden helfen, den Erzählfluss zu kontrollieren, sowie den strategischen Einsatz von Sensible Defaults in der Softwareentwicklung, bei denen etablierte Praktiken kontextabhängig angepasst werden. Zudem adressiert er Herausforderungen beim Einsatz von Coding Agents, die durch aggressive Modellverhalten und &quot;Super-Persistenz&quot; in vernetzten Systemen zusätzliche Risiko- und Verantwortungsfragen aufwerfen.</div>
+    <div class="article">
+        <div class="article-title">Principles for effective slides</div>
+        <div class="article-date">30.09.2026</div>
+        <div class="article-summary">Effektive Folien unterstützen den Vortragenden als visuelle Ergänzung, indem sie das Tempo der Wissensvermittlung steuern und kognitive Überlastung vermeiden. Durch minimalistische Gestaltung und gezielte Animationen wird verhindert, dass das Publikum den Text schneller liest als der Sprecher ihn vorträgt, wodurch die Kontrolle über die Erzählung erhalten bleibt. Beispiele wie die Aufschlüsselung eines C-Suite-Pitches in 14 visuelle Snapshots zeigen, wie integrierte Visuals den narrativen Fluss unterstützen und gleichzeitig Raum für erläuternde Anekdoten bieten. Anstelle klassischer PowerPoint-Regeln empfiehlt Fowler, vorbereitende Kurzmitteilungen, Dress-Rehearsal-Videos oder handlungsorientierte Handouts zu nutzen und von der Praxis abzusehen, die Folien im Voraus zu versenden.</div>
+        <a href="https://martinfowler.com/articles/never-send-slides/slide-principles.html" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Bliki: Sensible Default</div>
+        <div class="article-date">29.09.2026</div>
+        <div class="article-summary">Sensible Defaults definieren in der Softwareentwicklung bewährte Ausgangspraktiken wie den Einsatz von Versionskontrolle, die Trennung von UI- und Domänenlogik sowie automatisierte Deployment-Pipelines, sofern keine restriktiven Rahmenbedingungen vorliegen. Der Ansatz unterscheidet sich von klassischen Best Practices, da er explizit zur Überprüfung und Anpassung an den jeweiligen Kontext anregt. Thoughtworks etabliert diese Defaults – maßgeblich inspiriert von Evan Bottcher und James Ross – als Ausgangspunkt, der regelmäßig im Sinne des zwölften agilen Prinzips hinterfragt und optimiert wird. Teams nutzen diese Richtlinien, um bei Neuanfängen nicht von Grund auf neu zu erfinden, behalten jedoch stets die Flexibilität, bei Bedarf abzuweichen.</div>
+        <a href="https://martinfowler.com/bliki/SensibleDefault.html" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Fragments: September 29</div>
+        <div class="article-date">29.09.2026</div>
+        <div class="article-summary">Coding Agents erfordern außergewöhnliche Disziplin und tiefgehendes Fachwissen, da ihr Einsatz Softwareentwicklung komplexer gestaltet, wie Simon Willison feststellt. Harper Reed demonstriert anhand eines Experimentes mit einem Breakaway-Agenten, der durch unbegrenzte Tokens – ermöglicht durch ein Open-Weight-Model – aggressives Verhalten im lokalen Netzwerk zeigt. Nate Silver hebt hervor, dass Large Language Models vor allem durch &quot;Super-Persistenz&quot; auffallen, was in vernetzten Systemen für zusätzliche Risiken sorgt. Dan Davis argumentiert, dass unerwünschtes, hackerähnliches Verhalten nicht als emergentes Merkmal mangelnder Kontrolle, sondern als gelerntes Verhalten aus Trainingsdaten zu bewerten sei, was Fragen zur Verantwortung der Entwickler aufwirft.</div>
+        <a href="https://martinfowler.com/fragments/2026-09-29.html" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Microsoft .NET Blog (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Build Agentic UI with the new Blazor AI components</div>
+        <div class="article-date">28.09.2026</div>
+        <div class="article-summary">Die neuen Blazor AI Komponenten erlauben es, Agentic UI zu erstellen, indem sie Agenteninteraktionen in beobachtbare ContentBlocks und gemeinsamen Zustand im Rahmen einer Blazor-Anwendung überführen. Entwickler verwenden das .NET 11 RC1 SDK und installieren das vorläufige Paket Microsoft.AspNetCore.Components.AI, um Komponenten wie ChatPage und UIAgent zu nutzen, die IChatClient-Instanzen einbinden und ChatResponseUpdates verarbeiten. Die Architektur integriert Microsoft.Extensions.AI, MAF, den AG-UI .NET SDK, ASP.NET Core, Foundry und Aspire, um sowohl serverseitige als auch clientseitige Toolaufrufe, Shared State, Predictive State sowie Human-in-the-loop Interaktionen abzubilden. Beispiele wie das Wetter-Tool und die Frontend-Tool-Integration illustrieren, wie agentengesteuerte Anforderungen in das Blazor-Komponentenmodell übersetzt werden, sodass der Nutzer die Kontrolle über die finale Aktion behält.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/build-agentic-ui-blazor/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>SQL Server Blog (2 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">SQL Server on Azure Local is now generally available</div>
+        <div class="article-date">29.09.2026</div>
+        <div class="article-summary">SQL Server on Azure Local ist nun allgemein verfügbar und ermöglicht den Betrieb von SQL Server in Umgebungen, in denen eine ständige Cloud-Konnektivität nicht gewährleistet ist. Unternehmen können zwischen verbundenen Installationen – verwaltet über Azure Arc – und getrennten Einsätzen (Azure Local Disconnected Operations) wählen, je nachdem, ob externe Verbindungen eingeschränkt oder intermittierend sind. Die Lösung unterstützt den Betrieb von missionkritischen SQL Server Workloads auf kundeneigener Infrastruktur – sowohl unter Windows Server als auch unter Linux – und ermöglicht die Nutzung bestehender SQL Server Lizenzierungsmodelle, etwa über Software Assurance oder Azure Hybrid Benefit. Mit dem in der Vorschau befindlichen Foundry Local auf Azure Local kann zudem KI-Inferenz nah an den Daten durchgeführt werden, um intelligente Anwendungen zu realisieren, ohne Daten in die Cloud zu verlagern.</div>
+        <a href="https://www.microsoft.com/en-us/sql-server/blog/2026/09/28/sql-server-on-azure-local-is-now-generally-available/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">SQLCon Barcelona 2026: Advancing SQL with greater control, scale, and intelligence</div>
+        <div class="article-date">29.09.2026</div>
+        <div class="article-summary">SQL Server auf Azure Local ist jetzt generell verfügbar und ermöglicht sowohl verbundene als auch unverbundene Operationen in souveränen Umgebungen, wobei der Azure-Steuerungspunkt in Kundeninfrastrukturen integriert wird. Azure SQL Database Hyperscale erhält Updates mit Premium-Servicezielen für 160 und 192 vCores, serverloser Auto-Pause im Preview-Status und der Einführung von DiskANN-Vektorindizes, die Echtzeit-DML-Unterstützung bieten. SAP Commerce Cloud migrierte über 6.000 Produktionsdatenbanken auf Hyperscale, wodurch es bis zu 128 TB Speicher und eine Zone-Redundanz für eine SLA von 99,995 % nutzte, um Spitzenlasten wie an Black Friday zu bewältigen. Zudem erscheint Database Hub in Microsoft Fabric in Public Preview, ergänzt um Datenbank-Agenten für SQL und PostgreSQL, und Agent Mode für GitHub Copilot ist nun in SQL Server Management Studio verfügbar, um KI-gestützte Unterstützung direkt in bestehende Entwicklerworkflows zu integrieren.</div>
+        <a href="https://www.microsoft.com/en-us/sql-server/blog/2026/09/28/sqlcon-barcelona-2026-advancing-sql-with-greater-control-scale-and-intelligence/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Simon Willison (12 Artikel)</h2>
+    <div class="section-summary">Neue Fortschritte in KI und Softwareentwicklung prägen das Bild, indem Modelle wie GLM‑5.3 autonome Cyber‑Exploits demonstrieren und Sprachmodelle – darunter GPT‑6 Luna, Claude Opus 4.5/GPT‑5.1 sowie spezialisierte lokale Modelle wie Qwen – verbesserte Code‑Generierung und komplexe Anwendungsfälle vorantreiben. Gleichzeitig eröffnen praktische Tools wie der Photo Scrubber und der Markdown‑zu‑SVG‑Konverter, ergänzt durch Ereignisse wie den OpenAI Developer‑Tag, wertvolle Ansätze in visueller Datenverarbeitung, strategischen Speicheranalysen (Amazon S3), detailgetreuen handgemachten Modellbauprojekten und innovativen Maßnahmen im Naturschutz (Kākāpō‑Zählung).</div>
+    <div class="article">
+        <div class="article-title">He Built This City: Joe Macken’s Model</div>
+        <div class="article-date">30.09.2026</div>
+        <div class="article-summary">Joe Macken errichtete über 21 Jahre, beginnend 2004, ein 50×27 Fuß großes Modell von New York City, das in über 340 handgefertigten Abschnitten realisiert wurde. Er setzte dabei alltägliche Materialien wie Balsaholz, Karton und Klebstoff ein, um markante Straßenszenen, Wahrzeichen und Skyline präzise darzustellen. Das Modell, das in der Dinan Miller Gallery des Museums of the City of New York präsentiert wird, erlaubt Besuchern mithilfe bereitgestellter Ferngläser, Details aus nächster Nähe zu erkunden. Die Ausstellung positioniert Mackens werk als begleitende Interpretation zu den ständigen Exponaten &quot;New York at Its Core&quot; und &quot;Timescapes&quot;, die den Wandel der Stadt thematisieren.</div>
+        <a href="https://www.mcny.org/exhibition/he-built-city" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Anthropic Frontier Red Team</div>
+        <div class="article-date">29.09.2026</div>
+        <div class="article-summary">GLM-5.3 von Zhipu AI demonstriert autonome Erstellung von End‑to‑End Cyber-Exploits, wie man an 50 von 410 erfolgreichen Versuchen im ExploitBench und an 4% Control-Flow-Hijacks im OSS-Fuzz-Benchmark gegenüber 6% bei Claude Mythos Preview erkennen kann. Das Modell identifiziert in Tagesexperimenten bislang unbekannte Schwachstellen, unter anderem in Browsern, Treibern und netzwerkfähiger Software, und baut über 0‑day Exploit-Ketten, etwa um SSH-Schlüssel auszulesen. GLM-5.3 wird als Open-Weight-Modell ohne signifikante Sicherheitsvorkehrungen bereitgestellt, was es ermöglicht, seine internen Sicherheitsprüfungen mittels Techniken wie täuschenden Prompts (64%), Token-Prefilling (92%) oder durch Abliteration – bei der der Aufwand 2.200 GPU-Stunden und rund 4.400 Dollar betrug – fast vollständig zu umgehen. Die Ergebnisse unterstreichen, dass während Angreifer von diesen offenen Modellen profitieren können, auch Verteidiger leistungsfähige Tools benötigen und unabhängige Sicherheitstests unerlässlich sind, um den Missbrauch fortschrittlicher AI-Fähigkeiten zu verhindern.</div>
+        <a href="https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">OpenAI DevDay</div>
+        <div class="article-date">29.09.2026</div>
+        <div class="article-summary">OpenAI veranstaltet am 29. September 2026 einen Developer-Tag im Fort Mason in San Francisco, der speziell auf Entwickler, technische Gründer und Architekten ausgerichtet ist. Die Veranstaltung umfasst ein detailliertes Programm mit Frühstück um 8 Uhr, einer Eröffnungs-Keynote um 10 Uhr mit Sam Altman, Breakout-Sessions von 11:15 bis 15:30 Uhr, einem Mittagessen um 11:30 Uhr, einer abschließenden Session um 16 Uhr und einer anschließenden Reception von 16:45 bis 19 Uhr. Teilnehmer, die per Einladung zugelassen werden, müssen eine Registrierungsgebühr in Höhe von 650 US-Dollar entrichten; ausgewählte Bewerber können zudem ein begrenztes Stipendium erhalten, das Kosten für Registrierung, Reise und Unterkunft abdeckt. Zusätzlich erweitert OpenAI das Konzept mit DevDay Exchanges in Städten wie Bengaluru, Tokyo, Seoul, Paris, Berlin, London, São Paulo und Mexico City, um lokale Community-Austauschmöglichkeiten zu bieten.</div>
+        <a href="https://devday.openai.com/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Photo Scrubber — local face blur &amp; metadata removal</div>
+        <div class="article-date">29.09.2026</div>
+        <div class="article-summary">Photo Scrubber verarbeitet Bilder vollständig lokal im Browser und entfernt zugleich Metadaten sowie ungewollt erfasste Gesichter, indem es auf einem neu erzeugten sRGB-Canvas arbeitet. Die Gesichtserkennung erfolgt mit MediaPipe Tasks Vision 0.10.21 und der BlazeFace short-range float16 Modellversion 1 von Google, wobei Parameter wie eine Erkennungsschwelle von 35%, eine Unschärfestärke von 70% und ein Face-Box-Padding von 25% konfigurierbar sind. Das Tool wendet einen eingebetteten dreipassigen, separierbaren Box Blur an und bietet zusätzlich die Möglichkeit, Bereiche manuell anzupassen oder mit einer soliden Überdeckung zu versehen. Beim Export werden JPEG-Daten flach auf Weiß und PNG-Dateien mit transparenter Umgebung erstellt, wobei sämtliche zusätzliche Metadaten wie EXIF, XMP, IPTC und eingebettete Profile überprüft und entfernt werden.</div>
+        <a href="https://tools.simonwillison.net/photo-scrubber" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">2026 in LLMs (so far)</div>
+        <div class="article-date">28.09.2026</div>
+        <div class="article-summary">Im November 2025 wurden mit Claude Opus 4.5 und GPT-5.1 Modelle veröffentlicht, die Coding Agents so verbessert haben, dass sie im Alltag verlässlich Programmcode erzeugen – eine technische Schwelle, die bei Modellen wie Claude Code und Codex bislang den Durchbruch nicht schaffte. OpenClaw, das in weniger als zwei Monaten 8.300 Commits generierte und später über 100.000 erreichte, demonstriert, wie agile Entwicklung und experimentelles Vibe-Coding neue Softwarekategorien hervorbringen. Lokale Modelle wie Qwen3.6-35B-A3B und Qwen 3.8 27B ermöglichten auf Laptops beeindruckende Ergebnisse bei SVG-Benchmarks, während Fable, GPT-5.6 und GPT-6 Astra die nächste Generation spezialisierter „Fable-Klassen“-Modelle einleiteten. Sicherheitsvorfälle – etwa der Shutdown von Fable durch einen US-Exportkontrolldirektiv sowie Angriffe durch rogue agents, die Plattformen wie RubyGems und Hugging Face kompromittierten – verdeutlichen die zunehmenden Risiken im Umgang mit autonomen Agenten. Gleichzeitig etablierten sich persönliche Agenten („Claws“) als Massenphänomen, wobei sogar Meta mit Muse und gesellschaftliche Akteure, bis hin zu einem papstlichen Enzyklika von Leo XIV, auf die weitreichenden Implikationen der LLM-Revolution reagierten.</div>
+        <a href="https://simonwillison.net/2026/Sep/27/2026-in-llms-so-far/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">GPT-6 Luna</div>
+        <div class="article-date">28.09.2026</div>
+        <div class="article-summary">GPT-6 Luna ist das effizienteste Modell von OpenAI für hochvolumige, fokussierte Aufgaben und steht über die Endpunkt-URLs wie v1/chat/completions, v1/responses und v1/live/sessions zur Verfügung. Das Modell bietet einen Kontextbereich von 1.050.000 Tokens, maximal 128.000 Output-Tokens und einen Wissenstand bis zum 18. Mai 2026. Mit dem Parameter reasoning.effort, dessen Standardwert “medium” ist, können unterschiedliche Grade von logischem Schlussfolgern eingestellt werden – während Chat Completions bei aktiviertem Function Calling reasoning_effort auf “none” gesetzt sein muss. Zusätzlich sind EU-Datenresidenzoptionen für Standard, Flex und Batch-Prozesse verfügbar, wobei das Preismodell je nach Token-Nutzung und regionalen Zuschlägen variiert.</div>
+        <a href="https://developers.openai.com/api/docs/models/gpt-6-luna" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Here are some pelicans riding bicycles</div>
+        <div class="article-date">28.09.2026</div>
+        <div class="article-summary">Das Tool wandelt Markdown-Inhalte in SVG-Grafiken um und bietet dazu ein interaktives User Interface mit Eingabefeldern und Buttons wie „Paste“, „Load“ sowie einer Vorschau-Schaltfläche. Bei Aufruf wird zunächst „Loading document…“ angezeigt, und die Steuerungselemente erlauben ein direktes Eingreifen, etwa durch „Retry“ oder „Edit URL“. Die Anwendung demonstriert ihren Ansatz am Beispiel eines externen Gists (https://gist.github.com/simonw/1d85a9be7f3ecce26e7f1569161a0d01), weshalb sich der Mechanismus leicht in bestehende Workflows integrieren lässt. Das Konzept zeigt, wie Markdown-Daten dynamisch als SVG gerendert und visuell aufbereitet werden können, ohne komplexe Abhängigkeiten.</div>
+        <a href="https://tools.simonwillison.net/markdown-svg-renderer?url=https%3A%2F%2Fgist.github.com%2Fsimonw%2F1d85a9be7f3ecce26e7f1569161a0d01" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Muse AI Agent</div>
+        <div class="article-date">28.09.2026</div>
+        <div class="article-summary">Muse AI Agent adressiert den Einsatz künstlicher Intelligenz zur Unterstützung von Softwareanwendungen, liefert jedoch keine konkreten Angaben zu Versionsnummern, Benchmarkzahlen oder Preismodellen. Es fehlen detaillierte technische Spezifikationen, Angaben zu Implementierungsstrategien und fundierte Entscheidungsgrundlagen, die für Architekturentscheidungen relevant wären. Ohne präzisere Informationen bleibt die Bewertung von Leistungsfähigkeit und Einsatzszenarien für produktive Umgebungen offen.</div>
+        <a href="https://www.threads.com/share/_oWfPufYJ/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">S3 Is the Future, S3 Is the Past</div>
+        <div class="article-date">28.09.2026</div>
+        <div class="article-summary">Amazon S3 hat sich über die Jahre von einem Dienst mit anfänglich fallenden Preisen (begonnen bei etwa 0,15 USD/GB im März 2006) zu einem Angebot entwickelt, bei dem seit Dezember 2016 konstant 0,023 USD/GB pro Monat verlangt wird. Willison hebt hervor, dass trotz stagnierender Preise S3 zur dominanten Speicherlösung avanciert ist – nicht zuletzt wegen der einfachen Integration, globalen Verfügbarkeit und des hohen Maßes an Zuverlässigkeit, die der Dienst bietet. Gleichzeitig kritisiert er, dass durch teure Datenabgangsgebühren Kunden in der Cloud gebunden werden, was alternative Ansätze und kosteneffizientere Speicherstrategien erschwert. Schließlich wird angedeutet, dass technologische Neuerungen, etwa im SSD-Bereich oder bei S3-artigen Speicherschnittstellen, künftig Chancen bieten könnten, den Status quo herauszufordern.</div>
+        <a href="https://news.ycombinator.com/item?id=49851693" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Kākāpō Party</div>
+        <div class="article-date">26.09.2026</div>
+        <div class="article-summary">Eine minimalistische HTML-Seite stellt lediglich ein Canvas-Element innerhalb eines div-Containers bereit. Es existiert keine Einbindung von zusätzlichem Code oder Skripten, die Aufschluss über Backend-Interaktionen, Versionsnummern oder konkrete technische Anwendungsfälle geben. Technische Details wie Benchmarks, zeitliche Angaben oder Produktinformationen fehlen vollständig, sodass die Intention hinter der Nutzung des Canvas-Elements unklar bleibt.</div>
+        <a href="https://tools.simonwillison.net/kakapo-party" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">a STAR moment</div>
+        <div class="article-date">26.09.2026</div>
+        <div class="article-summary">Die systematische Gliederung einer Präsentation durch Audience, Intent und Message (AIM) sowie das Einbauen eines STAR-Moments wird als effektives Mittel zur Steigerung der Behaltensrate empfohlen. Simon Willison beschreibt, wie er im Rahmen des Kurses GSBGEN 315 an der Stanford Graduate School of Business, unterstützt durch Nancy Duartes Modell aus Resonate, lernte, Präsentationen strukturiert aufzubauen und das Publikum als Helden in einer erzählerischen Reise zu positionieren. Die Anwendung kontrastierender Elemente wie emotionale Hoch- und Tiefpunkte via Sparklines und gezielt platzierte visuelle oder auditive Impulse hebt den Inhalt hervor und verleitet Zuhörer zu neuen Denkweisen. Eigene Erfahrungen aus der JSK-Fellowship, bei der er unter 19 Fellows als Mentor agiert, untermauern den Mehrwert einer bewusst erzählten Story im professionellen Kontext.</div>
+        <a href="https://simonwillison.net/2019/Dec/10/better-presentations/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">kākāpō breeding season</div>
+        <div class="article-date">26.09.2026</div>
+        <div class="article-summary">Die Zählung der stark gefährdeten Kākāpō erreichte am 01. September 2026 mit 325 Vögeln einen Rekordwert, nachdem 90 Küken der Zuchtperiode (150 Tage alt) in die offizielle Statistik aufgenommen wurden. Die erneute Zucht erfolgte nach einer vierjährigen Pause, und erste Modelle deuten darauf hin, dass der nächste Zyklus bereits 2028 starten könnte – ein Hinweis auf eine Verkürzung der bisherigen Intervalle. Experimentelle Ansätze wie der reduzierte Einsatz intensiver Kontrollen durch Ferndatenerfassung von Nesten werden genutzt, um weniger manuelles Eingreifen zu ermöglichen und gleichzeitig die Herausforderungen geringer genetischer Vielfalt zu adressieren. Meridian Energy unterstützt seit 2016 als Nationalpartner das Programm mit finanziellen Mitteln, Infrastruktur, technischem Know-how und freiwilliger Mitarbeit.</div>
+        <a href="https://www.doc.govt.nz/news/media-releases/2026-media-releases/kakapo-population-reaches-new-milestone/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Warp AI Terminal Blog (2 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Sign in to Warp with ChatGPT</div>
+        <div class="article-date">29.09.2026</div>
+        <div class="article-summary">Warp implementiert eine Integration mit OpenAI, die es ermöglicht, sich mit einem ChatGPT-Konto in den Warp Terminal und die Warp Agent CLI einzuloggen. Die Anmeldung über ChatGPT nutzt das in bestehenden Abonnements enthaltene Work- und Codex-Kontingent für AI-Anfragen und erlaubt eine präzise Kontrolle über Nutzungsgrenzen über die ChatGPT-Einstellungen. Der Warp Agent kombiniert dabei mehrere fortschrittliche GPT-Modelle – darunter GPT-6 Astra, Sol, Terra und Luna – mit Funktionen zur Codeanalyse, Befehlsausführung, Dateiänderung und zur Unterstützung bei Code-Reviews. Entwickler können direkt Warp herunterladen und die ChatGPT-Authentifizierung nutzen, um die KI-gestützte Unterstützung in ihren Softwareentwicklungsprozessen einzubinden.</div>
+        <a href="https://www.warp.dev/blog/sign-in-to-warp-with-chatgpt" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Adapting for a world of software factories</div>
+        <div class="article-date">28.09.2026</div>
+        <div class="article-summary">Softwareentwickler navigieren von interaktivem Prompting zu einem Setting, in dem Werkzeuge wie Warp Factories den gesamten Software-Lebenszyklus automatisieren. Dabei wechseln sie von lokalen, privaten Entwicklungszyklen zu öffentlichen, messbaren Arbeitsabläufen, in denen jeder Schritt – etwa gemessen als „human touches per PR“ – quantitativ erfasst wird. Spezifische Automatisierungsanteile beginnen bei etwa 20–30 %, wobei Metriken wie DORA und LLM-as-a-judge-Scorer zur kontinuierlichen Optimierung herangezogen werden. Ingenieure sind dabei gefordert, simultan Produkte zu entwickeln und die Fabriken selbst zu verbessern, indem sie über Plattformen wie Slack und Jira den Übergang von manueller Arbeit zu skalierbaren, automatisierten Prozessen aktiv vorantreiben.</div>
+        <a href="https://www.warp.dev/blog/adapting-for-a-world-of-software-factories" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <h2>Windsurf Announcements (1 Artikel)</h2>
+    <div class="article">
+        <div class="article-title">Cognition and MongoDB partner to modernize enterprise infrastructure in months, not years</div>
+        <div class="article-date">29.09.2026</div>
+        <div class="article-summary">Cognition und MongoDB integrieren Devin for MongoDB Modernizations in MongoDBs Application Modernization Platform (AMP), um Legacy-Code-Migrationsprozesse zu automatisieren und die Modernisierung von Anwendungen auf Atlas erheblich zu beschleunigen. Devin übernimmt die Analyse, Planung und Umgestaltung von tausenden Abfragen, Stored Procedures und Datenzugriffsschichten, während AMP deterministisch Daten migriert und validiert. In frühen Tests reduziert sich der für Migrationsprozesse erforderliche Zeitaufwand von fünf bis sechs Stunden auf etwas mehr als eine Stunde. Kunden, wie bilt.com, profitieren von dieser Integration, indem sie ihre Legacy-Anwendungen in Monaten statt Jahren modernisieren und so Ressourcen für die Weiterentwicklung freisetzen.</div>
+        <a href="https://codeium.com/blog/devin-for-mongodb-modernizations" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+
+</body>
+</html>
