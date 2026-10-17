@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Übersicht - Letzte 7 Tage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .article {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .article-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .article-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .article-summary {
+            margin-bottom: 10px;
+        }
+        .article-link {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .article-link:hover {
+            text-decoration: underline;
+        }
+        /* R00011: Section-Summary-Block, leicht abgesetzt von Einzel-Artikeln */
+        .section-summary {
+            margin: 10px 0 20px 0;
+            padding: 12px 16px;
+            background-color: #eef4fb;
+            border-left: 4px solid #0066cc;
+            color: #234;
+        }
+        /* R00012: Changelog-Digest-Block — visuell distinkt vom Section-Summary */
+        .changelog-digest {
+            margin: 10px 0 15px 0;
+            padding: 12px 16px;
+            background-color: #fff7e6;
+            border-left: 4px solid #d97706;
+            color: #3a2a00;
+        }
+        .changelog-links {
+            list-style: disc inside;
+            padding-left: 0;
+            margin: 0 0 25px 0;
+        }
+        .changelog-links li {
+            margin: 4px 0;
+        }
+        .changelog-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-left: 6px;
+        }
+        /* R00013: Wochen-Tenor — visuell die staerkste der drei
+           Verdichtungsklassen (overall > section-summary > changelog-digest).
+           Linker Rand kraeftiger, Schrift groesser, klar abgesetzte
+           Hintergrundfarbe — vom Leser auf den ersten Blick als
+           Zusammenfassung der Wochenausgabe erkennbar. */
+        .overall-summary {
+            margin: 10px 0 25px 0;
+            padding: 18px 22px;
+            background-color: #f0fbf3;
+            border-left: 6px solid #15803d;
+            font-size: 1.1em;
+            color: #14271d;
+        }
+        /* R00015: Stichpunkte in den Verdichtungsbloecken und
+           zugeklappte Artikel-/Linkbloecke (natives <details>, kein JS). */
+        .overall-summary h3 {
+            font-size: 1em;
+            color: #15803d;
+            margin: 12px 0 4px 0;
+        }
+        .overall-summary h3:first-child {
+            margin-top: 0;
+        }
+        .overall-summary ul,
+        .section-summary ul,
+        .changelog-digest ul {
+            margin: 4px 0;
+            padding-left: 20px;
+        }
+        .overall-summary li,
+        .section-summary li,
+        .changelog-digest li {
+            margin: 3px 0;
+        }
+        .overall-summary p,
+        .section-summary p,
+        .changelog-digest p {
+            margin: 0;
+        }
+        /* R00017: Vergleich mit den Vorwochen — steht ueber dem
+           Wochen-Tenor, ruhiger als dieser, Belege dezent. */
+        .trend-comparison {
+            margin: 10px 0 15px 0;
+            padding: 14px 22px;
+            background-color: #f5f3ff;
+            border-left: 6px solid #6d28d9;
+            color: #1e1536;
+        }
+        .trend-comparison h3 {
+            font-size: 1.1em;
+            color: #6d28d9;
+            margin: 0 0 6px 0;
+        }
+        .trend-comparison h4 {
+            font-size: 1em;
+            margin: 10px 0 4px 0;
+        }
+        .trend-comparison ul {
+            margin: 4px 0;
+            padding-left: 20px;
+        }
+        .trend-comparison li {
+            margin: 3px 0;
+        }
+        .trend-comparison p {
+            margin: 0;
+        }
+        .trend-evidence {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .collapsed-block {
+            margin: 0 0 25px 0;
+        }
+        .collapsed-block > summary {
+            cursor: pointer;
+            color: #0066cc;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* R00014: Video-Kacheln — Nebenspur, deutlich schmaler als die
+           Artikel-Spalte, mehrere Kacheln pro Zeile. */
+        .video-tiles-heading {
+            font-size: 1.1em;
+            color: #555;
+            margin-top: 30px;
+        }
+        .video-tiles {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+        .video-tile {
+            display: block;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            overflow: hidden;
+            padding-bottom: 10px;
+            text-decoration: none;
+            color: inherit;
+            background: #fff;
+        }
+        .video-tile:hover {
+            border-color: #0066cc;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+        }
+        .video-thumb {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            background: #eee;
+        }
+        .video-title {
+            font-weight: bold;
+            font-size: 0.95em;
+            margin: 10px 10px 4px 10px;
+        }
+        .video-meta {
+            font-size: 0.8em;
+            color: #888;
+            margin: 0 10px 6px 10px;
+        }
+        .video-summary {
+            font-size: 0.85em;
+            color: #444;
+            margin: 0 10px;
+            line-height: 1.4;
+        }
+
+        /* R00011: Rueckspruglink zur index.html (oben und unten) */
+        .back-link {
+            display: inline-block;
+            margin: 10px 0 20px 0;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>News Übersicht der letzten 7 Tage</h1>
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+    <div class="trend-comparison"><h3>Gegenüber den Vorwochen</h3><h4>Neu</h4><ul><li><strong>Independent evaluators</strong>: Anthropic berichtet erstmals über unabhängige Evaluatoren ohne dass diese in Vorwochenaufteilungen erwähnt wurden.</li><li><strong>dotnetup Toolchain</strong>: Microsoft führt mit dotnetup ein neues Toolchain-Management ein, das in früheren Ausgaben nicht thematisiert wurde.</li><li><strong>Intelligenter Shopping Cart</strong>: Google präsentiert einen neuen Gemini-basierten Shopping Cart, ein Produktaspekt ohne Vorgeschichte in den Vorwochen.</li></ul><h4>Verstärkt</h4><ul><li><strong>Gemini 4 Argon</strong>: Google und Partner streichen mehrfach auf Gemini 4 Argon als zentrales Feature, was in Vorwochen nur punktuell erfolgte. <span class="trend-evidence">(03.10., 26.09.)</span></li><li><strong>Enterprise managed settings</strong>: GitHub Copilot fokussiert verstärkt auf unternehmensspezifische Einstellungen mit detaillierten Enforcement-Updates. <span class="trend-evidence">(26.09.)</span></li><li><strong>Agentic autofix</strong>: Die Funktionalität zur agentengestützten Autokorrektur wird im Kontext von Code-Scanning deutlich prominenter behandelt. <span class="trend-evidence">(26.09.)</span></li></ul><h4>Abgeschwächt / verschwunden</h4><ul><li><strong>GPT-6 Varianten</strong>: Die früher präsentierten GPT-6-Optionen tauchen in der aktuellen Ausgabe nicht mehr auf. <span class="trend-evidence">(03.10., 26.09.)</span></li><li><strong>Claude Modellupdates</strong>: Updates um Claude Haiku/Opus sind in der aktuellen Woche kaum vertreten im Vergleich zu den Vorwochen. <span class="trend-evidence">(10.10., 26.09.)</span></li></ul></div>
+    <div class="overall-summary"><h3>Neue Modelle</h3><ul><li><strong>Claude Opus 5.5 / Haiku 5.5</strong>: Anthropic ersetzt ältere Versionen durch neue Modelle, die verbesserte Wahl-Schutzmaßnahmen und interne Sicherheitsarchitekturen liefern.</li><li><strong>GPT‑6 Varianten</strong>: Neue GPT‑6 Optionen treten an die Stelle von GPT‑5.6 Terra und bieten optimierte Workflows sowie kosteneffizienten Betrieb.</li><li><strong>Gemini 4 Argon</strong>: Google bringt Gemini 4 Argon für Entwickler online, mit verbesserter Performance, erweiterter Integration und robusten Sicherheitsfeatures.</li></ul><h3>Sicherheit</h3><ul><li><strong>Gesicherte Zugriffe</strong>: Anthropic implementiert gestaffelte Prüf- und Zugriffskonzepte, um Risikoanalysen und interne Sicherheitsprozesse zu stärken.</li><li><strong>Wahl-Schutzmechanismen</strong>: Modelle integrieren automatisierte Klassifikatoren und mehrstufige Cyber-Schutzmaßnahmen, um Wahlbeeinflussung und Missbrauch entgegenzuwirken.</li><li><strong>Sicherheitsoptimierung bei Gemini</strong>: Gemini 4 Argon beinhaltet Features wie Fehlerschutz und Prompt-Injection-Resistenz, die den Einsatz in kritischen Workflows absichern.</li></ul><h3>Besondere Entwicklungen</h3><ul><li><strong>Entwicklerautomatisierung</strong>: Tools wie GitHub Copilot, Warp und agentengestützte Systeme delegieren Routineaufgaben und optimieren Bugfixes und Code-Reviews.</li><li><strong>DevOps &amp; Versionskontrolle</strong>: Der Wechsel zu Scion, Updates im .NET-Ökosystem sowie Neuerungen in Python 3.15 zeigen Trends in automatisierter Versionsverwaltung und Build-Pipelines.</li><li><strong>KI im Krisenmanagement</strong>: Google und andere Akteure nutzen KI zur Erdbebenfrühwarnung, Gesundheitsüberwachung und E-Commerce-Integration, was interdisziplinäre Anwendungen vorantreibt.</li><li><strong>Praxisorientierte Methodik</strong>: Initiativen wie Practitioner Voice und strukturierte Automatisierung im Software-Fabric Engineering heben Erfahrungswerte im Vergleich zu rein akademischen Ansätzen hervor.</li></ul><h3>Sonstiges</h3><ul><li><strong>Management &amp; KPIs</strong>: Ein neues Buch thematisiert den ausgewogenen Einsatz von OKRs und KPIs, hebt Risiken einer reinen Zahlenorientierung hervor und gibt praxisnahe Ansätze.</li><li><strong>Experimentelle Anwendungen</strong>: Audiochirps zur Synchronisation eines Pong-ähnlichen Spiels und AI-basierte Dekompilierung demonstrieren unerwartete Einsatzszenarien und technologische Risiken.</li><li><strong>Tradition &amp; Gestaltung</strong>: Klassische Archivierung von Blogeinträgen und standardisierte Präsentationsleitfäden kontrastieren mit den modernen, automatisierten Ansätzen der Softwareentwicklung.</li></ul></div>
+    <p>Generiert am: 17.10.2026 07:00 Uhr</p>
+    <p>Anzahl Artikel: 34 (zus&auml;tzlich 8 Changelog-Eintr&auml;ge aus 1 Quelle)</p>
+
+    <h2>Allan Kelly Blog (2 Artikel)</h2>
+    <div class="section-summary"><ul><li><strong>OKRs &amp; KPIs</strong>: Kombiniert den Einsatz von Kennzahlen und Managementzielen, wobei numerische Steuerung nicht alle Unternehmenswerte abbildet.</li><li><strong>Integriertes Geschäftsmodell</strong>: Verbindet OKRs und KPIs, liefert praxisnahe Ansätze zur effektiven Verbindung von agilen Methoden und messbaren Zielvorgaben.</li></ul></div>
+    <details class="collapsed-block"><summary>2 Artikel</summary>
+    <div class="article">
+        <div class="article-title">New book: Managing with OKRs and KPIs</div>
+        <div class="article-date">12.10.2026</div>
+        <div class="article-summary">Allan Kelly verkauft auf LeanPub sein neue Buch &quot;Little Book of OKRs and KPIs: Managing with gaols, numbers and purpose&quot;, das seinen Fokus auf den Einsatz von OKRs und KPIs in der Unternehmensführung legt. Das Werk baut auf Inhalten eines letztjährigen Papiers sowie aus einem abgebrochenen Buchprojekt zu Unternehmensformen und verschachtelten Zielen auf, um neben der Effizienz von Kennzahlen auch die Risiken eines rein zahlenbasierten Managements zu beleuchten. Er argumentiert, dass während OKR-Stil-Ziele kurzfristig wirkungsvoll sind, langfristige, sinnstiftende Unternehmensziele nicht quantifiziert werden sollten. Parallel dazu präsentiert Kelly seine EuroPLoP-Arbeit „Reframing the Problem-Solution pairing – one pattern &amp; a discussion“, die in absehbarer Zeit in den Springer Nature Proceedings erscheinen wird.</div>
+        <a href="https://www.allankelly.net/archives/10809/new-book-coming-managing-with-okrs-and-kpis/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Little Book of OKRs and KPIs: Managing with gaols, numbers and purpose</div>
+        <div class="article-date">10.10.2026</div>
+        <div class="article-summary">Allan Kelly differenziert zwischen OKRs und KPIs und etabliert ein Geschäftsmodell, in dem beide Systeme sinnvoll kombiniert werden. Er warnt vor einer ausschließlichen Zahlenorientierung, da wichtige, nicht numerische Ziele dabei leicht in den Hintergrund treten können. Der Autor ordnet KPIs in drei Kategorien ein und zeigt, warum traditionelle Ziele wie Umsatz und Gewinn oft irreführende Steuerungsgrößen bleiben. Kelly liefert praxisnahe Ansätze, um mit messbaren Zielvorgaben und Kennzahlen Management und agile Arbeitsmethoden effektiver zu verbinden.</div>
+        <a href="https://leanpub.com/OkrsKpis" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <h2>Anthropic News (3 Artikel)</h2>
+    <div class="section-summary"><ul><li><strong>Sicherheitsüberwachung</strong>: Anthropic etabliert gestufte Prüfprozesse mit differenzierten Zugriffsrechten für tiefgehende Modell- und Trainingsanalysen.</li><li><strong>Singapur Expansion</strong>: Das fünfte APAC-Büro wird eröffnet und intensive technische Kooperationen zur AI-Sicherheit mit lokalen Institutionen gestartet.</li><li><strong>Wahlschutzmaßnahmen</strong>: Claude-Modelle analysieren US-Daten zur Integration standortspezifischer Wahlinfos und automatisieren Cyber-Schutz.</li></ul></div>
+    <details class="collapsed-block"><summary>3 Artikel</summary>
+    <div class="article">
+        <div class="article-title">An update on independent evaluators</div>
+        <div class="article-date">15.10.2026</div>
+        <div class="article-summary">Anthropic ermöglicht unabhängig arbeitenden Prüfern, etwa von METR – dessen Team um sechs Mitarbeiter inzwischen Mitarbeitenden ähnelnden Zugang zu internen Systemen erhält – detaillierte Einblicke in Modelle, Trainingsprozesse und Sicherheitsarchitekturen. Evaluierungen erfolgen über gestaffelte Zugriffsrechte, die von eng begrenzten Risikoinvestigationen (erste Stufe) bis hin zu Mitarbeiter-ähnlicher Integration mit freier Publikationsmöglichkeit (dritte Stufe) reichen. Parallel arbeitet Anthropic mit Partnern wie SecureBio, Accenture und in frühen Gesprächen mit Hugging Face, um fundierte Risikoanalysen zu fördern und sensible Unternehmensdetails in vordefinierten sicheren Kategorien auszuklammern. Die Maßnahmen, die bereits seit Oktober 2026 in Kraft sind, sollen robustes Sicherheitsmonitoring im Bereich frontier AI sicherstellen.</div>
+        <a href="https://www.anthropic.com/news/an-update-on-independent-evaluators" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Anthropic opens Singapore office and signs MOU with the Government of Singapore</div>
+        <div class="article-date">14.10.2026</div>
+        <div class="article-summary">Anthropic eröffnet in Singapur sein fünftes Büro in der Asia-Pazifik-Region und unterzeichnet ein MOU mit dem Ministry of Digital Development and Information, um technische Austauschformate im Bereich AI-Sicherheit, Modellauswertung und Incident Response zu etablieren. Claude, das KI-System von Anthropic, wird bereits von über 1.500 Ingenieuren bei GovTech Singapore sowie von Unternehmen wie Grab, DBS und GIC eingesetzt, wobei Singapur laut dem Economic Index von Anthropic zu den Top-Nutzern zählt – sechsmal stärker als populationsbasiert erwartet. Die Kooperation umfasst auch den Austausch von Forschungsergebnissen, Daten aus dem Anthropic Economic Index und die Unterstützung bei der Entwicklung von Infrastrukturen, etwa durch in-region inference auf Amazon Bedrock, um regulatorische Anforderungen in sicherheitsrelevanten Branchen zu erfüllen. Lokale Veranstaltungen wie der Builder Summit und Treffen mit über 700 Entwicklern unterstreichen den engen Kontakt zu Singapurs Entwickler-Community.</div>
+        <a href="https://www.anthropic.com/news/singapore-office-opening" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Preparing for the 2026 US midterms</div>
+        <div class="article-date">14.10.2026</div>
+        <div class="article-summary">Anthropic hat seine Wahl-Schutzmaßnahmen vor den US-Midterms 2026 durch die Analyse von 250.000 US-Verbraucher-Konversationen auf Claude.ai konkretiert, wobei 5,75 % der Gespräche politische Themen, 0,51 % spezifisch Wahlthemen und nur 0,01 % direkte Wahlberatungen betreffen. Claude liefert nun über Banner und direkte Integration offizieller Informationen von Democracy Works je nach Bundesstaat standortspezifische Angaben zu Wahllokalen und benötigten Ausweisen, ohne die Nutzer aus der Konversation zu reißen. Die Modelle Claude Opus 5.5, Sonnet 5.5 und Haiku 5.5 erzielen 99 % bei der politischen Ausgewogenheit, was anhand interner Tests und externer Evaluierungen durch Organisationen wie The Future of Free Speech und das McCain Institute bestätigt wurde. Neue automatisierte Klassifikatoren und erweiterte Cyber-Schutzmaßnahmen sollen mehrstufige Missbrauchsversuche, einschließlich fremdbestimmter Wahlbeeinflussung, zuverlässig erkennen und unterbinden.</div>
+        <a href="https://www.anthropic.com/news/2026-us-midterms" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <h2>GitHub Copilot Blog (2 Artikel)</h2>
+    <div class="section-summary"><ul><li><strong>Copilot Architektur</strong>: Dreistufige Struktur kapselt Intent-Erfassung, Planungs- und Steuerungsebene zur Automatisierung von Routineaufgaben.</li><li><strong>Hardware-Integration</strong>: Einbindung von Logitech MX Keypad ermöglicht programmierte Eingaben für workflowbezogene Abläufe.</li><li><strong>Repository-Konfiguration</strong>: .github/copilot-instructions.md und .github/agents definieren teaminterne Standards und automatisieren Qualitätssicherungen.</li><li><strong>Externe Tools</strong>: Anbindung über MCP-Server und Playwright ermöglicht Validierung und Interaktion mit zusätzlichen Datenquellen.</li></ul></div>
+    <details class="collapsed-block"><summary>2 Artikel</summary>
+    <div class="article">
+        <div class="article-title">The next developer interface is ambient intelligence</div>
+        <div class="article-date">15.10.2026</div>
+        <div class="article-summary">GitHub Copilot delegiert Routineaufgaben, indem es Repository-Kontext nutzt, um Code zu analysieren, Tests auszuführen und Pull Requests zu generieren – alles basierend auf einer einmalig formulierten Intention. Die Architektur unterteilt sich in drei Ebenen: Eine Ebene erfasst den Intent, eine weitere plant und führt Aktionen aus, während eine Control Plane dem Entwickler Einblick und Steuerungsmöglichkeiten liefert. Die Integration von Hardware, etwa durch die Zusammenarbeit mit Logitech MX Keypad, ermöglicht es, häufige Abläufe als programmierbare Eingaben zu etablieren, die den Workflow ambient und kontextbezogen unterstützen. Das System bewahrt dabei die Verantwortlichkeit des Entwicklers, während es mechanische Aufgaben reduziert und den Fokus auf die Definition von Zielen und die Bewertung von Ergebnissen verlagert.</div>
+        <a href="https://github.blog/news-insights/company-news/the-next-developer-interface-is-ambient-intelligence/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">GitHub Copilot app for Beginners: How to teach Copilot about your codebase</div>
+        <div class="article-date">12.10.2026</div>
+        <div class="article-summary">GitHub Copilot kann mit Hilfe von Repository-spezifischen Konfigurationsdateien wie .github/copilot-instructions.md direkt in den Code integriert werden, um teaminterne Konventionen, Namensgebungen und Testprozesse festzulegen. Entwickler definieren zusätzlich Pfad-spezifische Anweisungen, die den Einsatz von standardisierten Agent Skills unterstützen, um wiederkehrende Aufgaben wie Qualitätssicherungen oder Releases automatisiert durchzuführen. Bei komplexeren Vorhaben können individuelle Agenten in .github/agents eingerichtet werden, die einen kontextbezogenen, bereichsspezifischen Beratungsansatz bieten. Über MCP-Server, zum Beispiel mit Playwright, wird Copilot zudem in die Lage versetzt, externe Tools und Datenquellen anzubinden, was eine zusätzliche Validierung und Interaktion mit der Anwendung erlaubt.</div>
+        <a href="https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-teach-copilot-about-your-codebase/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <h2>GitHub Copilot Changelog (8 Eintr&auml;ge)</h2>
+    <div class="changelog-digest"><ul><li><strong>Modell-Updates</strong>: Alte Modelle (Claude Opus 4.8, Claude Opus 5, GPT‑5.6 Terra) werden durch neue Optionen (Claude Opus 5.5, GPT‑6 Varianten, Gemini 4 Argon) ersetzt; HydraFusion-Workflows wurden erweitert.</li><li><strong>Neue Funktionen</strong>: Multi-Repository-Management in Slack/Microsoft Teams, Agentic autofix für Code-Scanning-Alerts und erweiterte Agenten-Konfiguration in JetBrains IDEs wurden eingeführt.</li><li><strong>Konfiguration</strong>: Enterprise-Einstellungen wurden angepasst: forceRemoteSettingsRefresh für aktuelle Richtlinien und optimierte Telemetrie (OpenTelemetry-Attribute) für CLI, VS Code und Copilot App.</li></ul></div>
+    <details class="collapsed-block"><summary>8 Einträge</summary>
+    <ul class="changelog-links">
+        <li><a href="https://github.blog/changelog/2026-10-15-copilot-in-slack-and-teams-adds-model-and-repository-updates" class="article-link" target="_blank">Multi-repo support and other improvements for GitHub Copilot in Slack and Microsoft Teams</a> <span class="changelog-date">16.10.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability" class="article-link" target="_blank">Agentic autofix for code scanning alerts general availability</a> <span class="changelog-date">15.10.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november" class="article-link" target="_blank">Upcoming deprecation of selected GitHub Copilot models in mid-November</a> <span class="changelog-date">15.10.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option" class="article-link" target="_blank">HydraFusion updates and new Max option</a> <span class="changelog-date">14.10.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-10-13-enterprise-managed-settings-enforcement-updates" class="article-link" target="_blank">Enterprise managed settings enforcement updates</a> <span class="changelog-date">13.10.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-10-13-gemini-4-argon-in-github-copilot" class="article-link" target="_blank">Gemini 4 Argon in GitHub Copilot</a> <span class="changelog-date">13.10.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-10-12-client-telemetry-user-attribution-and-configurable-capture" class="article-link" target="_blank">Client telemetry user attribution and configurable capture</a> <span class="changelog-date">12.10.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-10-10-new-controls-and-chat-improvements-in-copilot-for-jetbrains" class="article-link" target="_blank">New controls and chat improvements in Copilot for JetBrains</a> <span class="changelog-date">10.10.2026</span></li>
+    </ul>
+    </details>
+
+    <h2>Google AI Blog (3 Artikel)</h2>
+    <div class="section-summary"><ul><li><strong>Krisenfrühwarnsysteme</strong>: KI-Modelle wandeln Smartphones in globale Frühwarnsysteme für Erdbeben, Überschwemmungen, Brände und Cyclone um.</li><li><strong>Gesundheit &amp; Forschung</strong>: KI-Lösungen wie AMIE, Google Earth AI und Deep Review unterstützen klinische Anwendungen und wissenschaftliche Analysen.</li><li><strong>Gemini 4 Argon</strong>: Neues Modell für Entwickler optimiert komplexe Workflows in Software Engineering und Cybersecurity über spezialisierte APIs.</li></ul></div>
+    <details class="collapsed-block"><summary>3 Artikel</summary>
+    <div class="article">
+        <div class="article-title">How we&#x27;re helping the world prepare for natural disasters</div>
+        <div class="article-date">15.10.2026</div>
+        <div class="article-summary">Google nutzt KI-gestützte Modelle, um mit dem Android Earthquake Alerts System Smartphones in ein globales Frühwarnnetzwerk bei Erdbeben zu verwandeln, das aktuell in weiteren Ländern ausgerollt wird. Die Flutvorhersagetechnologie bietet mehr als sieben Tage Vorlaufzeit für über zwei Milliarden Menschen in 150 Ländern und ermöglicht in urbanen Gebieten Blitzwarnungen 24 Stunden im Voraus. Mit WeatherNext prognostiziert Google Cyclone bis zu 15 Tage im Voraus, während Near-Real-Time Fire Boundary Maps in 34 Ländern und das satellitengestützte FireSat Feuerausbreitungen bereits innerhalb von 20 Minuten erkennen. Im Jahr 2025 bot Google durchschnittlich über 10 Mio. tägliche Verbindungen zu Kriseninformationen, wie im neuen Crisis Resilience White Paper detailliert dokumentiert wird.</div>
+        <a href="https://blog.google/innovation-and-ai/models-and-research/google-research/crisis-resilience-white-paper/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Research@ 2026: Novel capabilities and intelligence</div>
+        <div class="article-date">14.10.2026</div>
+        <div class="article-summary">Google Research bringt in Research@ 2026 KI-Lösungen hervor, die in den Bereichen Gesundheitsversorgung, Krisenresilienz und öffentlicher Gesundheit angewendet werden. AMIE wird in der Klinik eingesetzt, während Google Earth AI die Überwachung und Vorhersage von Krankheitsausbrüchen unterstützt, und Project Suncatcher demonstriert den Einsatz von KI im Orbit. Das System Deep Review, nach erfolgreichen Anwendungen bei über 15.000 wissenschaftlichen Einreichungen (unter anderem bei STOC, ICML, NeurIPS und ICLR), wird nun öffentlich verfügbar gemacht. Die Initiative zeigt, wie Google interdisziplinäre Ansätze nutzt, um fortschrittliche KI in den Händen von Experten zu verankern und so wissenschaftliche Entdeckungen zu beschleunigen.</div>
+        <a href="https://blog.google/innovation-and-ai/technology/research/research-capabilities-intelligence-2026/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Gemini 4 Argon is now available for developers.</div>
+        <div class="article-date">13.10.2026</div>
+        <div class="article-summary">Gemini 4 Argon ist ab dem 13. Oktober 2026 für Entwickler verfügbar und unterstützt komplexe Workflows in den Bereichen Software Engineering, Enterprise-Wissen und Cybersecurity. Das Modell bewältigt langanhaltende Prozesse, die tiefes logisches Denken und strukturelle Präzision erfordern, beispielsweise bei Code-Migrationen oder bei herausfordernden Forschungsaufgaben. Entwickler können über die kostenpflichtige Gemini API in Google AI Studio und Android Studio auf das Modell zugreifen, während Google AI Ultra-Abonnenten über AI Studio sowie über die agentenorientierte Entwicklungsplattform Google Antigravity darauf zugreifen können. Weiterführende Informationen und Implementierungsanleitungen sind im Gemini API Developer Guide sowie in ergänzenden Blogposts zu finden.</div>
+        <a href="https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-4-argon/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <h2>Google AI Blog - Gemini (3 Artikel)</h2>
+    <div class="section-summary"><ul><li><strong>Universal Cart</strong>: Bündelt kontinuierlich aktualisierte Produktdaten des Google Shopping Graphs und integriert UCP sowie Google Wallet für zentrale Einkaufsverwaltung.</li><li><strong>Gemini 4 Argon</strong>: Neues Modell verbessert komplexe Problemlösungen, Code-Optimierungen und Sicherheit, mit direkter Integration in diverse Apps und agentisches Coding-Interface.</li></ul></div>
+    <details class="collapsed-block"><summary>3 Artikel</summary>
+    <div class="article">
+        <div class="article-title">An intelligent new shopping cart</div>
+        <div class="article-date">15.10.2026</div>
+        <div class="article-summary">Universal Cart bündelt Einkaufsartikel aus verschiedenen Quellen über Google Search und die Gemini App und nutzt dabei mehr als 60 Milliarden kontinuierlich aktualisierte Produktdatensätze aus dem Google Shopping Graph. Das System speichert über Geräte und Plattformen hinweg Artikel, sodass Kunden ihre Auswahl – etwa von Einzelhändlern wie Nike, Sephora, Walmart und vielen Shopify-Partnern – zentral abrufen können. Es benachrichtigt Anwender proaktiv bei Preisänderungen und Lagerauffüllungen, was über Algorithmen realisiert wird, die auf umfangreichen Produkt- und Preisdaten basieren. Der Warenkorb integriert das Universal Commerce Protocol (UCP) und Google Wallet, um Kreditkartenvorteile auszuwerten, relevante Promo-Codes zu identifizieren und eine sichere Kaufabwicklung über Google Pay oder direkte Händlerweiterleitung zu ermöglichen. Die Einführung in den USA erfolgt zum Start der Ferien-Saison, um Verbrauchern ein organisiertes und effizientes Einkaufserlebnis zu bieten.</div>
+        <a href="https://blog.google/products-and-platforms/products/shopping/universal-cart-launch/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Gemini 4 Argon: Built to solve your hardest problems</div>
+        <div class="article-date">13.10.2026</div>
+        <div class="article-summary">Gemini 4 Argon, das neueste Modell aus der Gemini-Serie von Google, ist ab sofort weltweit über verschiedene Plattformen wie AI Studio, Gemini API, Google Antigravity und die Gemini App verfügbar. Das Modell ist speziell darauf ausgelegt, komplexe, mehrstufige Probleme in Bereichen wie Softwareentwicklung, Finanzwesen, Recht, Cybersicherheit und Wissenschaft zu lösen und übertrifft andere Frontier-Modelle auf Benchmarks wie dem Vals Index, indem es beispielsweise Code-Refaktorisierungen in Chrome um 35 % beschleunigte und Code-Rollbacks um fast ein Drittel reduzierte. In realen Anwendungen optimierte Argon eine 200.000-zeilige Python-Codebasis um 40 % in der In-Memory-Vorbereitungszeit und steigerte die Inferenzgeschwindigkeit von Gemma 4 E2B auf einem A100-GPU um das 2,85-Fache. Das Modell startet in einer Einführungsphase zu Preisen von $2 pro Million Input-Tokens und $10 pro Million Output-Tokens (mit 95 % Rabatt auf gecachte Tokens) und bietet ein branchenführendes Tokenlimit von 1 Million pro Anfrage. Neben den technischen Fortschritten legt Google mit Argon besonderen Wert auf Sicherheit, robuste Fehlerschutzmaßnahmen, Agentenausrichtung und Prompt-Injection-Resistenz, um den verantwortungsvollen Einsatz in kritischen Workflows zu gewährleisten.</div>
+        <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Gemini 4 is now available in the Gemini app</div>
+        <div class="article-date">13.10.2026</div>
+        <div class="article-summary">Gemini 4 Argon ist nun über die Gemini App verfügbar und liefert präzisere, weniger redundante Antworten auf komplexe Anfragen. Die Version verbessert den Umgang mit längeren Tasks, indem sie den Fortschritt häufiger transparent kommuniziert. Durch die Integration des agentischen Coding-Interfaces von Google Antigravity, das direkt in der Gemini macOS App eingebunden ist, wird der Wechsel zwischen Chat und Coding erleichtert. Zudem ermöglicht die neue Chat-zu-Task-Umschaltung und die Anbindung an über 40 Apps – u.a. Instacart, OpenTable, Adobe und Shopify – ein effektiveres Arbeiten, das Google AI Pro- und Ultra-Abonnenten seit dem 13. Oktober 2026 nutzen können.</div>
+        <a href="https://blog.google/innovation-and-ai/products/gemini-app/gemini-4-argon-availability/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <h2>Martin Fowler (4 Artikel)</h2>
+    <div class="section-summary"><ul><li><strong>IoT-System</strong>: Ein System mit 800.000 Sensoren erforderte angepasste Testumgebungen und Selbstdiagnose zur sicheren Firmware-Aktualisierung.</li><li><strong>Präsentationsgestaltung</strong>: Standardisierte Farbpaletten und minimalistische Layouts gewährleisten konsistente visuelle Darstellungen.</li><li><strong>GPT‑6 Luna Harness</strong>: Ein verhaltensorientierter Harness steigerte bei GPT‑6 Luna signifikant die Zuverlässigkeit bei kostensensitiven Modellen.</li><li><strong>Practitioner Voice</strong>: Der authentische Erfahrungsstil betont unmittelbare Praxis als Gegenpol zu KI-gestützten Textansätzen.</li></ul></div>
+    <details class="collapsed-block"><summary>4 Artikel</summary>
+    <div class="article">
+        <div class="article-title">When Software Meets Hardware</div>
+        <div class="article-date">15.10.2026</div>
+        <div class="article-summary">Ein großes IoT-System mit rund 800.000 batteriebetriebenen Sensoren in 3000 Filialen erforderte eine Neuausrichtung traditioneller Softwarepraktiken, um physische Einschränkungen wie intermittierende Konnektivität, Energieverbrauch und Umgebungseinflüsse zu berücksichtigen. Ingenieure integrierten physikalische Testumgebungen, etwa Sensorfarmen und virtuelle Gerätemulatoren, um reale Netzwerkbedingungen und Geräteverhalten zu simulieren und direkt zu messen. Jeder Sensor wurde zudem so entwickelt, dass er Diagnosedaten wie Firmware-Version, Betriebszustand und Verbindungsstatus eigenständig liefern kann, was speziell bei schwer zugänglichen Geräten unerlässlich ist. Effiziente lokale (zum Beispiel NFC oder BLE) und entfernte Schnittstellen ermöglichten nicht nur das Monitoring, sondern auch Operations und Konfiguration, während OTA-Updates mit Recovery-Mechanismen den sicheren Rollout bei schwerwiegenden Firmware-Problemen gewährleisten. Die Erfahrung zeigt, dass klassische Prinzipien wie schnelles Feedback, Automatisierung und kontinuierliches Lernen erhalten bleiben, jedoch durch neue, sinnvolle Standardannahmen ergänzt werden müssen, die der physischen Welt Rechnung tragen.</div>
+        <a href="https://martinfowler.com/articles/software-meets-hardware.html" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Build your slide template</div>
+        <div class="article-date">14.10.2026</div>
+        <div class="article-summary">Konsistente Gestaltung von Präsentationsfolien beginnt mit bewusster Wahl einer Farbpalette, ein Schrift-Setup und minimalen Layouts. Thoughtworks etwa nutzt eine feste Palette aus sechs Farben plus Schwarz und Hellgrau, die in PowerPoint problemlos global ausgetauscht werden kann, und die Prinzipien der Farbtheorie – wie komplementäre oder monochromatische Schemata – liefern klare Richtlinien für kontrastreiche Visualisierungen. Die Auswahl zwischen Serif- und Sans-Serif-Schriften wird abhängig vom Einsatzzweck getroffen, wobei variable, moderne Schriftarten und gezielte Kerning- sowie Leading-Anpassungen die Lesbarkeit auch auf 720p- oder 1080p-Displays sicherstellen; zudem wird der Einsatz von Handwritten- und Monospace-Schriften als Akzent empfohlen. Ein reduziertes Layout, das standardisierte Folienlayouts vermeidet und stattdessen auf Titel- und Blankofolien setzt, ermöglicht Flexibilität, während QR-Codes auf Abschlussfolien einen unkomplizierten Zugang zu weiterführenden Materialien bieten.</div>
+        <a href="https://martinfowler.com/articles/never-send-slides/build-your-slide-template.html" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Are Harnesses Worth the Cost?</div>
+        <div class="article-date">13.10.2026</div>
+        <div class="article-summary">Die Ergebnisse zeigen, dass ein verhaltensorientierter Harness, der als ausführbare Feedbackschleife mit klaren API-Verträgen („Guides“) und Prüfungsschritten („Sensors“) agiert, insbesondere bei kostensensitiven Modellen wie GPT‑6 Luna entscheidend zur Zuverlässigkeit beitragen kann. Ohne Harness erzielte GPT‑6 Luna nur 3 von 10 erfolgreichen Durchläufen, während der Einsatz des Harness bei Luna in 10 von 10 Durchläufen führte und dabei im Durchschnitt 22,93 Mio. Tokens, 35 Minuten Laufzeit und etwa $0,273 pro Versuch verbrauchte – damit rund 33 % weniger als unharnessed GPT‑6 Sol ($0,406 pro Versuch). Der Experimentaufbau umfasste 178 automatisierte Akzeptanztests, die sowohl die kundennahe HTTP-API als auch die Integration zu Downstream-Systemen wie Kafka und einer Order API abdeckten. Die Resultate verdeutlichen, dass ein kontinuierliches sensorbasiertes Feedback bei Modellen mit inkonsistenten Ergebnisse für ein stabiles, nachvollziehbares Verhalten sorgt, während robustere Modelle mit einem abschließenden Verifikationstakt (ohne umfassenden Harness während der Entwicklung) ausreichend validiert werden können.</div>
+        <a href="https://martinfowler.com/articles/are-harnesses-worth-the-cost.html" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">The Craft of Practitioner Voice</div>
+        <div class="article-date">13.10.2026</div>
+        <div class="article-summary">Pragmatiker schreiben laut dem Artikel authentisch aus unmittelbarer Erfahrungsautorität, indem sie ihre Schlussfolgerung direkt voranstellen und dem Leser erlauben, die Spannung aus eigenen Erfahrungen eigenständig zu schließen. Der Beitrag kontrastiert diesen Ansatz mit akademischen Texten, die auf rigorose methodische Belege setzen, und mit typischem Thought Leadership, das sich zu sehr auf polierte Markenbotschaften verlässt. Autor Martin Fowler betont, dass der „Practitioner Voice“ gerade in einer Zeit relevant ist, in der KI-Tools wie ChatGPT, Claude und Gemini in der Texterzeugung mitwirken und so die Gefahr besteht, dass menschliches, konsequenzgebundenes Urteil durch automatisierte Prozesse ersetzt wird – eine Problematik, die sich besonders ab 2024 in der Erfahrung des Autors manifestiert. Der Text formuliert konkrete Richtlinien zur Strukturierung und Bearbeitung, etwa durch Entwicklungs-, Zeilen- und Korrekturlesen, und unterstreicht, dass nur so eine authentische und erlebnisbasierte Argumentation erhalten bleibt, die an den echten Konsequenzen in der Praxis orientiert ist.</div>
+        <a href="https://martinfowler.com/articles/practitioner-voice.html#TheCraftOfPractitionerVoice" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <h2>Microsoft .NET Blog (4 Artikel)</h2>
+    <div class="section-summary"><ul><li><strong>dotnetup CLI</strong>: Verwaltet .NET SDKs und Runtimes ohne Adminrechte, ermöglicht parallele Builds und plant CI/CD-Integration.</li><li><strong>.NET 11 RC2</strong>: Bietet Go-Live Support Lizenz, verbessert Runtime, Libraries und MSBuild; integriert VS 2026 Insiders und C# Dev Kit.</li><li><strong>Servicing-Updates</strong>: Aktualisiert .NET 10, 9, 8 mit Sicherheitsfixes und Funktionserweiterungen; enthält detaillierte Release Notes.</li><li><strong>Durable Task</strong>: Optimiert stateful Workflows mit .NET SDK v1.26.0; synchronisiert lange Orchestrierungen unter Nutzung externer atomarer Prüfungen.</li></ul></div>
+    <details class="collapsed-block"><summary>4 Artikel</summary>
+    <div class="article">
+        <div class="article-title">Introducing dotnetup: A toolchain manager for .NET</div>
+        <div class="article-date">15.10.2026</div>
+        <div class="article-summary">dotnetup installiert, verwaltet und aktualisiert .NET SDKs und Runtimes direkt im Benutzerkonto – ohne administrative Rechte – und löst damit Probleme herkömmlicher Systeminstallationsmethoden auf macOS und Linux. Das Tool ermöglicht neben der Installation stabiler Versionen (z. B. „10.0“ oder „10.0.3“) auch die parallele Verwaltung von Vorschau-, Tages- und Nightly-Builds („preview“, „daily“) über eine einheitliche CLI. Mit Befehlen wie dotnetup init, dotnetup list, dotnetup update sowie dedizierten Uninstall-Optionen wird neben der Versionierung auch ein automatisches Aufräumen veralteter Komponenten realisiert. Zukünftige Erweiterungen sollen auch die Verwaltung von Windows-Systeminstallationen und die Integration in CI/CD-Pipelines über GitHub Actions und Azure DevOps umfassen.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/introducing-dotnetup/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Announcing .NET 11 Release Candidate 2</div>
+        <div class="article-date">13.10.2026</div>
+        <div class="article-summary">.NET 11 Release Candidate 2 bietet eine Go-Live Support Lizenz, die den Einsatz in Produktionsumgebungen ermöglicht und wird in Verbindung mit Visual Studio 2026 Insiders sowie Visual Studio Code mit C# Dev Kit bereitgestellt. Die RC2-Version umfasst Verbesserungen in den Libraries, etwa inkrementelles CBOR-Lesen und experimentelle Composite-ML-KEM/HPKE-APIs, sowie in der Runtime, wo beispielsweise Dateisperren auf iOS und tvOS standardmäßig deaktiviert werden. Änderungen im SDK betreffen u.a. die Unterstützung von MSBuild-Properties in Launch-Profil-Argumenten und die Optimierung des Wildcard-Matchings bei der Projektevaluation. Weitere Updates betreffen MSBuild, NuGet, F#, ASP.NET Core, .NET MAUI und Windows Forms, wobei die detaillierten Release Notes umfassend auf die Neuerungen eingehen.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/dotnet-11-rc-2/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">.NET and .NET Framework October 2026 servicing releases updates</div>
+        <div class="article-date">12.10.2026</div>
+        <div class="article-summary">.NET 10.0 wird mit Version 10.0.13, .NET 9.0 mit Version 9.0.21 und .NET 8.0 mit Version 8.0.32 aktualisiert. Die aktuellen Servicing-Releases vom Oktober 2026 enthalten neben wichtigen sicherheitsrelevanten Korrekturen auch nicht sicherheitsbezogene Fixes. Entwickler finden zu jeder Version ausführliche Release Notes, CVE-Listen, Installer, Container-Images und Linux-Pakete. ASP.NET Core und .NET Runtime Updates werden entsprechend dokumentiert, und auch für das .NET Framework liegen neue Sicherheits- sowie Funktionsupdates vor. Es wird empfohlen, zeitnah auf die neuesten Service-Releases zu aktualisieren.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/dotnet-and-dotnet-framework-october-2026-servicing-updates/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Durable Task in the Real World: What Problems Does It Actually Solve?</div>
+        <div class="article-date">12.10.2026</div>
+        <div class="article-summary">Durable Task (mit .NET SDK v1.26.0) reduziert den Aufwand, wenn lang laufende, stateful Workflows – etwa in Prozessen wie Rechnungsgenehmigungen, Tenant-Provisioning, Zahlungsvorgängen oder KI-gestützten Incident Workflows – koordiniert werden müssen. Es ermöglicht die Daueraufbewahrung von Ausführungshistorien, synchronisiert asynchrone Aktivitäten über dauerhafte Timer und erlaubt das Wiederabspielen von Orchestrierungen, ohne dass zusätzliche Threads blockiert werden. Dabei bleibt die Verantwortung für externe Effekte, wie etwa die tatsächliche Zahlungsabwicklung oder Ressourcenkonfiguration in Azure, bei der Anwendung, und es werden keine exakten Once-Execution-Garantien für externe Operationen garantiert. In Szenarien wie Webhook-Bursts kann DTS zwar den internen Zustand konsistent halten, setzt aber auf externe atomare Prüfsysteme, um konkurrierende Schreibvorgänge korrekt zu koordinieren.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/durable-task-in-the-real-world/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <h2>Simon Willison (10 Artikel)</h2>
+    <div class="section-summary"><ul><li><strong>Audio-basierte Steuerung</strong>: Smartphones synchronisieren ein Pong-ähnliches Spiel über akustische Übertragung mittels der Web Microphone API.</li><li><strong>KI-Spiel-Portierung</strong>: AI-Modelle dekompilieren und modernisieren klassische Spiele, wobei automatisierte Prozesse auch Sicherheitsrisiken bergen.</li><li><strong>Skalierbares VCS</strong>: Anthropic ersetzt Git durch das eigens entwickelte Scion zur effizienten Bewältigung massiver Merge-Operationen.</li><li><strong>Python 3.15 Update</strong>: Die neue Python-Version führt Lazy Imports, verbesserte Profiler, JIT-Optimierungen und diverse API-Erweiterungen ein.</li></ul></div>
+    <details class="collapsed-block"><summary>10 Artikel</summary>
+    <div class="article">
+        <div class="article-title">15th Oct 2026, 7:47 pm</div>
+        <div class="article-date">15.10.2026</div>
+        <div class="article-summary">Zwei Smartphones kommunizieren per Audiochirps, um in statischem HTML ein Pong-ähnliches Zwei-Spieler-Spiel synchron zu steuern. Der Netzwerkcode nutzt die Web Microphone API, um Spielzustände akustisch zu übertragen, was im Praxistest als funktionstüchtig bestätigt wurde. Für den Programmcode kommt Claude Opus 5.5 Extra mittels Claude Code zum Einsatz. Das Experiment erweitert den klassischen Pong-Ansatz um grafische und spielerische Abwandlungen und demonstriert damit alternative Kommunikationswege zwischen Endgeräten.</div>
+        <a href="https://simonwillison.net/2026/Oct/15/chirp-pong/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">AI is mass decompiling games. That’s both awesome and scary.</div>
+        <div class="article-date">14.10.2026</div>
+        <div class="article-summary">AI-Modelle dekompilieren Spiele in wenigen Tagen, wodurch ehemals mühsame Community-Projekte zur Portierung und Verbesserung von Spielen automatisiert ablaufen. So wird beispielsweise der ursprüngliche Flash-Titel The Binding of Isaac, der auf 30 FPS und unscharfer Auflösung lief, nun in einer C++-Portierung mit 1440p und 165 FPS realisiert. Projekte wie IsaacRecomp, OpenCMR2, Final Fantasy Tactics Advance und AnyPS5 demonstrieren, wie alte Spiele modernisiert und auf diverse Plattformen portiert werden können, wobei die AI die bisher langwierige manuelle Umwandlung ersetzt. Gleichzeitig entsteht ein erhebliches Risiko, da jedermann durch automatische Dekompilierung auf den Quellcode zugreifen und damit auch urheberrechtlich geschützte Software modifizieren oder kopieren kann. Unternehmen stehen kurzfristig vor der Herausforderung, geeignete Schutzmaßnahmen gegen eine potenzielle Flut illegal dekompilierter Software einzuführen.</div>
+        <a href="https://popcar.bearblog.dev/ai-is-mass-decompiling-games-thats-both-awesome-and-scary/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Tree Appreciator</div>
+        <div class="article-date">14.10.2026</div>
+        <div class="article-summary">Tree Appreciator erzeugt zwei Bäume aus einem gemeinsamen Samen, bei denen in wenigen Details (z. B. fehlende Zweige oder unterschiedliche Vogelplatzierungen) Unterschiede eingebaut sind, die ein Nutzer per Klick erkennen muss. Die WebGL-basierte Anwendung erlaubt per Drag-and-Drop die Rotation, über Pinch- oder Scroll-Gesten das Zoomen und nutzt Tastaturkürzel (Pfeile, H, R, Enter) zur Steuerung. Jede gefundene Differenz wird mit 100 Punkten plus Boni für Schnelligkeit und aufeinanderfolgende Funde bewertet; Fehlklicks kosten Punkte. Der Fortschritt wird lokal im Browser gespeichert, wobei die Anwendung funktionierende WebGL-Unterstützung von aktuellen Versionen von Chrome, Safari, Firefox oder Edge verlangt.</div>
+        <a href="https://tools.simonwillison.net/tree-appreciator" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">2016</div>
+        <div class="article-date">13.10.2026</div>
+        <div class="article-summary">Die Archivseite ordnet alle Blogeinträge des Jahres 2005 chronologisch nach Monaten, wobei jedem Monat die jeweilige Anzahl an Beiträgen sowie weiterführende Links zugeordnet sind. Beiträge decken Themen ab, die unter anderem Greasemonkey-Anwendungen, technische Beobachtungen zu Eclipse, Google Maps, Django und dem Firefox-Browser umfassen. Die Monatsübersichten bieten einen kompakten Einstieg, um spezifische Artikel zu navigieren und die thematische Entwicklung der damaligen Web- und Softwaretechnologie nachzuvollziehen.</div>
+        <a href="https://simonwillison.net/2005/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Redesigning source control at Anthropic</div>
+        <div class="article-date">13.10.2026</div>
+        <div class="article-summary">Anthropic migrierte in nur fünf Monaten von git zu einem selbst entwickelten Versionskontrollsystem namens Scion, um den täglichen Anstieg von 2.500 auf über 30.000 Merges (Mai bis September 2026) zu bewältigen und Engpässe in der Entwicklerinfrastruktur zu vermeiden. Scion entkoppelt Client und Server, indem es auf das Prinzip setzt, dass Clients stets online sind und nur sparse, virtuelle Checkouts benötigen, wodurch Operationen wie Commits, Merges und Rebases skalierbar und ohne globale Sperren ausgeführt werden können. Das System arbeitet mit Changesets, die nur geänderte Dateien sowie content-addressed Blobs speichern, und ergänzt diese durch abgeleitete Datenstrukturen zur effizienten Berechnung von File Blame und Pfad-Historie. Der Einsatz von Scion reduziert den CPU- und Speicherbedarf um den Faktor 200 gegenüber der bisherigen Git-Mirroring-Infrastruktur und verkürzt Checkout-Zeiten von Minuten auf Sekunden. Ein siebenköpfiges Team nutzte intern auch Claude zur Codegenerierung und Optimierung, was zu signifikanten Leistungsverbesserungen bei rechenintensiven Abfragen führte.</div>
+        <a href="https://www.anthropic.com/engineering/redesigning-source-control" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Hello Python 3.15, goodbye 3.10, and now I can use 3.11</div>
+        <div class="article-date">12.10.2026</div>
+        <div class="article-summary">Python 3.15 führt explizite Lazy Imports (PEP 810) ein, wodurch Module erst beim tatsächlichen Zugriff geladen werden, und erweitert die Unpacking-Syntax in Comprehensions (PEP 798), was den Code kürzer und übersichtlicher gestaltet. Das Update beinhaltet zudem die Umbenennung des herkömmlichen Profilers cProfile zu profiling.tracing sowie die Einführung des neuen Sampling Profilers Tachyon, der mit geringem Overhead tiefe Einblicke in die Systemleistung ermöglicht – ein experimenteller JIT erzielt dabei auf einem Fibonacci-Test eine Beschleunigung um das 1,2-fache. Python 3.10 wird damit offiziell eingestellt, sodass Projekte sich ab jetzt auf neue Features in Python 3.11 stützen können, wie die Verfügbarkeit von tomllib, die Neuerungen in asyncio (z. B. TaskGroup und timeout()) und signifikant verbesserte SQLite-Funktionen. Die Aktualisierung erfolgt praktisch über das uv-Tool, das mit gezielten Befehlen die Installation und das globale Pinnen der Version 3.15 unterstützt.</div>
+        <a href="https://simonwillison.net/2026/Oct/12/python-3-15/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">profiling 22</div>
+        <div class="article-date">12.10.2026</div>
+        <div class="article-summary">Python 3.15 wird eingeführt und ermöglicht durch die Neuheiten in der import-Zeitmessung in Kombination mit Python 3.11 eine differenzierte Performance-Analyse. Ein detaillierter Beitrag zeigt, wie der Befehl „python -X importtime“ in einem LLM-Prozess mit 41 Plugins eingesetzt wird, wobei die erzeugten Importzeiten in einem SVG-Flamegraph visualisiert werden. Zudem wird erläutert, wie macOS Instruments für das Profiling selbst von in Python implementierten Anwendungen, wie LLM mit einem Llama 3.1 Prompt, genutzt werden kann, um CPU-Lasten offenzulegen. Beispiele aus vergangenen Jahren demonstrieren weiter den Einsatz von Profiler-Tools wie py-spy, memory-profiler und statistischen Profilern in Umgebungen wie Ruby, Go und MySQL, wobei Benchmarks und Reduktionen (z. B. von 2,5GB auf 80MB RAM) dokumentiert werden.</div>
+        <a href="https://simonwillison.net/tags/profiling/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Profiling web-edit with Python 3.15: flame graphs and source heatmaps</div>
+        <div class="article-date">11.10.2026</div>
+        <div class="article-summary">Python 3.15.0 lieferte mit seinem eingebauten Sampling Profiler interaktive Flame Graphs und Source Heatmaps für die unmodifizierte web-edit-App (Version 0.1a0 aus PyPI). Mit einer Samplingrate von 1 kHz wurden während einer 20-Sekunden-Aufzeichnung 15.296 Stack-Samples erfasst, wobei 95,1 Prozent der Samples aus dem AnyIO-Worker Thread stammten und 64,8 Prozent die Funktion zur Erhaltung von Zeilenenden betrafen. Das Test-Setup umfasste einen 12.000-zeiligen Dokumenten-Fixture sowie 800 kleine Textdateien und erzielte 389 Zyklen mit 3.112 erfolgreichen HTTP-Anfragen. Die Erhebung offenbarte zudem praktische Probleme auf macOS, wo für den Prozess-Memory-Zugriff ein lokal signierter Interpreter mit speziellen Debugging-Entitlements erforderlich ist, und zeigte eine Limitierung in der Heatmap-Replay-Funktion, die die eigentlichen Sammlung-Statistiken nicht korrekt wiedergab.</div>
+        <a href="https://github.com/simonw/research/tree/main/python-3-15-web-edit-profiling#readme" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Python 3.15.0 added to actions/python-versions</div>
+        <div class="article-date">10.10.2026</div>
+        <div class="article-summary">Python 3.15.0 wird in das Versions-Manifest des actions/python-versions Repositories integriert und enthält detaillierte Angaben zu Download-URLs für unterschiedliche Plattformen und Architekturen, etwa für darwin, linux, win32 und rhel mit Varianten wie arm64, x64 und deren &quot;freethreaded&quot; Varianten. Die Änderung umfasst 179 Zeilen reinen Code und dokumentiert präzise die Zuordnung von Dateinamen, Architekturen, Plattformen sowie spezifischen Plattformversionen (z. B. linux 22.04, 24.04, 26.04). Außerdem wird neben der stabilen Version 3.15.0 auch ein Release Candidate (3.15.0-rc.3) aufgeführt, der als nicht stabil deklariert ist.</div>
+        <a href="https://github.com/actions/python-versions/commit/49858b91c92d27403416ee43117032e91d00ce24" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">new Python 3.15.0 release</div>
+        <div class="article-date">10.10.2026</div>
+        <div class="article-summary">Python 3.15.0 wurde am 9. Oktober 2026 veröffentlicht und beinhaltet 5.643 Commits von 1.012 Mitwirkenden. Die neue Version führt diverse Interpreter-Optimierungen ein, unter anderem den neuen Typ &quot;sentinel&quot; (PEP 661), UTF-8 als Standard-Encoding (PEP 686) und explizite Lazy Imports (PEP 810) zur Verbesserung der Startzeit. Dank des experimentellen JIT-Compilers erzielt Python 3.15.0 auf x86-64 Linux bis zu 7–8 % und auf AArch64 macOS 11–12 % Performancegewinn gegenüber dem herkömmlichen Interpreter. Auch in der Standardbibliothek und der C API wurden Neuerungen umgesetzt, etwa durch den neuen Profiling-Packages (PEP 799), stabile ABIs und C-API-Erweiterungen, wodurch die Version einen bedeutenden Schritt in der Weiterentwicklung des Produkts darstellt.</div>
+        <a href="https://www.python.org/downloads/release/python-3150/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <h2>Warp AI Terminal Blog (2 Artikel)</h2>
+    <div class="section-summary"><ul><li><strong>Warp Factories</strong>: Automatisierte Factory-Integrationen senken Kosten pro PR und steigern den Durchsatz durch zentrale Metrik-Erfassung.</li><li><strong>Proaktive Bugfix-Agenten</strong>: Agenten erkennen Fehlerquellen, optimieren Code und verkürzen die Time-to-Market durch automatisierte Feedback-Prozesse.</li></ul></div>
+    <details class="collapsed-block"><summary>2 Artikel</summary>
+    <div class="article">
+        <div class="article-title">Tactics for rolling out software factories: human and organizational changes</div>
+        <div class="article-date">15.10.2026</div>
+        <div class="article-summary">Warp implementiert zwei Ansätze, um Softwarefabriken in Organisationen auszurollen: Einerseits durch einfache, risikoarme Automatisierungen, wie etwa das automatische Triagieren von Sentry-Fehlern, Erstellen von Changelogs und Aktualisieren von Dokumentationen über Warp Factories, andererseits durch die Integration von Factory-Inputs direkt in bestehende Tools wie Slack, Jira, Linear, GitHub und GitLab. Die zentrale Konfiguration der Coding Agents ermöglicht es dem Team, Metriken wie den Anteil an über die Fabrik integrierten Pull Requests, Durchsatz, Zykluszeiten und Kosten pro PR zu messen – wobei bei Warp die Kosten pro PR in sechs Wochen von $80 auf $20 gesunken und der PR-Durchsatz um 40% gesteigert wurde. Das Vorgehen setzt auf den gezielten Einsatz von Automatisierungen, die Entwickler von lästigen Routinetätigkeiten entlasten und gleichzeitig die Akzeptanz steigern, da sie ihre gewohnten Tools weiterverwenden können. Führungskräfte fördern den Übergang zur gemeinsamen Factory-Infrastruktur über Anreize und öffentliche Anerkennung, wodurch eine Kultur des kontinuierlichen Factory Engineerings etabliert wird.</div>
+        <a href="https://www.warp.dev/blog/rolling-out-software-factories" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">The road to self-improving software</div>
+        <div class="article-date">15.10.2026</div>
+        <div class="article-summary">Agenten initiieren eigenständig proaktive Bugfixes, indem sie etwa mit Sentry und Grafana ausgelöste Fehlerquellen erkennen und direkt per YAML-konfigurierten Webhooks, wie im gezeigten Automation-File, angehen. Sie werten vergangene Agentensitzungen anhand definierter Rubriken aus, um anhand von Low-Score-Analysen Optimierungspotenziale in Code, Skills und Konfigurationen aufzudecken. Über Dienste wie Grain werden Kundenfeedback-Daten strukturiert verarbeitet, sodass Agenten auch Ansatzpunkte für zukünftige Feature-Entwicklungen identifizieren und in die Produkt-Roadmap einfließen lassen können. Die vollständige Schließung des Feedback-Loops ermöglicht es, Backlog-Lasten zu reduzieren und die Time-to-Market bei gleichzeitiger Risikominderung durch gezielte menschliche Überprüfungen zu optimieren.</div>
+        <a href="https://www.warp.dev/blog/self-improving-software-proactive-agents" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <h2>Windsurf Announcements (1 Artikel)</h2>
+    <div class="section-summary"><ul><li><strong>Gemini 4 Argon</strong>: In Devin Desktop und CLI veröffentlicht, kombiniert es Googles Rabatt bis 1. Dezember 2026 mit eigenem Angebot bis 27. Oktober 2026.</li><li><strong>Benchmark &amp; Bugfixes</strong>: Erreicht im FrontierCode 1.1 Werte nahe GPT-6 Sol und überzeugt in Bugfixes sowie Refactors in Backend-Sprachen.</li></ul></div>
+    <details class="collapsed-block"><summary>1 Artikel</summary>
+    <div class="article">
+        <div class="article-title">Product Gemini 4 Argon is now available in Devin</div>
+        <div class="article-date">13.10.2026</div>
+        <div class="article-summary">Gemini 4 Argon wurde in Devin Desktop und Devin CLI veröffentlicht und ist bis zum 27. Oktober 2026 mit 75 % Rabatt erhältlich. Das Angebot kombiniert Googles Einführungsrabatt von 50 % bis zum 1. Dezember 2026 mit einem zusätzlichen Rabatt in Devin. Im proprietären Benchmark FrontierCode 1.1 erzielt das Modell einen Score von 60,5 %, liegt damit knapp über GPT-6.1 Sol (60,4 %) und erreicht Werte vergleichbar mit GPT-6 Sol (60,7 %), während es vier Punkte vor Gemini 3.7 Flash liegt. Gemini 4 Argon liest vor dem Schreiben umfassend, überprüft Git-Historien und Diffs, und zeigt besonders starke Leistungen bei Bugfixes und Refactors in Backend-Sprachen wie Python, C/C++ und PHP.</div>
+        <a href="https://codeium.com/blog/gemini-4-argon" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+
+</body>
+</html>
