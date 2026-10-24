@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Übersicht - Letzte 7 Tage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .article {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .article-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .article-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .article-summary {
+            margin-bottom: 10px;
+        }
+        .article-link {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .article-link:hover {
+            text-decoration: underline;
+        }
+        /* R00011: Section-Summary-Block, leicht abgesetzt von Einzel-Artikeln */
+        .section-summary {
+            margin: 10px 0 20px 0;
+            padding: 12px 16px;
+            background-color: #eef4fb;
+            border-left: 4px solid #0066cc;
+            color: #234;
+        }
+        /* R00012: Changelog-Digest-Block — visuell distinkt vom Section-Summary */
+        .changelog-digest {
+            margin: 10px 0 15px 0;
+            padding: 12px 16px;
+            background-color: #fff7e6;
+            border-left: 4px solid #d97706;
+            color: #3a2a00;
+        }
+        .changelog-links {
+            list-style: disc inside;
+            padding-left: 0;
+            margin: 0 0 25px 0;
+        }
+        .changelog-links li {
+            margin: 4px 0;
+        }
+        .changelog-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-left: 6px;
+        }
+        /* R00013: Wochen-Tenor — visuell die staerkste der drei
+           Verdichtungsklassen (overall > section-summary > changelog-digest).
+           Linker Rand kraeftiger, Schrift groesser, klar abgesetzte
+           Hintergrundfarbe — vom Leser auf den ersten Blick als
+           Zusammenfassung der Wochenausgabe erkennbar. */
+        .overall-summary {
+            margin: 10px 0 25px 0;
+            padding: 18px 22px;
+            background-color: #f0fbf3;
+            border-left: 6px solid #15803d;
+            font-size: 1.1em;
+            color: #14271d;
+        }
+        /* R00015: Stichpunkte in den Verdichtungsbloecken und
+           zugeklappte Artikel-/Linkbloecke (natives <details>, kein JS). */
+        .overall-summary h3 {
+            font-size: 1em;
+            color: #15803d;
+            margin: 12px 0 4px 0;
+        }
+        .overall-summary h3:first-child {
+            margin-top: 0;
+        }
+        .overall-summary ul,
+        .section-summary ul,
+        .changelog-digest ul {
+            margin: 4px 0;
+            padding-left: 20px;
+        }
+        .overall-summary li,
+        .section-summary li,
+        .changelog-digest li {
+            margin: 3px 0;
+        }
+        .overall-summary p,
+        .section-summary p,
+        .changelog-digest p {
+            margin: 0;
+        }
+        /* R00017: Vergleich mit den Vorwochen — steht ueber dem
+           Wochen-Tenor, ruhiger als dieser, Belege dezent. */
+        .trend-comparison {
+            margin: 10px 0 15px 0;
+            padding: 14px 22px;
+            background-color: #f5f3ff;
+            border-left: 6px solid #6d28d9;
+            color: #1e1536;
+        }
+        .trend-comparison h3 {
+            font-size: 1.1em;
+            color: #6d28d9;
+            margin: 0 0 6px 0;
+        }
+        .trend-comparison h4 {
+            font-size: 1em;
+            margin: 10px 0 4px 0;
+        }
+        .trend-comparison ul {
+            margin: 4px 0;
+            padding-left: 20px;
+        }
+        .trend-comparison li {
+            margin: 3px 0;
+        }
+        .trend-comparison p {
+            margin: 0;
+        }
+        .trend-evidence {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .collapsed-block {
+            margin: 0 0 25px 0;
+        }
+        .collapsed-block > summary {
+            cursor: pointer;
+            color: #0066cc;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* R00014: Video-Kacheln — Nebenspur, deutlich schmaler als die
+           Artikel-Spalte, mehrere Kacheln pro Zeile. */
+        .video-tiles-heading {
+            font-size: 1.1em;
+            color: #555;
+            margin-top: 30px;
+        }
+        .video-tiles {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+        .video-tile {
+            display: block;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            overflow: hidden;
+            padding-bottom: 10px;
+            text-decoration: none;
+            color: inherit;
+            background: #fff;
+        }
+        .video-tile:hover {
+            border-color: #0066cc;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+        }
+        .video-thumb {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            background: #eee;
+        }
+        .video-title {
+            font-weight: bold;
+            font-size: 0.95em;
+            margin: 10px 10px 4px 10px;
+        }
+        .video-meta {
+            font-size: 0.8em;
+            color: #888;
+            margin: 0 10px 6px 10px;
+        }
+        .video-summary {
+            font-size: 0.85em;
+            color: #444;
+            margin: 0 10px;
+            line-height: 1.4;
+        }
+
+        /* R00011: Rueckspruglink zur index.html (oben und unten) */
+        .back-link {
+            display: inline-block;
+            margin: 10px 0 20px 0;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>News Übersicht der letzten 7 Tage</h1>
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+    <p>Generiert am: 24.10.2026 07:00 Uhr</p>
+    <p>Anzahl Artikel: 15 (zus&auml;tzlich 6 Changelog-Eintr&auml;ge aus 1 Quelle) (zus&auml;tzlich 1 Video)</p>
+
+    <h2 class="video-tiles-heading">Videos der Woche</h2>
+    <div class="video-tiles">
+        <a class="video-tile" href="https://www.youtube.com/watch?v=EkH_uoybj8k" target="_blank" rel="noopener noreferrer">
+            <img class="video-thumb" src="https://i.ytimg.com/vi/EkH_uoybj8k/hqdefault.jpg" alt="" loading="lazy">
+            <div class="video-title">The Industry Is Catching Up: The Only Way to Generate AI Code That Works</div>
+            <div class="video-meta">Modern Software Engineering (Dave Farley) &middot; 21.10.2026</div>
+            <div class="video-summary">Is vibe coding actually broken? What is vibe coding, and why is the entire tech industry suddenly realizing its limits? In this video, we explore the shifting consensus in modern software engineering around coding with ai and ai programming.2 I’ve argued for decades that human intent and strict…</div>
+        </a>
+    </div>
+
+    <h2>Allan Kelly Blog (1 Artikel)</h2>
+    <details class="collapsed-block"><summary>1 Artikel</summary>
+    <div class="article">
+        <div class="article-title">Heterogeneous Product Management is the future</div>
+        <div class="article-date">20.10.2026</div>
+        <div class="article-summary">Heterogeneous Product Management fokussiert sich darauf, die Rolle des Product Managers von einer rein marktorientierten Funktion zu einer strategischen, kontinuierlichen Steuerung innerhalb großer Unternehmen weiterzuentwickeln. Die klassischen Prinzipien des Silicon Valley, bei denen Produkte unmittelbar über Kundenbedürfnisse und Umsatz generiert werden, reichen nach Ansicht des Autors nicht mehr aus, um die Komplexität moderner, unternehmensübergreifender Softwareangebote abzubilden. Unternehmen müssen den Wert ihrer digitalen Produkte über den reinen Verkaufsaspekt hinaus im Blick behalten und kontinuierliche Verbesserungen vorantreiben, um langfristig wettbewerbsfähig zu bleiben. Der Artikel unterstreicht diesen Paradigmenwechsel und ergänzt die Diskussion mit praxisnahen Beispielen sowie Terminen für Vorträge am 4.–6. November in Malmö und am 12. November online.</div>
+        <a href="https://www.allankelly.net/archives/10815/heterogeneous-product-management-is-the-future/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <h2>Anthropic News (4 Artikel)</h2>
+    <details class="collapsed-block"><summary>4 Artikel</summary>
+    <div class="article">
+        <div class="article-title">Donating Agent Skills to the Agentic AI Foundation</div>
+        <div class="article-date">22.10.2026</div>
+        <div class="article-summary">Anthropic spendet den offenen Standard Agent Skills, der KI-Agenten spezielle Aufgaben und Workflows vermittelt, an die Agentic AI Foundation unter der Schirmherrschaft der Linux Foundation. Seit der Veröffentlichung im Dezember 2025 haben über 70 Agentenplattformen wie ChatGPT, Cursor, GitHub Copilot und VS Code den Standard integriert und es wurden über 1 Million Skills erstellt, die fast 280 Millionen Installationen verzeichnen. Die Agent Skills bestehen aus einem Ordner mit einer SKILL.md-Datei, Skripten und Referenzmaterialien, um prozedurale Geschäftstätigkeiten effizient abzubilden. Lead Maintainer von Anthropic, Google und OpenAI sorgen gemeinsam mit der Community für eine transparente Weiterentwicklung, wobei künftig versionierte Releases, ein formeller Änderungsprozess und spezifische Sicherheitsrichtlinien etabliert werden sollen.</div>
+        <a href="https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Open call for guest investigators in the life sciences</div>
+        <div class="article-date">22.10.2026</div>
+        <div class="article-summary">Anthropic fordert Principal Investigators aus akademischen, gemeinnützigen oder staatlichen Forschungslaboren auf, Projekte in der Lebenswissenschaft mit Claude umzusetzen. Im 8‑ bis 12‑wöchigen Programm sollen Fragestellungen in kausaler Humangenetik, struktureller und computergestützter Molekularbiologie, Arzneimittelentwicklung und klinischer Wissenschaft bearbeitet werden, mit der Option auf Verlängerung. Die Zusammenarbeit umfasst den kostenfreien Einsatz von Modellen und Analysewerkzeugen, wobei alle Ergebnisse, Datensätze und Tools gemeinsam publiziert sowie Open-Source gestellt werden, während die Rechte an den eigenen Daten stets beim Gastforscher verbleiben. Bewerbungen, die ausschließlich öffentlich verfügbare Informationen enthalten sollen, sind für einen Zeitraum von etwa 14 Tagen möglich und die Auswahl erfolgt circa 14 Tage nach Bewerbungsschluss.</div>
+        <a href="https://www.anthropic.com/news/open-call-guest-investigators-life-sciences" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Physicist Christopher Stubbs joins Anthropic&#x27;s Long-Term Benefit Trust</div>
+        <div class="article-date">21.10.2026</div>
+        <div class="article-summary">Dr. Christopher Stubbs, Professor an der Harvard University und ehemaliger Dekan der Naturwissenschaften (2018–2024), tritt dem Long-Term Benefit Trust von Anthropic bei und bringt umfangreiche Erfahrung aus der experimentellen Physik, der Beobachtungskosmologie und der Präzisionsmessung mit. Er gehörte 1998 zum High-Z Supernova Search Team, das die unerwartete beschleunigte Expansion des Universums entdeckte, und war als erster Projektingenieur für den jetzt als Vera C. Rubin Observatory bekannten Observatory beteiligt. Der Trust besitzt die Befugnis, die Mehrheit von Anthropic’s Board zu ernennen, und berät das Unternehmen in kritischen Entscheidungen zu KI-Risiken und gesellschaftlichen Auswirkungen. Stubbs unterstreicht den Einsatz von KI in der Forschung und betont, dass eine wissenschaftliche Herangehensweise für die langfristige Entwicklung von KI unabdingbar ist.</div>
+        <a href="https://www.anthropic.com/news/christopher-stubbs-joins-long-term-benefit-trust" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Investing in the public benefit</div>
+        <div class="article-date">18.10.2026</div>
+        <div class="article-summary">Anthropic ordnet 5% seiner Aktien sofort dem Anthropic Public Benefit Fund zu und sieht vor, weitere 2% für jede 50%ige Steigerung des Unternehmenswerts über einem festgelegten Baseline hinzuzufügen. Der Fund wird als eigenständige LLC geführt, um flexible Einsatzmöglichkeiten zu schaffen und die Unternehmensanteile nicht für Lobbyarbeit oder politische Zwecke zu verwenden. Die Investition unterstützt sowohl interne Forschungsaktivitäten zu KI-Sicherheit, Interpretierbarkeit und biomedizinischer Forschung als auch externe Maßnahmen wie etwa die Gewährung von Rabatten auf Claude für Nonprofit-Organisationen. Bereits zugesagte 200 Millionen US-Dollar für die Analyse von Arbeitsmarktverwerfungen unterstreichen die Absicht, potenziell disruptive Auswirkungen der KI aktiv zu adressieren. Die Kombination aus den Eigenkapitalspenden der Mitgründer, einem Mitarbeiter-Abstimmprogramm und dem neuen Fund sichert insgesamt etwa 20% des Unternehmenskapitals für den öffentlichen Nutzen, mit weiterer Aufstockung bei steigendem Unternehmenswert.</div>
+        <a href="https://www.anthropic.com/news/public-benefit-fund" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <h2>GitHub Copilot Blog (2 Artikel)</h2>
+    <details class="collapsed-block"><summary>2 Artikel</summary>
+    <div class="article">
+        <div class="article-title">How 3 Java Champions are using GitHub Copilot for increased productivity</div>
+        <div class="article-date">20.10.2026</div>
+        <div class="article-summary">Drei erfahrene Java-Experten nutzen GitHub Copilot, um sowohl in der Produktentwicklung als auch im Teamcoaching Prozesse zu beschleunigen und durch automatisierte Aufgaben den menschlichen Review-Prozess zu entlasten. Vlad Mihalcea integriert Copilot in IntelliJ IDEA, um Beispiele für Hypersistence Utils und Optimizer zu entwickeln, wobei er seine eigenen 65 Artikel als Stilreferenz einsetzt und Modelle wie Opus mit einem 1-Millionen-Token-Kontext gezielt wechselt. Patrick Baumgartner demonstriert den Einsatz des Tools bei der Migration von rund 900 komplexen Lehrfolien von Reveal.js zu Marp sowie in der Entwicklung eines Maven-Plugins für Spring Boot, das er sogar unterwegs über agentische Workflows in VS Code steuert. Frank Delporte setzt Copilot bei der Fehlerdiagnose in der Pi4J V4-Version ein, wo das Tool half, ein Problem mit virtual threads auf einem Raspberry Pi mit vier Kernen zu identifizieren und Lösungsvorschläge samt automatischen Tests bereitzustellen.</div>
+        <a href="https://github.blog/ai-and-ml/github-copilot/how-3-java-champions-are-using-github-copilot-for-increased-productivity/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">How to continue a GitHub Copilot app session in VS Code</div>
+        <div class="article-date">19.10.2026</div>
+        <div class="article-summary">GitHub ermöglicht es, eine aktive GitHub Copilot App-Sitzung direkt in Visual Studio Code weiterzuführen, sodass der bestehende Kontext, einschließlich Gesprächsverlauf, Änderungsdiffs und isoliertem Arbeitsbaum, unverändert erhalten bleibt. In VS Code werden die von Copilot vorgeschlagenen Codeänderungen übersichtlich im Quellcode-Diff dargestellt, sodass Entwickler diese Zeile für Zeile überprüfen, bei Bedarf manuell anpassen und lokal testen können. Der Workflow erlaubt es, nach der Überprüfung und Verfeinerung der Implementierung mithilfe von Befehlen wie npm install, npm test und git commit die geänderte Branch nahtlos in den zugehörigen Pull Request zu integrieren. Voraussetzung dafür ist, dass sowohl die GitHub Copilot App als auch Visual Studio Code installiert und mit demselben GitHub-Konto verbunden sind, wodurch die kontinuierliche Übertragung von Agent zu Editor ermöglicht wird.</div>
+        <a href="https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <h2>GitHub Copilot Changelog (6 Eintr&auml;ge)</h2>
+    <details class="collapsed-block"><summary>6 Einträge</summary>
+    <ul class="changelog-links">
+        <li><a href="https://github.blog/changelog/2026-10-22-github-copilot-in-visual-studio-september-update-2" class="article-link" target="_blank">GitHub Copilot in Visual Studio — September update</a> <span class="changelog-date">23.10.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-10-22-custom-skills-agents-and-mcp-servers-in-usage-metrics-api" class="article-link" target="_blank">Custom skills, agents, and MCP servers in usage metrics API</a> <span class="changelog-date">22.10.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-10-22-global-default-for-copilot-features-generally-available" class="article-link" target="_blank">Global default for Copilot features generally available</a> <span class="changelog-date">22.10.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-10-22-industry-comparisons-in-the-copilot-impact-dashboard" class="article-link" target="_blank">Industry comparisons in the Copilot impact dashboard</a> <span class="changelog-date">22.10.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-10-19-copilot-model-policy-api-for-enterprise-orgs-and-teams" class="article-link" target="_blank">Copilot model policy API for enterprise, orgs, and teams</a> <span class="changelog-date">19.10.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026" class="article-link" target="_blank">GitHub Copilot models deprecated on October 19, 2026</a> <span class="changelog-date">19.10.2026</span></li>
+    </ul>
+    </details>
+
+    <h2>Google AI Blog (1 Artikel)</h2>
+    <details class="collapsed-block"><summary>1 Artikel</summary>
+    <div class="article">
+        <div class="article-title">Ask a Scientist: How can AI help doctors spend more time on collaborative care?</div>
+        <div class="article-date">20.10.2026</div>
+        <div class="article-summary">Google Research hat mit AMIE (Articulate Medical Intelligence Explorer) ein System entwickelt, das vor Arztterminen durch interaktive textbasierte Konversation gezielt klinische Informationen sammelt. AMIE ersetzt standardisierte Intake-Formulare, indem es durch Folgefragen spezifische Details – beispielsweise zu Symptomen wie Rückenschmerzen – erfasst und diese in einer prägnanten Zusammenfassung an den behandelnden Arzt weitergibt. In klinischen Studien unter ärztlicher Aufsicht zeigte sich, dass das System den Informationsaustausch verbessert und Ärzten mehr Zeit für gemeinsame Therapieentscheidungen ermöglicht. Aktuelle Projekte zielen darauf ab, AMIE zu erweitern, sodass künftig auch Audio- und Videointeraktionen in groß angelegten, kontrollierten Studien in den USA evaluiert werden.</div>
+        <a href="https://blog.google/innovation-and-ai/models-and-research/google-research/amie-clinical-study/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <h2>Google AI Blog - Gemini (1 Artikel)</h2>
+    <details class="collapsed-block"><summary>1 Artikel</summary>
+    <div class="article">
+        <div class="article-title">New Gemini tools for small business owners</div>
+        <div class="article-date">20.10.2026</div>
+        <div class="article-summary">Gemini führt einen neuen Geschäftshub ein, der kleinen Unternehmen eine zentrale Anlaufstelle bietet, um Markenaufbau, Finanzanalyse und Kundeninsights effizient zu steuern. Die Integration zu Google Business Profile, Google Ads, Google Workspace sowie zu Drittanbieter-Apps wie Adobe, Canva, Dropbox, Shopify, Wix, Zoho und Xero ist dabei essenziell. Nutzer können ihre Markenidentität definieren, indem sie Webseiten, Brand Kits, Schriftarten oder Farbpaletten hochladen – gesteuert durch den neuen Bildgenerierungsmodell Nano Banana 2.1. Zudem wandelt Gemini unstrukturierte Finanzdaten in verständliche Grafiken und interaktive Modelle um, um Entscheidungsprozesse zu beschleunigen. Die Updates werden in den kommenden Tagen global ausgerollt, während für größere Unternehmen ein separates Angebot, Gemini for your business, bereitsteht.</div>
+        <a href="https://blog.google/innovation-and-ai/products/gemini-app/new-tools-small-business-owners/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <h2>Microsoft .NET Blog (2 Artikel)</h2>
+    <details class="collapsed-block"><summary>2 Artikel</summary>
+    <div class="article">
+        <div class="article-title">Bring Your Own Model to the GitHub Copilot SDK with C#</div>
+        <div class="article-date">19.10.2026</div>
+        <div class="article-summary">Mit dem GitHub Copilot SDK können Entwickler eine eigene Modellbereitstellung in C# einbinden, wobei der Runtime-Mechanismus des SDK von der Modellinferenz getrennt wird. Eine .NET 10 Konsolenanwendung demonstriert, wie ein OpenAI-kompatibler Provider – exemplifiziert hier durch Microsoft Foundry – über ein ProviderConfig-Objekt konfiguriert wird, das Felder wie BaseUrl, ModelId, MaxPromptTokens (8000) und MaxOutputTokens (512) definiert. Die Authentifizierung erfolgt standardmäßig über Azure Entra ID mit AzureCliCredential (basierend auf dem Ergebnis von az login) oder alternativ mittels eines API-Schlüssels, der in User Secrets hinterlegt wird. Durch das gezielte Deaktivieren von Tools, Skills und Git-Operationen wird der Fokus auf einen isolierten Modellaufruf gelegt, um den Übergang zu individuellen, OpenAI-kompatiblen Bereitstellungen zu erleichtern.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/bring-your-own-model-to-the-github-copilot-sdk-with-csharp/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Get Your .NET MAUI App Ready for Xcode 27</div>
+        <div class="article-date">19.10.2026</div>
+        <div class="article-summary">Apps, die mit .NET MAUI entwickelt und mit Xcode 27 gebaut werden, müssen den UIKit Scene Lifecycle implementieren, weshalb ein SceneDelegate in Platforms/iOS (und Mac Catalyst) und entsprechende Anpassungen in der Info.plist erforderlich sind. Die Migration beinhaltet das Hinzufügen eines minimalen SceneDelegate-Codes sowie die exakte Abstimmung des Delegate-Namens, um den von .NET MAUI erwarteten __MAUI_DEFAULT_SCENE_CONFIGURATION__ beizubehalten. Mithilfe des .NET MAUI CLI (Microsoft.Maui.Cli 0.1.0-preview.13.26512.5 oder höher) lässt sich dieser Migrationsprozess über den maui-xcode27-migration Skill automatisieren, wobei auch GitHub Copilot CLI zur Verwaltung dieser Skill-Installation genutzt werden kann. Zusätzlich erfordert die Aktualisierung, dass .NET MAUI-Pakete mindestens auf Version 10.0.110 angehoben und die Mindestbetriebsystemversionen auf iOS 15.0 sowie Mac Catalyst 17.0 gesetzt werden.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/migrate-dotnet-maui-apps-uikit-scene-lifecycle/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <h2>Simon Willison (4 Artikel)</h2>
+    <details class="collapsed-block"><summary>4 Artikel</summary>
+    <div class="article">
+        <div class="article-title">Today’s PHP Security Release, and How We’re Strengthening PHP Security</div>
+        <div class="article-date">21.10.2026</div>
+        <div class="article-summary">PHP 8.5.12, 8.4.27, 8.3.36 und 8.2.35 schließen zwei kritische RCE-Schwachstellen, nämlich CVE-2026-109618 (OOM-Korruption) und CVE-2026-109619 (stale global state), durch die unter bestimmten Bedingungen nicht authentifizierte Angreifer Code auf betroffenen Servern ausführen konnten. Diese Schwachstellen betreffen zentrale Bereiche wie Speicherverwaltung und Fehlerbehandlung, was ihre Behebung ohne Abstriche bei Kompatibilität und Performance besonders herausforderte. Seit der externen Sicherheitsevaluierung 2024 hat die PHP Foundation, unterstützt von Partnern wie der Sovereign Tech Agency, Quarkslab, Alpha-Omega, OpenAI, Wiz und Trail of Bits, ihre internen Prozesse und Teams (einschließlich des Ecosystem Security Teams) nachhaltig verstärkt, um künftig schneller und effizienter auf derartige Bedrohungen zu reagieren. Der vorgezogene Release am 21. Oktober 2026, infolge vorzeitiger Leaks, unterstreicht den dringenden Handlungsbedarf und die Notwendigkeit koordinierter Sicherheitsmaßnahmen in der breit eingesetzten PHP-Plattform.</div>
+        <a href="https://thephp.foundation/blog/2026/10/21/todays-php-security-release-and-how-were-strengthening-php-security/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Battle Drones—a vibe coded RTS with audio-based multiplayer</div>
+        <div class="article-date">20.10.2026</div>
+        <div class="article-summary">Battle Drones realisiert als mobile Web-RTS basiert auf einem deterministischen Spielsimulator, der in reinem TypeScript mit fixen 10‑Hz-Ticks und Command-Queue-Eingaben implementiert ist. Das Multiplayer-System arbeitet im Lockstep-Modus, überträgt alle 100–200 ms nur Befehle via einem schlanken WebSocket-Relay (ohne Persistenz) und ermöglicht so stabile 1v1-Duelle, auch bei wechselnden Netzwerkbedingungen. Der Client verwendet Three.js für eine prozedural generierte Low‑Poly-3D-Grafik, während Terrain, Modelle und Sound live oder per vorgerendertem Asset-Pipeline (unter Einbeziehung von OpenAI’s gpt-image-2.5-sunburst) erzeugt werden. Zusätzlich werden Agent Battles zwischen KI-Modellen – etwa Claude Opus 5.5 oder verschiedenen GPT‑Varianten – unter denselben Spielregeln simuliert und detailliert dokumentiert, was Einblicke in Balancing und taktische Dynamiken ermöglicht.</div>
+        <a href="https://github.com/simonw/battledrones#readme" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">My obituary for programming</div>
+        <div class="article-date">19.10.2026</div>
+        <div class="article-summary">KI-Coding-Agenten beheben Bugs und optimieren Code nahezu automatisch, sodass Geschwindigkeitsverbesserungen von 2x bis 3x (z. B. im Release v1.2.0 von json‑web‑streams) erzielt werden. Die Möglichkeit, komplexe Refaktorierungen per Eingabe eines Fehlerlogs ausführen zu lassen, ersetzt den früher kreativen und präzisen Programmierprozess. Renommierte Ingenieure verzichten zunehmend darauf, selbst Code zu schreiben, und auch Nicht‑Programmierer erledigen Aufgaben, die früher Experten vorbehalten waren. Die automatisierte Routinearbeit lässt grundlegende Fragen zur Relevanz und zum eigentlichen Reiz des Programmierens in der modernen Softwareentwicklung aufkommen.</div>
+        <a href="https://dumbmatter.com/2026/10/programming-obituary/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Inline rendering with document​.currentScript</div>
+        <div class="article-date">17.10.2026</div>
+        <div class="article-summary">document.currentScript ermöglicht es, Inline-Skripte direkt auszutauschen, indem das aktuell laufende Skript-Element per document.currentScript.replaceWith() mit berechneten Werten ersetzt wird, wie etwa das aktuelle Jahr 2025. Die Methode ersetzt IDs und QuerySelectors durch lokale Steuerung, was sowohl bei einfachen Textersetzungen – etwa für dynamische Copyright-Hinweise – als auch bei interaktiven Komponenten wie einem Zähler oder bei datengesteuerten Templates (mittels fetch-Requests) nützlich ist. Durch das Alias-Pattern, z. B. $=(...n)=&gt;document.currentScript.replaceWith(...n), ließe sich der Code verkürzen, allerdings muss man beachten, dass das synchrone Laden solcher Alias-Skripte zu Parser- und Render-Blockaden führen kann. Beispiele reichen von Textanimationen über zufällige Greetings bis hin zur Nutzung von Inline-Skripten als lokale Hydrations-Methoden, wodurch globale Namensräume nicht belastet werden müssen.</div>
+        <a href="https://leanrada.com/notes/inline-rendering-currentscript/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+
+</body>
+</html>
