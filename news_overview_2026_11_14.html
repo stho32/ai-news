@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Übersicht - Letzte 7 Tage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .article {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .article-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .article-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .article-summary {
+            margin-bottom: 10px;
+        }
+        .article-link {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .article-link:hover {
+            text-decoration: underline;
+        }
+        /* R00011: Section-Summary-Block, leicht abgesetzt von Einzel-Artikeln */
+        .section-summary {
+            margin: 10px 0 20px 0;
+            padding: 12px 16px;
+            background-color: #eef4fb;
+            border-left: 4px solid #0066cc;
+            color: #234;
+        }
+        /* R00012: Changelog-Digest-Block — visuell distinkt vom Section-Summary */
+        .changelog-digest {
+            margin: 10px 0 15px 0;
+            padding: 12px 16px;
+            background-color: #fff7e6;
+            border-left: 4px solid #d97706;
+            color: #3a2a00;
+        }
+        .changelog-links {
+            list-style: disc inside;
+            padding-left: 0;
+            margin: 0 0 25px 0;
+        }
+        .changelog-links li {
+            margin: 4px 0;
+        }
+        .changelog-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-left: 6px;
+        }
+        /* R00013: Wochen-Tenor — visuell die staerkste der drei
+           Verdichtungsklassen (overall > section-summary > changelog-digest).
+           Linker Rand kraeftiger, Schrift groesser, klar abgesetzte
+           Hintergrundfarbe — vom Leser auf den ersten Blick als
+           Zusammenfassung der Wochenausgabe erkennbar. */
+        .overall-summary {
+            margin: 10px 0 25px 0;
+            padding: 18px 22px;
+            background-color: #f0fbf3;
+            border-left: 6px solid #15803d;
+            font-size: 1.1em;
+            color: #14271d;
+        }
+        /* R00015: Stichpunkte in den Verdichtungsbloecken und
+           zugeklappte Artikel-/Linkbloecke (natives <details>, kein JS). */
+        .overall-summary h3 {
+            font-size: 1em;
+            color: #15803d;
+            margin: 12px 0 4px 0;
+        }
+        .overall-summary h3:first-child {
+            margin-top: 0;
+        }
+        .overall-summary ul,
+        .section-summary ul,
+        .changelog-digest ul {
+            margin: 4px 0;
+            padding-left: 20px;
+        }
+        .overall-summary li,
+        .section-summary li,
+        .changelog-digest li {
+            margin: 3px 0;
+        }
+        .overall-summary p,
+        .section-summary p,
+        .changelog-digest p {
+            margin: 0;
+        }
+        /* R00017: Vergleich mit den Vorwochen — steht ueber dem
+           Wochen-Tenor, ruhiger als dieser, Belege dezent. */
+        .trend-comparison {
+            margin: 10px 0 15px 0;
+            padding: 14px 22px;
+            background-color: #f5f3ff;
+            border-left: 6px solid #6d28d9;
+            color: #1e1536;
+        }
+        .trend-comparison h3 {
+            font-size: 1.1em;
+            color: #6d28d9;
+            margin: 0 0 6px 0;
+        }
+        .trend-comparison h4 {
+            font-size: 1em;
+            margin: 10px 0 4px 0;
+        }
+        .trend-comparison ul {
+            margin: 4px 0;
+            padding-left: 20px;
+        }
+        .trend-comparison li {
+            margin: 3px 0;
+        }
+        .trend-comparison p {
+            margin: 0;
+        }
+        .trend-evidence {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .collapsed-block {
+            margin: 0 0 25px 0;
+        }
+        .collapsed-block > summary {
+            cursor: pointer;
+            color: #0066cc;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* R00014: Video-Kacheln — Nebenspur, deutlich schmaler als die
+           Artikel-Spalte, mehrere Kacheln pro Zeile. */
+        .video-tiles-heading {
+            font-size: 1.1em;
+            color: #555;
+            margin-top: 30px;
+        }
+        .video-tiles {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+        .video-tile {
+            display: block;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            overflow: hidden;
+            padding-bottom: 10px;
+            text-decoration: none;
+            color: inherit;
+            background: #fff;
+        }
+        .video-tile:hover {
+            border-color: #0066cc;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+        }
+        .video-thumb {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            background: #eee;
+        }
+        .video-title {
+            font-weight: bold;
+            font-size: 0.95em;
+            margin: 10px 10px 4px 10px;
+        }
+        .video-meta {
+            font-size: 0.8em;
+            color: #888;
+            margin: 0 10px 6px 10px;
+        }
+        .video-summary {
+            font-size: 0.85em;
+            color: #444;
+            margin: 0 10px;
+            line-height: 1.4;
+        }
+
+        /* R00011: Rueckspruglink zur index.html (oben und unten) */
+        .back-link {
+            display: inline-block;
+            margin: 10px 0 20px 0;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>News Übersicht der letzten 7 Tage</h1>
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+    <div class="trend-comparison"><h3>Gegenüber den Vorwochen</h3><h4>Neu</h4><ul><li><strong>Gemini 4 Hydrogen</strong>: Das Modell ist allgemein in GitHub Copilot verfuegbar, von Pro bis Enterprise, in VS Code, JetBrains, Xcode, Eclipse und CLI, nutzungsbasiert abgerechnet.</li><li><strong>Devin Apps</strong>: Private Web-Apps entstehen aus einer Beschreibung auf Devins Cloud-Maschine, nutzen MCPs und Codebase und zielen auf interne Tools und Dashboards.</li><li><strong>GHES-Anbindung</strong>: Die GitHub Copilot App unterstuetzt GitHub Enterprise Server ab Version 1.2.0 allgemein, ohne Cloud-Sessions fuer GHES.</li></ul><h4>Verstärkt</h4><ul><li><strong>Agent Skills</strong>: Skills werden als versionierte SKILL.md-Verzeichnisse paketiert und fuer Claude Code, Cursor und GitHub Copilot erzeugt; Berechtigungen muss der Host liefern. <span class="trend-evidence">(12.11., 24.10.)</span></li><li><strong>Modell-Deprecation</strong>: GitHub entfernt zum 14. Dezember 2026 sechs Modelle, darunter Claude Haiku 4.5, Gemini 3.8 Flash und Kimi K3, ohne Kimi-K3-Nachfolger. <span class="trend-evidence">(24.10., 17.10.)</span></li><li><strong>Agent-Berechtigungen</strong>: Rechte fuer Agenten werden zunehmend ausserhalb des Modells durchgesetzt, von Sandboxing ueber Assisted Permissions bis zu host-verwalteten Skill-Rechten. <span class="trend-evidence">(12.11., 10.10.)</span></li></ul><h4>Abgeschwächt / verschwunden</h4><ul><li><strong>Anthropic-Modellankuendigungen</strong>: Neue Claude-Modelle praegten die Vorwochen, diese Woche steht nur die Abschaltung von Claude Haiku 4.5 im Dezember an. <span class="trend-evidence">(12.11., 10.10.)</span></li><li><strong>.NET-Releases</strong>: .NET 11, Servicing-Updates und Werkzeugthemen kamen in den Vorwochen regelmaessig vor und fehlen diese Woche. <span class="trend-evidence">(12.11., 17.10., 10.10.)</span></li><li><strong>Copilot Fusion</strong>: Modell-Routing und -Orchestrierung ueber Copilot Fusion waren in den Vorwochen Thema und tauchen diese Woche nicht auf. <span class="trend-evidence">(12.11., 17.10.)</span></li></ul></div>
+    <div class="overall-summary"><h3>Neue Modelle</h3><ul><li><strong>Gemini 4 Hydrogen</strong>: Allgemein verfuegbar in GitHub Copilot von Pro bis Enterprise, u.a. in VS Code, JetBrains, Xcode, Eclipse und CLI; Abrechnung nutzungsbasiert zu Listenpreisen.</li><li><strong>Gemini 4 Carbon</strong>: Ab sofort in Devin Desktop und Devin CLI, erreicht 40,0 Prozent auf FrontierCode-2.0 vor Gemini 4 Argon und GPT-6.1 Sol bei geringerem Aufwand.</li><li><strong>Modell-Deprecation</strong>: GitHub entfernt zum 14. Dezember 2026 sechs Modelle, darunter Claude Haiku 4.5, Gemini 3.8 Flash und Kimi K3; ein Kimi-K3-Nachfolger fehlt.</li></ul><h3>Sicherheit</h3><ul><li><strong>Devin Apps Zugriff</strong>: Apps sind nie oeffentlich, erfordern immer einen Devin-Login und lassen sich auf einzelne Personen, die Organisation oder das Enterprise begrenzen.</li><li><strong>Skill-Berechtigungen</strong>: Agent Skills bringen keine Berechtigungen mit; Tools, Credentials und Permissions muss der Host bereitstellen und Rechte ausserhalb des Modells erzwingen.</li></ul><h3>Besondere Entwicklungen</h3><ul><li><strong>Agent Skills</strong>: Versionierte SKILL.md-Verzeichnisse beschreiben wiederkehrende Aufgaben; ein Packaging-Skript erzeugt daraus Client-Dateien fuer Claude Code, Cursor und GitHub Copilot.</li><li><strong>Verifier-Muster</strong>: Ein unabhaengiger Verifier prueft KI-generierte Aenderungen mit PASS, FAIL oder PARTIAL und Belegen; die GitHub Action prueft nur den Diff statisch.</li><li><strong>Devin Apps</strong>: Private Web-Apps entstehen aus einer Beschreibung auf Devins Cloud-Maschine, nutzen MCPs, Integrationen und Codebase und zielen auf interne Tools und Dashboards.</li></ul><h3>Sonstiges</h3><ul><li><strong>GHES-Anbindung</strong>: Die GitHub Copilot App unterstuetzt GitHub Enterprise Server ab Version 1.2.0 allgemein; Cloud-Sessions stehen fuer GHES nicht zur Verfuegung.</li></ul></div>
+    <p>Generiert am: 14.11.2026 07:08 Uhr</p>
+    <p>Anzahl Artikel: 3 (zus&auml;tzlich 3 Changelog-Eintr&auml;ge aus 1 Quelle)</p>
+
+    <h2>GitHub Copilot Blog (1 Artikel)</h2>
+    <div class="section-summary"><ul><li><strong>Agent Skills</strong>: Versionierte SKILL.md-Verzeichnisse ohne eigene Berechtigungen; Host liefert Tools und Credentials, Client-Dateien für Claude Code, Cursor und Copilot erzeugt ein Skript.</li><li><strong>Proof Agent</strong>: Unabhängiger Verifier prüft KI-Änderungen mit PASS, FAIL oder PARTIAL; die GitHub Action prüft nur den Diff statisch und führt keine Tests aus.</li></ul></div>
+    <details class="collapsed-block"><summary>1 Artikel</summary>
+    <div class="article">
+        <div class="article-title">Build once, run on any agent: A practical guide to agent skills</div>
+        <div class="article-date">12.11.2026</div>
+        <div class="article-summary">Agent Skills sind versionierte Verzeichnisse mit einer SKILL.md als Kern, die eine wiederkehrende Aufgabe mit Eingabe, Ausgabe und Auslösebedingung beschreiben, aber keine Berechtigungen mitbringen: Der Host muss Tools, Credentials und Permissions bereitstellen, weshalb projekt- und team-spezifische Angaben wie Schema-, Store- und Engine-Namen in einem Manifest (im Data-Forge-Beispiel DuckDB lokal, Databricks oder DuckDB über einen Adapter) statt in der Skill-Definition liegen. Im Data-Forge-Demo koordinieren forge-init, forge-builder, forge-dbx und forge-lint eine Metrik-Pipeline über sieben Phasen mit menschlichem Checkpoint pro Phase und einem Pull Request aus Pipeline-Code, Schema-Änderungen und Tests; der Proof Agent lässt KI-generierte Änderungen von einem unabhängigen Verifier prüfen, der PASS, FAIL oder PARTIAL mit Belegen aus den geänderten Dateien liefert, wobei die GitHub Action nur den Diff statisch prüft, keine Tests ausführt und im Demo mit block-on-fail: false nur Hinweise gibt. Für Multi-Client-Betrieb dient skills/*/SKILL.md als Quelle, aus der ein Skript per node scripts/package.mjs --check die Client-Dateien .claude-plugin/plugin.json (Claude Code), .cursor-plugin/plugin.json (Cursor) und .github/agents/*.agent.md (GitHub Copilot) erzeugt. Als Grenze nennt der Beitrag Workflows mit stabiler Schnittstelle, Shared State, Audit Trail, langlaufender Kontrolle oder außerhalb des Modells erzwungenen Rechten, für die eine Anwendung die bessere Wahl ist; die vorgestellten Praktiken stammen aus einer Session auf der GitHub Universe 2026 mit Shishir Tewari von Procore.</div>
+        <a href="https://github.blog/ai-and-ml/github-copilot/build-once-run-on-any-agent-a-practical-guide-to-agent-skills/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <h2>GitHub Copilot Changelog (3 Eintr&auml;ge)</h2>
+    <div class="changelog-digest"><ul><li><strong>Gemini 4 Hydrogen</strong>: Gemini 4 Hydrogen ist in GitHub Copilot allgemein verfügbar (Pro bis Enterprise), u. a. in VS Code, JetBrains, Xcode, Eclipse und CLI; Abrechnung per usage-based billing zu Listenpreisen.</li><li><strong>GHES-Anbindung</strong>: Die GitHub Copilot App unterstützt GitHub Enterprise Server ab Version 1.2.0 allgemein; Cloud-Sessions stehen für GHES nicht zur Verfügung.</li><li><strong>Modell-Deprecation</strong>: Zum 14. Dezember 2026 entfernt GitHub sechs Modelle, darunter Claude Haiku 4.5, Gemini 3.8 Flash und Kimi K3; Nachfolger für Kimi K3 fehlt noch.</li></ul></div>
+    <details class="collapsed-block"><summary>3 Einträge</summary>
+    <ul class="changelog-links">
+        <li><a href="https://github.blog/changelog/2026-11-13-gemini-4-hydrogen-in-github-copilot" class="article-link" target="_blank">Gemini 4 Hydrogen in GitHub Copilot</a> <span class="changelog-date">13.11.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-11-13-github-enterprise-server-support-in-the-github-copilot-app" class="article-link" target="_blank">GitHub Enterprise Server support in the GitHub Copilot app</a> <span class="changelog-date">13.11.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december" class="article-link" target="_blank">Upcoming deprecation of selected GitHub Copilot models in December</a> <span class="changelog-date">13.11.2026</span></li>
+    </ul>
+    </details>
+
+    <h2>Windsurf Announcements (2 Artikel)</h2>
+    <div class="section-summary"><ul><li><strong>Devin Apps</strong>: Private Web-Apps laufen auf Devins Cloud-Maschine, greifen auf MCPs und Codebase zu, Zugriff nur per Devin-Login.</li><li><strong>Memory-Snapshots</strong>: Maschinen schlafen ohne Nutzung, Abrechnung nach Wachzeit, stabile URL ueber Versionen mit Redeploy.</li><li><strong>Gemini 4 Carbon</strong>: Ab sofort in Devin Desktop und CLI, 40,0 Prozent im FrontierCode-2.0 vor Argon und GPT-6.1 Sol.</li><li><strong>Kosteneffizienz</strong>: Carbon uebertrifft mit niedrigem Reasoning-Aufwand Argons Bestwert bei unter zwei Dritteln des Aufwands.</li></ul></div>
+    <details class="collapsed-block"><summary>2 Artikel</summary>
+    <div class="article">
+        <div class="article-title">Product Introducing Devin Apps</div>
+        <div class="article-date">13.11.2026</div>
+        <div class="article-summary">Devin Apps sind private Web-Applikationen, die direkt auf Devins Cloud-Maschine gehostet werden und aus einer Beschreibung heraus entstehen; die App taucht sofort mit ihrer URL auf der Apps-Seite auf und durchläuft den Status Building, bis die erste Version live ist. Weil sie auf Devins Rechner laufen, greifen sie auf vorhandene MCPs, Integrationen und die Codebase zu — jeder Stack, der HTTP auf einem Port ausliefert, ist zulässig, ebenso SQLite oder Postgres auf derselben Maschine sowie Aufrufe der Devin API, um eigene Tools auf Devin aufzusetzen. Der Zugriff erfordert immer einen Devin-Login, Apps sind nie öffentlich, und die Freigabe lässt sich auf einzelne Personen, die Organisation oder das gesamte Enterprise begrenzen. Die URL bleibt über Versionen stabil; Änderungen laufen über „Edit in session&quot; oder automatisiert per Datenabruf im Zeitplan bzw. Redeploy bei Branch-Änderungen, alle Stände erscheinen unter Deployments, und startet eine neue Version nicht, bedient weiterhin die vorherige. Technische Grundlage sind Memory-Snapshots: Die Maschine schläft ohne Nutzung und wacht beim Öffnen auf, was beim ersten Laden einige Sekunden kosten kann, wobei die Abrechnung an die Wachzeit gekoppelt ist. Eine App läuft auf einer Maschine und ist damit für interne Tools, Dashboards sowie Beta- und Staging-Umgebungen geeignet, nicht für hochfrequentierte Produktionsdienste.</div>
+        <a href="https://codeium.com/blog/devin-apps" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Gemini 4 Carbon is now available in Devin</div>
+        <div class="article-date">10.11.2026</div>
+        <div class="article-summary">Gemini 4 Carbon steht ab sofort in Devin Desktop und Devin CLI zur Verfuegung. Auf dem FrontierCode-2.0-Benchmark, der Modelle anhand realer Engineering-Aufgaben nach Qualitaet und Mergeability bewertet, erreicht das Modell 40,0 Prozent und liegt damit deutlich vor Gemini 4 Argon mit 26,3 Prozent sowie knapp vor GPT-6.1 Sol mit 39,0 Prozent. Der Zugewinn geht mit geringeren Kosten einher: Bereits bei niedrigem Reasoning-Aufwand uebertrifft Gemini 4 Carbon das Bestresultat von Argon, waehrend der Spitzenwert pro Task weniger als zwei Drittel des Argon-Aufwands kostet.</div>
+        <a href="https://codeium.com/blog/gemini-4-carbon" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+
+</body>
+</html>
