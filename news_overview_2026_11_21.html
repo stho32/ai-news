@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Übersicht - Letzte 7 Tage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .article {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .article-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .article-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .article-summary {
+            margin-bottom: 10px;
+        }
+        .article-link {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .article-link:hover {
+            text-decoration: underline;
+        }
+        /* R00011: Section-Summary-Block, leicht abgesetzt von Einzel-Artikeln */
+        .section-summary {
+            margin: 10px 0 20px 0;
+            padding: 12px 16px;
+            background-color: #eef4fb;
+            border-left: 4px solid #0066cc;
+            color: #234;
+        }
+        /* R00012: Changelog-Digest-Block — visuell distinkt vom Section-Summary */
+        .changelog-digest {
+            margin: 10px 0 15px 0;
+            padding: 12px 16px;
+            background-color: #fff7e6;
+            border-left: 4px solid #d97706;
+            color: #3a2a00;
+        }
+        .changelog-links {
+            list-style: disc inside;
+            padding-left: 0;
+            margin: 0 0 25px 0;
+        }
+        .changelog-links li {
+            margin: 4px 0;
+        }
+        .changelog-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-left: 6px;
+        }
+        /* R00013: Wochen-Tenor — visuell die staerkste der drei
+           Verdichtungsklassen (overall > section-summary > changelog-digest).
+           Linker Rand kraeftiger, Schrift groesser, klar abgesetzte
+           Hintergrundfarbe — vom Leser auf den ersten Blick als
+           Zusammenfassung der Wochenausgabe erkennbar. */
+        .overall-summary {
+            margin: 10px 0 25px 0;
+            padding: 18px 22px;
+            background-color: #f0fbf3;
+            border-left: 6px solid #15803d;
+            font-size: 1.1em;
+            color: #14271d;
+        }
+        /* R00015: Stichpunkte in den Verdichtungsbloecken und
+           zugeklappte Artikel-/Linkbloecke (natives <details>, kein JS). */
+        .overall-summary h3 {
+            font-size: 1em;
+            color: #15803d;
+            margin: 12px 0 4px 0;
+        }
+        .overall-summary h3:first-child {
+            margin-top: 0;
+        }
+        .overall-summary ul,
+        .section-summary ul,
+        .changelog-digest ul {
+            margin: 4px 0;
+            padding-left: 20px;
+        }
+        .overall-summary li,
+        .section-summary li,
+        .changelog-digest li {
+            margin: 3px 0;
+        }
+        .overall-summary p,
+        .section-summary p,
+        .changelog-digest p {
+            margin: 0;
+        }
+        /* R00017: Vergleich mit den Vorwochen — steht ueber dem
+           Wochen-Tenor, ruhiger als dieser, Belege dezent. */
+        .trend-comparison {
+            margin: 10px 0 15px 0;
+            padding: 14px 22px;
+            background-color: #f5f3ff;
+            border-left: 6px solid #6d28d9;
+            color: #1e1536;
+        }
+        .trend-comparison h3 {
+            font-size: 1.1em;
+            color: #6d28d9;
+            margin: 0 0 6px 0;
+        }
+        .trend-comparison h4 {
+            font-size: 1em;
+            margin: 10px 0 4px 0;
+        }
+        .trend-comparison ul {
+            margin: 4px 0;
+            padding-left: 20px;
+        }
+        .trend-comparison li {
+            margin: 3px 0;
+        }
+        .trend-comparison p {
+            margin: 0;
+        }
+        .trend-evidence {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .collapsed-block {
+            margin: 0 0 25px 0;
+        }
+        .collapsed-block > summary {
+            cursor: pointer;
+            color: #0066cc;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* R00014: Video-Kacheln — Nebenspur, deutlich schmaler als die
+           Artikel-Spalte, mehrere Kacheln pro Zeile. */
+        .video-tiles-heading {
+            font-size: 1.1em;
+            color: #555;
+            margin-top: 30px;
+        }
+        .video-tiles {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+        .video-tile {
+            display: block;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            overflow: hidden;
+            padding-bottom: 10px;
+            text-decoration: none;
+            color: inherit;
+            background: #fff;
+        }
+        .video-tile:hover {
+            border-color: #0066cc;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+        }
+        .video-thumb {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            background: #eee;
+        }
+        .video-title {
+            font-weight: bold;
+            font-size: 0.95em;
+            margin: 10px 10px 4px 10px;
+        }
+        .video-meta {
+            font-size: 0.8em;
+            color: #888;
+            margin: 0 10px 6px 10px;
+        }
+        .video-summary {
+            font-size: 0.85em;
+            color: #444;
+            margin: 0 10px;
+            line-height: 1.4;
+        }
+
+        /* R00011: Rueckspruglink zur index.html (oben und unten) */
+        .back-link {
+            display: inline-block;
+            margin: 10px 0 20px 0;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>News Übersicht der letzten 7 Tage</h1>
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+    <div class="trend-comparison"><h3>Gegenüber den Vorwochen</h3><h4>Neu</h4><ul><li><strong>Gemini 4 Neon</strong>: Neues Google-Modell mit einer Million Tokens Kontext, verfügbar in Copilot, Devin und als llm-gemini 0.38.</li><li><strong>GPT-6.2 Astra/Sol</strong>: Zwei neue OpenAI-Modelle sowie MAI Code 2 und Flash sind in Copilot allgemein verfügbar, ältere Modelle werden abgekündigt.</li><li><strong>Java4Shell/NGINX2Root</strong>: Zwei neue RCE-fähige Schwachstellen, gebündelt in einem verwalteten Threat-Index mit Scans und Devin-Remediation.</li></ul><h4>Verstärkt</h4><ul><li><strong>Anthropic-Börsengang</strong>: Aus S-1-Einreichung und Roadshow werden Preisfestsetzung und Abschluss, rund 119,5 Mrd. Dollar Erlös und Handel unter ANT. <span class="trend-evidence">(12.11.)</span></li><li><strong>Software Factories</strong>: Neben Warp Factories treten Devin Bots und teamweite Agenten-Infrastruktur, die Verantwortung statt Einzeltasks übernehmen. <span class="trend-evidence">(14.11., 17.10.)</span></li><li><strong>Copilot Fusion</strong>: Aus HydraFusion und lokaler Modellwahl wird Fusion Max, das Terminal-Bench-4.1 mit 71,2 Prozent anführt. <span class="trend-evidence">(12.11., 17.10.)</span></li></ul><h4>Abgeschwächt / verschwunden</h4><ul><li><strong>Gemini 4 Carbon</strong>: Das Frontier-Modell verliert seine Nennungen in Copilot und Devin an Gemini 4 Neon. <span class="trend-evidence">(14.11., 12.11.)</span></li><li><strong>Claude Fable 5.2</strong>: Die Anthropic-Modelle Fable 5.2 und Mythos 5.2 verschwinden aus den Werkzeug-Ankündigungen. <span class="trend-evidence">(14.11., 12.11.)</span></li><li><strong>.NET 11</strong>: Die Ankündigungs- und Releaseberichterstattung zu .NET 11 fällt auf einen einzelnen Beitrag zurück. <span class="trend-evidence">(12.11., 17.10.)</span></li></ul></div>
+    <div class="overall-summary"><h3>Neue Modelle</h3><ul><li><strong>Gemini 4 Neon</strong>: Google positioniert das Modell zwischen Carbon und Hydrogen; ab sofort über Gemini API, AI Studio, Antigravity und Gemini App bei einer Million Tokens Kontext.</li><li><strong>Modell-Roundup</strong>: GPT-6.2 Astra/Sol und MAI Code 2/Flash allgemein verfügbar; Opus 4.8, Opus 5 und GPT-5.6 Terra abgekündigt.</li><li><strong>Copilot Fusion Max</strong>: Führt Terminal-Bench-4.1 mit 71,2 Prozent an.</li><li><strong>Neon in Werkzeugen</strong>: Gemini 4 Neon erreicht in Devin Desktop und Devin CLI 46,2 Prozent auf FrontierCode 2.0; llm-gemini 0.38 bindet es als gemini-4-neon ein.</li></ul><h3>Sicherheit</h3><ul><li><strong>Java4Shell und NGINX2Root</strong>: Neue RCE-fähige Schwachstellen; Cognition bündelt sie in einem verwalteten Threat-Index mit Scans, Ranking und Devin-Remediation.</li><li><strong>Agenten-Sandboxing</strong>: Prime Radiant leitet Befehle von Coding-Agents in isolierte Linux-Umgebungen um, sperrt Netzwerkzugriff und ersetzt Credentials durch Platzhalter.</li><li><strong>NuGet Staged Publishing</strong>: Pakete durchlaufen Malware- und Signaturprüfungen und bleiben bis zur Promotion privat; Staging-only-Credentials begrenzen Schäden kompromittierter Pipelines.</li><li><strong>Neon-Sicherheitswerte</strong>: 76 Prozent auf AutoBaxBench, 90,5 Prozent auf SEC-bench Pro und 70,7 Prozent auf CWE-bench v2; Cyber-Zugang startet über das Fairwind Program.</li></ul><h3>Besondere Entwicklungen</h3><ul><li><strong>Anthropic-Börsengang</strong>: Anthropic nimmt mit IPO und Privatplatzierung rund 119,5 Mrd. Dollar ein; Handel unter dem Kürzel ANT seit dem 19. November 2026.</li><li><strong>Software Factories</strong>: Mehrere Quellen beschreiben Agenten, die Verantwortung statt Einzeltasks übernehmen: Devin Bots, Warp Factories und teamweite Agenten-Infrastruktur.</li><li><strong>Agent Host Protocol</strong>: Offener Standard aus VS Code und GitHub für Agentensitzungen über Editor, Copilot-App, Mobile und Cloud, mit Rust- und TypeScript-Implementierungen.</li><li><strong>Data Contracts</strong>: ODCS 3.2 mit AI-Context-Block und ODPS beschreiben Datensätze und Datenprodukte maschinenlesbar; Contracts gehören ins Git und in die CI/CD-Pipeline.</li></ul><h3>Sonstiges</h3><ul><li><strong>Azure SQL Hyperscale</strong>: Ignite 2026 bringt den Datenbank-Container in Public Preview und Cross-Database Querying in Limited Preview; Catalyst und Modernize CLI unterstützen Migrationen.</li><li><strong>Deterministic Simulation Testing</strong>: Simulierte Uhr, Netzwerk und Storage machen Ausfälle reproduzierbar; Tickloom, FoundationDB und TigerBeetle dienen als Vorbilder.</li><li><strong>PowerShell 7</strong>: Ersetzt Windows PowerShell 5.1 als Upgrade-Pfad; der MSIX-Umstieg lässt SYSTEM-Betrieb, DISM-Cmdlets und maschinenweite Einstellungen offen.</li><li><strong>Copilot-Governance</strong>: MCP-Connectoren für Box, Buildkite, Supabase und Wix in Public Preview, Agent-365-Audit-Streaming und Entra-SSO in der Copilot CLI.</li></ul></div>
+    <p>Generiert am: 21.11.2026 07:00 Uhr</p>
+    <p>Anzahl Artikel: 25 (zus&auml;tzlich 17 Changelog-Eintr&auml;ge aus 1 Quelle) (zus&auml;tzlich 1 Video)</p>
+
+    <h2 class="video-tiles-heading">Videos der Woche</h2>
+    <div class="video-tiles">
+        <a class="video-tile" href="https://www.youtube.com/watch?v=Vk6Ui2uFzRw" target="_blank" rel="noopener noreferrer">
+            <img class="video-thumb" src="https://i.ytimg.com/vi/Vk6Ui2uFzRw/hqdefault.jpg" alt="" loading="lazy">
+            <div class="video-title">How This Team Uses AI as a Real-Time Coding Partner (Without Losing Control)</div>
+            <div class="video-meta">Modern Software Engineering (Dave Farley) &middot; 18.11.2026</div>
+            <div class="video-summary">Discover how to navigate the future of software engineering as artificial intelligence reshapes software development. In this episode of Modern Software Engineering, Dave Farley explores real-world AI software engineering with a high-performance dev team. Learn how coding with AI, using tools like…</div>
+        </a>
+    </div>
+
+    <h2>Allan Kelly Blog (2 Artikel)</h2>
+    <div class="section-summary"><ul><li><strong>OKR Summit</strong>: Allan Kelly wurde als Best Speaker ausgezeichnet; sein Foliensatz zu fünf OKR-Lektionen ist als PDF verfügbar.</li><li><strong>Oredev-Vorträge</strong>: Zwei Foliensätze behandeln KI-Lernen aus früheren Technologiewechseln und den Engineering-Mindset; Aufzeichnungen folgen in Kürze.</li><li><strong>Product Manager</strong>: Allan Kelly überträgt Naoto Kitagawas 17 Chief-Engineer-Prinzipien von Toyota auf Product Manager: Curiosity, Empathy, Imagination, genchi genbutsu.</li><li><strong>Chief Engineer</strong>: Nähe zum Product Manager, weil beide Teams führen und Produkte überhaupt erst zur Sprache bringen.</li></ul></div>
+    <details class="collapsed-block"><summary>2 Artikel</summary>
+    <div class="article">
+        <div class="article-title">OKRs, Engineering mindset &amp; AI, 3 presentations</div>
+        <div class="article-date">19.11.2026</div>
+        <div class="article-summary">Allan Kelly hat im November 2026 auf der Oredev in Malmö und beim online ausgetragenen OKR Summit gesprochen; der OKR Summit zeichnete ihn als „Best Speaker“ aus. Drei Foliensätze liegen als PDF vor: „5 Lessons from Working with OKRs“ (OKR Summit), „What can AI learn from past technology driven changes?“, ursprünglich „Ideas to shape our AI future“, sowie „The Good, the Bad and the Ugly of the Engineering Mindset“ (beide von der Oredev). Aufzeichnungen der Sessions sind noch nicht online, werden aber in Kürze erwartet.</div>
+        <a href="https://www.allankelly.net/archives/10840/okrs-engineering-mindset-ai-3-presentations/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">What can Product Managers learn from Chief Engineers?</div>
+        <div class="article-date">17.11.2026</div>
+        <div class="article-summary">Allan Kelly überträgt Naoto Kitagawas 17 Prinzipien für Chief Engineers bei Toyota auf die Rolle des Product Managers und findet breite Deckung: Kitagawas drei Grundhaltungen Curiosity, Empathy und Imagination entsprechen dem, was Product Manager gegenüber Kunden, Technik und Entwicklungsteam brauchen. Organisationsfähigkeit, ein belastbares Netzwerk, das Hinzuziehen von Experten bei eigenen Wissenslücken und die Fähigkeit, Gedanken klar zu formulieren, entscheiden darüber, ob ein PM sein Produkt überhaupt realisiert. Der PM versteht sich als Personal- und Administrationsverantwortlicher seines Teams und fördert Nachwuchs, muss dabei aber die disziplinarischen Linien anderer Manager respektieren; Kostenbewusstsein bleibt wichtig, obwohl der Fokus auf der Nutzenseite liegen sollte. Konsequentes genchi genbutsu, also Kunden, Prozesse und Vertrieb selbst beobachten statt sich auf Business Analysts und User Researcher zu verlassen, sowie Terminverzug als persönliche Schmach zu behandeln, gehören ebenso zum Profil wie Dankbarkeit gegenüber Unterstützern und körperliche wie mentale Ausdauer. Kitagawas Prinzipien gelten letztlich für jede Führungsrolle — die Nähe zwischen Chief Engineer und Product Manager erklärt sich daraus, dass beide Teams führen und ein Produkt überhaupt erst zur Sprache bringen.</div>
+        <a href="https://www.allankelly.net/archives/10827/what-can-product-managers-learn-from-chief-engineers/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <h2>Anthropic News (2 Artikel)</h2>
+    <div class="section-summary"><ul><li><strong>Börsengang ANT</strong>: Anthropic handelt seit 19. November 2026 unter dem Kürzel ANT am Nasdaq, Ausgabepreis 83,00 Dollar je Class-A-Aktie.</li><li><strong>Bruttoerlöse</strong>: 1,127 Mrd. Aktien inklusive voll ausgeübter Mehrzuteilung ergeben rund 93,5 Mrd. Dollar, davon etwa 91,6 Mrd. an Anthropic.</li><li><strong>Privatplatzierung</strong>: 313.253.007 Class-N-Aktien an AMD, Broadcom, Google, Micron, Microsoft, NVIDIA und TSMC brachten rund 26,0 Mrd. Dollar.</li><li><strong>Konsortialbanken</strong>: Goldman Sachs und Morgan Stanley führen das Bookrunning; SEC erklärte die Registrierung am 18. November 2026 für wirksam.</li></ul></div>
+    <details class="collapsed-block"><summary>2 Artikel</summary>
+    <div class="article">
+        <div class="article-title">Anthropic announces closing of initial public offering</div>
+        <div class="article-date">20.11.2026</div>
+        <div class="article-summary">Anthropic hat den Börsengang abgeschlossen: 1.127.000.000 Class-A-Stammaktien zum Ausgabepreis von 83,00 US-Dollar, einschließlich der vollständigen Ausübung der Mehrzuteilungsoption über weitere 147.000.000 Aktien. Davon entfielen 1.103.351.354 Aktien auf Anthropic selbst und 23.648.646 auf verkaufende Altaktionäre; die Bruttoerlöse betrugen rund 93,5 Mrd. Dollar, wovon etwa 91,6 Mrd. Dollar an Anthropic gingen. Der Handel unter dem Kürzel „ANT“ am Nasdaq Global Select Market läuft seit dem 19. November 2026. Parallel schloss Anthropic eine Privatplatzierung über 313.253.007 Class-N-Aktien zum selben Preis von 83,00 Dollar mit AMD, Broadcom, Google, Micron Technology, Microsoft, NVIDIA und TSMC Partners ab, was rund 26,0 Mrd. Dollar einbrachte und die Bruttoerlöse aus IPO und Platzierung auf etwa 119,5 Mrd. Dollar summiert. Goldman Sachs und Morgan Stanley führten das Bookrunning, flankiert von J.P. Morgan, Citigroup, Barclays, Wells Fargo Securities, BofA Securities, Deutsche Bank Securities, RBC Capital Markets und UBS Investment Bank; die SEC hatte die Registrierungserklärung am 18. November 2026 für wirksam erklärt.</div>
+        <a href="https://www.anthropic.com/news/ipo-close" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Anthropic prices initial public offering</div>
+        <div class="article-date">18.11.2026</div>
+        <div class="article-summary">Anthropic hat den Ausgabepreis seines IPO für Class-A-Stammaktien auf 83,00 US-Dollar je Aktie festgelegt. Das Angebot umfasst 980.000.000 Aktien, davon 956.351.354 aus einer Neuausgabe des Unternehmens und 23.648.646 aus dem Bestand verkaufender Aktionäre, aus deren Verkauf Anthropic keine Erlöse zufließen. Der Handel an der Nasdaq Global Select Market soll am 19. November 2026 unter dem Kürzel &quot;ANT&quot; aufgenommen werden, der Abschluss des Angebots ist für den 20. November 2026 unter üblichen Bedingungen vorgesehen. Den Konsortialbanken Goldman Sachs und Morgan Stanley wurde eine 30-tägige Option auf bis zu 147.000.000 weitere Class-A-Aktien eingeräumt. Die SEC hatte die Registrierungserklärung am 18. November 2026 für wirksam erklärt.</div>
+        <a href="https://www.anthropic.com/news/anthropic-prices-initial-public-offering" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <h2>GitHub Copilot Blog (1 Artikel)</h2>
+    <div class="section-summary"><ul><li><strong>Agent Host Protocol</strong>: Offener Standard für Agentensitzungen über Editor, Copilot-App, Mobile und Cloud; Pflicht-Channels root, session, chat, Zustand reducer-basiert.</li><li><strong>VS Code Harness</strong>: Über 400.000 Zeilen TypeScript der Copilot-Chat-Extension durch Harness auf Copilot SDK ersetzt; unabhängige Rust-Host-Implementierung, Bibliotheken für sechs Sprachen.</li></ul></div>
+    <details class="collapsed-block"><summary>1 Artikel</summary>
+    <div class="article">
+        <div class="article-title">Building the Agent Host Protocol for sessions that continue across devices</div>
+        <div class="article-date">17.11.2026</div>
+        <div class="article-summary">Das Agent Host Protocol (AHP) ist ein offener Standard, der zuerst in VS Code entstand und inzwischen GitHub-weit Agentensitzungen über Editor, Copilot-App, Mobile und Cloud hinweg fortführt: Ein Server ist Arbiter eines reducer-basierten Zustandsobjekts, Clients senden Aktionssequenzen, die den Zustand mutieren oder Seiteneffekte wie das Absenden einer Chat-Nachricht auslösen, was Reconnect, Replay bei schlechten Netzwerkbedingungen und konkurrierende Mutationen mehrerer Clients abdeckt. Das Protokoll gliedert sich in URI-identifizierte Channels — root, session und chat sind Pflicht, optionale Channels decken Terminal-Support, MCP-Erweiterungen und OTel-Reporting ab — und kodiert bewusst kein Agentenverhalten, weil sich dieses Feld zu schnell entwickelt; MCP-ähnliche Escape Hatches über Custom Methods und _meta-Felder erlauben Erweiterungen. Für VS Code wurde die über drei Jahre gewachsene Copilot-Chat-Extension mit mehr als 400.000 Zeilen TypeScript (ohne Tests) durch einen neuen Harness auf Basis des Copilot SDK ersetzt, während GitHub seinen Agent Host unabhängig in Rust implementierte, um Cloud-Betrieb und abweichende Infrastruktur- und Security-Anforderungen abzubilden; die zwei Implementierungen dienten zugleich als Praxistest für die Portabilität des Protokolls. Bibliotheken gibt es in Rust, TypeScript, Kotlin, Swift, .NET und Go; VS Codes Host lässt sich mit code agent host starten, Endpunkte mit code agent endpoints ausgeben, und die Copilot-App nimmt Hosts über Experimental &gt; Direct Connections sowie Environments &gt; Add Agent Host Protocol Host entgegen.</div>
+        <a href="https://github.blog/engineering/engineering-principles/building-the-agent-host-protocol-for-sessions-that-continue-across-devices/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <h2>GitHub Copilot Changelog (17 Eintr&auml;ge)</h2>
+    <div class="changelog-digest"><ul><li><strong>Modell-Updates</strong>: Gemini 4 Neon, GPT-6.2 Astra/Sol und MAI Code 2/Flash allgemein verfügbar; Copilot Fusion Max führt Terminal-Bench-4.1 mit 71,2 Prozent; Opus 4.8, Opus 5 und GPT-5.6 Terra abgekündigt.</li><li><strong>Connectoren und IDE-Preview</strong>: MCP-Connectoren für Box, Buildkite, Supabase und Wix in Public Preview, Team-Customizations für Organization Teams GA, JetBrains-Preview für Cloud Sandbox und Browser Use, Copilot App mit Azure-DevOps-Repos und GHES-Support GA.</li><li><strong>Code Review und Evals</strong>: Adaptive Review-Stufen mit Secret Detection und Cross-Repository-Kontext in Preview, Copilot Code Review für Azure Repos GA, Repository Insights mit Metriken, Copilot Evals ab 17. November 2026 in Preview.</li><li><strong>Enterprise und Governance</strong>: strictPluginOnlyCustomization sperrt nutzerbasierte Customizations, Agent-365-Audit-Streaming für Copilot-Agents, Entra-SSO in der Copilot CLI, VS Code entfernt das Local harness im Februar 2027.</li></ul></div>
+    <details class="collapsed-block"><summary>17 Einträge</summary>
+    <ul class="changelog-links">
+        <li><a href="https://github.blog/changelog/2026-11-18-connect-supabase-box-calendly-and-more-to-copilot" class="article-link" target="_blank">Connect Supabase, Box, Calendly, and more to Copilot</a> <span class="changelog-date">18.11.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-11-18-customize-github-copilot-for-your-team" class="article-link" target="_blank">Customize GitHub Copilot for your team</a> <span class="changelog-date">18.11.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-11-18-gemini-4-neon-in-github-copilot" class="article-link" target="_blank">Gemini 4 Neon in GitHub Copilot</a> <span class="changelog-date">18.11.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-11-17-copilot-code-review-adaptive-effort-secret-detection-and-more" class="article-link" target="_blank">Copilot code review: Adaptive effort, secret detection, and more</a> <span class="changelog-date">17.11.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-11-17-github-copilot-cli-adds-microsoft-entra-sign-in-as-a-preview" class="article-link" target="_blank">GitHub Copilot CLI adds Microsoft Entra sign-in as a preview</a> <span class="changelog-date">17.11.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-11-17-github-copilot-evals-is-now-in-public-preview" class="article-link" target="_blank">GitHub Copilot Evals is now in public preview</a> <span class="changelog-date">17.11.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-11-17-github-copilot-fusion-updates-more-availability-benchmarks-and-models" class="article-link" target="_blank">GitHub Copilot Fusion updates: more availability, benchmarks, and models</a> <span class="changelog-date">17.11.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-11-17-github-copilot-app-microsoft-ignite-releases" class="article-link" target="_blank">GitHub Copilot app, Microsoft Ignite releases</a> <span class="changelog-date">17.11.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-11-17-github-copilot-in-jetbrains-ignite-releases" class="article-link" target="_blank">GitHub Copilot in JetBrains, Ignite releases</a> <span class="changelog-date">17.11.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-11-17-mai-code-2-and-mai-code-2-flash-in-github-copilot" class="article-link" target="_blank">MAI Code 2 and MAI Code 2 Flash in GitHub Copilot</a> <span class="changelog-date">17.11.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-11-17-monitor-github-copilot-activity-through-microsoft-agent-365" class="article-link" target="_blank">Monitor GitHub Copilot activity through Microsoft Agent 365</a> <span class="changelog-date">17.11.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-11-17-openais-gpt-6-2-astra-and-gpt-6-2-sol-now-available" class="article-link" target="_blank">OpenAI’s GPT-6.2 Astra and GPT-6.2 Sol now available</a> <span class="changelog-date">17.11.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-11-17-track-copilot-code-review-outcomes-in-repository-insights" class="article-link" target="_blank">Track Copilot code review outcomes in Repository insights</a> <span class="changelog-date">17.11.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-11-16-control-where-github-copilot-customizations-come-from" class="article-link" target="_blank">Control where GitHub Copilot customizations come from</a> <span class="changelog-date">16.11.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-11-16-github-copilot-models-deprecated-on-november-16-2026" class="article-link" target="_blank">GitHub Copilot models deprecated on November 16, 2026</a> <span class="changelog-date">16.11.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-11-16-github-copilot-weekly-releases-november-9" class="article-link" target="_blank">GitHub Copilot weekly releases — November 9</a> <span class="changelog-date">16.11.2026</span></li>
+        <li><a href="https://github.blog/changelog/2026-11-16-vs-code-retires-the-local-harness-in-february-2027" class="article-link" target="_blank">VS Code retires the Local harness in February 2027</a> <span class="changelog-date">16.11.2026</span></li>
+    </ul>
+    </details>
+
+    <h2>Martin Fowler (2 Artikel)</h2>
+    <div class="section-summary"><ul><li><strong>ODCS 3.2</strong>: Open Data Contract Standard 3.2.0 ergänzt Contracts um einen AI-Context-Block mit Instruktionen, Constraints und verifizierten Statements.</li><li><strong>Data Contract CLI</strong>: CLI mit lint, breaking, ci, test und publish versioniert Contracts per SemVer; ODPS v1.1.0 beschreibt Datenprodukte als Ports.</li><li><strong>Tickloom</strong>: Deterministic Simulation Testing ersetzt Uhr, Netzwerk und Disk durch Ticks; ein Seed reproduziert Ausfälle und Latenzspitzen exakt.</li><li><strong>Antithesis</strong>: Sechs Coding-Regeln werden per ArchUnit und Thread-Confinement erzwungen; ohne Umbau bleibt deterministische Simulation nur auf Hypervisor-Ebene.</li></ul></div>
+    <details class="collapsed-block"><summary>2 Artikel</summary>
+    <div class="article">
+        <div class="article-title">Data Contracts</div>
+        <div class="article-date">18.11.2026</div>
+        <div class="article-summary">Data Contracts beschreiben Inhalt und Zusagen eines Datensatzes maschinenlesbar, verifizierbar und versioniert und machen Datensätze damit sowohl für Menschen als auch für AI-Agents belastbar nutzbar. Als De-facto-Standard etabliert sich die Open Data Contract Standard (ODCS) des Bitol-Projekts der Linux Foundation, aktuell in Version 3.2.0, die Schema, Quality Rules (SQL oder Library), SLA-Properties wie Freshness und Retention, Ownership, Support-Kanäle, Terms of Use, Server-Definitionen, Rollen, Preise und seit 3.2 einen AI-Context-Block mit Instruktionen, Constraints und verifizierten Statements definiert. ODCS startete 2023 als PayPals Data Contract Template, wurde als ODCS 2.2 Gründungsstandard von Bitol, verlor mit 3.0 (2024) die PayPal-Spezifika, wurde 2025 mit 3.1 und nativer CLI-Unterstützung mit der konkurrierenden Data Contract Specification zusammengeführt und 2026 um den AI Context erweitert; der Thoughtworks Technology Radar führt ODCS auf Adopt. Darauf aufbauend beschreibt die Open Data Product Standard (ODPS, v1.1.0) Datenprodukte, deren Input- und Output-Ports auf ODCS-Contracts verweisen, wobei einseitig publizierte Contracts und bilaterale Access Agreements mit Ablaufdatum (RFC für einen Open Access Agreement Standard, OAAS) strikt getrennt bleiben. Contracts gehören ins Git-Repository neben den Pipeline-Code und in die CI/CD-Pipeline; die Data Contract CLI mit über einer Million Downloads pro Monat (Radar-Bewertung Trial, November 2025) bietet dafür lint, breaking, ci, test und publish, während die Versionierung SemVer folgt und ein Major-Bump einen neuen Datensatz, ein neues Topic oder mindestens forward-kompatible Schema-Evolution verlangt. Der Nutzen – Pipeline-Generierung per Coding-Agent, verlässliches &quot;Chat with your data&quot;, automatische Erkennung von Breaking Changes – rechtfertigt die Kosten nur bei Team-übergreifenden Schnittstellen, idealerweise als Ports von Datenprodukten, nicht als flächendeckende Einführung über allen Datenbeständen.</div>
+        <a href="https://martinfowler.com/articles/data-contracts.html" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Deterministic Simulation Testing</div>
+        <div class="article-date">17.11.2026</div>
+        <div class="article-summary">Deterministic Simulation Testing ersetzt echte Uhr, Netzwerk und Storage durch simulierte Komponenten, die ein single-threaded Execution Loop per tick()-Aufruf vorantreibt, wodurch sich harte Ausfälle und Grauschäden wie Latenzspitzen reproduzierbar testen lassen. Unmesh Joshi, Distinguished Engineer bei Thoughtworks, demonstriert das Verfahren an einem Quorum-Key-Value-Store mit der Java-Bibliothek Tickloom, deren Design auf FoundationDB (deterministischer Scheduler, C++-Koroutinen) und TigerBeetle (tick-getriebene Single-Thread-Architektur mit tick_ms = 10) zurückgeht; etcd arbeitet ebenso mit logischen Ticks (100ms-Ticker, 10-Tick-Wahltimeout von einer Sekunde). Die vier Quellen der Nichtdeterminiertheit — Systemuhr, Thread-Scheduling, Netzwerk- und Disk-Timing — werden hinter Interfaces wie Network, FileIO und Clock gekapselt, Timeouts zählen Ticks statt Wanduhrzeit, und eine gesäte PRNG steuert die Fault Injection (Standardwerte: 40 Prozent Request-Wahrscheinlichkeit, 8 Prozent Fault-Wahrscheinlichkeit, Netzwerk-Heilung alle 40 Ticks), sodass ein Seed exakt dieselbe Ausführung reproduziert. Wie bei Jepsen wird die client-sichtbare History aufgezeichnet und von einem ConsistencyChecker auf Linearisierbarkeit geprüft; Fast-Forward lässt Läufe, die live Stunden benötigen, in Sekunden durchlaufen. Sechs strikte Coding-Regeln — keine System-Clock, keine ungesäte Zufälligkeit, keine Threads oder CompletableFuture, kein direktes Netzwerk- oder Disk-I/O, keine Iteration über ungeordnete Collections, keine Cross-Thread-Callbacks über die Architektur-Naht — werden per ArchUnit-Fitness-Function und Thread-Confinement-Checks in TickCompletableFuture durchgesetzt. Der Ansatz verlangt Architekturinvestitionen im Voraus, zahlt sich aber aus, weil IO-lastige Systeme von single-threaded asynchronem, gebatchtem I/O profitieren (wie Redis, FoundationDB und TigerBeetle); wo ein Umbau nicht möglich ist, bietet die kommerzielle Plattform Antithesis deterministische Simulation auf Hypervisor-Ebene.</div>
+        <a href="https://martinfowler.com/articles/deterministic-simulation-testing.html" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <h2>Microsoft .NET Blog (2 Artikel)</h2>
+    <div class="section-summary"><ul><li><strong>Agenten-Rewrite</strong>: Ortinau liess Barista Notes mit 13 Agenten in C# neu bauen; Verifikation kostete mehr Modellzeit als das Schreiben des Codes.</li><li><strong>.NET 11 GA</strong>: Plattformspezifische UI halbierte den Android-Startmedian auf 615 ms, senkte iOS um 35 % und verkleinerte beide Pakete.</li><li><strong>Zweite UI</strong>: Mit Agenten billig zu bauen, aber teuer zu besitzen: Tests, Device-Validierung, Triage und Reviews pro Plattform.</li><li><strong>NuGet Staged Publishing</strong>: Gestagte Pakete durchlaufen Malware- und Signaturpruefung, bleiben bis zur Promotion privat; Promotion nur per Website mit 2FA.</li></ul></div>
+    <details class="collapsed-block"><summary>2 Artikel</summary>
+    <div class="article">
+        <div class="article-title">AI is Changing the Cross-Platform Decision Matrix</div>
+        <div class="article-date">20.11.2026</div>
+        <div class="article-summary">Für Barista Notes (12 Screens, über 20 NuGet-Abhängigkeiten, rund 31.000 handgeschriebene C#-Zeilen, UI per MauiReactor statt XAML) hat David Ortinau die iOS- und Android-Versionen von Agenten neu bauen lassen — Plattform-UI in C# mit UIKit und Android Views über eine gemeinsame Klassenbibliothek, als direkter Vergleich zur bestehenden .NET-MAUI-App. Die Neufassung lief vom 25. bis 28. September in einer GitHub-Copilot-Session mit einem Koordinator-Agenten, Plattform-Implementierern und unabhängigen Reviewern (13 Agenten-Identitäten) und verbrauchte 58 Stunden aggregierte Modellzeit, etwa 3,293 Mrd. Input-Tokens (davon 3,185 Mrd. Cache-Reads und 107,843 Mio. Cache-Writes), 7,8 Mio. Output-Tokens und 699 bestandene Tests bei unter vier Stunden eigener Arbeitszeit; eingesetzt wurden vor allem GPT-6 Astra auf High/Extra High, dazu GPT-6 Sol und GPT-5.6 Sol. Beim Nachrüsten desselben Features (Karte der Herkunftsorte, Mapsui plus gecachte Place-Lookups) mit gpt-6.1-sol brauchten die beiden Plattform-Worker rund 1,4-mal so viele Modellminuten wie der MAUI-Worker (121,2 gegen 87,6; 368 gegen 254 Aufrufe; 17,3 Mio. gegen 10,0 Mio. Input-Tokens), fügten 1,36-mal so viele Testzeilen hinzu und erzeugten 19 statt 13 Defect-/Feedback-Einträge. Den größten Einzelposten verursachte jedoch die Koordination: Der planende, bauende und prüfende Agent kam auf 616 Modellminuten gegenüber 209 Minuten beider Implementierungsseiten zusammen — Verifikation ist damit teurer als das Schreiben des Codes. Der Code-Anteil sank durch die getrennten UIs von 99,2 % auf 40,4 % über beide Plattformen, während der gemeinsame Core pro App weiter 56,4 % (Android) beziehungsweise 58,7 % (iOS) ausmacht und von 10.152 auf 15.869 Zeilen wuchs (Gesamtproduktcode +26,1 %). Auf .NET 11 GA (SDK 11.0.100, Runtime-Packs GA, .NET MAUI Controls 11.0.0) und identischen Geräten (iPhone 15 Pro, Pixel 5) halbierte Plattform-UI den Android-Startmedians von 1.233 auf 615 ms und senkte ihn auf iOS von 569 auf 367 ms (-35 %), bei 30 % kleinerem Android- und 17 % kleinerem iOS-Paket (31,74 gegen 45,64 MiB bzw. 49,09 gegen 58,87 MiB, signiert); die Navigationsmedians fielen deutlich niedriger aus (New Drink→History iOS 115,0 gegen 660,5 ms, Android 381,0 gegen 826,8 ms), wobei die Android-Defaults den Trade-off umkehren: schnellerer Start (615 gegen 1.192 ms) bei 10 % größerem APK. Ortinaus Fazit für die Entscheidungsmatrix: Eine zweite UI ist dank Agenten billig zu bauen, aber teuer zu besitzen (Tests, Device-Validierung, Triage, Reviews pro Plattform), eine gemeinsame UI bleibt der Startpunkt, und plattformspezifische Screens sind nun vorab messbar — begleitend nennt er die experimentellen Werkzeuge GitHub Copilot app, DevFlow aus .NET MAUI Labs, Ailoha und Mobile Canvas zur Agenten-Steuerung laufender Apps.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/ai-cross-platform-decision-matrix/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Introducing staged publishing on NuGet.org</div>
+        <div class="article-date">17.11.2026</div>
+        <div class="article-summary">NuGet.org führt Staged Publishing ein, verfügbar für alle Paketpublisher: Pakete durchlaufen nach dem Upload die vollständige Validierung (Malware-Scan, Signatur- und Repository-Signierungsprüfungen), bleiben aber bis zur expliziten Promotion durch einen autorisierten Maintainer privat und erscheinen weder in Suchergebnissen noch in Restore-Vorgängen. Staging ist Opt-in, bestehende dotnet-nuget-push-Workflows laufen unverändert weiter, und anders als bei unlisted Packages, die sich per exakter Version weiterhin wiederherstellen lassen, ist gestagter Inhalt für Konsumenten überhaupt nicht verfügbar — einen privaten Restore-Feed bietet Staging allerdings nicht. Verwandte Pakete lassen sich in Staging Groups bündeln und als Satz promoten; die Gruppen-Promotion ist jedoch nicht atomar, Pakete werden also zu unterschiedlichen Zeitpunkten restorable. Für die Absicherung empfehlen die Autoren Staging-only-Credentials beziehungsweise auf Staging beschränkte Trusted-Publishing-Policies, sodass eine kompromittierte Pipeline nur Inhalte zur Review einreichen, aber nichts direkt veröffentlichen kann; die Promotion selbst erfolgt ausschließlich über die Website mit 2FA-aktiviertem Konto, nicht per CLI. Das .NET 11 RC2 SDK unterstützt bereits dotnet package stage push inklusive --group-Parameter (Gruppen werden bei Bedarf automatisch angelegt), Listing- und Gruppenverwaltungsbefehle folgen in einem späteren SDK-Update; nicht promoteter Staging-Inhalt läuft ab.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/nuget-staged-publishing/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <h2>PowerShell Team Blog (1 Artikel)</h2>
+    <div class="section-summary"><ul><li><strong>PowerShell 7</strong>: Loest ab der naechsten Windows-Version Windows PowerShell 5.1 als Upgrade-Pfad ab; 5.1 laeuft parallel weiter, Migration erfolgt manuell.</li><li><strong>MSIX-Paket</strong>: Auslieferung als MSIX hat Luecken: Betrieb als SYSTEM-Konto, DISM-Cmdlets und All-Users-Profil fehlen noch, verfolgt in Issue 27565.</li><li><strong>Migrationshilfen</strong>: PSScriptAnalyzer prueft Kompatibilitaet in drei Stufen; neue Inbox Working Group triagiert Windows-spezifische Probleme.</li></ul></div>
+    <details class="collapsed-block"><summary>1 Artikel</summary>
+    <div class="article">
+        <div class="article-title">PowerShell 7 is coming to Windows</div>
+        <div class="article-date">17.11.2026</div>
+        <div class="article-summary">Ab der nächsten Windows-Version ersetzt PowerShell 7 das mitgelieferte Windows PowerShell 5.1 als Upgrade-Pfad; Details stehen in KB5137172. Beide Versionen laufen parallel weiter, bestehende Skripte, Scheduled Tasks und Dienste unter 5.1 bleiben unverändert, die Migration erfolgt manuell und sollte vorab in PowerShell 7 getestet werden. Offen ist die Auslieferung als MSIX-Paket: Funktionen des bisherigen MSI-Installers fehlen noch, konkret der Betrieb als SYSTEM-Konto (betrifft Scheduled Tasks, Dienste, Geräteverwaltung und Remoting), die DISM-Cmdlets wie Add-WindowsCapability sowie maschinenweite Einstellungen wie das All-Users-Profil; der Status wird im MSIX-Tracking-Issue 27565 verfolgt. Zur Migrationshilfe investiert das Team in Community-Tools, Dokumentation und erweiterte Kompatibilitätsprüfungen von PSScriptAnalyzer mit den drei Stufen Inventarisierung, Analyse und Handlungsempfehlung. Zusätzlich startet eine Inbox Working Group, die gemeldete Windows-spezifische Probleme triagiert.</div>
+        <a href="https://devblogs.microsoft.com/powershell/powershell-7-coming-to-windows/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <h2>SQL Server Blog (1 Artikel)</h2>
+    <div class="section-summary"><ul><li><strong>Azure SQL Database Hyperscale</strong>: Getrennte Compute- und Storage-Architektur, Read-Replicas, serverless Autoscaling und Elastic Pools für ungleichmäßige Lasten.</li><li><strong>Ignite 2026</strong>: Azure SQL Database Container in Public Preview, lokal aus Visual Studio Code provisionierbar, Cross-Database Querying für Hyperscale in Limited Preview.</li><li><strong>Multi-Model-Suche</strong>: Vektor-, JSON-, Graph- und relationale Suche in einer Query, RAG und Agenten ohne separaten Vektorstore.</li><li><strong>Migration und Benchmark</strong>: Azure Catalyst und Modernize CLI bewerten Abhängigkeiten; SAP Commerce Cloud migrierte 6.000 Datenbanken, Principled-Technologies-Test sieht Vorsprung vor Aurora PostgreSQL.</li></ul></div>
+    <details class="collapsed-block"><summary>1 Artikel</summary>
+    <div class="article">
+        <div class="article-title">Modernize your apps with Azure SQL Database Hyperscale</div>
+        <div class="article-date">18.11.2026</div>
+        <div class="article-summary">Azure SQL Database Hyperscale betreibt die bekannte SQL-Engine auf einer verteilten Architektur mit getrenntem Compute und Storage; Read-Workloads skalieren über eigene Replicas, Compute läuft provisioned oder serverless mit Autoscaling, und Elastic Pools teilen Ressourcen zwischen Datenbanken mit ungleichmäßiger Last. Microsoft Ignite 2026 bringt den Azure SQL Database Container in Public Preview, der dieselbe Engine lokal betreibt und sich direkt aus Visual Studio Code provisionieren lässt, sowie Cross-Database Querying für Hyperscale in Limited Preview, mit dem drei-teilige Namen über Datenbanken im selben Elastic Pool aus einer Verbindung heraus abfragbar sind. Vektor-, JSON-, Graph- und relationale Suche laufen in derselben Query, sodass RAG- und Agent-Anwendungen ohne separaten Vektorstore mit relationalen Filtern und Joins auf operativen Daten arbeiten. Für Migrationen bündelt Azure Catalyst Discovery, Assessment, Sequenzierung und Ausführung über Infrastruktur-, Daten- und Anwendungsebene hinweg, während die Modernize CLI Anwendung und Datenbankabhängigkeiten als eine Workload samt Kompatibilität und Zielplattformempfehlung bewertet. SAP Commerce Cloud migrierte 6.000 Produktionsdatenbanken innerhalb eines Jahres vor Black Friday 2025 und meldete für den Peak 17,8 Milliarden US-Dollar Bruttowarenwert bei 100 Prozent Uptime und 648.000 Bestellungen pro Stunde. Eine von Microsoft beauftragte Principled-Technologies-Studie vom September 2026 (HammerDB TPROC-C, 16 und 32 vCore Premium-Series gegen Aurora db.r7i.4xlarge und db.r7i.8xlarge, US-East-Preise) ermittelte bis zu 52 Prozent höhere Performance und 51 Prozent bessere Preis-Leistung gegenüber Amazon Aurora PostgreSQL.</div>
+        <a href="https://www.microsoft.com/en-us/sql-server/blog/2026/11/18/modernize-your-apps-with-azure-sql-database-hyperscale/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <h2>Simon Willison (5 Artikel)</h2>
+    <div class="section-summary"><ul><li><strong>Gemini 4 Neon</strong>: Google positioniert das Modell zwischen Carbon und Hydrogen; llm-gemini 0.38 bindet es als gemini-4-neon ein.</li><li><strong>Agent-Sandboxen</strong>: Prime Radiant leitet Befehle von Coding-Agents in drei isolierte Linux-Umgebungen um, Netzwerk gesperrt, Credentials ersetzt.</li><li><strong>PSF-Spendenkampagne</strong>: Die Python Software Foundation will 167.000 bis 256.000 US-Dollar fuer Developer-in-Residence- und Security-Stellen einwerben.</li><li><strong>Datasette Lite</strong>: Plugins und CSV-Daten laufen per Pyodide im Browser und erzeugen einen Vega-Lite-Chart ohne Server.</li></ul></div>
+    <details class="collapsed-block"><summary>5 Artikel</summary>
+    <div class="article">
+        <div class="article-title">The PSF end-of-year fundraiser</div>
+        <div class="article-date">18.11.2026</div>
+        <div class="article-summary">Die Python Software Foundation fährt ihre End-of-Year-Kampagne 2026 mit einem Ziel von 167.000 US-Dollar und einem Stretch Goal von 256.000 US-Dollar; eine Supporting Membership kostet 99 US-Dollar pro Jahr, es gibt eine Sliding-Scale-Option von 25 bis 99 US-Dollar, Einzelspenden starten bei 10 US-Dollar und Spender können freiwillig die 3,5 Prozent Zahlungsgebühren übernehmen. Zahlungen wickelt die PSF über Stripe ab, warnt aber, dass Tracking-Schutz oder Adblocker die Fraud-Checks des Prozessors blockieren und damit Kartenzahlungen scheitern lassen können, selbst wenn nichts falsch ist; als Fallback bleibt die alte Spenden-Website. Zur Begründung verweist die Stiftung auf laufende Posten: drei CPython Developers in Residence, ein Security Developer-in-Residence, ein PyPI Safety and Security Engineer sowie ein Security Developer für die Ökosystem-Sicherheit, dazu der Betrieb von python.org und PyPI mit durchschnittlich sechs Millionen Unique Visitors pro Monat. 2024 vergab die PSF nach eigenen Angaben 952.000 US-Dollar an 174 Gruppen in 52 Ländern, tritt als Fiscal Sponsor mit 501(c)(3)-Status für Python-Projekte und Events auf und richtet die PyCon US aus, deren Call for Proposals noch bis zum 19. Dezember offen ist.</div>
+        <a href="https://donate.python.org" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">introduced Gemini 4 Neon</div>
+        <div class="article-date">18.11.2026</div>
+        <div class="article-summary">Google hat Gemini 4 Neon vorgestellt, ein Modell, das in der Gemini-4-Familie zwischen Carbon für lang laufende Projekte und Hydrogen für schnelle Alltagsaufgaben positioniert ist und komplexe Coding-, Analyse- und Enterprise-Workflows abdecken soll. Neon kostet 3 Dollar pro Million Input-Tokens (0,15 Dollar für gecachte Inputs, 95 Prozent Rabatt) und 15 Dollar pro Million Output-Tokens bei 1 Million Tokens Kontextfenster; vier Thinking-Level skalieren Intelligenz und Token-Verbrauch. Auf dem Artificial Analysis Intelligence Index erreicht es im xhigh-Modus mit 61 Punkten Platz 3, auf dem Vals Index Platz 2 (70,9 Prozent), führt Legal Research Bench und Tax Agent Bench an und belegt auf dem Artificial Analysis Coding Agent Index mit 58,6 den ersten Platz. Bei Coding-Benchmarks erzielt es 65,2 Prozent auf Terminal-Bench 4.1 und 46,2 Prozent auf FrontierCode 2.0; auf SWE-sweep steigt der Wert im mini-SWE-Harness von 12,8 auf 39,0 Prozent innerhalb von Google Antigravity. Beim Default-High-Level liegt es 32 Prozent unter Carbon pro Task, im xhigh-Modus mindestens 36 Prozent unter konkurrierenden Frontier-Modellen. Im Sicherheitsbereich erreicht Neon 76 Prozent auf der harten Stufe von AutoBaxBench, 51,26 Prozent auf WebExploitBench v1.2 bei halben Kosten, 90,5 Prozent auf SEC-bench Pro und 70,7 Prozent auf CWE-bench v2; der Cyber-Zugang läuft in den nächsten Tagen über das Fairwind Program an. Verfügbar ist das Modell ab sofort über die Gemini API, Google AI Studio, Gemini for business, Google Antigravity und die Gemini App für Pro- und Ultra-Abonnenten.</div>
+        <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">llm-gemini 0.38</div>
+        <div class="article-date">18.11.2026</div>
+        <div class="article-summary">llm-gemini 0.38 (Release am 18. November) ergaenzt das Plugin um das Modell Gemini 4 Neon, das ueber `llm -m gemini-4-neon` angesprochen wird. Der Eintrag verweist auf Issue #164; weitere Aenderungen nennt das Release nicht. Seit dem Tag sind zwei Commits in den main-Branch geflossen.</div>
+        <a href="https://github.com/simonw/llm-gemini/releases/tag/0.38" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">External sandboxes for coding agents</div>
+        <div class="article-date">17.11.2026</div>
+        <div class="article-summary">Prime Radiant veröffentlicht drei experimentelle Sandbox-Implementierungen, die Coding-Agents auf dem Host-Rechner belassen, aber jeden ausgeführten Befehl in eine isolierte Linux-Umgebung umleiten: external-sandbox-v86 (Node.js-Prozess, Alpine Linux in v86/WebAssembly, benötigt Node.js 22.19 oder neuer), external-sandbox-container (Python-Wrapper um Apple Containers) und external-sandbox-quicksand (Python mit QEMU auf Basis von Microsofts Quicksand, QEMU und Alpine-Image kommen als Python-Wheels). Alle drei implementieren dasselbe Protokoll samt Konformitätstests und laufen parallel auf den Ports 8686, 8687 und 8688, sodass sich Agents und Sandbox-Technologien beliebig mischen lassen. Die Anbindung unterscheidet sich je Agent: Claude Code schickt nur seine Bash-Kommandos über CLAUDE_CODE_SHELL_PREFIX in die Sandbox, während Read und Edit weiterhin direkt auf dem Host arbeiten; Codex spricht den experimentellen codex exec-server über eine environments.toml an (getestet gegen Codex CLI 0.164.0); Pi ersetzt mit der Extension external-sandbox-pi (ab Pi 1.5) die Tools bash, read, write, edit, grep, find und ls sowie die !command- und !!command-Kürzel. Netzwerkzugriff ist per Default gesperrt und wird über einen Proxy host- und methodenspezifisch freigegeben, inklusive Credential Replacement: Der Agent sieht nur einen Platzhalter wie Bearer placeholder-github-token, während der Proxy den echten GITHUB_TOKEN aus der Host-Umgebung einsetzt. Als Begründung führt der Autor an, dass die Auto-Mode- und Auto-Review-Prüfungen von Anthropic und OpenAI von korrekten Modellurteilen abhängen, eine Sandbox dagegen nicht — was besonders für günstigere oder lokal laufende Modelle zählt, die anfälliger für Prompt Injection sind. Die Prototypen sind nicht auditiert; Read-Write-Mounts erlauben weiterhin Schaden im gemounteten Ordner, und macOS-Artefakte wie node_modules oder .venv müssen in der Linux-Sandbox neu installiert werden.</div>
+        <a href="https://blog.primeradiant.com/external-sandboxes-for-coding-agents/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">links to this demo on Datasette Lite</div>
+        <div class="article-date">14.11.2026</div>
+        <div class="article-summary">Ein Datasette-Lite-Link demonstriert, wie sich Plugin-Installation, Datenbezug und Visualisierung komplett ohne Server im Browser abbilden lassen: Datasette läuft dort über Pyodide als nach WebAssembly kompiliertes Python, das der Parameter install=datasette-vega um das Vega-Plugin erweitert, während der Parameter csv den Datensatz airline-safety.csv von FiveThirtyEight direkt aus dem GitHub-Raw-Bereich nachlädt. Das URL-Fragment enthält eine Vega-Lite-Spezifikation, die aus der Tabelle data/airline-safety bei _size=max einen Balkenchart erzeugt — Airline ordinal auf der X-Achse, fatalities_00_14 quantitativ auf der Y-Achse. Der erste Aufruf dauert am längsten, weil Pyodide geladen werden muss; danach kommt der Großteil aus dem Browser-Cache, während die Daten bereits parallel zum Python-Start heruntergeladen werden.</div>
+        <a href="https://lite.datasette.io/?install=datasette-vega&amp;csv=https%3A%2F%2Fraw.githubusercontent.com%2Ffivethirtyeight%2Fdata%2Fmaster%2Fairline-safety%2Fairline-safety.csv#/data/airline-safety?_size=max#g.mark=bar&amp;g.x_column=airline&amp;g.x_type=ordinal&amp;g.y_column=fatalities_00_14&amp;g.y_type=quantitative" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <h2>Warp AI Terminal Blog (4 Artikel)</h2>
+    <div class="section-summary"><ul><li><strong>Factory Engineering</strong>: Warp beschreibt agentische Software-Factories mit zentralem Cloud-Setup, Scorern und Benchmarks wie WarpBench statt lokaler Prompt-Arbeit.</li><li><strong>Warp Learn</strong>: Kostenloser Kurs zu Warp Factories in drei Units, erste zwei seit 19. November 2026 verfuegbar.</li><li><strong>Claude Linked Billing</strong>: Anthropic-Claude-Platform-Organisationen lassen sich direkt verknuepfen; Abrechnung und Spend-Limits bleiben bei Anthropic.</li><li><strong>Agenten-Infrastruktur</strong>: CEO Lloyd nennt unsichere Skills mit Prompt-Injection-Risiko und Token-Kosten als zentrale Huerden teamweiter Agenten-Setups.</li></ul></div>
+    <details class="collapsed-block"><summary>4 Artikel</summary>
+    <div class="article">
+        <div class="article-title">Becoming a factory engineer</div>
+        <div class="article-date">19.11.2026</div>
+        <div class="article-summary">Softwareentwicklung wird zu Factory-Engineering: Statt Prompts zu schreiben, entwirft man das System aus Agenten, das Planung, Implementierung und Review abarbeitet. Ben Holmes trennt Product Engineering – Entscheidung, was existiert und wie es architektiert wird – von Factory Engineering, das den Implementierungs- und Review-Teil automatisiert, aber nur risikoarme Arbeit, mit menschlichen Gates bei Spec und Pull Request. Dafür braucht die Factory ein zentralisiertes Setup in der Cloud oder auf eigener Compute statt lokaler Umgebungen, konfigurierbar in Laufzeitumgebung, Zugriffsebenen der Agenten auf Secrets, MCPs und Skills sowie der Pipeline der Arbeitsschritte. Gemessen wird über Kostenmetriken wie Token-Verbrauch, On-Device-Compute, Kosten pro PR und Cycle Time von Prompt bis Release, ergänzt um LLM-as-a-judge-Scorer für nicht statisch prüfbare Qualität wie redundante oder tautologische Tests und Effizienz der Tool-Aufrufe; diese Scores werden Agenten zugänglich gemacht, damit ein Self-Improvement-Agent Muster wie 60 Prozent Durchfallquote bei einem Redundant-Tests-Scorer erkennt und Anpassungen an Skills und Code-Architektur vorschlägt. Konfigurationen testet man als Hypothesen in Benchmarks wie WarpBench, wobei die Modellwahl der größte Hebel ist, gefolgt von Anzahl der Stages und Subagenten. Der begleitende Kurs unter warp.dev/learn ist öffentlich und kostenlos und demonstriert den Aufbau solcher Workflows mit Warp Factories.</div>
+        <a href="https://www.warp.dev/blog/factory-engineering-software-factories" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Introducing Warp Learn: Build your first software factory</div>
+        <div class="article-date">19.11.2026</div>
+        <div class="article-summary">Warp hat mit Warp Learn einen kostenlosen, praxisorientierten Kurs gestartet, dessen erste Einheit &quot;Build a Self-Improving Software Factory&quot; die Grundlagen des Factory Engineerings vermittelt und in drei Units zu einem vollständigen Entwicklungsloop führt. Unit 1 führt in die Kernkomponenten von Warp Factories ein: Agents, Automations, Runners, Skills, Scorers und Benchmarks. Unit 2 startet mit einem einzelnen Implementierungs-Agent und erweitert ihn zum kompletten Workflow — Anbindung des Issue-Backlogs, Triage und Spec-Schreiben als menschliche Kontrollpunkte, Verifikation und Merge-Risk-Bewertung sowie automatisierte Bugfixes über Error-Monitoring-Webhooks. Unit 3 behandelt Messung und Verbesserung: Scorers bewerten Agent-Qualität, Self-Improvement-Agents schlagen Fixes für wiederkehrende Fehlermuster vor, und Benchmarks vergleichen verschiedene Modelle und Factory-Konfigurationen nach Kosten und Qualität. Die ersten beiden Units sind seit dem 19. November 2026 unter warp.dev/learn verfügbar; Teams ab zehn Engineers erhalten auf Anfrage kostenlose Factories-Credits.</div>
+        <a href="https://www.warp.dev/blog/warp-learn-software-factory-course" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Warp now supports linked billing with Claude Platform</div>
+        <div class="article-date">17.11.2026</div>
+        <div class="article-summary">Warp verknüpft Claude-Platform-Organisationen von Anthropic künftig direkt über Linked Billing, sodass unterstützte Claude-Modelle in Warp ohne Austausch eines API-Keys genutzt werden können. Nach der Autorisierung der Verknüpfung lassen sich Ausgabenlimits für die über die Organisation laufende Claude-API-Nutzung setzen; abgerechnet wird direkt von Anthropic an die Claude-Platform-Organisation, nicht über Warp. Die Verbindung kann jederzeit wieder getrennt werden, Billing- und Spend-Controls bleiben also bei der bestehenden Claude-Platform-Organisation. Angekündigt am 17. November 2026, Einrichtung über docs.warp.dev/agents/inference/claude-platform-linked-billing.</div>
+        <a href="https://www.warp.dev/blog/warp-now-supports-linked-billing-with-claude-platform" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Overcoming challenges in software factory adoption</div>
+        <div class="article-date">16.11.2026</div>
+        <div class="article-summary">Warp-CEO Zach Lloyd nennt zwei Hürden bei der Einführung von Software Factories: das Missverständnis, damit ende interessantes Engineering, und den Wechsel von individuellen Devtools zu teamweiter Agenten-Infrastruktur. Gegen das Bild von der Montagelinie setzt er die Rolle des Engineers als Konstrukteur der Fabrik selbst — optimiert auf Durchsatz, Kosten und Qualität, aber mit maßgeschneiderter Software als Output statt austauschbarer Massenware. Den eigentlichen Konflikt sieht er im zweiten Punkt: Bisher kuratiert jeder Entwickler sein lokales Cockpit (Terminal wie Warp oder Ghostty, IDE gegen emacs/vim, Keybindings), im Agentenzeitalter also Harness, Modell, Skills und MCPs — erst der Pull Request macht Arbeit öffentlich; in der Factory wird dagegen per Default öffentlich gearbeitet, weil individuelle Setups nicht skalieren. VP Eng, CFO und CISO interessiert sehr wohl, ob ein Team Fable oder GLM einsetzt und damit Millionen an Token-Kosten verursacht, ob unsichere Skills einem prompt-injizierten Agenten Zugriff auf sensitive Systeme geben oder ob einzelne Engineers 100x produktiver sind als andere. Die Konsequenz ist, Agentenverhalten vom Laptop in Cloud-Infrastruktur zu verlagern, team-eigentümerschaftlich, im Code definiert und kollektiv weiterentwickelt — was Autonomie kostet und gerade erfahrene Entwickler zu Recht als temporären Rückschritt empfinden können. Lloyd rät Führungskräften, diese Friktion offen anzusprechen, das Zielbild zu vermitteln und die Umstellung als gemeinsames Engineering-Problem zu rahmen, notfalls mit der klaren Ansage, dass die Zukunft geteilte Agenten-Infrastruktur ist statt hundert individueller Setups.</div>
+        <a href="https://www.warp.dev/blog/software-factory-adoption-challenges" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <h2>Windsurf Announcements (5 Artikel)</h2>
+    <div class="section-summary"><ul><li><strong>Devin Bots</strong>: Persistente Agenten mit eigenem Gedaechtnis uebernehmen Verantwortungsbereiche statt Einzeltasks; Android Bot lieferte 1.134 PRs in 44 Tagen.</li><li><strong>Devin Security Threats</strong>: Verwalteter Schwachstellen-Index mit Scans und Klick-Remediation, gestartet zu Java4Shell und NGINX2Root samt Fix-Plugins.</li><li><strong>Databricks Migrations</strong>: Devin hebt Legacy-Plattformen wie Teradata und Oracle nach Unity Catalog, mit Schema- und Row-by-Row-Abgleich vor dem Cutover.</li><li><strong>Gemini 4 Neon</strong>: Neues Modell in Devin Desktop und CLI erreicht 46,2 Prozent auf FrontierCode 2.0 bei rund einem Drittel der Opus-5.5-Kosten.</li></ul></div>
+    <details class="collapsed-block"><summary>5 Artikel</summary>
+    <div class="article">
+        <div class="article-title">Partners Devin for Databricks Migrations: Less time migrating, more time building</div>
+        <div class="article-date">19.11.2026</div>
+        <div class="article-summary">Cognition hat Devin for Databricks Migrations veroeffentlicht, eine mit Databricks gebaute Loesung, die Legacy-Datenplattformen auf die Databricks Data + AI Platform hebt. Devin konvertiert dabei Code aus dem Altsystem (Teradata, Oracle, SQL Server, Informatica, Redshift, Snowflake), testet ihn im Workspace des Kunden, behebt Fehler und gleicht jede Quelle vor dem Cutover gegen ihre Databricks-Kopie ab — geprueft werden Schema, Zeilenzahlen, Aggregate und ein Row-by-Row-Diff; Zielartefakte sind Databricks SQL, PySpark, Spark Declarative Pipelines und Unity Catalog. Der Agent fuehrt hunderte Tasks parallel aus: Ein Fortune-500-Energieunternehmen migrierte eine Plattform mit 142 Objekten in acht Tagen nach Unity Catalog. Zeb verlagerte NetSuite-Daten inklusive 20 Tabellen nach Databricks und schloss ein auf vier Wochen veranschlagtes Projekt in zweieinhalb Wochen ab. Cognition tritt bei Databricks als strategischer Inference-Provider auf und nutzt Unity Gateway als einheitlichen Endpunkt, um Modelle je nach Bedarf zu wechseln, ohne den Stack umzubauen. Das Angebot ist im Databricks Marketplace verfuegbar, Kaeufe lassen sich auf bestehende Universal-Commit-Verpflichtungen anrechnen.</div>
+        <a href="https://codeium.com/blog/devin-for-databricks-migrations" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Product Checking for NGINX2Root and Java4Shell with Threats in Devin Security</div>
+        <div class="article-date">18.11.2026</div>
+        <div class="article-summary">Cognition hat mit Devin Security Threats einen verwalteten Index neuer Schwachstellen gestartet, der direkt in Devin integriert ist und Scans sowie Remediation per Klick ermöglicht. Anlass sind Java4Shell (17. November) im Java-Runtime mit Memory Disclosure und Remote Code Execution (CVE-2026-114938) sowie NGINX2Root (18. November) mit fünf Memory-Corruption-Bugs in nginx, ebenfalls RCE-fähig (CVE-2026-123007, CVE-2026-123633, CVE-2026-121810, CVE-2026-123634, CVE-2026-113425). Ein Threat beschreibt betroffene Komponenten, Angriffsszenario und Fixes; Cognition pflegt Threats für große Disclosures, Teams können eigene ergänzen, etwa aus Bug-Bounty-Berichten, Vendor-Hinweisen oder Incident-Reviews. Scans laufen über den Agentic-MapReduce-Prozess, Findings werden gegen das eigene Threat-Modell gerankt und lassen sich Devin zuweisen, der Pull Requests öffnet; Auto-Triage scannt Repositories ab einer Mindestseverity automatisch bei jedem neuen Threat und kann Threats ohne Fund verwerfen. Für die Remediation enthält das Vulnerability-Fixes-Plugin die Open-Source-Skills fix-nginx-vuln und fix-java-vuln (Installation via devin plugins install CognitionAI/devin-marketplace#plugins/devin-vuln-fixes), die als Markdown-Checkliste auch anderen Coding-Agenten übergeben werden können. Beide Threats sind unter app.devin.ai/security live.</div>
+        <a href="https://codeium.com/blog/nginx2root-java4shell-threats" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Product Gemini 4 Neon is now available in Devin</div>
+        <div class="article-date">18.11.2026</div>
+        <div class="article-summary">Gemini 4 Neon steht ab sofort in Devin Desktop und Devin CLI zur Verfügung. Auf FrontierCode 2.0, dem Benchmark von Cognition für reale Engineering-Aufgaben nach Qualität und Mergeability, erreicht das Modell 46,2 Prozent und damit das beste Ergebnis eines Google-Modells. Das liegt rund einen Punkt hinter Claude Opus 5.5 mit 47,3 Prozent, kostet aber mit 4,38 Dollar pro Task etwa ein Drittel der 12,82 Dollar von Opus 5.5. Die Kostenangabe bezieht sich auf den mittleren API-Listenpreis pro Rollout inklusive öffentlicher Rabatte.</div>
+        <a href="https://codeium.com/blog/gemini-4-neon" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Product Introducing Devin Bots: from tasks to outcomes</div>
+        <div class="article-date">17.11.2026</div>
+        <div class="article-summary">Cognition führt Devin Bots ein: persistente Agenten mit eigenem Gedächtnis und eigenen Tools, die mehrere Devin-Sessions parallel führen und statt einzelner Tasks eine Verantwortung übernehmen — sie untersuchen, delegieren, bewerten Ergebnisse selbst und melden nur Entscheidungen, die menschliche Freigabe brauchen, über eine „Needs You&quot;-Inbox. Den Unterschied beschreibt Cognition als Aufgabe („Port this feature to Android&quot;) versus Verantwortung („Keep Android at parity with iOS&quot;); ein Bot sucht sich den nächsten Arbeitsschritt selbst. Für die eigene Android-App legte ein Ingenieur am 28. September 2026 den „Android Bot&quot; an, der in 44 Tagen 1.134 Pull Requests mit 344.651 Zeilen Kotlin, 2.841 Screenshot-Tests und 1.217 geschlossenen Tickets ablieferte, während der Mensch 183 Nachrichten schickte und an 22 Tagen gar keine — die App ist inzwischen im Open Testing bei Google Play. Der „Layout Bot&quot; baut alle drei Stunden den Produktionsstand von main, simuliert Ladebedingungen inklusive verzögerter Einzelrequests, führt Regressionen auf den auslösenden PR zurück und hat in drei Wochen 159 PRs gemerged sowie Lag um 70 Prozent gesenkt, bei über 2.000 PRs pro Woche im Haus. In Jenny Xus Mobile-Game-Studio arbeiten rund 20 Bots, je einer pro Verantwortungsbereich, unter einem „Super Jenny Bot&quot;, der viermal täglich offene Entscheidungen in einem Slack-Thread bündelt; das Studio steigerte sich von etwa 50 auf 1.900 Pull Requests pro Woche und veröffentlicht wöchentlich Releases. Devin Bots sind ab sofort unter devin.ai/bots verfügbar.</div>
+        <a href="https://codeium.com/blog/introducing-devin-bots" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Partners Cognition and McKinsey form an alliance to help enterprises prove the value of AI in software engineering</div>
+        <div class="article-date">16.11.2026</div>
+        <div class="article-summary">Cognition und McKinsey &amp; Company gehen eine Allianz ein, um Unternehmen messbaren Geschäftswert aus KI-gestützter Softwareentwicklung nachzuweisen: Devin übernimmt Engineering-Arbeit, McKinsey wählt Projekte aus, setzt eine Baseline für Kosten, Geschwindigkeit und Qualität und begleitet die Umstellung der Teams. Als Begründung verweist Cognition auf McKinseys Q2-2026-Umfrage unter 334 Produkt- und Engineering-Verantwortlichen, in der das obere Viertel Produktivitätszuwächse von mehr als 2x meldete, während 30 Prozent rückläufige Produktivität angaben — den Unterschied macht demnach vor allem das Redesign der Engineering-Organisation um KI. Devin arbeitet parallel an mehreren Projekten, ist an bestehende Systeme und Security-Prozesse angebunden und model-agnostisch, sodass Unternehmen Frontier-Leistung für bis zu 60 Prozent geringere Kosten erhalten; Cognition zählt sechs der acht US-G-SIBs und drei der sechs größten US-Krankenversicherer zu seinen Kunden. McKinsey hat über 50 Unternehmen beim Umbau auf KI-gestützte Entwicklung begleitet und leitet aus seiner Rewired-Forschung über 20 Transformationen ab, dass ein Fokus auf ein bis drei werthaltige Domänen im Schnitt rund 20 Prozent EBITDA-Verbesserung bringt und die Break-even-Schwelle nach ein bis zwei Jahren erreicht wird. Als Referenzfall nennt Cognition Comarch, das sein 20 Jahre altes ERP XL in einem 18-Monats-Zeitplan mit Devin modernisiert und McKinsey hinzuzieht, um die Teams umzustrukturieren und die Adoption zu skalieren.</div>
+        <a href="https://codeium.com/blog/cognition-mckinsey-alliance" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+
+</body>
+</html>
