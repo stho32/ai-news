@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Übersicht - Letzte 7 Tage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .article {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .article-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .article-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .article-summary {
+            margin-bottom: 10px;
+        }
+        .article-link {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .article-link:hover {
+            text-decoration: underline;
+        }
+        /* R00011: Section-Summary-Block, leicht abgesetzt von Einzel-Artikeln */
+        .section-summary {
+            margin: 10px 0 20px 0;
+            padding: 12px 16px;
+            background-color: #eef4fb;
+            border-left: 4px solid #0066cc;
+            color: #234;
+        }
+        /* R00012: Changelog-Digest-Block — visuell distinkt vom Section-Summary */
+        .changelog-digest {
+            margin: 10px 0 15px 0;
+            padding: 12px 16px;
+            background-color: #fff7e6;
+            border-left: 4px solid #d97706;
+            color: #3a2a00;
+        }
+        .changelog-links {
+            list-style: disc inside;
+            padding-left: 0;
+            margin: 0 0 25px 0;
+        }
+        .changelog-links li {
+            margin: 4px 0;
+        }
+        .changelog-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-left: 6px;
+        }
+        /* R00013: Wochen-Tenor — visuell die staerkste der drei
+           Verdichtungsklassen (overall > section-summary > changelog-digest).
+           Linker Rand kraeftiger, Schrift groesser, klar abgesetzte
+           Hintergrundfarbe — vom Leser auf den ersten Blick als
+           Zusammenfassung der Wochenausgabe erkennbar. */
+        .overall-summary {
+            margin: 10px 0 25px 0;
+            padding: 18px 22px;
+            background-color: #f0fbf3;
+            border-left: 6px solid #15803d;
+            font-size: 1.1em;
+            color: #14271d;
+        }
+        /* R00015: Stichpunkte in den Verdichtungsbloecken und
+           zugeklappte Artikel-/Linkbloecke (natives <details>, kein JS). */
+        .overall-summary h3 {
+            font-size: 1em;
+            color: #15803d;
+            margin: 12px 0 4px 0;
+        }
+        .overall-summary h3:first-child {
+            margin-top: 0;
+        }
+        .overall-summary ul,
+        .section-summary ul,
+        .changelog-digest ul {
+            margin: 4px 0;
+            padding-left: 20px;
+        }
+        .overall-summary li,
+        .section-summary li,
+        .changelog-digest li {
+            margin: 3px 0;
+        }
+        .overall-summary p,
+        .section-summary p,
+        .changelog-digest p {
+            margin: 0;
+        }
+        /* R00017: Vergleich mit den Vorwochen — steht ueber dem
+           Wochen-Tenor, ruhiger als dieser, Belege dezent. */
+        .trend-comparison {
+            margin: 10px 0 15px 0;
+            padding: 14px 22px;
+            background-color: #f5f3ff;
+            border-left: 6px solid #6d28d9;
+            color: #1e1536;
+        }
+        .trend-comparison h3 {
+            font-size: 1.1em;
+            color: #6d28d9;
+            margin: 0 0 6px 0;
+        }
+        .trend-comparison h4 {
+            font-size: 1em;
+            margin: 10px 0 4px 0;
+        }
+        .trend-comparison ul {
+            margin: 4px 0;
+            padding-left: 20px;
+        }
+        .trend-comparison li {
+            margin: 3px 0;
+        }
+        .trend-comparison p {
+            margin: 0;
+        }
+        .trend-evidence {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .collapsed-block {
+            margin: 0 0 25px 0;
+        }
+        .collapsed-block > summary {
+            cursor: pointer;
+            color: #0066cc;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* R00014: Video-Kacheln — Nebenspur, deutlich schmaler als die
+           Artikel-Spalte, mehrere Kacheln pro Zeile. */
+        .video-tiles-heading {
+            font-size: 1.1em;
+            color: #555;
+            margin-top: 30px;
+        }
+        .video-tiles {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+        .video-tile {
+            display: block;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            overflow: hidden;
+            padding-bottom: 10px;
+            text-decoration: none;
+            color: inherit;
+            background: #fff;
+        }
+        .video-tile:hover {
+            border-color: #0066cc;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+        }
+        .video-thumb {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            background: #eee;
+        }
+        .video-title {
+            font-weight: bold;
+            font-size: 0.95em;
+            margin: 10px 10px 4px 10px;
+        }
+        .video-meta {
+            font-size: 0.8em;
+            color: #888;
+            margin: 0 10px 6px 10px;
+        }
+        .video-summary {
+            font-size: 0.85em;
+            color: #444;
+            margin: 0 10px;
+            line-height: 1.4;
+        }
+
+        /* R00011: Rueckspruglink zur index.html (oben und unten) */
+        .back-link {
+            display: inline-block;
+            margin: 10px 0 20px 0;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>News Übersicht der letzten 7 Tage</h1>
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+    <div class="trend-comparison"><h3>Gegenüber den Vorwochen</h3><h4>Neu</h4><ul><li><strong>Muru</strong>: Neues Python-Hosting-System, in einer mehrteiligen Postserie mit Releases, Autoscaling, Canary-Rollouts, Overlays und Kubernetes-Betrieb beschrieben.</li><li><strong>GLM-5.4</strong>: Coding-Modell mit Loop-Transformer-Architektur, das die Generalisierung beim Schreiben von Code verbessern soll.</li><li><strong>Ladybird Alpha</strong>: Erste installierbare Alpha des Browsers mit eigener Engine, neuem JavaScript-JIT und Cranelift-WASM.</li></ul><h4>Verstärkt</h4><ul><li><strong>Software Factory</strong>: Beitraege zum Aufbau automatisierter Software-Factories nehmen zu, inklusive Erfahrungsbericht aus einem Neuaufbau von Grund auf. <span class="trend-evidence">(21.11., 14.11.)</span></li><li><strong>Anwendungsmodernisierung</strong>: Modernisierung bestehender Anwendungen wird mehrfach aufgegriffen, von Azure SQL Hyperscale bis zum naechsten sicheren Schritt. <span class="trend-evidence">(21.11., 12.11.)</span></li><li><strong>Copilot code review</strong>: Code Review von Copilot wird weiter ausgebaut, nun mit Abrechnungszuordnung, adaptivem Aufwand und Ergebnis-Auswertung. <span class="trend-evidence">(21.11., 12.11.)</span></li></ul><h4>Abgeschwächt / verschwunden</h4><ul><li><strong>Anthropic-Boersengang</strong>: S-1, Roadshow und Preisfestlegung zum Boersengang von Anthropic waren zuletzt praesent, tauchen diese Woche nicht mehr auf. <span class="trend-evidence">(21.11., 12.11.)</span></li><li><strong>Devin und Windsurf</strong>: Ankuendigungen von Devin und Windsurf fuellten zuletzt mehrere Eintraege, fehlen in dieser Woche vollstaendig. <span class="trend-evidence">(21.11., 14.11., 12.11.)</span></li><li><strong>Gemini-4-Varianten</strong>: Neue Gemini-4-Varianten wie Hydrogen, Carbon und Neon wurden mehrfach angekuendigt, diese Woche kommt keine neue hinzu. <span class="trend-evidence">(21.11., 14.11., 12.11.)</span></li></ul></div>
+    <div class="overall-summary"><h3>Neue Modelle</h3><ul><li><strong>Fable-class-Modelle</strong>: Fable 5, 5.1 und 5.2, Opus 5.5, GPT-6 Astra und Gemini 4 Neon agieren proaktiv, blockieren aber Security-Arbeit aktiv.</li><li><strong>GPT-5.1 und Opus 4.5</strong>: GPT-5.1 Instant, Thinking, Codex und Codex-Max sowie Claude Opus 4.5 machten Coding-Agenten im Standardfall verlässlich nutzbar.</li><li><strong>3D-Modellierung</strong>: Opus 5.5, GPT-5.6 Sol, GPT-6 Astra und die Gemini-4-Familie liefern in Blender und Three.js brauchbare Ergebnisse.</li></ul><h3>Sicherheit</h3><ul><li><strong>KI-Bildherkunft</strong>: Die New York Times untersagt Photoshop mit generativen Funktionen; C2PA und Pixel-Wasserzeichen wie SynthID erschweren den Umgang mit KI-Metadaten.</li><li><strong>Mythos und Fable 5</strong>: Claude Mythos galt als zu gefaehrlich fuer eine Freigabe; Fable 5 blockiert Security-Arbeit und war kurzzeitig per Exportkontrolle verboten.</li><li><strong>AI-Crawler-Abwehr</strong>: Client-Klassen werden per User-Agent, JA4-Fingerprint und DNS-Verifikation bestimmt und ueber Conditions und Rate-Limits begrenzt.</li></ul><h3>Besondere Entwicklungen</h3><ul><li><strong>Muru</strong>: Umfangreiche Postserie zu einem neuen Python-Hosting-System mit Releases, Autoscaling, Canary-Rollouts, Overlays und Kubernetes-Betrieb.</li><li><strong>Agentengeschriebener Produktionscode</strong>: Coding-Agenten tragen die Entwicklung: LibJS wurde in zwei Wochen nach Rust portiert, Muru entsteht ueberwiegend mit KI-Werkzeugen.</li><li><strong>Software Factory</strong>: Warp automatisiert GitHub-Issues ueber YAML-Blueprints mit Sandbox-Workern, Computer-Use-Verifikation und Merge-Risk-Bewertung.</li><li><strong>Anwendungsmodernisierung</strong>: Modernisierung laeuft komponentenweise ueber keep, upgrade, swap, wrap, rewrite mit Evidenz-Inventur und fuenf Safety-Leveln.</li></ul><h3>Sonstiges</h3><ul><li><strong>Copilot-Abrechnung</strong>: Ab 30. Dezember 2026 wird Copilot code review fuer Lizenzmitglieder standardmaessig der Organisation des Repositories zugeordnet.</li><li><strong>DocumentExtractionClient</strong>: Preview in Microsoft.Extensions.DocumentExtraction abstrahiert PDF- und OCR-Extraktion hinter ExtractAsync mit austauschbaren Providern.</li><li><strong>Ladybird Alpha</strong>: Erste installierbare Alpha mit eigener Engine, neuem JavaScript-JIT, Cranelift-WASM und mehr Subtests als Safari.</li><li><strong>Llama on Windows</strong>: Kostenlose Tray-App auf Basis von llama.cpp bietet Modellkatalog, Chat und OpenAI-kompatible Endpunkte auf localhost:9931.</li></ul></div>
+    <p>Generiert am: 28.11.2026 07:00 Uhr</p>
+    <p>Anzahl Artikel: 28 (zus&auml;tzlich 1 Video)</p>
+
+    <h2 class="video-tiles-heading">Videos der Woche</h2>
+    <div class="video-tiles">
+        <a class="video-tile" href="https://www.youtube.com/watch?v=V4i2FQRTZJU" target="_blank" rel="noopener noreferrer">
+            <img class="video-thumb" src="https://i.ytimg.com/vi/V4i2FQRTZJU/hqdefault.jpg" alt="" loading="lazy">
+            <div class="video-title">He Built An AI Software Factory From Scratch, Here&#x27;s What He Learned</div>
+            <div class="video-meta">Modern Software Engineering (Dave Farley) &middot; 25.11.2026</div>
+            <div class="video-summary">Is a fully automated AI Dark Factory a reality or a myth? In this episode, we explore what happens when software engineers test unattended AI coding and steering AI agents without reading every line of code. We examine real insights from 100+ commits to uncover the truth behind AI code quality…</div>
+        </a>
+    </div>
+
+    <h2>GitHub Copilot Blog (1 Artikel)</h2>
+    <div class="section-summary"><ul><li><strong>Evidenz-Inventur</strong>: Vor Zielarchitektur Manifeste, Lockfiles, Build-/Test-/Run-Kommandos und externe Contracts erfassen und als dokumentiert, abgeleitet oder unverifiziert kennzeichnen.</li><li><strong>Modernisierungspfad</strong>: Komponentenweise keep, upgrade, swap, wrap, rewrite; disruptive Schritte nur mit Belegen, Safety-Level L0 bis L4 im Copilot-Skill doc-and-modernize.</li></ul></div>
+    <details class="collapsed-block"><summary>1 Artikel</summary>
+    <div class="article">
+        <div class="article-title">How to choose the next safe step in application modernization</div>
+        <div class="article-date">25.11.2026</div>
+        <div class="article-summary">Wer eine Anwendung modernisieren will, sollte zuerst eine Evidenz-Inventur aufbauen — Manifeste, Lockfiles, verifizierte Build-, Test- und Run-Kommandos, Runtime-Pins in Containern und CI sowie externe Contracts — und jede Aussage als dokumentiert, abgeleitet oder unverifiziert kennzeichnen, bevor eine Zielarchitektur gewählt wird. Die Behandlung erfolgt komponentenweise in der Reihenfolge keep, upgrade, swap, wrap, rewrite; ein disruptiverer Schritt braucht Belege wie eine ungepatchte Schwachstelle, eine unter der Ziel-Runtime brechende Dependency oder ein messbar verfehltes Reliability-Ziel, nicht bloss Alter. Ein zeitlich begrenzter Feasibility-Check entscheidet zwischen &quot;Verhalten erfassen, dann upgraden&quot; und &quot;zuerst einen kleinen modernen Slice bauen&quot;; das öffentliche GitHub-Copilot-Agent-Skill doc-and-modernize kodiert dazu fünf Safety-Level von L0 (kein Regressionsnetz, Code und Doku als Spezifikation) bis L4 (CI-Gate aus Lint-, Unit-, Behavior- und E2E-Checks im vereinbarten Scope). Im PiggyMetrics-Fall (Java 8, Spring Boot 2.0.3, Spring Cloud Finchley, Zuul, Hystrix, spring-security-oauth2) zeigten zwei Probes mit JDK 8, dass das Config-Modul kompilierte und von 14 Tests fünf liefen, während neun an einem HTTP-403-Download von embedded MongoDB und einem i386-Binary scheiterten — daraus folgte Testcontainers als grüne Baseline, dann Java 21 mit Spring Boot 3.3, Spring Cloud Gateway, Resilience4j und Spring Authorization Server, wobei die Modulzahl von neun auf sieben sank. BrowserQuest wanderte von Node 0.4.7 auf Node 22 bei erhaltenem Canvas-Renderer, Pathfinding, Protokoll und Game-Loop-Modell, DOOM behielt Renderer, 35-Hz-Simulationsmodell und WAD-Format und tauschte X11-Video und OSS-Audio gegen SDL2, und ADempiere wurde auf JDK 21 mit XFire-zu-CXF- und Jakarta-Migration sowie erhaltener SOAP-Contracts gehoben — dokumentiert mit 30 gemergten Modernisierungs-PRs und 102.587,72 rekonstruierten Copilot-Credits bis zum ersten abgenommenen portablen Demo, ohne Anspruch auf vollständige Modernisierung.</div>
+        <a href="https://github.blog/ai-and-ml/github-copilot/how-to-choose-the-next-safe-step-in-application-modernization/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <h2>GitHub Copilot Changelog (1 Artikel)</h2>
+    <div class="section-summary"><ul><li><strong>Copilot Code Review</strong>: Ab 30. Dezember 2026 wird code review für Copilot-Business- und Copilot-Enterprise-Mitglieder standardmäßig der Organisation des Repositorys zugeordnet.</li><li><strong>Policy-Einstellung</strong>: Wer die bisherige Zuordnung zu Membern behalten will, muss vor dem Stichtag in den Copilot-Policy-Einstellungen explizit Member wählen; bei Enterprise-Verwaltung entscheidet ein Enterprise-Owner.</li><li><strong>Ausnahmen und Abrechnung</strong>: Accounts ohne AI-Credits-Paid-Usage, mit Billing Lock oder ohne billable Customer bleiben auf Member; Organisationsabrechnung setzt AI Credits paid usage voraus und kann Ausgaben erhöhen.</li></ul></div>
+    <details class="collapsed-block"><summary>1 Artikel</summary>
+    <div class="article">
+        <div class="article-title">Copilot code review billing will default to the organization</div>
+        <div class="article-date">25.11.2026</div>
+        <div class="article-summary">Ab 30. Dezember 2026 rechnet GitHub Copilot code review für Mitglieder mit Copilot-Lizenz standardmäßig der Organisation zu, die das Repository besitzt — für Organisationen und Enterprises mit Copilot Business oder Copilot Enterprise. Wer das bisherige Modell behalten will, muss in den Copilot-Policy-Einstellungen vor diesem Datum explizit Member auswählen; bei Enterprise-verwalteter Einstellung entscheidet ein Enterprise-Owner. Bereits gespeicherte Auswahlen (Member oder Organization) bleiben unverändert, ebenso die separate Einstellung für Mitglieder ohne Copilot-Lizenz. Ausgenommen von der Umstellung sind Accounts ohne aktivierte AI-Credits-Paid-Usage, mit Billing Lock oder ohne billable Customer — sie werden auf Member gesetzt. Organisationsabrechnung setzt AI Credits paid usage voraus und kann die Ausgaben der Organisation erhöhen.</div>
+        <a href="https://github.blog/changelog/2026-11-25-copilot-code-review-billing-will-default-to-the-organization" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <h2>Microsoft .NET Blog (2 Artikel)</h2>
+    <div class="section-summary"><ul><li><strong>DocumentExtractionClient Preview</strong>: Neuer Client in Microsoft.Extensions.DocumentExtraction abstrahiert Extraktion hinter ExtractAsync; austauschbare Provider von PdfPig bis Azure und Mistral OCR.</li><li><strong>OCR-Fallback und RAG</strong>: Fallback-Middleware liest gescannte PDFs ohne Textlayer per OCR nach, Microsoft.Extensions.DataIngestion speist Chunking und Embeddings in eine RAG-Pipeline.</li><li><strong>Llama on Windows</strong>: Kostenlose WinUI-3-Tray-App auf .NET 10 startet llama.cpp lokal und bietet OpenAI-kompatible Endpunkte unter localhost:9931 ohne API-Key.</li><li><strong>Microsoft.Extensions.AI</strong>: Version 11.0.0 bindet den lokalen Server über IChatClient ein, inklusive Streaming und Tool-Calling per AIFunctionFactory.Create.</li></ul></div>
+    <details class="collapsed-block"><summary>2 Artikel</summary>
+    <div class="article">
+        <div class="article-title">Introducing DocumentExtractionClient (preview): Extract documents in .NET</div>
+        <div class="article-date">24.11.2026</div>
+        <div class="article-summary">Microsoft hat eine Preview von DocumentExtractionClient im Paket Microsoft.Extensions.DocumentExtraction veröffentlicht (11.0.0-preview.1.26560.3), zusammen mit Starter-Providern im .NET AI Community Toolkit. Der Client abstrahiert die Extraktion hinter ExtractAsync, das einen Stream entgegennimmt und ein ExtractionDocument als Baum aus Sections und Elementen (Text, Tabellen, Bilder) zurückgibt, wobei jedes Element Quellen mit Seite und Polygon mitführt; Provider sind austauschbar, Middleware lässt sich wie bei IChatClient über DelegatingDocumentExtractionClient und UseLogging in der Dependency Injection ergänzen. Mitgeliefert sind PdfPig (in-process, nur PDFs mit Textlayer), ein Vision-Language-Model-Provider über beliebige IChatClient-Instanzen (im Beispiel Ollama mit qwen3.5:4b), Azure Content Understanding, Azure AI Document Intelligence und Mistral OCR in Microsoft Foundry. Die Beispielmessungen auf derselben Testseite fallen deutlich auseinander: PdfPig 0,4s, Azure Content Understanding 10,2s, das lokale Vision-Modell 23,6s; PdfPig liefert Tabellen nur als lose Textzeilen, während die Cloud-Dienste Tabellen, Rollen wie pageHeader/pageNumber und Bildbereiche erkennen. Ein Fallback-Middleware-Muster liest gescannte PDFs ohne Textlayer automatisch per OCR nach, und über Microsoft.Extensions.DataIngestion lassen sich die Ergebnisse in eine RAG-Pipeline einspeisen (HeaderChunker mit 256 Tokens pro Chunk, 32 Tokens Overlap, Embeddings über embeddinggemma mit 768 Dimensionen). Voraussetzung ist das .NET 11 SDK; die Beispiele liegen als einzelne C#-Dateien vor und laufen per dotnet run, alternativ in GitHub Codespaces mit vorbereitetem Dev Container.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/document-extraction-dotnet-preview/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Run local models in your .NET apps with Llama on Windows</div>
+        <div class="article-date">23.11.2026</div>
+        <div class="article-summary">Llama on Windows ist eine quelloffene, kostenlose Tray-App für Windows 11, gebaut mit .NET 10 und WinUI 3 und angetrieben von llama.cpp; sie wurde von den Hugging-Face- und llama.cpp-Teams entwickelt, ist über die Microsoft Store ID 9PPPSM6Q21Q6 (winget install 9PPPSM6Q21Q6 --source msstore) oder llama.app verfügbar und übernimmt Modellkatalog, Hardware-Fit-Anzeige, Download und Chat inklusive Alt+Space-Overlay. Modelle landen im Hugging-Face-Cache und werden von einem verwalteten llama.cpp-Server auf http://localhost:9931 bereitgestellt, der OpenAI-kompatible Endpunkte wie /v1/chat/completions und /v1/models anbietet — ohne API-Key, wobei Modellloads erst beim ersten Request erfolgen und Modelle nach fünf Minuten Idle entladen werden (Timeout konfigurierbar). Für .NET-Apps kombiniert das Beispiel die OpenAI-Bibliothek mit Microsoft.Extensions.AI (11.0.0) und Microsoft.Extensions.AI.OpenAI (11.0.0), um über IChatClient zu streamen, und läuft als file-based App auf dem .NET 11 SDK per dotnet run llama-chat.cs. Tool-Calling via AIFunctionFactory.Create bindet lokale Methoden wie GetMachineInfo und ListModels ein, deren Description-Attribute das Modell steuern; die Qualität des Tool-Callings hängt vom gewählten Modell ab. Der Beispielcode liegt im Repository luisquintanilla/llama-windows-dotnet, demonstriert wird Gemma 4 E4B Balanced (Q4_0); die Ankündigung erfolgte in der .NET Conf 2026 Keynote.</div>
+        <a href="https://devblogs.microsoft.com/dotnet/local-models-dotnet-llama-windows/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <h2>Simon Willison (23 Artikel)</h2>
+    <div class="section-summary"><ul><li><strong>Muru</strong>: Graham Dumpletons Python-Hosting-System als mod_wsgi-Nachfolger: Releases, Canaries, Autoscaling, Overlays, Tracing-Toolbar und Kubernetes-Betrieb in einer Artikelserie.</li><li><strong>Fable-Klasse</strong>: Fable 5, GPT-6 Astra, Opus 4.5 und Gemini 4 Neon zeigen proaktives Handeln, 3D-/Spieleentwicklung und selbstständige Recherche als neue Modellschwelle.</li><li><strong>KI-Fotojournalismus</strong>: NYT und Reuters verbieten generative Photoshop-Funktionen; AI-Metadaten und SynthID gefährden die Glaubwürdigkeit von Pressebildern.</li><li><strong>Ladybird-Alpha</strong>: Erste installierbare Alpha der unabhängigen Browser-Engine auf macOS und Linux; von Logins bei GitHub oder Gmail rät Willison ab.</li></ul></div>
+    <details class="collapsed-block"><summary>23 Artikel</summary>
+    <div class="article">
+        <div class="article-title">The New York Times warns photographers not to update Photoshop over AI features</div>
+        <div class="article-date">26.11.2026</div>
+        <div class="article-summary">Die New York Times weist ihre Fotografen an, Photoshop nicht auf Versionen mit generativen Funktionen zu aktualisieren, weil Adobe KI zunehmend hinter traditionell deterministischen Werkzeugen wie Zuschneiden, Entrauschen, Motivauswahl und Content-Aware-Fill versteckt und die Ausgabe entsprechend mit AI-Metadaten versieht. Diese Tags lösen auf Instagram und Facebook den Vermerk &quot;AI generated content&quot; aus und beschädigen die Glaubwürdigkeit journalistischer Bildquellen; die Spur sitzt dabei nicht nur in EXIF, sondern in den Pixeln selbst — Wasserzeichen wie SynthID überstehen laut HN-Diskussion Screenshots und sogar das Abfotografieren eines generierten Bildes, während der gängige Workaround über ein lokales Diffusionsmodell Bilddetails zerstört und neu erfindet und damit nur für Akteure taugt, denen Fidelity egal ist. Reuters verbietet bereits jede Bearbeitung nach der Aufnahme und verlangt JPEGs direkt aus der Kamera, weil sich in einem aus RAW entwickelten Bild kreative Entscheidung und Realität nicht mehr trennen lassen; C2PA soll über eine signierte Bearbeitungskette bis zum Sensor Abhilfe schaffen, erkennt das Problem aber erst nachträglich statt es zu verhindern. In den 525 Kommentaren verschiebt sich die Debatte schnell auf Text: Nutzer, die nach eigener Aussage nur Grammatik glätten lassen oder ihre Muttersprache per LLM übersetzen, berichten von False Positives bei Detektoren wie Pangram, und HN-Moderator dang empfiehlt, ungefiltert in eigener Stimme zu schreiben, weil Fehler derzeit zum Authentizitätssignal werden. Simon Willison beschreibt aus eigener Erfahrung mit einem NYT-Fotografen, dass dort ausschließlich Cropping und Grundabgleich zulässig sind — ein Fleck am Hemd bleibt im gedruckten Bild.</div>
+        <a href="https://news.ycombinator.com/item?id=50647673" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">GPT 6.2 Astra Solves a Historical Mystery</div>
+        <div class="article-date">24.11.2026</div>
+        <div class="article-summary">OpenAIs GPT-6.2 Astra identifizierte in 22 Minuten und 1 Sekunde den Urheber eines anonymen Skizzenbuchs von 1808 aus Yale&#x27;s Beinecke Library: Louis-Guy-Charles-Guillaume de Rohan-Chabot, vicomte de Chabot (1780–1875), einen französischen Exil-Aristokraten und britischen Offizier. Ausgehend von den Skizzen eliminierte das Modell die vom Autor vorgeschlagenen Kandidaten Kendall und Berczy anhand datierter Zeichnungen, stiess über eine Eintragung vom 6. Juni 1808 in Joseph Frobishers Montrealer Tagebuch auf Chabots Abreise nach Kaministiquia und verfolgte ihn über einen Brief von John Askin Jr. bis Fort St. Joseph; die entscheidende Quelle, Chabots &quot;Journal to the Upper Country&quot; mit 162 Seiten, lokalisierte es über eine Fussnote in Juliette Rebouls PhD-Thesis von 2014 (University of Leeds) in der Lafayette Microfilm Collection der Cleveland State University. Chabots Eintrag vom 18. Juni 1808 (&quot;I took a sketch&quot;) bestätigte die Hypothese, und das Tagebuch erwies sich zusätzlich als eigenständiger Fund mit Exzerpten aus zerstörten North West Company Papieren. Fable 5.2 erreichte in 35 Minuten dasselbe Resultat mit kohärenterer Begründung, verfehlte aber Chabots Journal; Astra neigt im Gegenzug bei nicht-deterministischen Aufgaben zu übermässigem Hedging, was Humphries auf ein mathematikorientiertes Post-Training zurückführt.</div>
+        <a href="https://generativehistory.substack.com/p/gpt-62-astra-solves-a-historical" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Three LLM inflection points in twelve months</div>
+        <div class="article-date">24.11.2026</div>
+        <div class="article-summary">Drei Wendepunkte in zwölf Monaten: Claude Opus 4.5, am 24. November 2025 veröffentlicht, war laut Willison das erste Modell, bei dem Claude Code (eingeführt am 24. Februar 2025 zusammen mit Claude 3.7 Sonnet) im Standardfall das Richtige lieferte; parallel machten GPT-5.1 Instant, GPT-5.1 Thinking, GPT-5.1-Codex und GPT-5.1-Codex-Max den Codex-Agent verlässlich nutzbar. Als zweiten Punkt nennt er die &quot;Fable class models&quot; ab Juni 2026: Nachdem Anthropic Claude Mythos im April wegen seiner Fähigkeit, Sicherheitslücken nicht nur zu finden, sondern auch auszunutzen, als zu gefährlich für eine Freigabe einstufte, erschien Fable 5 als entschärfte Variante, die Security-Arbeit aktiv blockiert, kurzzeitig per Exportkontrolle verboten wurde und erst am 1. Juli zurückkam; zur Klasse zählen Fable 5, 5.1 und 5.2, Opus 5.5 (&quot;cheap Fable&quot;), GPT-6 Astra und Gemini 4 Neon. Deren Kennzeichen ist proaktives Handeln — Fable 5 zog für einen Safari-Darstellungsfehler selbstständig einen pyobjc-framework-Quartz-Screenshot-Mechanismus und einen CORS-fähigen localhost-Logging-Server hoch, und mit fünf WebAudio-Mikrofonen triangulierten Opus 5.5 und Fable 5.2 die Quelle eines Pieptons auf etwa 40 Zentimeter genau. Drittens wurden Frontier-Modelle ab September/Oktober 2026 mit Blender oder Three.js richtig gut in 3D-Modellierung und Spieleentwicklung: Opus 5.5 (22. September 2026), GPT-5.6 Sol, GPT-6 Astra und die Gemini-4-Familie; nachdem Fable 5 und GPT-5.6 Sol Ultra nur grafisch brauchbare, aber langweilige Spiele produzierten, brachte der Prompt &quot;Make it a LOT more fun&quot; Opus 5.5 dazu, zwölf Stunden lang neue Features zu testen und das Balancing eines Command-&amp;-Conquer-artigen RTS zu überarbeiten. Ob Fable 5.2 ein weiterer Wendepunkt ist, lässt Willison offen; in drei Wochen entstanden damit Datasette 1.0a42, 1.0a43 und 1.0a44 sowie LLM 0.37, 0.37.1, 0.37.2, 0.37.3 und 0.38, und seine Beobachtung ist, dass Fable jede Software baut, die man klar genug beschreiben kann.</div>
+        <a href="https://simonwillison.net/2026/Nov/24/llm-inflection-points/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">GLM-5.4: Toward Generalized Coding with Our First Loop Transformer</div>
+        <div class="article-date">23.11.2026</div>
+        <div class="article-summary">Das gelieferte HTML enthaelt keinen Artikeltext: Der Head besteht nur aus Meta-Tags und Verweisen auf zwei Asset-Dateien, der Body aus einem leeren div. Damit fehlen saemtliche Angaben, die die Zusammenfassung tragen muessten — Modellbezeichnung, Versionsnummer, Benchmarks, Architekturentscheidungen zum Loop Transformer.
+
+Auch aus dem Seitentitel allein laesst sich nichts Belastbares ableiten: &quot;GLM-5.4&quot; und ein Loop-Transformer-Design sind nicht Teil meines Wissensstands, und ein Rueckschluss von der Ueberschrift auf Inhalte waere Spekulation. Bitte den gerenderten Seitentext oder den Markdown-Quelltext nachreichen, dann folgt die Zusammenfassung im gewuenschten Format.</div>
+        <a href="https://z.ai/blog/glm-5.4" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Ladybird’s first alpha release</div>
+        <div class="article-date">23.11.2026</div>
+        <div class="article-summary">Ladybird hat am 23. November 2026 seine erste Alpha veröffentlicht, die sich unter macOS und Linux installieren lässt, ohne den Browser selbst zu kompilieren. Die Engine implementiert HTML-Parsing, CSS, Layout, JavaScript und WebAssembly selbst und stützt sich nur bei Text-Shaping (HarfBuzz), 2D-Grafik (Skia), Video (ffmpeg) und SQLite auf Fremdcode; Tabs laufen in getrennten Prozessen. In Tests liefen ffmpeg-in-WASM und ein Pyodide-REPL, Datasette Lite scheiterte an navigator.serviceWorker.startMessages, wozu im Quellcode ein FIXME steht. Der Oktober brachte einen neuen JavaScript-JIT, Layout und Style auf eigenen Threads sowie einen Cranelift-basierten Ersatz der WASM-Engine mit 7x auf dem JetStream-3-WASM-Benchmark und 75.650 zusätzlichen Passes in den rund 2,25 Millionen Subtests der web-platform-tests, womit Ladybird Safari überholt; ein Teil dieser Gewinne entstand in fünf Tagen durch Coding-Agenten, nachdem LibJS im Februar 2026 in zwei Wochen mit Claude Code und Codex in 25.000 Zeilen Rust portiert wurde. Willison rät wegen fehlender Sicherheitszusagen von Logins bei GitHub oder Gmail ab und behält den Browser für anonymes Surfen.</div>
+        <a href="https://simonwillison.net/2026/Nov/23/ladybird/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">A first look at Muru</div>
+        <div class="article-date">21.11.2026</div>
+        <div class="article-summary">Muru lässt sich in drei Betriebsarten starten — Development Mode, Daemon für Server-Hosting und Container —, denen dasselbe Prozessmodell zugrunde liegt, sodass sich Entwicklung und Produktion gleich verhalten. Installiert wird nur das in Rust geschriebene Einzelbinary muructl (etwa per uv tool install muructl, alternativ pipx oder pip); die Python-Runtime-Bibliothek muru lädt muructl beim ersten Lauf passend zur Python-Version in den User-Cache, ins Projekt wird nichts geschrieben. Muru ist noch Alpha, es existieren nur Pre-Releases, unterstützt werden Linux und macOS auf CPython 3.11 oder neuer einschließlich der free-threaded Builds. Beim Start importiert ein Host-Prozess die Anwendung einmal, Worker werden davon geforkt, wobei Muru den Import vor dem Forken auf Ressourcen wie Datenbankverbindungen oder Threads prüft, die einen Fork nicht überleben. Das Access Log trennt die Wartezeit auf einen freien Worker-Thread (queue) von der Zeit im Anwendungscode (app) und gibt Worker-Nummer und Request-ID aus, letztere auch als X-Request-ID zurück an den Client; Fehler erzeugen im Development Mode Tracebacks in Response und Konsole (für JSON-Clients als application/problem+json nach Problem Details), beenden aber nie den Worker. Jede Codeänderung löst einen Auto-Reload aus, der einen neuen Host samt Workern als nummeriertes Release parallel zum laufenden startet, den Traffic erst nach dessen Bereitschaft umschaltet und bei fehlgeschlagenem Import auf dem alten Release weiterläuft — derselbe Mechanismus, auf dem der Daemon Zero-Downtime-Deploys, Blue/Green, Canaries und Rollbacks aufbaut. Flask und Django laufen ohne Anpassungen, etwa muructl run app:app oder DJANGO_SETTINGS_MODULE=mysite.settings muructl run mysite.wsgi:application.</div>
+        <a href="https://grahamdumpleton.me/posts/2026/11/a-first-look-at-muru/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">AI as a lifestyle choice</div>
+        <div class="article-date">21.11.2026</div>
+        <div class="article-summary">Graham Dumpleton baut seit rund einem Monat an Muru, einem neuen System zum Hosten von Python-Webanwendungen, und arbeitet daran sieben Tage die Woche — ermöglicht durch AI-Coding-Tools, die ihm die reine Tipparbeit abnehmen und nur Idee plus Iteration übrig lassen. Die Preisgestaltung der Tools verzerrte seine Nutzung: Bei 20 Dollar im Monat hielt er sich aus Angst vor Erschöpfung des Kontingents zurück, bei 200 Dollar nutzte er sie stundenlang, um den Betrag zu rechtfertigen; in der zweiten Runde des Claude for Open Source Program entfällt dieses Kalkül. AI-generierten Code verteidigt er mit dem Dorodango-Gleichnis: Aus Schlamm wird durch jahrelanges Schleifen eine glänzende Kugel — die frühen mod_wsgi-Versionen waren nicht besser, und die 20 Jahre Erfahrung mit dessen Fehlern qualifizieren ihn für die Beurteilung, was noch nicht gut genug ist. Statt Patches einzusammeln, bittet er um Problembeschreibungen aus dem Alltag von Python-Web-Deployments, die in die Ideas-Kategorie der Muru-Diskussionen auf GitHub einfließen sollen; die Dokumentation unter docs.muruhq.dev zeigt bereits mehr Funktionsumfang, als die bisherigen Posts abdecken.</div>
+        <a href="https://grahamdumpleton.me/posts/2026/11/ai-as-a-lifestyle-choice/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Muru: HTTPS in development</div>
+        <div class="article-date">21.11.2026</div>
+        <div class="article-summary">Muru liefert Entwicklungsservern HTTPS über das Flag --https: Der Run lauscht dann zusätzlich auf Port 8443 neben HTTP auf 8080 und erzeugt automatisch ein Zertifikat, das über die lokal installierte mkcert-Autorität ausgestellt wird, sofern mkcert -install gelaufen ist — andernfalls fällt es auf ein selbstsigniertes Zertifikat zurück und erklärt, wie es zu vertrauen ist oder wie mkcert nachzuinstallieren ist. Der Schlüssel liegt im User-Cache statt im Projekt und wird bei späteren Läufen wiederverwendet; eigene Zertifikate lassen sich über --tls-cert und --tls-key einbinden. Das lohnt sich, weil sich wsgi.url_scheme=https, HTTP/2, absolute URL-Konstruktion und Secure-Cookies wie SESSION_COOKIE_SECURE nur so lokal prüfen lassen, und weil TLS sowie HTTP/2 von der in Rust geschriebenen Edge terminiert werden, die auch in Produktion unter dem Daemon dieselbe Rolle übernimmt — ohne vorgeschalteten Proxy und ohne X-Forwarded-Proto-Vertrauenskonfiguration. Mit --host shop.localhost landen zusätzliche Namen im Zertifikat, .localhost-Adressen lösen moderne Browser und curl ohne /etc/hosts-Eintrag auf Loopback auf, und Cookies bleiben je Projekt getrennt; --https-only leitet Port 8080 per 307 auf denselben Pfad unter HTTPS um, bewusst kein 301, damit die HTTP-Methode erhalten bleibt und der Browser die Weiterleitung nicht dauerhaft cacht. Beide Optionen lassen sich dauerhaft in pyproject.toml unter [tool.muru.run] hinterlegen, wirken aber nur auf muructl run und nicht auf die Produktionsauslieferung. Als Nächstes will Dumpleton zeigen, wie eine Anwendung WSGI und ASGI mischt und Requests zwischen beiden weitergibt, um bestehenden WSGI-Code um Websockets zu erweitern.</div>
+        <a href="https://grahamdumpleton.me/posts/2026/11/muru-https-in-development/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Muru: WSGI and ASGI together</div>
+        <div class="article-date">21.11.2026</div>
+        <div class="article-summary">Muru betreibt WSGI- und ASGI-Anwendungen im selben Worker-Prozess, sodass eine bestehende WSGI-App WebSockets nachrüsten kann, ohne einen separaten ASGI-Server mit vorgelagertem Proxy zu betreiben oder die Anwendung vollständig auf ASGI zu portieren. Jede an die WSGI-App gereichte Anfrage enthält im Environ ein Objekt muru.wsgi_to_asgi, das per is_websocket einen Upgrade erkennt und mit handoff(asgi_app) die restliche Verarbeitung an eine ASGI-Anwendung übergibt; eingeschaltet wird das über handoff = &quot;asgi&quot; in der Sektion tool.muru der pyproject.toml, woraufhin der Worker neben seinen Threads einen Event-Loop mit Standardkonkurrenz 1000 fährt. Für synchrone Codebasen liefert muru.asgi.websocket.Handler einen ASGI-Wrapper, der Socket-Events als geordnete Aufrufe von on_connect, on_receive und on_disconnect auf die Worker-Threads legt, wobei ein wartender Socket keinen Thread belegt — im Test hielten 50 offene WebSockets auf einem Worker mit vier Threads die Startseite weiter bei 6,2 ms Antwortzeit. Alternativ lassen sich ASGI-Apps pfadbasiert über einen Eintrag wie tool.muru.mounts.api einhängen, wobei die ASGI-App den Mount-Pfad als root_path sieht und pro Mount eigene concurrency (im Beispiel 500) sowie max_connections gesetzt werden können; 20 gleichzeitige Requests auf /api mit je einer Sekunde Sleep liefen in 1,06 Sekunden durch statt sich vierfach zu stauen. Der umgekehrte Weg von ASGI zu WSGI über die asgi_to_wsgi-Bridge mit handoff = &quot;wsgi&quot; und eigenen Threads erlaubt schrittweise Migrationen, und gRPC-Dienste werden über Content-Type und Service-Name statt über einen Pfad auf demselben Port eingebunden, wobei grpcio derzeit keine Wheels für free-threaded Python bereitstellt. Damit ergibt sich ein inkrementeller Pfad von WSGI über WebSockets und async-Teilbereiche bis zu vollständigem ASGI, ohne mehr als ein Deployment zu benötigen.</div>
+        <a href="https://grahamdumpleton.me/posts/2026/11/muru-wsgi-and-asgi-together/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Muru: a better tenant in a container</div>
+        <div class="article-date">21.11.2026</div>
+        <div class="article-summary">In Containern läuft Muru als muructl serve und bedient genau eine Release aus dem Image; die Releases und Traffic-Policies, mit denen der Daemon sonst mehrere Versionen nebeneinander hält, entfallen hier bewusst, weil das Starten, Umschalten und Zurückrollen von Containern Aufgabe der Orchestrierung ist. Das gezeigte Dockerfile baut auf python:3.13-slim, installiert muructl per uv und zieht beim Build die an muructl 1.0.0 und den Interpreter gebundene Runtime-Bibliothek muru-1.0.0-cp313-cp313-manylinux_2_28_aarch64.whl nach /opt/muru; das ist der einzige Punkt, an dem etwas installiert wird, denn beim Start gelten UV_OFFLINE=1 und UV_PYTHON_DOWNLOADS=never, und Fehlendes führt zu einem Abbruch mit Nennung des nötigen Build-Schritts statt zu einem stillen pip install im Entrypoint. Worker- und Threadzahl sind explizit zu setzen (MURU_SERVE_PROCESSES, MURU_SERVE_THREADS), weil os.cpu_count() und os.process_cpu_count() im auf zwei CPUs begrenzten Container 10 melden und die CFS-Quota in cpu.max nicht lesen; Gunicorns Formel (2 x Kerne) + 1 über nproc käme auf 21 Worker, während Muru die cgroup-Limits nur liest, um gegen sie zu warnen. Der Memory Guard prüft alle fünf Sekunden den Rest unter memory.max gegen den Headroom von standardmäßig 128 MB und ersetzt den größten Worker geordnet durch einen frischen, wobei abgefragte Requests noch zu Ende laufen; reicht der Platz nicht für zwei große Worker, stoppt der alte zuerst, und im Test liefen dabei alle 150 Requests durch (Worker bei 424 MB bzw. 645 MB RSS). Zusätzlich hebt jeder Worker sein oom_score_adj, damit der Kernel ihn statt Host oder muructl tötet, was als worker.oom_killed und in muru_worker_exits_total{reason=&quot;oom_killed&quot;} sichtbar wird; MURU_SERVE_MEMORY=hard_limit=300MB setzt zusätzlich eine harte Grenze je Worker. Der Admin-Port 9090 beantwortet /livez, /readyz, /startupz und /metrics aus muructl selbst: Bei zwölf parallelen Sechs-Sekunden-Requests waren alle acht Thread-Slots belegt (muru_slots_busy 8, muru_queue_depth 4), die Probes antworteten trotzdem in etwa 1,3 ms, anders als ein Health-View in der Anwendung, das hinter echten Requests in die Warteschlange gerät. Als PID 1 arbeitet muructl wie tini, leitet Signale weiter und sammelt alle Prozesse ein, einschließlich verwaister sleep-Prozesse aus Workern; uvicorn hinterlässt als PID 1 Zombies, und gunicorn scheitert im read-only-Container mit beliebiger UID am fehlenden /tmp, während Muru nur ein beschreibbares /run/muru braucht und den Rest über --tmpfs löst. Beim Shutdown schlägt /readyz sofort fehl, laufende Requests werden bedient und das Shutdown-Budget von acht Sekunden bleibt unter den zehn Sekunden von docker stop und den dreißig von Kubernetes, wogegen Gunicorns graceful_timeout von 30 Sekunden unter Docker vom SIGKILL abgeschnitten wird. Settings schichten sich über Flags, [tool.muru.serve] in der pyproject.toml und Umgebungsvariablen (nachvollziehbar per --print-config), JSON-Logs fassen einen kompletten Traceback in ein exception-Feld zusammen, und In-Container-Debugging läuft über docker exec muructl status, probe oder debug stacks. Der Folgebeitrag widmet sich Kubernetes, unter anderem Shutdown-Delay statt preStop-Hook, Autoscaling auf Workerlast statt CPU und Migrationen als Job.</div>
+        <a href="https://grahamdumpleton.me/posts/2026/11/muru-a-better-tenant-in-a-container/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Muru: a toolbar on every page</div>
+        <div class="article-date">21.11.2026</div>
+        <div class="article-summary">Murus Entwicklungstoolbar lässt sich mit `muructl run --toolbar` aktivieren (dauerhaft via `toolbar = true` in `[tool.muru.run]` bzw. in `muru.local.toml`) und funktioniert für jede WSGI- oder ASGI-Anwendung, ohne dass etwas in die App installiert wird: Der Edge fügt vor `&lt;/body&gt;` ein `&lt;script&gt;`-Tag ein, das von `/_muru/` lädt, nur bei Dokument-Ladevorgängen (nicht bei `fetch()` oder htmx), und bei vorhandener CSP mit derselben Nonce versehen wird. Da Muru die Request-Records selbst hält, kann die Toolbar auch die Wartezeit auf einen Worker ausweisen, die ein Framework nicht sieht — standardmäßig über den `Server-Timing`-Header mit den Phasen `queue` und `app` plus der Request-ID, die auch im `X-Request-ID`- und `Muru-Request-Link`-Header auf das Dashboard unter Port 8081 verweist. Das Timing-Panel zerlegt eine Anfrage in Warten auf Worker und Thread, GIL-Waits, Ausführung bis `start_response()`, Body-Erzeugung, Abschluss und Antwortversand, ergänzt um GC-Läufe; weitere Panels zeigen Where, Response, Connection, Logs, Errors, Hints und History, wobei Hints etwa lange Thread-Waits, teure GC oder unkomprimierte HTML/JSON-Antworten benennen. Im Flask-Shop-Beispiel mit acht parallel geladenen Ratings à rund 150 ms blockierten bei einem Worker mit vier Threads zwei Requests in der Queue, während die letzten beiden am Limit von sechs HTTP/1.1-Verbindungen des Browsers hingen — was auch `--processes 2` nicht löst. Log-Records werden über Thread bzw. Task dem Request zugeordnet (Ausgaben von `print()` nicht), Fehler wie der ZeroDivisionError bei Anne Brontë werden über den ersten Error-Log mit Traceback rekonstruiert, und ein Überschreiten des in `pyproject.toml` konfigurierten `soft_timeout` von 2 Sekunden liefert Stacks und einen Hinweis auf die Einstellung. Records der letzten 1000 Requests liegen nur im Speicher, Bodies werden nie gespeichert (nur Größen), Secrets wie Cookies, Authorization-Header oder Token-/Passwort-Felder als `***` maskiert; `muructl debug request &lt;id&gt;` und `--json` geben sie ohne Browser aus, ebenso der MCP-Server. Unter `muructl serve` und dem Muru-Daemon existiert die Toolbar nicht.</div>
+        <a href="https://grahamdumpleton.me/posts/2026/11/muru-a-toolbar-on-every-page/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Muru: canaries without a service mesh</div>
+        <div class="article-date">21.11.2026</div>
+        <div class="article-summary">Muru fährt Canary-Rollouts selbst, ohne Service Mesh, Argo Rollouts oder Flagger: Der Daemon teilt Traffic bereits zwischen Releases auf und zählt pro Release 5xx-Status, Gesamtlatenz und Wartezeit auf einen Worker. Im Beispiel schlägt Release r6, das für die Bestellung eines Mug einen KeyError wirft, nach dem held-Deploy und &quot;muructl rollout canary shop@r6 --steps 10,50 --hold 30s&quot; bereits nach fünf Sekunden fehl: 21,95 % 5xx gegen ein Limit von 1 %, 27 Fehler bei 6645 Requests. Gates werden ab 100 Requests im Schritt sekündlich geprüft und rollen nur zurück, wenn der Kandidat gleichzeitig über seinem Limit und schlechter als die Baseline liegt, damit ein Datenbankausfall nicht dem Kandidaten angelastet wird; der Kandidat bleibt zum Inspizieren ohne Traffic laufen. Gegen Bugs, die gar keine Antwort erzeugen, kombiniert der Autor den Canary mit einem Hard Timeout (&quot;--timeout hard=3s&quot;): Ein Deadlock auf einem threading.Lock wurde beim ersten Worker-Crash über der Baseline-Limitgrenze von 0 beendet, der Kandidat war binnen einer Sekunde aus dem Traffic, obwohl die blockierten Worker noch rund 15 Sekunden Drain-Grace bekamen, und der Lasttest verzeichnete zwei 504er und drei abgebrochene Requests bei etwa 9500. Die Traffic-Verteilung hasht ein anonymes muru_id-Cookie, sodass ein Client auf seinem Release bleibt und ein 10-Prozent-Client auch beim 50-Prozent-Schritt noch in der Canary ist; pro Route sind Sticky-Sessions sowie Preview-Cookies (muru_preview=r7) für Dark Launches konfigurierbar. In Containern macht Muru das bewusst nicht, weil dort der Container das Release und der Orchestrator zuständig ist — wofür muructl serve als Hauptprozess einspringen soll.</div>
+        <a href="https://grahamdumpleton.me/posts/2026/11/muru-canaries-without-a-service-mesh/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Muru: how it fits together</div>
+        <div class="article-date">21.11.2026</div>
+        <div class="article-summary">Muru zerlegt eine Anwendung in vier Rollen: die in Rust geschriebene Edge, die TLS, HTTP/1.1 und HTTP/2 spricht, Routing, Static Files, Kompression und Fehlerseiten übernimmt und nie Python ausführt; den Python-Host, der die Anwendung einmal importiert und Worker forkt, selbst aber keine Requests bedient; die Worker als Python-Interpreter mit bereits geladenem Code plus dünner Rust-Schicht, die WSGI auf Threads und ASGI auf dem Event Loop bedient; und den Controller, der Releases und Hosts steuert und nie auf dem Request-Pfad liegt. Die Edge beantwortet Requests selbst oder wählt nach Traffic-Policy ein Release und darin den Worker mit den wenigsten in-flight Requests; wartende Requests landen in einer Queue in der Edge, was die queue-Zahl im Access Log erklärt. Zum Worker läuft die Übergabe über den Unix-Socket-basierten Worker Link, auf dem keine HTTP-Texte, sondern bereits geparste typisierte Nachrichten samt gestreamtem Body übertragen werden; Antwort-Chunks werden gebündelt, Backpressure bis zur Anwendung durchgereicht, Request-Bodies erst bei Bedarf gelesen und Dateien direkt von der Edge ausgeliefert. Der zusätzliche Hop kostet eine weitere Kopie jedes Bytes und einige zehn Mikrosekunden pro Request bei Prozessen auf derselben Maschine, was neben der Laufzeit typischer Python-Webanwendungen verschwindet; der eigentliche Gewinn ist, dass Edge und Python-Prozesse unabhängig voneinander ersetzt werden können und mehrere Releases, notfalls auf verschiedenen Python-Versionen, parallel laufen. Ein Release ist eine unveränderliche Kombination aus Code, Python-Version, Settings, Host und Workern; ein Reload startet eine neue Release daneben und schaltet Traffic erst um, wenn sie bereit ist, sodass ein fehlgeschlagener Import die alte weiterlaufen lässt, und dasselbe Routing trägt Blue/Green-Deploys, Canaries und Rollbacks. Im Daemon-Betrieb liegen Controller, Admin-API und Store in einem langlaufenden Prozess, die Edge läuft separat und übernimmt beim Austausch die Listening-Sockets, sodass Daemon-Neustarts und Edge-Wechsel keinen Traffic unterbrechen; in einem Container startet muructl serve Edge, Controller, Host und Worker im Hauptprozess. Das ist der bewusste Kontrast zu Apache und mod_wsgi, wo der Parent-Prozess den Lebenszyklus aller Children besitzt und jede signifikante Änderung einen Apache-Neustart erfordert.</div>
+        <a href="https://grahamdumpleton.me/posts/2026/11/muru-how-it-fits-together/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Muru: import once, fork many</div>
+        <div class="article-date">21.11.2026</div>
+        <div class="article-summary">Muru importiert die Anwendung einmal im Host-Prozess und forkt daraus die Worker, die dadurch bereits geladene Module samt Speicherseiten erben; ein Worker-Neustart kostet so nur einen Fork statt eines vollständigen Imports, was bei großen Django-Anwendungen mit mehrsekündigem Import den Unterschied macht und in mod_wsgi-Daemon-Prozessen nicht möglich war, weil diese vom Apache-Parent geforkt werden, wo kein Anwendungscode geladen werden darf. Nach dem Import sucht Muru im Host nach zurückgebliebenen Sockets, Pipes, Threads und Kindprozessen und fällt bei einem Fund mit Warnung auf Per-Worker-Imports zurück, statt stillschweigend Worker zu erzeugen, in denen ein beim Import geöffneter Socket doppelt existiert oder ein gestarteter Hintergrund-Thread fehlt. Die Einstellung preload steuert das Verhalten: auto (Standard) fällt zurück, true bricht bei fehlgeschlagenem Check ab und ist die Empfehlung für Produktion, false überspringt Preloading und Prüfung ganz; ein Hooks-Modul (--hooks oder hooks in [tool.muru] der pyproject.toml) stellt post_fork, on_load, pre_fork, on_ready, on_drain und on_exit bereit, um Datenbankverbindungen oder Statistik-Threads erst im Worker zu starten, wobei der Kontext die Worker-ID mitliefert. Bei vier gleichzeitigen CPU-lastigen Requests braucht CPython 3.15 mit GIL in einem Worker mit vier Threads rund 1,3 Sekunden, mit vier Prozessen und je einem Thread etwa 0,5 Sekunden, während der freethreaded Build 3.15t, den uv über einen .python-version-Eintrag auswählt, in einem Worker mit vier Threads rund 0,36 Sekunden erreicht. Muru wurde von Beginn an für diese freethreaded Builds entwickelt statt nachträglich angepasst und überwacht, ob ein Extension-Modul ohne Freethreading-Unterstützung den GIL zur Laufzeit wieder aktiviert.</div>
+        <a href="https://grahamdumpleton.me/posts/2026/11/muru-import-once-fork-many/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Muru: looking inside the workers</div>
+        <div class="article-date">21.11.2026</div>
+        <div class="article-summary">Muru erweitert die im Access Log getrennte Ausweisung von Queue- und App-Zeit um Werkzeuge, die laufende Requests sichtbar machen, ohne die Anwendung zu ändern, einen Agenten zu installieren oder neu zu starten. Ein in pyproject.toml unter [tool.muru.timeouts] konfigurierter soft_timeout von 3s lässt einen Watchdog im Worker eine muru.RequestTimeout im bearbeitenden Thread werfen; die Ausnahme erbt bewusst von BaseException statt Exception, damit bestehende except-Exception-Blöcke sie nicht verschlucken, und Muru antwortet mit 504 samt Codestelle im Traceback, während der Worker weiter andere Requests bedient. Python-Code lässt sich so unterbrechen, in C-Extensions hängende Threads nicht — dafür existiert ein separater Hard Timeout, der den Worker aufgibt und ersetzt, während am Edge standardmäßig erst nach fünf Minuten abgebrochen wird. muructl requests beziehungsweise --list zeigt in-flight Requests aus Sicht der Edge, kostet die Worker nichts und antwortet noch bei blockiertem Worker; muructl debug stacks --worker 1 liefert den Stack des verdächtigen Threads, unter Linux ab Python 3.15 über das PEP-768-Remote-Debugging von außen, unter macOS durch Selbstauskunft des Workers (im Beispiel Muru 0.1.0a18 auf CPython 3.15.1 free-threading build). Profiling über 10s ergab 808 Samples in 1632 Runden über zwei Worker mit 73,4% in summarise gegen 26,6% in fetch_rows, ausgegeben als collapsed stacks für flamegraph.pl oder speedscope; muructl debug trace zählt dagegen jeden Aufruf exakt und verweigert sich without --force, sobald mehr als die Hälfte der Threads mit Requests belegt ist. Ergänzend: memory-/tracemalloc-Analyse, muructl debug exec für beliebigen Code im Worker (im Daemon standardmäßig gesperrt), breakpoint() mit anschließendem muructl debug attach oder DAP-Anbindung für VS Code, wobei der Worker während der Session aus dem Routing genommen und vom Soft Timeout ausgenommen wird, sowie ein read-only Dashboard auf 127.0.0.1:8081 mit RPS, p50/p95, Fehlerzahlen und Thread-Auslastung plus /metrics im Prometheus-Format.</div>
+        <a href="https://grahamdumpleton.me/posts/2026/11/muru-looking-inside-the-workers/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Muru: noticing and responding</div>
+        <div class="article-date">21.11.2026</div>
+        <div class="article-summary">Muru ergänzt den Daemon um Conditions, mit Prometheus-artiger Syntax geschriebene Bedingungen wie request_share{app=&#x27;shop&#x27;,client_class=&#x27;ai-crawler&#x27;}[10s] &gt; 0.5, die mit for, clear_when, clear_for und min_requests konfiguriert werden, die Zustände unknown, pending und firing durchlaufen und jeden Wechsel samt auslösenden Messwerten als Event protokollieren. Client-Klassen werden über Regeln neben den Routen bestimmt — User-Agent (etwa GPTBot, ClaudeBot, CCBot), Adresse, Header, Cookies, JA4-Fingerprint oder DNS-Verifikation beanspruchter Suchmaschinen-Crawler — und erscheinen als muru.client_class im WSGI-Environ, als class=ai-crawler im Access-Log sowie als Label der Request-Metriken; passende Rate-Limits greifen aber erst, wenn eine Route sie benennt. Overlays lassen sich statt per Zeitplan durch eine Condition auslösen, wobei client_routes nur die Crawler-Klasse auf 2 Requests/s begrenzt und deren Antworten auf 429 umstellt, während normale Besucher weiterhin 200 erhalten. Ein Fallstrick: Beantwortet das Overlay die Crawler aus einem statischen Snapshot, sind sie nicht mehr Teil der Anwendungszahlen, die Condition löst sich auf, das Overlay endet und der Zyklus beginnt von vorn — muructl apply warnt davor; Abhilfe sind eine Condition ohne app-Filter über alle Requests des Knotens oder latch = true, das bis zum manuellen muructl overlay end aktiv bleibt. min_active (Standard 5 Minuten), cooldown (10 Minuten) und max_per_hour begrenzen, wie oft ein Overlay auslösen darf. Gegen den Ausfall eines Bezahldienstes hält eine Condition auf upstream_healthy{upstream=&#x27;payments&#x27;} &lt; 0.5 zusammen mit einem Overlay (min_workers = 4, scale_in = &quot;hold&quot;) die Worker-Zahl, weil der Autoscaler sonst die durch das schnelle Fehlschlagen idle wirkenden Slots abbaut; das Gegenstück ist ein cap_workers-Cap bei einem überlasteten Backend. Externe Monitoring-Systeme aktivieren und beenden Overlays per Webhook mit HMAC-SHA256-signiertem JSON-Body, dessen Zeitstempel innerhalb von fünf Minuten liegen muss, um Replays auszuschließen.</div>
+        <a href="https://grahamdumpleton.me/posts/2026/11/muru-noticing-and-responding/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Muru: overlays on a schedule</div>
+        <div class="article-date">21.11.2026</div>
+        <div class="article-summary">Muru legt Overlays über die Konfiguration: benannte Schichten, die neben den Routen in den von muructl apply gelesenen Dateien deklariert werden und für eine begrenzte Zeit auf Routen und Anwendungen wirken, ohne die Basiskonfiguration zu verändern. Ein Trigger wie cron &quot;0 2 * * *&quot; für 1h in Australia/Sydney schaltet die Anwendung read-only — die Zeitzone folgt der Sommerzeit, und der Daemon prüft alle zehn Minuten die Systemsynchronisation; währenddessen weist die Edge die in deny gelisteten Methoden ab, ohne die Worker zu belasten, und übergibt den Modus als muru.mode im WSGI-Environ, wobei answer = &quot;method_not_allowed&quot; statt 503 einen 405 mit Allow-Header liefert. Mit advisory = true löst ein Schedule zunächst nur ein overlay.would_activate-Event aus, statt selbst zu handeln. Für Wartungsfenster aktiviert ein Overlay maintenance mode mit eigener Fehlerseite, Retry-After von 900 Sekunden sowie exempt_paths, exempt_addresses und bypass_cookie, sodass der Verantwortliche die Seite vorab prüfen kann. Ein getimetes Cutover pinnt den Traffic auf ein per --hold deploytes Release (r2, später r3), startet es über warm_up eine Minute vor dem Fenster und verlangt preconditions mit Health-Probe; schlägt die Probe fehl, wird die Aktivierung mit overlay.skipped übersprungen und das alte Release bedient weiter, während muructl overlay promote die Overlay-Änderungen dauerhaft in die Basiskonfiguration überführt. Aktive Overlays liegen im Daemon-State und überleben einen Neustart; für bekanntes Lastaufkommen deklariert die Anwendung eigene Schedules wie black-friday mit min_workers = 4, scale_in = &quot;hold&quot; und freeze_deploys = true, das nur per --override-freeze (protokolliert als deploy.freeze_overridden) umgangen werden kann, Rollbacks aber nie blockiert.</div>
+        <a href="https://grahamdumpleton.me/posts/2026/11/muru-overlays-on-a-schedule/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Muru: releases, not restarts</div>
+        <div class="article-date">21.11.2026</div>
+        <div class="article-summary">Muru behandelt jeden Deploy als eigenes Release: Eine neue Version wird neben der gerade bedienenden gestartet, erhält Traffic erst nach erfolgreichem Start und bleibt anschließend warm für einen Rollback — statt wie bei gunicorn, wo ein HUP die Konfiguration neu lädt und USR2 einen zweiten Master startet, während beide auf dieselbe Codekopie auf der Platte zugreifen. Der Daemon (muructl daemon start, Edge auf 127.0.0.1:8080) baut aus dem uv.lock jedes Releases ein eigenes Virtualenv und legt seine eigene Runtime-Bibliothek (muru-1.0.0-cp315-cp315t-macosx_11_0_arm64.whl von PyPI) hinein, damit ein gestartetes Release unveränderlich bleibt; der Host importiert die Anwendung einmal und forkt daraus die Worker (2 Prozesse mit je 4 Threads), ein Relay schreibt deren Ausgabe in die release-eigene Logdatei. Ein Deploy von releases/v2 scheiterte an einer nicht deklarierten markdown-Abhängigkeit (ModuleNotFoundError), die vorherige Version bediente ungestört weiter, und der fehlgeschlagene Release hinterließ keine laufenden Prozesse. Beim Wechsel auf releases/v3 liefen alle 695 Testrequests mit Status 200 ohne Lücke durch; die alte Version wurde nach dem Drain auf einen Worker skaliert und 1800 Sekunden warmgehalten, was einen Rollback in rund 0,2 Sekunden erlaubt, während ein Rollback auf ein bereits beendetes Release etwa eine Sekunde kostet. muructl daemon stop beendet nur den Daemon — Edge und Release-Hosts laufen reparented unter PID 1 weiter, 703 Requests blieben fehlerfrei, und ein neu gestarteter Daemon adoptiert die vorhandenen Prozesse wieder; muructl daemon upgrade ersetzt die Edge, ohne Verbindungen abzuweisen. Weil während Deploy und Rollback zwei Releases dieselbe Datenbank nutzen, ergänzt v4 eine quantity-Spalte per expand-only ALTER TABLE ADD COLUMN ... DEFAULT 1, wird mit --hold gestartet und über den Muru-Preview-Header geprüft, die Migration läuft mit muructl command run shop@r4 migrate (exclusive = true), erst dann schaltet muructl rollout bluegreen shop@r4 den Traffic um. Der Folgebeitrag widmet sich Canaries, da ein Deploy nur vor Releases schützt, die gar nicht erst starten.</div>
+        <a href="https://grahamdumpleton.me/posts/2026/11/muru-releases-not-restarts/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Muru: scaling from what the workers report</div>
+        <div class="article-date">21.11.2026</div>
+        <div class="article-summary">Muru skaliert nicht von außen über einen HorizontalPodAutoscaler, sondern aus dem Daemon heraus, der zwischen Requests und Workern sitzt und anhand der Worker-Berichte selbst entscheidet, wie viele Prozesse eine Release fährt; Gunicorn, Uvicorn, granian und der mod_wsgi-Daemon-Modus arbeiten mit fixer Workerzahl, nur uWSGI kennt mit seinem cheaper-Subsystem etwas Vergleichbares. Im Spare-Modus hält die Policy 1 bis 3 Leerlauf-Worker vor (1 bis 12 Worker, Scale-out nach 5 Sekunden, Scale-in über 30 Sekunden, ein Worker pro Schritt), im Target-Modus werden 60 Prozent Slot-Auslastung und 100 ms Queue-Wait-p95 angesteuert, ein Churn-Budget von sechs Reaps pro Stunde verhindert Schwingen. Der eigentliche Gewinn ist die Diagnose, weil mehr Worker oft nicht hilft: ein I/O-gebundener /orders-Endpunkt mit 0,2 Sekunden Sleep lief mit 3 Workern à 8 Threads besser als mit 9 Prozessen à 2 Threads (4440 statt 4007 Requests pro Minute, p99 0,409 s statt 1,623 s, je 12 MB USS pro Worker), wenngleich das Umstellen nur in der nächsten Release möglich ist, da Prozesse und Threads beim Start festliegen. GIL-gebundene 13-ms-Arithmetik erkennt der Autoscaler nicht, weil nur 8 von 24 Slots belegt waren — geholfen haben weniger Threads pro Prozess (9 Worker: 24863 Requests in 45 s) oder der Free-Threaded-Build Python 3.15t (2 Worker à 8 Threads: 26040 Requests, nichts wartet auf den GIL). Bei 40.000 kurzlebigen Dictionaries pro Request gingen 73 Prozent der Worker-Zeit in die Garbage Collection; das Auflösen eines Referenzzyklus hob 17977 auf 73637 Requests in 40 Sekunden und senkte den Median von 8 ms auf 2 ms, ein blockierender Aufruf in einer ASGI-Coroutine (Loop-Lag p95 über 500 ms) wurde per asyncio.to_thread von 2960 auf 6064 Requests in 40 Sekunden gebracht, und ein schwerer /reports-Endpunkt verlor seine Konkurrenz um die Slots durch eine eigene Worker-Gruppe mit 12 Threads (p99 von 2,093 s auf 0,212 s).</div>
+        <a href="https://grahamdumpleton.me/posts/2026/11/muru-scaling-from-what-the-workers-report/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Muru: scaling to zero</div>
+        <div class="article-date">21.11.2026</div>
+        <div class="article-summary">Muru skaliert Python-Anwendungen in zwei Stufen auf null: Bei min_workers = 0 entfernt der Daemon nach idle_reap_after (Standard zehn Minuten) den letzten Worker, lässt aber den Host laufen, der die Anwendung per import-once/fork-many bereits importiert hat — der nächste Request wird dann per Fork in rund 5 ms bedient. Ein zusätzliches host_idle_timeout stoppt auch den Host, sobald alle Workergruppen eines Releases entsprechend lange auf null stehen; der nächste Request zahlt dann den vollen Import (im Beispiel 3,3 s bei künstlich auf drei Sekunden gestrecktem Import). Anders als Gunicorn, uvicorn oder granian, die ihre Worker durchlaufen lassen, und anders als mod_wsgi, dessen inactivity-timeout den Prozess samt Neuladen der Anwendung neu startet, kollabiert der Wiederanlauf hier auf einen Fork, solange der Host existiert. Reicht der queue_timeout (Standard 5 s, im Test 2 s) nicht für den Import, antwortet das Edge mit 503, reason cold_start_timeout und Retry-After: 1, während der Host weiter startet. Ein node-weites [daemon.budget] workers = 6 (Memory- und CPU-Limits analog, unter systemd aus MemoryMax/CPUQuota abgeleitet) deckelt die Worker über alle Releases, wobei Wake-ups aus dem Null-Zustand das Budget überschreiten dürfen — laufende Worker werden nie verdrängt, stattdessen stoppt der Daemon retained Releases (Deploys behalten die Vorversion 30 Minuten) älteste zuerst, und bei konkurrierenden Skalierungen entscheidet priority; Releases mit gRPC-Mount brauchen dauerhaft mindestens einen laufenden Worker, da das Routing über die registrierten Services läuft.</div>
+        <a href="https://grahamdumpleton.me/posts/2026/11/muru-scaling-to-zero/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Muru: tracing in the toolbar</div>
+        <div class="article-date">21.11.2026</div>
+        <div class="article-summary">Muru ergänzt seine Entwicklungstoolbar um Tracing über wrapture, aktiviert per tracing = true und [[tool.wrapture.instrument]]-Einträgen für flask, sqlite3 (mit statement = true) und urllib.request in pyproject.toml; Tracing erfordert Python 3.12 oder neuer und lässt sich über muru.local.toml nur lokal einschalten, bei fehlender oder fehlerhafter Konfiguration startet die Anwendung ungetract mit einer Warnzeile. Die neuen Panels Trace, SQL und Outbound zeigen den Operationsbaum pro Request sowie nach Statement gruppierte Queries und nach Methode, Host und Pfad gruppierte ausgehende Aufrufe, wobei Pfadsegmente mit Zeilen-IDs als {id} normalisiert werden; damit lässt sich das N+1-Muster im Beispielshop direkt erkennen, wo acht Bücher acht Autoren-Queries und acht Stock-Aufrufe auslösen. Hints schlagen an, wenn ein Statement oder Endpunkt fünfmal oder häufiger pro Request läuft, oder wenn eine einzelne Query bzw. ein Call mindestens ein Viertel der Request-Zeit und wenigstens 10 ms belegt. Für Anwendungen ohne Framework-Instrumentierung, etwa reine WSGI- oder ASGI-Callables, wickelt tracing_middleware = true den Entrypoint in wraptures Request-Middleware — nicht zu kombinieren mit vorhandener Framework-Instrumentierung. Architektonisch wendet der Host die Patches vor dem Import der Anwendung an, während Sinks erst nach dem Fork in jedem Worker starten; Datei-Sinks brauchen {pid} im Pfad, unter muructl serve und dem Muru-Daemon entfällt die Toolbar und es bleibt nur der Aufwand der konfigurierten Sinks, in Produktion üblicherweise der Export an einen OpenTelemetry-Collector.</div>
+        <a href="https://grahamdumpleton.me/posts/2026/11/muru-tracing-in-the-toolbar/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Muru: working with Kubernetes, not around it</div>
+        <div class="article-date">21.11.2026</div>
+        <div class="article-summary">Muru lässt sich unter Kubernetes so betreiben, dass es Plattform-Funktionen nutzt statt sie nachzubauen: Das Deployment läuft mit zwei Replicas und je zwei Workern à vier Threads, passend zu den Limits von 2 CPUs und 1Gi Speicher, die Probes zeigen auf den nicht über den Service exponierten Admin-Port 9090, JSON-Logs erhalten Pod-, Namespace- und Node-Namen über die Downward API, und die Pods laufen unter dem restricted Pod Security Standard mit read-only Root-Filesystem, in dem nur /run/muru und /tmp beschreibbar sind. Statt eines preStop-Hooks übernimmt MURU_SERVE_SHUTDOWN_DELAY (5s) die Drainage: Bei SIGTERM schlägt /readyz sofort fehl, der Listener bleibt offen und beantwortet neue Verbindungen mit Connection: close; im Test mit acht Keep-Alive-Verbindungen und einem Rollout-Restart gab es mit Delay null Fehler, ohne Delay viermal ConnectionRefusedError, während Gunicorn und uvicorn den Listener sofort schließen und ihre Graceful-Timeouts erst danach greifen. In-Place-Resizes nutzen das seit Kubernetes 1.35 stabile resize-Subresource mit resizePolicy restartPolicy: NotRequired, Muru liest die geänderten cgroup-Limits beim nächsten Memory-Check neu und warnt, wenn die Worker nicht mehr zu den Ressourcen passen; bei RestartContainer, etwa nach einer fehlgeschlagenen Liveness-Probe, ist failureThreshold: 1 auf der Readiness-Probe erforderlich, weil der Default von drei Fehlversuchen à 2 Sekunden bis zu 6 Sekunden braucht und damit länger dauert als die 5-Sekunden-Drainage (im Test zehn ConnectionRefusedError). Autoscaling läuft über muru_capacity_utilisation, den über 30 Sekunden gemittelten Anteil belegter Worker-Slots, den Prometheus und der Prometheus-Adapter als Pods-Metrik bereitstellen; mit Ziel 70 Prozent skalierte das Deployment unter 24 Threads Last in unter einer Minute von zwei auf vier Pods, während kubectl top nur rund 10m CPU pro Pod zeigte, also etwa 2 Prozent der angeforderten 500m, weshalb ein CPU-basierter HPA bei zwei Pods geblieben wäre — nach Lastende ging es nach der Stabilisierungswartezeit von fünf Minuten auf zwei Pods zurück. Als Alternative nennt der Artikel die Queue-Wartezeit aus dem Request-Histogramm (95. Perzentil 0,457s), die sich als External Metric oder über KEDA auswerten lässt. Migrationen laufen als Job mit muructl command run migrate aus dem neuen Image, backoffLimit 0 und kubectl wait auf Complete, bevor das Deployment-Image aktualisiert wird; dieselbe Command-Definition samt Timeout nutzen auch kubectl exec und der Daemon.</div>
+        <a href="https://grahamdumpleton.me/posts/2026/11/muru-working-with-kubernetes-not-around-it/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    <div class="article">
+        <div class="article-title">Twenty years of mod_wsgi, and what comes next</div>
+        <div class="article-date">21.11.2026</div>
+        <div class="article-summary">Zwanzig Jahre nach Beginn der Coding-Arbeiten im Dezember 2006 pflegt Graham Dumpleton mod_wsgi weiter und baut parallel ein neues Hosting-System namens Muru. Die ursprüngliche Entscheidung für Apache erklärt sich aus dessen Allgegenwart: Die WSGI-Spezifikation existierte, aber es gab keinen etablierten Produktionsweg dafür — nginx war außerhalb Russlands kaum auf dem Radar, gunicorn kam erst Jahre später, und mod_python war nicht um WSGI herum gebaut. Genau das wurde zur Grenze: Apache besitzt den Lebenszyklus aller Kindprozesse, die Anzahl der Daemon-Prozesse ist per Konfiguration fix, jede Änderung erfordert einen Apache-Neustart, und lastabhängiges Skalieren oder Rollouts ohne abgebrochene Requests ließen sich innerhalb des Moduls nie umsetzen. Muru ist kein Apache-Modul und kein reiner WSGI-Server, sondern hostet WSGI-, ASGI- und gRPC-Anwendungen auch gemischt in einem Deployment, erlaubt Request-Übergaben zwischen WSGI und ASGI (etwa um Websockets in bestehende Anwendungen zu bringen) und macht Rollout, Routing, Health-Checks und Restarts ohne Request-Verlust zum Standard statt zur Eigenbaulösung. Hinzu kommt Python-spezifisches Wissen — GIL und die Prozess-versus-Thread-Wahl, lange Importzeiten bis zur Bereitschaft, schleichendes Speicherwachstum — dessen Metriken wie Thread-Auslastung und Wartezeiten direkt in Kapazitäts-, Prozess- und Routing-Entscheidungen zurückfließen. Der Code entsteht überwiegend mit KI-Werkzeugen, Architektur und Review liegen bei Dumpleton; Muru ist noch in Entwicklung und bewusst nicht öffentlich verlinkt, mod_wsgi wird nicht eingestellt, und eine Postserie soll lokale Entwicklung, Deployment auf Host oder VM sowie Container- und Kubernetes-Betrieb abdecken.</div>
+        <a href="https://grahamdumpleton.me/posts/2026/11/twenty-years-of-mod-wsgi/" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <h2>Warp AI Terminal Blog (1 Artikel)</h2>
+    <div class="section-summary"><ul><li><strong>Software Factory</strong>: Ablauf als YAML-Blueprint mit Stages und separaten Workern (foreman, builder) in eigenen Sandboxes; Trigger per GitHub-Issue-Label, unter einem Dollar pro Issue.</li><li><strong>Visual Proof</strong>: Worker verifizieren per Computer Use in der Sandbox, interagieren über das Chrome DevTools Protocol und hängen Video plus Screenshots an den PR.</li><li><strong>Merge-Risk-Skill</strong>: Skill warp.dev/merge-risk bewertet Alignment, Impact, Verification, Rollback-Cost und Error-Detection zu Low/Medium/High und läuft vor dem PR.</li></ul></div>
+    <details class="collapsed-block"><summary>1 Artikel</summary>
+    <div class="article">
+        <div class="article-title">How to build a software factory you&#x27;ll actually use</div>
+        <div class="article-date">24.11.2026</div>
+        <div class="article-summary">Warp beschreibt eine Software Factory als Automatisierungsschleife in der Cloud, die Agenten orchestriert, um Software über die Zeit Stück für Stück besser zu machen. Statt einen Issue-Backlog einfach durch einen Agenten zu drücken, definiert man den Ablauf als YAML-Blueprint mit benannten Stages, expliziten inputs und outputs, ausgelagerten Markdown-Prompt-Dateien und separaten Workern als je eigenen Sandboxes mit eigenem Kontextfenster — im Beispiel ein foreman für die Nutzerkommunikation und ein builder für den Code, was den gesamten Workflow visualisier- und debugbar macht. Als Trigger genügt ein GitHub-Issue-Label (factory); für kleine, klar umrissene Änderungen an einer Electron-App kostet ein Durchlauf mit einem Open-Weight-Modell unter einem Dollar pro Issue. Für mehrdeutige Anforderungen schiebt man triage- und spec-Stages vor die Implementierung: Der Agent stellt Rückfragen, sammelt Produktentscheidungen und committed die Spec als Code, deren Validierungsabschnitt später als Prüfliste für die Implementierung dient. Zur Verifikation erhalten die Worker Computer Use in der Sandbox (App-Start via MARKY_DESKTOP_ENABLE_CDP=1 pnpm dev:desktop, Interaktion bevorzugt über das Chrome DevTools Protocol) und hängen Videoaufzeichnung plus Screenshots als &quot;Visual proof&quot; an den PR. Ein Merge-Risk-Skill (warp.dev/merge-risk) bewertet Alignment, Impact, Verification, Rollback-Cost und Error-Detection zu einem Low/Medium/High-Score und sollte bereits vor dem Öffnen des PRs laufen, damit der Agent Risiken wie fehlendes Error-Logging früh beheben kann; geplant sind unter anderem Benchmarks verschiedener Code-Review-Varianten vor dem PR, ein Research-Agent mit separatem Kontextfenster und eigene macOS-Runner für native iOS-Apps.</div>
+        <a href="https://www.warp.dev/blog/program-software-factory-as-code" class="article-link" target="_blank">&rarr; Zum Original-Artikel</a>
+    </div>
+    </details>
+
+    <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur &Uuml;bersicht</a>
+
+</body>
+</html>
